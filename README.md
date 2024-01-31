@@ -1,3 +1,5 @@
 # TODO
 
-- Select carefully the window by inspecting old code
+- Select carefully the window by inspecting the old code
+- Listen to Davide's audio
+- Understand how to handle citations
