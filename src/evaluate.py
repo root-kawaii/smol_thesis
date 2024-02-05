@@ -1,3 +1,4 @@
+import neo
 import os
 from matplotlib import pyplot as plt
 import numpy as np
@@ -15,6 +16,7 @@ from asrpy import asr_calibrate, asr_process, clean_windows
 import tensorflow as tf
 import seaborn as sns
 from modelz import *
+from intervals_mat import *
 
 from datetime import datetime
 from correlation import correlate_function
@@ -27,8 +29,11 @@ tfkl = tf.keras.layers
 # def eval(position):
 animal_num = input("Enter animal number 1,2 or 3 \n")
 animal_num = animal_num + "/"
-patho = "../pso/data/animal "
+patho = "../src/data/animal "
+patho_nev = "../src/data_nev/animal "
 folders = [f for f in os.listdir(patho + str(animal_num))]
+folders_nev = [f for f in os.listdir(patho_nev + str(animal_num))]
+
 
 # plt.switch_backend('TkAgg')
 
@@ -47,9 +52,11 @@ for l in range(100):
     current_time = datetime.now()
     data_list = []
     labels_list = []
+    intervals = extract_intervals(patho_nev + str(animal_num), (4, 10, 99))
+    print(intervals)
     for i in range(0, 16):
         position[i] = 1
-        print('io')
+        # print('io')
     for counts, fil in enumerate(folders):
         f.write(str(counts) + " is " + fil + "\n")
         files = [f for f in os.listdir(patho + str(animal_num) + fil)]
@@ -61,6 +68,11 @@ for l in range(100):
             # It's dealing with files that Elisa's old code generated, so we have to adequate it
             # sample=sample[0,:,0:16]
             # their code #################
+            # seg = bl.segments
+            # print(seg)
+            # # two signals, we use first with 16 channels
+            # x = seg.analogsignals
+            # print(x)
             raw = mne.io.read_raw_nsx(
                 patho + str(animal_num) + fil + "/" + file, preload=True)
             raw.describe()
@@ -71,9 +83,9 @@ for l in range(100):
             # raw = raw/4
             # raw._data *= 1e+3
             # raw.filter(l_freq=800, h_freq=None)
-            raw.filter(l_freq=800, h_freq=2500)
+            # raw.filter(l_freq=800, h_freq=2500)
 
-            raw.resample(5000)
+            # raw.resample(5000)
             raw.drop_channels(["flexsensor", "pressuresensor", "motors"])
             # raw.compute_psd(fmax=50).plot(
             #     picks="data", exclude="bads", amplitude=False)
@@ -88,7 +100,29 @@ for l in range(100):
             time_off = 4  # definiti del sensore
             # finestra lunga 2.5 secondi circa nel dataset ma ogni tanto
             # da usare finestre di 100ms
-            x = raw.get_data(tmin=time_on, tmax=time_off)
+            x = []
+            x = raw.get_data()
+            x = x[0]
+            for j in range(intervals.shape[0]):
+                for h in range(intervals.shape[1]):
+                    for k in range(intervals.shape[2]):
+                        print(intervals[j, h, :])
+                        one = int(intervals[j, h, 2*k])
+                        two = int(intervals[j, h, (2*k)+1])
+                        print(one)
+                        print(two)
+                        result = x[one:two]
+                        fig, axd = plt.subplot_mosaic(
+                            [["image", "density"],
+                             ["EEG", "EEG"]],
+                            layout="constrained",
+                            # "image" will contain a square image. We fine-tune the width so that
+                            # there is no excess horizontal or vertical margin around the image.
+                            width_ratios=[1.05, 2],
+                        )
+                        plt.plot(result)
+                        plt.show()
+
             # value_to_filter = 0.000030
             # x = x[:, :int(len(x[0])*0.01)]
             rows_to_del = []

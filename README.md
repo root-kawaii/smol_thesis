@@ -1,5 +1,5 @@
 # TODO
 
-- Select carefully the window by inspecting the old code
-- Listen to Davide's audio
-- Understand how to handle citations
+- Give proper name to saved arrays
+- Better handle folder etc
+- Add read numpy array to the train and evaluate functions
