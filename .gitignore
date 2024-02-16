@@ -1,3 +1,5 @@
-pso/data/
+src/data/
 data/
+numpy_arrays/
+src/numpy_arrays/
 

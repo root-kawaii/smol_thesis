@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2023.9.21)  5 FEB 2024 09:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Homebrew) (preloaded format=pdflatex 2023.9.21)  6 FEB 2024 10:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,12 +939,12 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 <Images/frog.jpg, id=56, 748.7975pt x 741.77126pt>
 File: Images/frog.jpg Graphic file (type jpg)
 <use Images/frog.jpg>
-Package pdftex.def Info: Images/frog.jpg  used on input line 99.
+Package pdftex.def Info: Images/frog.jpg  used on input line 98.
 (pdftex.def)             Requested size: 227.62204pt x 225.48723pt.
  [1{/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 
  <./Images/frog.jpg>]
-Overfull \hbox (100.35611pt too wide) in paragraph at lines 122--125
+Overfull \hbox (100.35611pt too wide) in paragraph at lines 121--124
 \T1/cmr/m/n/12 mented based on [] as shown in this re-view at 1.2.[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9774545/] 
  []
 

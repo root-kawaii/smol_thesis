@@ -73,55 +73,55 @@ for l in range(100):
             # # two signals, we use first with 16 channels
             # x = seg.analogsignals
             # print(x)
-            raw = mne.io.read_raw_nsx(
-                patho + str(animal_num) + fil + "/" + file, preload=True)
-            raw.describe()
-            sfreq = 100
-            # apply a highpass filter from 1 Hz upwards
-            # replace baselining with high-pass
-            # test divide by 4
-            # raw = raw/4
-            # raw._data *= 1e+3
-            # raw.filter(l_freq=800, h_freq=None)
-            # raw.filter(l_freq=800, h_freq=2500)
+            # raw = mne.io.read_raw_nsx(
+            #     patho + str(animal_num) + fil + "/" + file, preload=True)
+            # raw.describe()
+            # sfreq = 100
+            # # apply a highpass filter from 1 Hz upwards
+            # # replace baselining with high-pass
+            # # test divide by 4
+            # # raw = raw/4
+            # # raw._data *= 1e+3
+            # # raw.filter(l_freq=800, h_freq=None)
+            # # raw.filter(l_freq=800, h_freq=2500)
 
-            # raw.resample(5000)
-            raw.drop_channels(["flexsensor", "pressuresensor", "motors"])
-            # raw.compute_psd(fmax=50).plot(
-            #     picks="data", exclude="bads", amplitude=False)
+            # # raw.resample(5000)
+            # raw.drop_channels(["flexsensor", "pressuresensor", "motors"])
+            # # raw.compute_psd(fmax=50).plot(
+            # #     picks="data", exclude="bads", amplitude=False)
 
-            # ica = mne.preprocessing.ICA(
-            #     n_components=4, random_state=97, max_iter=800)
-            # ica.fit(raw)
-            # raw.load_data()
-            # ica.apply(raw)
+            # # ica = mne.preprocessing.ICA(
+            # #     n_components=4, random_state=97, max_iter=800)
+            # # ica.fit(raw)
+            # # raw.load_data()
+            # # ica.apply(raw)
 
-            time_on = 0.5  # definiti dal sensore codice davide da vedere, cambiano da animale ad animale e da classe a classe
-            time_off = 4  # definiti del sensore
-            # finestra lunga 2.5 secondi circa nel dataset ma ogni tanto
-            # da usare finestre di 100ms
-            x = []
-            x = raw.get_data()
-            x = x[0]
-            for j in range(intervals.shape[0]):
-                for h in range(intervals.shape[1]):
-                    for k in range(intervals.shape[2]):
-                        print(intervals[j, h, :])
-                        one = int(intervals[j, h, 2*k])
-                        two = int(intervals[j, h, (2*k)+1])
-                        print(one)
-                        print(two)
-                        result = x[one:two]
-                        fig, axd = plt.subplot_mosaic(
-                            [["image", "density"],
-                             ["EEG", "EEG"]],
-                            layout="constrained",
-                            # "image" will contain a square image. We fine-tune the width so that
-                            # there is no excess horizontal or vertical margin around the image.
-                            width_ratios=[1.05, 2],
-                        )
-                        plt.plot(result)
-                        plt.show()
+            # time_on = 0.5  # definiti dal sensore codice davide da vedere, cambiano da animale ad animale e da classe a classe
+            # time_off = 4  # definiti del sensore
+            # # finestra lunga 2.5 secondi circa nel dataset ma ogni tanto
+            # # da usare finestre di 100ms
+            # x = []
+            # x = raw.get_data()
+            # x = x[0]
+            # for j in range(intervals.shape[0]):
+            #     for h in range(intervals.shape[1]):
+            #         for k in range(intervals.shape[2]):
+            #             print(intervals[j, h, :])
+            #             one = int(intervals[j, h, 2*k])
+            #             two = int(intervals[j, h, (2*k)+1])
+            #             print(one)
+            #             print(two)
+            #             result = x[one:two]
+            #             fig, axd = plt.subplot_mosaic(
+            #                 [["image", "density"],
+            #                  ["EEG", "EEG"]],
+            #                 layout="constrained",
+            #                 # "image" will contain a square image. We fine-tune the width so that
+            #                 # there is no excess horizontal or vertical margin around the image.
+            #                 width_ratios=[1.05, 2],
+            #             )
+            #             plt.plot(result)
+            #             plt.show()
 
             # value_to_filter = 0.000030
             # x = x[:, :int(len(x[0])*0.01)]
