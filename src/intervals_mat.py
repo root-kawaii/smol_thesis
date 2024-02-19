@@ -33,7 +33,7 @@ folders_nev = [f for f in os.listdir(animal_num)]
 ult_data = np.zeros((shape_of_date_nev))
 
 for counts, fil in enumerate(folders_nev):
-    if fil == "prop":
+    if fil == "prop +":
         files = [f[:-4] for f in os.listdir(animal_num + fil)]
         for count, file in enumerate(files):
             if file != ".DS_Store":
@@ -71,7 +71,7 @@ for counts, fil in enumerate(folders_nev):
                 print(yt)
                 # data elements for each ms * 250ms
                 if fil == "noci":
-                    read_noci(shape_of_date_nev, counts, count, x, ult_data)
+                    read_noci(shape_of_date_nev, counts, count, x, ult_data, raw)
 
                 elif fil == "touch":
                     read_touch(

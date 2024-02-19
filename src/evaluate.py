@@ -6,11 +6,14 @@ import scipy
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+
 # from sklearn.svm import SVC
 import mne
+
 # from mne.decoding import CSP
 import asrpy
 from asrpy import asr_calibrate, asr_process, clean_windows
+
 # from mne.decoding import UnsupervisedSpatialFilter
 # from sklearn.decomposition import PCA, FastICA
 import tensorflow as tf
@@ -127,14 +130,14 @@ for l in range(100):
             # x = x[:, :int(len(x[0])*0.01)]
             rows_to_del = []
             for j in range(len(x)):
-                if (position[j] != 1 and j < 16):
+                if position[j] != 1 and j < 16:
                     rows_to_del.append(j)
                 # if (j > 15):
                 #     rows_to_del.append(j)
-                elif (position[j] == 1 and j < 16):
+                elif position[j] == 1 and j < 16:
                     num_electrodes += 1
                 # elif (j > 15):
-                    # num_sensors += 1
+                # num_sensors += 1
             num_features = num_electrodes
             print(len(x[1]))
             x = np.delete(x, rows_to_del, 0)
@@ -174,7 +177,7 @@ for l in range(100):
             #         if (abs(x[t, y]) > 0.0000030):
             #             x[t, y] = 0
 
-            print('cleaned')
+            print("cleaned")
 
             # create a numpy array of EEG data from the MNE raw object
             # eeg_array = x[:, 0:len(x[0])]
@@ -190,13 +193,16 @@ for l in range(100):
             # # apply it
             # clean_array = asr_process(x, sfreq, M, T)
 
-            widths = np.arange(1, (sfreq*2)+1)
-            datas = np.zeros(
-                (cic, (sfreq*2), sfreq, num_features), dtype=float)
+            widths = np.arange(1, (sfreq * 2) + 1)
+            datas = np.zeros((cic, (sfreq * 2), sfreq, num_features), dtype=float)
             for i in range(num_features):
                 for j in range(cic):
-                    datas[j, :, :, i], freq = pywt.cwt(x[i, (sfreq*j): sfreq*(j+1)],
-                                                       widths, 'mexh', sampling_period=1/5000)
+                    datas[j, :, :, i], freq = pywt.cwt(
+                        x[i, (sfreq * j) : sfreq * (j + 1)],
+                        widths,
+                        "mexh",
+                        sampling_period=1 / 5000,
+                    )
             print(datas.shape)
             data_list.append(datas)
             labels_list.extend([counts] * (cic))
@@ -219,10 +225,16 @@ for l in range(100):
     test_ratio = 0.20
 
     x_train, x_test, labels_train, labels_test = train_test_split(
-        data_merge, labels2, train_size=train_ratio)
+        data_merge, labels2, train_size=train_ratio
+    )
 
-    x_test, x_val, y_test, y_val = train_test_split(x_test, labels_test, test_size=test_ratio/(
-        validation_ratio + test_ratio), random_state=420, stratify=labels_test)
+    x_test, x_val, y_test, y_val = train_test_split(
+        x_test,
+        labels_test,
+        test_size=test_ratio / (validation_ratio + test_ratio),
+        random_state=420,
+        stratify=labels_test,
+    )
 
     # values = x_train.reshape(-1, x_train.shape[-1])
     # scaler = StandardScaler()
@@ -237,7 +249,7 @@ for l in range(100):
 
     print(num_features)
     print(sfreq)
-    model = ENGNet2(4, num_features, sfreq, sfreq*2)
+    model = ENGNet2(4, num_features, sfreq, sfreq * 2)
     model_name = "ENGNet2"
 
     model.summary()
@@ -259,38 +271,48 @@ for l in range(100):
         validation_data=(x_val, y_val),
         callbacks=[
             tfk.callbacks.EarlyStopping(
-                monitor='val_f1_score', mode='max', patience=10, restore_best_weights=True),
+                monitor="val_f1_score",
+                mode="max",
+                patience=10,
+                restore_best_weights=True,
+            ),
             tfk.callbacks.ReduceLROnPlateau(
-                monitor='val_f1_score', mode='max', patience=10, factor=0.5, min_lr=1e-5)
-        ]
+                monitor="val_f1_score", mode="max", patience=10, factor=0.5, min_lr=1e-5
+            ),
+        ],
     ).history
 
     # Plotting, da aggiiungere la loss
-    best_epoch = np.argmax(history['val_f1_score'])
+    best_epoch = np.argmax(history["val_f1_score"])
     plt.figure(figsize=(17, 4))
-    plt.plot(history['loss'], label='Training loss', alpha=.8, color='#ff7f0e')
-    plt.plot(history['val_loss'], label='Validation loss',
-             alpha=.9, color='#5a9aa5')
-    plt.axvline(x=best_epoch, label='Best epoch',
-                alpha=.3, ls='--', color='#5a9aa5')
-    plt.title('Categorical Crossentropy')
+    plt.plot(history["loss"], label="Training loss", alpha=0.8, color="#ff7f0e")
+    plt.plot(history["val_loss"], label="Validation loss", alpha=0.9, color="#5a9aa5")
+    plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
+    plt.title("Categorical Crossentropy")
     plt.legend()
-    plt.grid(alpha=.3)
+    plt.grid(alpha=0.3)
     # plt.show()
 
     plt.figure(figsize=(17, 4))
-    plt.plot(history['f1_score'], label='Training accuracy',
-             alpha=.8, color='#ff7f0e')
-    plt.plot(history['val_f1_score'], label='Validation accuracy',
-             alpha=.9, color='#5a9aa5')
-    plt.axvline(x=best_epoch, label='Best epoch',
-                alpha=.3, ls='--', color='#5a9aa5')
-    plt.title('Accuracy')
+    plt.plot(history["f1_score"], label="Training accuracy", alpha=0.8, color="#ff7f0e")
+    plt.plot(
+        history["val_f1_score"], label="Validation accuracy", alpha=0.9, color="#5a9aa5"
+    )
+    plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
+    plt.title("Accuracy")
     plt.legend()
-    plt.grid(alpha=.3)
+    plt.grid(alpha=0.3)
 
-    img_name = str(current_time) + "_" + str(num_features) + \
-        "_" + model_name + "_" + str(model.count_params()) + '.png'
+    img_name = (
+        str(current_time)
+        + "_"
+        + str(num_features)
+        + "_"
+        + model_name
+        + "_"
+        + str(model.count_params())
+        + ".png"
+    )
     file_path = os.path.join("img_results", img_name)
 
     plt.savefig(file_path)
@@ -298,50 +320,70 @@ for l in range(100):
     # plt.show()
 
     plt.figure(figsize=(18, 3))
-    plt.plot(history['lr'], label='Learning Rate', alpha=.8, color='#ff7f0e')
-    plt.axvline(x=best_epoch, label='Best epoch',
-                alpha=.3, ls='--', color='#5a9aa5')
+    plt.plot(history["lr"], label="Learning Rate", alpha=0.8, color="#ff7f0e")
+    plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
     plt.legend()
-    plt.grid(alpha=.3)
+    plt.grid(alpha=0.3)
     # plt.show()
 
-    model.save('on_a_gang_model')
+    model.save("on_a_gang_model")
 
     predictions = model.predict(x_test)
     predictions.shape
 
-    cm = confusion_matrix(np.argmax(y_test, axis=-1),
-                          np.argmax(predictions, axis=-1))
+    cm = confusion_matrix(np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1))
 
     # Compute the classification metrics
-    accuracy = accuracy_score(np.argmax(y_test, axis=-1),
-                              np.argmax(predictions, axis=-1))
+    accuracy = accuracy_score(
+        np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1)
+    )
     precision = precision_score(
-        np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1), average='macro')
-    recall = recall_score(np.argmax(y_test, axis=-1),
-                          np.argmax(predictions, axis=-1), average='macro')
-    f1 = f1_score(np.argmax(y_test, axis=-1),
-                  np.argmax(predictions, axis=-1), average='macro')
-    print('Accuracy:', accuracy.round(4))
-    print('Precision:', precision.round(4))
-    print('Recall:', recall.round(4))
-    print('F1:', f1.round(4))
+        np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1), average="macro"
+    )
+    recall = recall_score(
+        np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1), average="macro"
+    )
+    f1 = f1_score(
+        np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1), average="macro"
+    )
+    print("Accuracy:", accuracy.round(4))
+    print("Precision:", precision.round(4))
+    print("Recall:", recall.round(4))
+    print("F1:", f1.round(4))
 
     # Plot the confusion matrix
     plt.figure(figsize=(10, 8))
-    sns.heatmap(cm.T, cmap='Blues')
-    plt.xlabel('True labels')
-    plt.ylabel('Predicted labels')
+    sns.heatmap(cm.T, cmap="Blues")
+    plt.xlabel("True labels")
+    plt.ylabel("Predicted labels")
 
-    img_name = str(current_time) + "_" + str(num_features) + \
-        "_" + model_name + "_" + str(model.count_params()) + '_conf' + '.png'
+    img_name = (
+        str(current_time)
+        + "_"
+        + str(num_features)
+        + "_"
+        + model_name
+        + "_"
+        + str(model.count_params())
+        + "_conf"
+        + ".png"
+    )
     file_path = os.path.join("img_results", img_name)
 
     plt.savefig(file_path)
     # plt.show()
 
-    f.write(str(current_time) + "_" + str(num_features) +
-            "_" + model_name + "_" + str(model.count_params()) + ' file' + "\n")
+    f.write(
+        str(current_time)
+        + "_"
+        + str(num_features)
+        + "_"
+        + model_name
+        + "_"
+        + str(model.count_params())
+        + " file"
+        + "\n"
+    )
     for i in position:
         f.write(str(i))
 
