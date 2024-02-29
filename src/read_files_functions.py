@@ -15,16 +15,17 @@ import mne
 from datetime import datetime
 
 
-def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw):
+def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw, file, fil, tui):
     rangee = 1
     rangee_half = 1
     fs = 30000
     # Specificare la lunghezza della finestra mobile
     lunghezza_finestra = int(fs * 0.5)
     print("babbaba")
-    for i in range(len(x)):
+    print(len(x))
+    for i in range(1):
         # plt.plot(x[i])
-        # h = raw.get_data()
+        h = raw.get_data()
         # plt.plot(h[17] / 50000, color="k")  # black
         # plt.show()
         # Calcolare offset con la media mobile
@@ -34,22 +35,24 @@ def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw):
         # Tolgo offset
         a = np.subtract(x[i], offset)
 
+        soglia = np.mean(abs(x[i]))
+        # soglia = 0.00000138
+
         # plt.figure()
         # plt.plot(xtot, a)
         # plt.title("sensor no offset")
 
         # Calcolare la mean absolute value (MAV) su una finestra mobile
         mav = moveavg(np.abs(a), lunghezza_finestra)
-        # print(len(mav))
-        # plt.plot(mav[0:100000])
-        # plt.show()
+        print(len(mav))
+        plt.plot(mav[0:1000000])
+        plt.hlines(y=soglia, xmin=0, xmax=1000000, linewidth=2, color="r")
 
         # plt.figure()
         # plt.plot(xtot, mav)
         # plt.title("mav")
 
         # Ora cerco on off con la soglia
-        soglia = 0.0000005
 
         # Trovare i valori che superano la soglia
         j = 0
@@ -57,19 +60,70 @@ def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw):
         timeon = []
         timeoff = []
 
-        for i in range(len(mav)):
+        for o in range(len(mav)):
 
-            if mav[i] > soglia:
+            if mav[o] > soglia:
                 if contr == 1:
                     contr = 0
-                    timeon.append(i + 8000)  # c'è un errore introdotto dalle medie
+                    if len(timeon) == 0 or o - timeon[len(timeon) - 1] > 1000:
+                        timeon.append(o - 50)  # c'è un errore introdotto dalle medie
             else:
                 if contr == 0:
                     contr = 1
-                    timeoff.append(i - 8000)
-                    j += 1
+                    if (
+                        len(timeoff) == 0
+                        or o - timeoff[len(timeoff) - 1] > 1000
+                        and (o - timeon[len(timeon) - 1]) > 1000
+                    ):
+                        timeoff.append(o + 50)
+                    # j += 1
+        print("timeon")
+
+        del_on = []
+        del_off = []
+
+        for iv in del_on:
+            timeon.remove(iv)
+        for ivo in del_off:
+            timeoff.remove(ivo)
+        if len(timeoff) > 0:
+            for itt in range(len(timeoff)):
+                if timeoff[itt] - timeon[itt] < 200:
+                    del_on.append(timeon[itt])
+                    del_off.append(timeoff[itt])
+            counto = 0
+
+            # print(timeon)
+            # print(timeoff)
+
+            for itto in range(len(timeoff) - 1):
+                if not (timeon[itto + 1] > timeoff[itto]):
+                    del timeon[itto + 1]
+
+        for q in timeon:
+            plt.axvline(x=q, color="g", linestyle="--")
+        for w in timeoff:
+            plt.axvline(x=w, color="r", linestyle="--")
+        # plt.plot(h[i])
+        plt.show()
         print(timeon)
         print(timeoff)
+        for ho in range(min(len(timeon), len(timeoff))):
+            print("()_()")
+            y = x[:, timeon[ho] : timeoff[ho]]
+            np.save(
+                "numpy_arrays/"
+                + "animal "
+                + tui
+                + "/"
+                + fil
+                + "/"
+                + file
+                + "__"
+                + str(ho)
+                + ".npy",
+                y,
+            )
 
 
 def read_prop(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui, raw):

@@ -6,6 +6,8 @@ import scipy
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.utils.class_weight import compute_class_weight
+
 
 # from sklearn.svm import SVC
 import mne
@@ -19,7 +21,8 @@ from asrpy import asr_calibrate, asr_process, clean_windows
 import tensorflow as tf
 import seaborn as sns
 from modelz import *
-from intervals_mat import *
+
+# from intervals_mat import *
 
 from datetime import datetime
 from correlation import correlate_function
@@ -29,12 +32,25 @@ import pywt
 tfk = tf.keras
 tfkl = tf.keras.layers
 
+
+def print_value_counts(arr):
+    count_dict = {}
+    for value in arr:
+        if value in count_dict:
+            count_dict[value] += 1
+        else:
+            count_dict[value] = 1
+
+    return count_dict
+
+
 # def eval(position):
 animal_num = input("Enter animal number 1,2 or 3 \n")
 animal_num = animal_num + "/"
 patho = "../src/data/animal "
+path_arrays = "../src/numpy_arrays/animal "
 patho_nev = "../src/data_nev/animal "
-folders = [f for f in os.listdir(patho + str(animal_num))]
+folders = [f for f in os.listdir(path_arrays + str(animal_num))]
 folders_nev = [f for f in os.listdir(patho_nev + str(animal_num))]
 
 
@@ -45,9 +61,11 @@ data_list = []
 # other_list = []
 labels_list = []
 counter = 0
+all_classes = []
+all_classes_windowless = []
 
 
-position = [0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+position = [0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
 
 
 for l in range(100):
@@ -55,177 +73,119 @@ for l in range(100):
     current_time = datetime.now()
     data_list = []
     labels_list = []
-    intervals = extract_intervals(patho_nev + str(animal_num), (4, 10, 99))
-    print(intervals)
+    labels_list_window = []
+    # intervals = extract_intervals(patho_nev + str(animal_num), (4, 10, 99))
+    # print(intervals)
     for i in range(0, 16):
-        position[i] = 1
-        # print('io')
+        # position[i] = 1
+        # num_features = 16
+        print("io")
     for counts, fil in enumerate(folders):
-        f.write(str(counts) + " is " + fil + "\n")
-        files = [f for f in os.listdir(patho + str(animal_num) + fil)]
+        # f.write(str(counts) + " is " + fil + "\n")
+        files = [f for f in os.listdir(path_arrays + str(animal_num) + fil)]
+        one_class_list = []
+        one_class_list_window = []
         for count, file in enumerate(files):
-
-            num_electrodes = 0
-            # num_sensors = 0
-            # their code #################
-            # It's dealing with files that Elisa's old code generated, so we have to adequate it
-            # sample=sample[0,:,0:16]
-            # their code #################
-            # seg = bl.segments
-            # print(seg)
-            # # two signals, we use first with 16 channels
-            # x = seg.analogsignals
-            # print(x)
-            # raw = mne.io.read_raw_nsx(
-            #     patho + str(animal_num) + fil + "/" + file, preload=True)
-            # raw.describe()
-            # sfreq = 100
-            # # apply a highpass filter from 1 Hz upwards
-            # # replace baselining with high-pass
-            # # test divide by 4
-            # # raw = raw/4
-            # # raw._data *= 1e+3
-            # # raw.filter(l_freq=800, h_freq=None)
-            # # raw.filter(l_freq=800, h_freq=2500)
-
-            # # raw.resample(5000)
-            # raw.drop_channels(["flexsensor", "pressuresensor", "motors"])
-            # # raw.compute_psd(fmax=50).plot(
-            # #     picks="data", exclude="bads", amplitude=False)
-
-            # # ica = mne.preprocessing.ICA(
-            # #     n_components=4, random_state=97, max_iter=800)
-            # # ica.fit(raw)
-            # # raw.load_data()
-            # # ica.apply(raw)
-
-            # time_on = 0.5  # definiti dal sensore codice davide da vedere, cambiano da animale ad animale e da classe a classe
-            # time_off = 4  # definiti del sensore
-            # # finestra lunga 2.5 secondi circa nel dataset ma ogni tanto
-            # # da usare finestre di 100ms
-            # x = []
-            # x = raw.get_data()
-            # x = x[0]
-            # for j in range(intervals.shape[0]):
-            #     for h in range(intervals.shape[1]):
-            #         for k in range(intervals.shape[2]):
-            #             print(intervals[j, h, :])
-            #             one = int(intervals[j, h, 2*k])
-            #             two = int(intervals[j, h, (2*k)+1])
-            #             print(one)
-            #             print(two)
-            #             result = x[one:two]
-            #             fig, axd = plt.subplot_mosaic(
-            #                 [["image", "density"],
-            #                  ["EEG", "EEG"]],
-            #                 layout="constrained",
-            #                 # "image" will contain a square image. We fine-tune the width so that
-            #                 # there is no excess horizontal or vertical margin around the image.
-            #                 width_ratios=[1.05, 2],
-            #             )
-            #             plt.plot(result)
-            #             plt.show()
-
-            # value_to_filter = 0.000030
-            # x = x[:, :int(len(x[0])*0.01)]
-            rows_to_del = []
-            for j in range(len(x)):
-                if position[j] != 1 and j < 16:
-                    rows_to_del.append(j)
-                # if (j > 15):
-                #     rows_to_del.append(j)
-                elif position[j] == 1 and j < 16:
-                    num_electrodes += 1
-                # elif (j > 15):
-                # num_sensors += 1
-            num_features = num_electrodes
-            print(len(x[1]))
-            x = np.delete(x, rows_to_del, 0)
-
-            # fig, axd = plt.subplot_mosaic(
-            #     [["image", "density"],
-            #      ["EEG", "EEG"]],
-            #     layout="constrained",
-            #     # "image" will contain a square image. We fine-tune the width so that
-            #     # there is no excess horizontal or vertical margin around the image.
-            #     width_ratios=[1.05, 2],
-            # )
+            # num_electrodes = 0
+            temp = np.load(
+                "numpy_arrays/" + "animal " + animal_num + fil + "/" + file,
+                allow_pickle=True,
+            )
+            if fil == "touch":
+                temp = temp[:, 0 : int(len(temp[0]) / 10)]
+            else:
+                temp = temp[:, 0 : int(len(temp[0]) / 1)]
+            lengo = len(temp[0])
+            window = 128
+            div = int(lengo / window)
+            widths = np.arange(1, (window * 1) + 1)
+            datas = np.zeros((div, window, 16), dtype=float)
             # for i in range(16):
-            #     plt.plot(x[i])
-            #     plt.show()
+            for j in range(div):
+                datas[j, :, :] = temp[:, (window * j) : window * (j + 1)].transpose()
 
-            # for t in range(len(x)):
-            #     for y in range(len(x[t])):
-            #         # print(x[t, y])
-            #         # x[t, y] = int(x[t, y] / 4)
-            #         if (abs(x[t, y]) > 0.0000030):
-            #             counter += 1
-            #             x[t, y] = 0.0000030
+            # print(datas.shape)
+            # data_list.append(datas)
+            # print(len(temp[0]))
+            labels_list_window.extend([counts] * len(temp[0]))
+            labels_list.extend([counts] * (div))
+            # print(len(datas))
+            one_class_list.append(datas)
+            one_class_list_window.append(temp.transpose())
 
-            print(counter)
-            # for t in range(len(x)):
-            #     for y in range(len(x[t])):
-            # print(x[t, y])
+        print(fil)
+        inter = np.concatenate(one_class_list, axis=0)
+        inter_window = np.concatenate(one_class_list_window, axis=0)
+        all_classes.append(inter)
+        all_classes_windowless.append(inter_window)
+        # for i, j in enumerate(all_classes):
+        #     labels_list.extend([i] * (len(j[0])))
 
-            values = x.reshape(-1, x.shape[-1])
-            scaler = StandardScaler()
-            scaler = scaler.fit(values)
-            x = scaler.transform(values).reshape(x.shape)
+    labels = np.array(labels_list)
+    data_merge = np.concatenate(all_classes, axis=0)
+    data_merge_windowless = np.concatenate(all_classes_windowless, axis=0)
+    data_merge_windowless = data_merge_windowless.transpose()
+    print(data_merge.shape)
+    print(data_merge_windowless.shape)
+    all_classes.clear()
+    one_class_list.clear()
+    data_merge = data_merge.transpose()
+    print(data_merge.shape)
 
-            # for t in range(len(x)):
-            #     for y in range(len(x[t])):
-            #         if (abs(x[t, y]) > 0.0000030):
-            #             x[t, y] = 0
-
-            print("cleaned")
-
-            # create a numpy array of EEG data from the MNE raw object
-            # eeg_array = x[:, 0:len(x[0])]
-
-            cic = int(len(x[0]) / sfreq)
-
-            # extract the sampling frequency from the MNE raw object
-
-            # (optional) make sure your asr is only fitted to clean parts of the data
-            # pre_cleaned, _ = clean_windows(x, sfreq, max_bad_chans=0.1)
-            # fit the asr
-            # M, T = asr_calibrate(x, sfreq, cutoff=15)
-            # # apply it
-            # clean_array = asr_process(x, sfreq, M, T)
-
-            widths = np.arange(1, (sfreq * 2) + 1)
-            datas = np.zeros((cic, (sfreq * 2), sfreq, num_features), dtype=float)
-            for i in range(num_features):
-                for j in range(cic):
-                    datas[j, :, :, i], freq = pywt.cwt(
-                        x[i, (sfreq * j) : sfreq * (j + 1)],
-                        widths,
-                        "mexh",
-                        sampling_period=1 / 5000,
-                    )
-            print(datas.shape)
-            data_list.append(datas)
-            labels_list.extend([counts] * (cic))
-
-    # here we call correlation
-    # correlate_function(num_features, 10, other_list, f)
-    x = []
-    data_merge = np.concatenate(data_list, axis=0)
+    # print(data_merge.shape)
     data_list = []
     data = np.empty
     # # data_merge = np.expand_dims(data_merge, axis=2)
 
     labels = np.array(labels_list)
     # print(labels)
-    labels2 = tfk.utils.to_categorical(labels_list)
-    print(labels2.shape)
+    labels = tfk.utils.to_categorical(labels)
+    print(labels.shape)
+
+    num_electrodes = 0
+    rows_to_del = []
+    for j in range(len(position)):
+        if position[j] != 1 and j < 16:
+            rows_to_del.append(j)
+        # if (j > 15):
+        #     rows_to_del.append(j)
+        elif position[j] == 1 and j < 16:
+            num_electrodes += 1
+        # elif (j > 15):
+        # num_sensors += 1
+    num_features = num_electrodes
+    data_merge = np.delete(data_merge, rows_to_del, 0)
+    data_merge = data_merge.transpose()
+    data_merge_windowless = np.delete(data_merge_windowless, rows_to_del, 0)
+    print("length of data_merge... " + str(len(data_merge[1])))
+    print(data_merge.shape)
+    print(data_merge_windowless.shape)
+
+    labels_correlation_windowless = print_value_counts(labels_list_window)
+
+    # correlate_function(
+    #     num_features,
+    #     10,
+    #     data_merge_windowless,
+    #     labels_correlation_windowless,
+    #     f,
+    #     window,
+    # )
+
+    # Compute class weights
+    class_weights = compute_class_weight(
+        class_weight="balanced", classes=np.unique(labels_list), y=labels_list
+    )
+
+    # Convert class weights to a dictionary
+    class_weights_dict = dict(enumerate(class_weights))
 
     train_ratio = 0.60
     validation_ratio = 0.20
     test_ratio = 0.20
 
     x_train, x_test, labels_train, labels_test = train_test_split(
-        data_merge, labels2, train_size=train_ratio
+        data_merge, labels, train_size=train_ratio
     )
 
     x_test, x_val, y_test, y_val = train_test_split(
@@ -236,39 +196,43 @@ for l in range(100):
         stratify=labels_test,
     )
 
-    # values = x_train.reshape(-1, x_train.shape[-1])
-    # scaler = StandardScaler()
-    # scaler = scaler.fit(values)
-    # x_train_norm = scaler.transform(values).reshape(x_train.shape)
-    # # Standardization Validation
-    # values_val = x_val.reshape(-1, x_val.shape[-1])
-    # x_val_norm = scaler.transform(values_val).reshape(x_val.shape)
-    # # Standardization Test
-    # values_test = x_test.reshape(-1, x_test.shape[-1])
-    # x_test_norm = scaler.transform(values_test).reshape(x_test.shape)
+    values = x_train.reshape(-1, x_train.shape[-1])
+    scaler = StandardScaler()
+    scaler = scaler.fit(values)
+    x_train_norm = scaler.transform(values).reshape(x_train.shape)
+    # Standardization Validation
+    values_val = x_val.reshape(-1, x_val.shape[-1])
+    x_val_norm = scaler.transform(values_val).reshape(x_val.shape)
+    # Standardization Test
+    values_test = x_test.reshape(-1, x_test.shape[-1])
+    x_test_norm = scaler.transform(values_test).reshape(x_test.shape)
 
-    print(num_features)
-    print(sfreq)
-    model = ENGNet2(4, num_features, sfreq, sfreq * 2)
+    # print(num_features)
+    # print(sfreq)
+    model = ENGNet2(4, num_features, x_train_norm.shape[0], window, class_weights_dict)
     model_name = "ENGNet2"
 
     model.summary()
 
-    # layer_to_save_weights = model.layers[2]
-    # weights_to_save = layer_to_save_weights.get_weights()
+    layer_to_save_weights = model.layers[2]
+    weights_to_save = layer_to_save_weights.get_weights()
 
-    # # Save the weights to a file
-    # weights_file_path = "saved_weights.h5"
-    # with tf.keras.utils.CustomObjectScope({'GlorotUniform': tf.keras.initializers.GlorotUniform}):
-    #     layer_to_save_weights.set_weights(weights_to_save)
-    #     model.save_weights(weights_file_path)
-
+    # Save the weights to a file
+    weights_file_path = "saved_weights.h5"
+    with tf.keras.utils.CustomObjectScope(
+        {"GlorotUniform": tf.keras.initializers.GlorotUniform}
+    ):
+        layer_to_save_weights.set_weights(weights_to_save)
+        model.save_weights(weights_file_path)
+    print(x_train_norm.shape)
+    print(labels_train.shape)
     history = model.fit(
-        x=x_train,
+        x=x_train_norm,
         y=labels_train,
         batch_size=200,
-        epochs=500,
-        validation_data=(x_val, y_val),
+        epochs=50,
+        class_weight=class_weights_dict,
+        validation_data=(x_val_norm, y_val),
         callbacks=[
             tfk.callbacks.EarlyStopping(
                 monitor="val_f1_score",
@@ -277,7 +241,7 @@ for l in range(100):
                 restore_best_weights=True,
             ),
             tfk.callbacks.ReduceLROnPlateau(
-                monitor="val_f1_score", mode="max", patience=10, factor=0.5, min_lr=1e-5
+                monitor="val_f1_score", mode="max", patience=10, factor=0.5
             ),
         ],
     ).history
@@ -287,18 +251,20 @@ for l in range(100):
     plt.figure(figsize=(17, 4))
     plt.plot(history["loss"], label="Training loss", alpha=0.8, color="#ff7f0e")
     plt.plot(history["val_loss"], label="Validation loss", alpha=0.9, color="#5a9aa5")
-    plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
+    # plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
     plt.title("Categorical Crossentropy")
     plt.legend()
     plt.grid(alpha=0.3)
     # plt.show()
 
     plt.figure(figsize=(17, 4))
-    plt.plot(history["f1_score"], label="Training accuracy", alpha=0.8, color="#ff7f0e")
+    plt.plot(
+        history["val_f1_score"], label="Training accuracy", alpha=0.8, color="#ff7f0e"
+    )
     plt.plot(
         history["val_f1_score"], label="Validation accuracy", alpha=0.9, color="#5a9aa5"
     )
-    plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
+    # plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
     plt.title("Accuracy")
     plt.legend()
     plt.grid(alpha=0.3)
@@ -321,14 +287,14 @@ for l in range(100):
 
     plt.figure(figsize=(18, 3))
     plt.plot(history["lr"], label="Learning Rate", alpha=0.8, color="#ff7f0e")
-    plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
+    # plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
     plt.legend()
     plt.grid(alpha=0.3)
     # plt.show()
 
     model.save("on_a_gang_model")
 
-    predictions = model.predict(x_test)
+    predictions = model.predict(x_test_norm)
     predictions.shape
 
     cm = confusion_matrix(np.argmax(y_test, axis=-1), np.argmax(predictions, axis=-1))
