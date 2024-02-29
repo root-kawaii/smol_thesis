@@ -37,7 +37,7 @@ def split_list_by_lengths(data_list, lengths):
 
 
 def correlate_function(
-    num_features, num_files, data_merge, labels_correlation, f, window
+    num_features, classes, data_merge, labels_correlation, f, window
 ):
     print(data_merge.shape)
     epsilon = 0.9
@@ -54,7 +54,7 @@ def correlate_function(
     for o in range(len(data_merge)):
         for i in range(num_features):
             data_merge[o][i] = stats.zscore(data_merge[o][i])
-    for n in range(4):
+    for n in range(classes):
         corr_list = []
         for i in range(num_features):
             # Cross-Correlation of channels
@@ -62,7 +62,7 @@ def correlate_function(
             diff_col = 0
             for k in range(num_features):
                 if i != k:
-                    for j in range(4):
+                    for j in range(classes):
                         # print(data_merge[n][i])
                         # print(len(data_merge[n][i]))
                         new = signal.correlate(
@@ -76,7 +76,7 @@ def correlate_function(
                             diff_col += new
 
             avg_same_col = same_col / num_features - 1
-            avg_diff_col = diff_col / num_features * num_files
+            avg_diff_col = diff_col / num_features * 3
             metric = epsilon * avg_same_col + (1 - epsilon) * avg_diff_col
             corr_list.append(metric)
 

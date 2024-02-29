@@ -45,6 +45,8 @@ def print_value_counts(arr):
 
 
 # def eval(position):
+window = input("Enter window length \n")  # 1024 optimal value ??
+window = int(window)
 animal_num = input("Enter animal number 1,2 or 3 \n")
 animal_num = animal_num + "/"
 patho = "../src/data/animal "
@@ -65,7 +67,7 @@ all_classes = []
 all_classes_windowless = []
 
 
-position = [0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+position = [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
 for l in range(100):
@@ -91,27 +93,29 @@ for l in range(100):
                 "numpy_arrays/" + "animal " + animal_num + fil + "/" + file,
                 allow_pickle=True,
             )
-            if fil == "touch":
-                temp = temp[:, 0 : int(len(temp[0]) / 10)]
-            else:
-                temp = temp[:, 0 : int(len(temp[0]) / 1)]
+            # temp = temp[:, 0 : int(len(temp[0]) / 10)]
+            # else:
+            #     temp = temp[:, 0 : int(len(temp[0]) / 1)]
             lengo = len(temp[0])
-            window = 128
+            # window = 500
             div = int(lengo / window)
             widths = np.arange(1, (window * 1) + 1)
             datas = np.zeros((div, window, 16), dtype=float)
             # for i in range(16):
-            for j in range(div):
-                datas[j, :, :] = temp[:, (window * j) : window * (j + 1)].transpose()
+            if not (fil == "touch" and count % 14 != 0):
+                for j in range(div):
+                    datas[j, :, :] = temp[
+                        :, (window * j) : window * (j + 1)
+                    ].transpose()
 
-            # print(datas.shape)
-            # data_list.append(datas)
-            # print(len(temp[0]))
-            labels_list_window.extend([counts] * len(temp[0]))
-            labels_list.extend([counts] * (div))
-            # print(len(datas))
-            one_class_list.append(datas)
-            one_class_list_window.append(temp.transpose())
+                # print(datas.shape)
+                # data_list.append(datas)
+                # print(len(temp[0]))
+                labels_list_window.extend([counts] * len(temp[0]))
+                labels_list.extend([counts] * (div))
+                # print(len(datas))
+                one_class_list.append(datas)
+                one_class_list_window.append(temp.transpose())
 
         print(fil)
         inter = np.concatenate(one_class_list, axis=0)
@@ -162,15 +166,16 @@ for l in range(100):
     print(data_merge_windowless.shape)
 
     labels_correlation_windowless = print_value_counts(labels_list_window)
+    print(labels_correlation_windowless)
 
-    # correlate_function(
-    #     num_features,
-    #     10,
-    #     data_merge_windowless,
-    #     labels_correlation_windowless,
-    #     f,
-    #     window,
-    # )
+    correlate_function(
+        num_features,
+        4,
+        data_merge_windowless,
+        labels_correlation_windowless,
+        f,
+        window,
+    )
 
     # Compute class weights
     class_weights = compute_class_weight(
@@ -230,7 +235,7 @@ for l in range(100):
         x=x_train_norm,
         y=labels_train,
         batch_size=200,
-        epochs=50,
+        epochs=100,
         class_weight=class_weights_dict,
         validation_data=(x_val_norm, y_val),
         callbacks=[
@@ -265,7 +270,7 @@ for l in range(100):
         history["val_f1_score"], label="Validation accuracy", alpha=0.9, color="#5a9aa5"
     )
     # plt.axvline(x=best_epoch, label="Best epoch", alpha=0.3, ls="--", color="#5a9aa5")
-    plt.title("Accuracy")
+    plt.title("F1Score")
     plt.legend()
     plt.grid(alpha=0.3)
 
