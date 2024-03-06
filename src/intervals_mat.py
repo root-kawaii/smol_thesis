@@ -26,8 +26,6 @@ path_to_animal_folder = patho_nev + str(animal_num)
 shape_of_date_nev = (4, 10, 99)
 
 # def extract_intervals(path_to_animal_folder, shape_of_date_nev) -> np.ndarray:
-data_times = []
-data = []
 animal_num = path_to_animal_folder
 folders_nev = [f for f in os.listdir(animal_num)]
 ult_data = np.zeros((shape_of_date_nev))
@@ -37,8 +35,6 @@ for counts, fil in enumerate(folders_nev):
         files = [f[:-4] for f in os.listdir(animal_num + fil)]
         for count, file in enumerate(files):
             if file != ".DS_Store":
-                data_times = []
-                num_electrodes = 0
                 # their code #################
                 # It's dealing with files that Elisa's old code generated, so we have to adequate it
                 # sample=sample[0,:,0:16]
@@ -49,8 +45,6 @@ for counts, fil in enumerate(folders_nev):
                 )
                 raw.describe()
                 raw.resample(5000)
-                sfreq = 100
-                frequo = 5000
 
                 x = raw.get_data()
                 print(len(x))
@@ -68,9 +62,7 @@ for counts, fil in enumerate(folders_nev):
                 bl = r.nev_data
                 th = bl["Comments"]
                 yt = th[0]
-                print("oooooooooooo")
-                print(len(yt))
-                print("oooooooooooo")
+
                 # data elements for each ms * 250ms
                 if fil == "noci":
                     read_noci(
