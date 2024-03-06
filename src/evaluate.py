@@ -79,16 +79,22 @@ for l in range(100):
     # intervals = extract_intervals(patho_nev + str(animal_num), (4, 10, 99))
     # print(intervals)
     for i in range(0, 16):
-        # position[i] = 1
+        position[i] = 1
         # num_features = 16
         print("io")
     for counts, fil in enumerate(folders):
         # f.write(str(counts) + " is " + fil + "\n")
+        print(fil)
+        if fil == ".DS_Store":
+            continue
         files = [f for f in os.listdir(path_arrays + str(animal_num) + fil)]
         one_class_list = []
         one_class_list_window = []
         for count, file in enumerate(files):
             # num_electrodes = 0
+            print(file)
+            if file == ".DS_Store":
+                continue
             temp = np.load(
                 "numpy_arrays/" + "animal " + animal_num + fil + "/" + file,
                 allow_pickle=True,
@@ -97,8 +103,10 @@ for l in range(100):
             # else:
             #     temp = temp[:, 0 : int(len(temp[0]) / 1)]
             lengo = len(temp[0])
-            # window = 500
+            window = 500
             div = int(lengo / window)
+            # widths = np.arange(1, (window * 1) + 1)
+            # datas = np.zeros((div, window, window, 16), dtype=float)
             widths = np.arange(1, (window * 1) + 1)
             datas = np.zeros((div, window, 16), dtype=float)
             # for i in range(16):
@@ -107,17 +115,25 @@ for l in range(100):
                     datas[j, :, :] = temp[
                         :, (window * j) : window * (j + 1)
                     ].transpose()
+                # if not (fil == "touch" and count % 14 != 0):
+                #     for j in range(div):
+                #         for i in range(16):
+                #             datas[j, :, :, i] = scipy.signal.cwt(
+                #                 temp[i, (window * j) : window * (j + 1)],
+                #                 scipy.signal.ricker,
+                #                 widths,
+                #             )
 
                 # print(datas.shape)
                 # data_list.append(datas)
                 # print(len(temp[0]))
                 labels_list_window.extend([counts] * len(temp[0]))
                 labels_list.extend([counts] * (div))
-                # print(len(datas))
+                print(len(datas))
                 one_class_list.append(datas)
                 one_class_list_window.append(temp.transpose())
 
-        print(fil)
+        print(len(one_class_list))
         inter = np.concatenate(one_class_list, axis=0)
         inter_window = np.concatenate(one_class_list_window, axis=0)
         all_classes.append(inter)
@@ -168,14 +184,14 @@ for l in range(100):
     labels_correlation_windowless = print_value_counts(labels_list_window)
     print(labels_correlation_windowless)
 
-    correlate_function(
-        num_features,
-        4,
-        data_merge_windowless,
-        labels_correlation_windowless,
-        f,
-        window,
-    )
+    # correlate_function(
+    #     num_features,
+    #     4,
+    #     data_merge_windowless,
+    #     labels_correlation_windowless,
+    #     f,
+    #     window,
+    # )
 
     # Compute class weights
     class_weights = compute_class_weight(
@@ -184,6 +200,9 @@ for l in range(100):
 
     # Convert class weights to a dictionary
     class_weights_dict = dict(enumerate(class_weights))
+    for j in class_weights_dict:
+        class_weights_dict[j] = class_weights_dict[j] * 2
+    print(class_weights_dict)
 
     train_ratio = 0.60
     validation_ratio = 0.20
@@ -242,11 +261,11 @@ for l in range(100):
             tfk.callbacks.EarlyStopping(
                 monitor="val_f1_score",
                 mode="max",
-                patience=10,
+                patience=25,
                 restore_best_weights=True,
             ),
             tfk.callbacks.ReduceLROnPlateau(
-                monitor="val_f1_score", mode="max", patience=10, factor=0.5
+                monitor="val_f1_score", mode="max", patience=25, factor=0.5
             ),
         ],
     ).history
@@ -324,7 +343,7 @@ for l in range(100):
 
     # Plot the confusion matrix
     plt.figure(figsize=(10, 8))
-    sns.heatmap(cm.T, cmap="Blues")
+    sns.heatmap(cm.T, annot=True, cmap="Blues", fmt="d", annot_kws={"size": 12})
     plt.xlabel("True labels")
     plt.ylabel("Predicted labels")
 

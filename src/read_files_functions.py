@@ -15,7 +15,7 @@ import mne
 from datetime import datetime
 
 
-def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw, file, fil, tui):
+def read_noci(counts, count, x, ult_data, raw, file, fil, tui):
     rangee = 1
     rangee_half = 1
     fs = 30000
@@ -105,7 +105,7 @@ def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw, file, fil, tui
         for w in timeoff:
             plt.axvline(x=w, color="r", linestyle="--")
         # plt.plot(h[i])
-        plt.show()
+        # plt.show()
         print(timeon)
         print(timeoff)
         for ho in range(min(len(timeon), len(timeoff))):
@@ -126,12 +126,12 @@ def read_noci(shape_of_date_nev, counts, count, x, ult_data, raw, file, fil, tui
             )
 
 
-def read_prop(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui, raw):
+def read_prop(counts, count, x, ult_data, yt, file, fil, tui, raw):
     cutoff_time = 250  # ms
     cut_piece = cutoff_time * 30000 / 1000
     is_first_time_on = 1
-    rangee = shape_of_date_nev[2]
-    rangee_half = int(shape_of_date_nev[2] / 2)
+    rangee = len(yt)
+    rangee_half = int(len(yt) / 2)
     for i in range(rangee):
         if is_first_time_on:
             if i % 2 == 0:
@@ -161,7 +161,17 @@ def read_prop(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui,
         print(len(y[0]))
         current_time = datetime.now()
         np.save(
-            "numpy_arrays/" + tui + "/" + fil + "/" + file + "__" + str(j) + ".npy", y
+            "numpy_arrays/"
+            + "animal "
+            + tui
+            + "/"
+            + fil
+            + "/"
+            + file
+            + "__"
+            + str(j)
+            + ".npy",
+            y,
         )
 
     for i in range(16):
@@ -182,17 +192,17 @@ def read_prop(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui,
                 else:
                     plt.axvline(x=val, color="g", linestyle="--")
 
-        plt.show()
+        # plt.show()
         # plt.savefig("numpy_arrays/" + "img__  " + tui + " " +
         #             file + "  channel  " + str(i) + "h.jpg")
 
 
-def read_touch(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui, raw):
+def read_touch(counts, count, x, ult_data, yt, file, fil, tui, raw):
     cutoff_time = 250  # ms
     cut_piece = cutoff_time * 30000 / 1000
     is_first_time_on = 0
-    rangee = shape_of_date_nev[2]
-    rangee_half = int(shape_of_date_nev[2] / 2)
+    rangee = len(yt)
+    rangee_half = int(len(yt) / 2)
     for i in range(rangee):
         if is_first_time_on:
             if i % 2 == 0:
@@ -205,8 +215,8 @@ def read_touch(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui
             elif i % 2 == 0:
                 ult_data[counts, count, i] = (yt[i - 1][0] + int(cut_piece * 11)) / 6
 
-    for i in ult_data[counts, count, :]:
-        print(i)
+    for k in ult_data[counts, count, :]:
+        print(k)
     for j in range(rangee_half):
         # if (fil == "touch"):
         y = x[
@@ -223,7 +233,17 @@ def read_touch(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui
         print(len(y[0]))
         current_time = datetime.now()
         np.save(
-            "numpy_arrays/" + tui + "/" + fil + "/" + file + "__" + str(j) + ".npy", y
+            "numpy_arrays/"
+            + "animal "
+            + tui
+            + "/"
+            + fil
+            + "/"
+            + file
+            + "__"
+            + str(j)
+            + ".npy",
+            y,
         )
 
     for i in range(16):
@@ -243,7 +263,7 @@ def read_touch(shape_of_date_nev, counts, count, x, ult_data, yt, file, fil, tui
         plt.plot(x[i])
         h = raw.get_data()
         plt.plot(h[16] / 50000, color="k")  # black
-        plt.show()
+        # plt.show()
         # plt.savefig("numpy_arrays/" + "img__  " + tui + " " +
         #             file + "  channel  " + str(i) + "h.jpg")
 

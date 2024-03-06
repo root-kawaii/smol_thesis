@@ -146,7 +146,7 @@ def ENGNet2(
 
     model.compile(
         loss=tfk.losses.CategoricalCrossentropy(),
-        optimizer=tfk.optimizers.Adam(lr=1),
+        optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=10),
         metrics=[F1Score()],
     )
 
