@@ -37,14 +37,13 @@ def split_list_by_lengths(data_list, lengths):
 
 
 def correlate_function(
-    num_features, classes, data_merge, labels_correlation, f, window
+    num_features, classes, data_merge, labels_correlation, f, window, correlation_scores
 ):
-    print(data_merge.shape)
+
     epsilon = 0.9
-    ulter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     lengths = []
     for kk in labels_correlation.values():
-        lengths.append(kk)
+        lengths.append(int(kk * 0.8))
     print(lengths)
     # Split the data_list based on split_indices
     data_merge = split_list_by_lengths(data_merge, lengths)
@@ -86,8 +85,8 @@ def correlate_function(
         # corr_list.sort()
         print(corr_list)
         for j, i in enumerate(corr_list):
-            ulter[j] += i
+            correlation_scores[j] += i
             # print("U " + str(ulter[j]))
-    for h in ulter:
-        f.write("B " + str(h) + "\n")
+    for h in correlation_scores:
+        # f.write("B " + str(h) + "\n")
         print("U " + str(h))

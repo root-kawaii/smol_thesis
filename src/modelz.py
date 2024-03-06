@@ -33,9 +33,9 @@ tfk = tf.keras
 tfkl = tf.keras.layers
 
 
-def build_BiLSTM_classifier(input_shape, classes, seed):
+def build_BiLSTM_classifier(input_shape, classes=4, seed=420):
     # Build the neural network layer by layer
-    input_layer = tfkl.Input(shape=input_shape, name="Input")
+    input_layer = tfkl.Input(shape=(500, 16), name="Input")
 
     # Feature extractor
     bilstm = tfkl.Bidirectional(tfkl.LSTM(64, return_sequences=True))(input_layer)
@@ -52,8 +52,8 @@ def build_BiLSTM_classifier(input_shape, classes, seed):
     # Compile the model
     model.compile(
         loss=tfk.losses.CategoricalCrossentropy(),
-        optimizer=tfk.optimizers.Adam(),
-        metrics=["accuracy"],
+        optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.01),
+        metrics=[F1Score()],
     )
 
     # Return the model
@@ -64,7 +64,6 @@ def build_BiLSTM_classifier(input_shape, classes, seed):
 def ENGNet2(
     nb_classes,
     Chans,
-    Samples,
     window,
     class_weights_dict,
     dropoutRate=0.5,
@@ -107,7 +106,7 @@ def ENGNet2(
         F1,
         (1, kernLength),
         padding="same",
-        input_shape=(Chans, Samples),
+        input_shape=(Chans, window),
         use_bias=False,
     )(concat0)
     block1 = tfkl.BatchNormalization()(block1)
@@ -146,7 +145,9 @@ def ENGNet2(
 
     model.compile(
         loss=tfk.losses.CategoricalCrossentropy(),
-        optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=10),
+        optimizer=tf.keras.optimizers.legacy.Adam(
+            learning_rate=0.01
+        ),  # put this as it should perform better on m1/m2 macs, change to tfk.optimizers.Adam(lr=1) for different architecture
         metrics=[F1Score()],
     )
 
