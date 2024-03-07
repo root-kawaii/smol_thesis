@@ -10,7 +10,9 @@ from sklearn.preprocessing import StandardScaler
 # from sklearn.svm import SVC
 import mne
 
-# from mne.decoding import CSP
+
+import asrpy
+from asrpy import asr_calibrate, asr_process, clean_windows
 
 from datetime import datetime
 from read_files_functions import *
@@ -31,7 +33,7 @@ folders_nev = [f for f in os.listdir(animal_num)]
 ult_data = np.zeros((shape_of_date_nev))
 
 for counts, fil in enumerate(folders_nev):
-    if fil != ".DS_Store":
+    if fil == "noci":
         files = [f[:-4] for f in os.listdir(animal_num + fil)]
         for count, file in enumerate(files):
             if file != ".DS_Store":
@@ -44,6 +46,9 @@ for counts, fil in enumerate(folders_nev):
                     preload=True,
                 )
                 raw.describe()
+                x = raw.get_data()
+                # plt.plot(x[0])
+                # plt.show()
                 raw.resample(5000)
 
                 x = raw.get_data()
@@ -55,6 +60,18 @@ for counts, fil in enumerate(folders_nev):
                     rows_to_del.append(18)
                 x = np.delete(x, rows_to_del, 0)
                 print(len(x))
+                for t in range(len(x)):
+                    for y in range(len(x[t])):
+                        # print(x[t, y])
+                        # x[t, y] = int(x[t, y] / 4)
+                        if abs(x[t, y]) > 0.0000120:
+                            x[t, y] = 0.0000120
+                # plt.plot(x[0], color="orange")
+                # plt.show()
+
+                # M, T = asr_calibrate(x, 5000, cutoff=15)
+                # # apply it
+                # clean_temp = asr_process(x, 5000, M, T)
 
                 print(animal_num + fil + "/" + file)
                 r = neo.io.BlackrockIO(filename=animal_num + fil + "/" + file + ".nev")

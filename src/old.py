@@ -385,3 +385,8 @@ print("Accuracy:", metrics.accuracy_score(labels_train, y_pred))
 
 # here we call correlation
 # correlate_function(num_features, 10, other_list, f)
+
+
+###LEARN SOMETRHIGN
+
+# sorted_indices = sorted(range(len(mav)), key=lambda i: mav[i], reverse=True)[:x]

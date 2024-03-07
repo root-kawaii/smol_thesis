@@ -92,6 +92,8 @@ for iteration_classes, classes in enumerate(animal_number_folders):
         length_of_temp = len(temp[0])
         window = 500
         division = int(length_of_temp / window)
+        # extract the sampling frequency from the MNE raw object
+        # (optional) make sure your asr is only fitted to clean parts of the data
         # widths = np.arange(1, (window * 1) + 1)
         # datas = np.zeros((div, window, window, 16), dtype=float)
         widths = np.arange(1, (window * 1) + 1)
@@ -101,6 +103,7 @@ for iteration_classes, classes in enumerate(animal_number_folders):
             (classes == "touch" and file_count % 12 != 0)
             or (classes == "prop" and file_count % 2 != 0)
             or (classes == "prop +" and file_count % 2 != 0)
+            # or (classes == "noci" and file_count % 5 != 0)
         ):
             for j in range(division):
                 datas[j, :, :] = temp[:, (window * j) : window * (j + 1)].transpose()
@@ -161,6 +164,7 @@ labels_correlation_windowless = print_value_counts(labels_list_windowless)
 class_weights = compute_class_weight(
     class_weight="balanced", classes=np.unique(labels_list), y=labels_list
 )
+print(labels_correlation_windowless)
 
 # Convert class weights to a dictionary
 class_weights_dict = dict(enumerate(class_weights))
