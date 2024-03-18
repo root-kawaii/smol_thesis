@@ -64,8 +64,9 @@ def build_BiLSTM_classifier(input_shape, classes=4, seed=420):
 def ENGNet2(
     nb_classes,
     Chans,
-    window,
-    class_weights_dict,
+    # window,
+    # class_weights_dict,
+    # width,
     dropoutRate=0.5,
     kernLength=16,
     F1=8,
@@ -85,20 +86,15 @@ def ENGNet2(
             "or Dropout, passed as a string."
         )
 
-    input1 = tfkl.Input(shape=(window, Chans, 1))
+    input1 = tfkl.Input(shape=(500, 16, 1))
 
-    # input1 = tfkl.Reshape((-1, 16, 1))(input1)
+    input2 = tfkl.Reshape((16, 500, 1))(input1)
     ##################################################################
 
-    block1 = tfkl.GlobalAveragePooling2D()(input1)
-    block1 = tfkl.GlobalAveragePooling2D()(input1)
-    block1 = tfkl.Dense(
-        Chans,
-        name="dense2",
-        kernel_constraint=tfk.constraints.max_norm(norm_rate),
-        activation="sigmoid",
-    )(block1)
-    concat0 = tfkl.multiply([block1, input1])
+    block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input2)
+    block2 = tfkl.Reshape((16, 1, 1))(block1)
+    block3 = tfkl.Dense(16, activation="sigmoid", name="dense2")(block2)
+    concat0 = tfkl.multiply([block3, input2])
 
     ##################################################################
 
@@ -106,7 +102,7 @@ def ENGNet2(
         F1,
         (1, kernLength),
         padding="same",
-        input_shape=(Chans, window),
+        input_shape=(Chans, 500, 1),
         use_bias=False,
     )(concat0)
     block1 = tfkl.BatchNormalization()(block1)
@@ -140,13 +136,13 @@ def ENGNet2(
 
     model = tfk.models.Model(inputs=input1, outputs=softmax)
 
-    learning_rate = tf.Variable(0.1, trainable=False)
-    tf.keras.backend.set_value(learning_rate, 0.1)
+    # learning_rate = tf.Variable(0.1, trainable=False)
+    # tf.keras.backend.set_value(learning_rate, 0.1)
 
     model.compile(
         loss=tfk.losses.CategoricalCrossentropy(),
         optimizer=tf.keras.optimizers.legacy.Adam(
-            learning_rate=0.01
+            learning_rate=0.0002
         ),  # put this as it should perform better on m1/m2 macs, change to tfk.optimizers.Adam(lr=1) for different architecture
         metrics=[F1Score()],
     )

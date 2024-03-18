@@ -40,14 +40,14 @@ def correlate_function(
     num_features, classes, data_merge, labels_correlation, f, window, correlation_scores
 ):
 
-    epsilon = 0.9
+    epsilon = 0.8
     lengths = []
     for kk in labels_correlation.values():
         lengths.append(int(kk * 0.8))
     print(lengths)
     # Split the data_list based on split_indices
     data_merge = split_list_by_lengths(data_merge, lengths)
-    print(len(data_merge[0]))
+    # print(len(data_merge[0]))
     # result = np.array(result)
     # print(len(result[1][2]))
     for o in range(len(data_merge)):
@@ -76,14 +76,9 @@ def correlate_function(
 
             avg_same_col = same_col / num_features - 1
             avg_diff_col = diff_col / num_features * 3
-            metric = epsilon * avg_same_col + (1 - epsilon) * avg_diff_col
+            metric = epsilon * -1 * avg_same_col + (1 - epsilon) * -1 * avg_diff_col
             corr_list.append(metric)
 
-        for i in corr_list:
-            f.write("Score  " + str(i) + "\n")
-        f.write("Now sorted...  " + "\n")
-        # corr_list.sort()
-        print(corr_list)
         for j, i in enumerate(corr_list):
             correlation_scores[j] += i
             # print("U " + str(ulter[j]))

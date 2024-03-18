@@ -33,7 +33,7 @@ folders_nev = [f for f in os.listdir(animal_num)]
 ult_data = np.zeros((shape_of_date_nev))
 
 for counts, fil in enumerate(folders_nev):
-    if fil == "noci":
+    if fil != ".DS_Store":
         files = [f[:-4] for f in os.listdir(animal_num + fil)]
         for count, file in enumerate(files):
             if file != ".DS_Store":
@@ -45,11 +45,11 @@ for counts, fil in enumerate(folders_nev):
                     "data/" + "animal " + tui + "/" + fil + "/" + file + ".ns5",
                     preload=True,
                 )
+                raw.filter(l_freq=800, h_freq=2450)
                 raw.describe()
-                x = raw.get_data()
                 # plt.plot(x[0])
                 # plt.show()
-                raw.resample(5000)
+                raw = raw.resample(5000)
 
                 x = raw.get_data()
                 print(len(x))
@@ -64,8 +64,10 @@ for counts, fil in enumerate(folders_nev):
                     for y in range(len(x[t])):
                         # print(x[t, y])
                         # x[t, y] = int(x[t, y] / 4)
-                        if abs(x[t, y]) > 0.0000120:
-                            x[t, y] = 0.0000120
+                        if abs(x[t, y]) > 0.000030:
+                            # print(x[t, y])
+                            x[t, y] = 0.000030
+                            # print("yoyo")
                 # plt.plot(x[0], color="orange")
                 # plt.show()
 
