@@ -63,10 +63,8 @@ def build_BiLSTM_classifier(input_shape, classes=4, seed=420):
 
 def ENGNet2(
     nb_classes,
-    Chans,
-    # window,
-    # class_weights_dict,
-    # width,
+    Chans=16,
+    Samples=500,
     dropoutRate=0.5,
     kernLength=16,
     F1=8,
@@ -77,62 +75,59 @@ def ENGNet2(
 ):
 
     if dropoutType == "SpatialDropout2D":
-        dropoutType = tfkl.SpatialDropout2D
+        dropoutType = SpatialDropout2D
     elif dropoutType == "Dropout":
-        dropoutType = tfkl.Dropout
+        dropoutType = Dropout
     else:
         raise ValueError(
             "dropoutType must be one of SpatialDropout2D "
             "or Dropout, passed as a string."
         )
 
-    input1 = tfkl.Input(shape=(500, 16, 1))
+    input1 = Input(shape=(16, 500, 1))
 
-    input2 = tfkl.Reshape((16, 500, 1))(input1)
+    # input2 = tfkl.Reshape((16, 500, 1))(input1)
     ##################################################################
 
-    block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input2)
+    block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input1)
     block2 = tfkl.Reshape((16, 1, 1))(block1)
     block3 = tfkl.Dense(16, activation="sigmoid", name="dense2")(block2)
-    concat0 = tfkl.multiply([block3, input2])
+    concat0 = tfkl.multiply([block3, input1])
 
     ##################################################################
-
-    block1 = tfkl.Conv2D(
+    block1 = Conv2D(
         F1,
         (1, kernLength),
         padding="same",
-        input_shape=(Chans, 500, 1),
+        input_shape=(Chans, Samples, 1),
         use_bias=False,
-    )(concat0)
-    block1 = tfkl.BatchNormalization()(block1)
-    block1 = tfkl.DepthwiseConv2D(
+    )(input1)
+    block1 = BatchNormalization()(block1)
+    block1 = DepthwiseConv2D(
         (Chans, 1),
         use_bias=False,
         depth_multiplier=D,
-        depthwise_constraint=tfk.constraints.max_norm(1.0),
+        depthwise_constraint=max_norm(1.0),
     )(block1)
-    block1 = tfkl.BatchNormalization()(block1)
-    block1 = tfkl.Activation("elu")(block1)
-    block1 = tfkl.AveragePooling2D((1, 4))(block1)
+    block1 = BatchNormalization()(block1)
+    block1 = Activation("elu")(block1)
+    block1 = AveragePooling2D((1, 4))(block1)
     block1 = dropoutType(dropoutRate)(block1)
 
     # block2       = SeparableConv2D(F2, (1, 16), use_bias = False, padding = 'same') (block1)
 
-    block2 = tfkl.SeparableConv2D(F2, (1, Chans), use_bias=False, padding="same")(
-        block1
-    )
-    block2 = tfkl.BatchNormalization()(block2)
-    block2 = tfkl.Activation("elu")(block2)
-    # block2 = tfkl.AveragePooling2D((1, 8))(block2)
+    block2 = SeparableConv2D(F2, (1, 16), use_bias=False, padding="same")(block1)
+    block2 = BatchNormalization()(block2)
+    block2 = Activation("elu")(block2)
+    block2 = AveragePooling2D((1, 8))(block2)
     block2 = dropoutType(dropoutRate)(block2)
 
-    flatten = tfkl.Flatten(name="flatten")(block2)
+    flatten = Flatten(name="flatten")(block2)
 
-    dense = tfkl.Dense(
-        nb_classes, name="dense3", kernel_constraint=tfk.constraints.max_norm(norm_rate)
-    )(flatten)
-    softmax = tfkl.Activation("softmax", name="softmax")(dense)
+    dense = Dense(nb_classes, name="dense", kernel_constraint=max_norm(norm_rate))(
+        flatten
+    )
+    softmax = Activation("softmax", name="softmax")(dense)
 
     model = tfk.models.Model(inputs=input1, outputs=softmax)
 
@@ -144,39 +139,123 @@ def ENGNet2(
         optimizer=tf.keras.optimizers.legacy.Adam(
             learning_rate=0.0002
         ),  # put this as it should perform better on m1/m2 macs, change to tfk.optimizers.Adam(lr=1) for different architecture
-        metrics=[F1Score()],
+        metrics="accuracy",
     )
 
     return model
 
 
-class F1Score(tf.keras.metrics.Metric):
-    def __init__(self, name="f1_score", **kwargs):
-        super(F1Score, self).__init__(name=name, **kwargs)
-        self.true_positives = self.add_weight(name="tp", initializer="zeros")
-        self.false_positives = self.add_weight(name="fp", initializer="zeros")
-        self.false_negatives = self.add_weight(name="fn", initializer="zeros")
+def ENGNet22(
+    nb_classes,
+    Chans,
+    Samples=500,
+    dropoutRate=0.5,
+    kernLength=16,
+    F1=8,
+    D=2,
+    F2=16,
+    norm_rate=0.25,
+    dropoutType="Dropout",
+):
 
-    def update_state(self, y_true, y_pred, sample_weight=None):
-        y_true = tf.cast(y_true, tf.float32)
-        y_pred = tf.cast(tf.math.round(y_pred), tf.float32)
-
-        true_positives = tf.reduce_sum(y_true * y_pred)
-        false_positives = tf.reduce_sum((1 - y_true) * y_pred)
-        false_negatives = tf.reduce_sum(y_true * (1 - y_pred))
-
-        self.true_positives.assign_add(true_positives)
-        self.false_positives.assign_add(false_positives)
-        self.false_negatives.assign_add(false_negatives)
-
-    def result(self):
-        precision = self.true_positives / (
-            self.true_positives + self.false_positives + tf.keras.backend.epsilon()
+    if dropoutType == "SpatialDropout2D":
+        dropoutType = SpatialDropout2D
+    elif dropoutType == "Dropout":
+        dropoutType = Dropout
+    else:
+        raise ValueError(
+            "dropoutType must be one of SpatialDropout2D "
+            "or Dropout, passed as a string."
         )
-        recall = self.true_positives / (
-            self.true_positives + self.false_negatives + tf.keras.backend.epsilon()
-        )
-        f1 = (
-            2 * (precision * recall) / (precision + recall + tf.keras.backend.epsilon())
-        )
-        return f1
+
+    input1 = Input(shape=(Chans, 500, 1))
+
+    # input2 = tfkl.Reshape((16, 500, 1))(input1)
+    ##################################################################
+
+    block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input1)
+    block2 = tfkl.Reshape((Chans, 1, 1))(block1)
+    block3 = tfkl.Dense(Chans, activation="sigmoid", name="dense2")(block2)
+    concat0 = tfkl.multiply([block3, input1])
+
+    ##################################################################
+    block1 = Conv2D(
+        F1,
+        (1, kernLength),
+        padding="same",
+        input_shape=(Chans, Samples, 1),
+        use_bias=False,
+    )(concat0)
+    block1 = BatchNormalization()(block1)
+    block1 = DepthwiseConv2D(
+        (Chans, 1),
+        use_bias=False,
+        depth_multiplier=D,
+        depthwise_constraint=max_norm(1.0),
+    )(block1)
+    block1 = BatchNormalization()(block1)
+    block1 = Activation("elu")(block1)
+    block1 = AveragePooling2D((1, 4))(block1)
+    block1 = dropoutType(dropoutRate)(block1)
+
+    # block2       = SeparableConv2D(F2, (1, 16), use_bias = False, padding = 'same') (block1)
+
+    block2 = SeparableConv2D(F2, (1, 16), use_bias=False, padding="same")(block1)
+    block2 = BatchNormalization()(block2)
+    block2 = Activation("elu")(block2)
+    block2 = AveragePooling2D((1, 8))(block2)
+    block2 = dropoutType(dropoutRate)(block2)
+
+    flatten = Flatten(name="flatten")(block2)
+
+    dense = Dense(nb_classes, name="dense", kernel_constraint=max_norm(norm_rate))(
+        flatten
+    )
+    softmax = Activation("softmax", name="softmax")(dense)
+
+    model = tfk.models.Model(inputs=input1, outputs=softmax)
+
+    # learning_rate = tf.Variable(0.1, trainable=False)
+    # tf.keras.backend.set_value(learning_rate, 0.1)
+
+    model.compile(
+        loss="sparse_categorical_crossentropy",
+        optimizer=tf.keras.optimizers.legacy.Adam(
+            learning_rate=0.0002
+        ),  # put this as it should perform better on m1/m2 macs, change to tfk.optimizers.Adam(lr=1) for different architecture
+        metrics="accuracy",
+    )
+
+    return model
+
+
+# class F1Score(tf.keras.metrics.Metric):
+#     def __init__(self, name="f1_score", **kwargs):
+#         super(F1Score, self).__init__(name=name, **kwargs)
+#         self.true_positives = self.add_weight(name="tp", initializer="zeros")
+#         self.false_positives = self.add_weight(name="fp", initializer="zeros")
+#         self.false_negatives = self.add_weight(name="fn", initializer="zeros")
+
+#     def update_state(self, y_true, y_pred, sample_weight=None):
+#         y_true = tf.cast(y_true, tf.float32)
+#         y_pred = tf.cast(tf.math.round(y_pred), tf.float32)
+
+#         true_positives = tf.reduce_sum(y_true * y_pred)
+#         false_positives = tf.reduce_sum((1 - y_true) * y_pred)
+#         false_negatives = tf.reduce_sum(y_true * (1 - y_pred))
+
+#         self.true_positives.assign_add(true_positives)
+#         self.false_positives.assign_add(false_positives)
+#         self.false_negatives.assign_add(false_negatives)
+
+#     def result(self):
+#         precision = self.true_positives / (
+#             self.true_positives + self.false_positives + tf.keras.backend.epsilon()
+#         )
+#         recall = self.true_positives / (
+#             self.true_positives + self.false_negatives + tf.keras.backend.epsilon()
+#         )
+#         f1 = (
+#             2 * (precision * recall) / (precision + recall + tf.keras.backend.epsilon())
+#         )
+#         return f1
