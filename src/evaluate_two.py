@@ -30,103 +30,16 @@ from correlation import (
     correlate_function_2,
     correlate_function,
     correlate_function_right,
+    split_list_by_lengths,
 )
 import pywt
 
 from builtins import range
+from utils import *
 
 
 tfk = tf.keras
 tfkl = tf.keras.layers
-
-
-def print_value_counts(arr):
-    count_dict = {}
-    for value in arr:
-        if value in count_dict:
-            count_dict[value] += 1
-        else:
-            count_dict[value] = 1
-
-    return count_dict
-
-
-def get_label_from_path(name):
-    # Remove file extension
-    label = name.replace(".mat", "")
-    # Remove intial part of file name, eg "sample_0161_"
-    label = label[12:]
-    return label
-
-
-# Encodes label depending on the name of the file
-def encod_label(lab):
-    if lab[0:4] == "noci" or lab[0:4] == "Noci" or lab[0:5] == "Pinch":
-        label = 3
-    elif lab[0:4] == "prop" and lab[11] == "-":
-        label = 0
-    elif lab[0:4] == "prop":
-        label = 1
-    elif lab[0:5] == "touch":
-        label = 2
-    return label
-
-
-def import_sample(path):
-    mat = scipy.io.loadmat(path, mat_dtype=True)
-    x = np.array(mat["to_save"])
-    # file_idx=int(mat['file_idx'])
-    # sample_idx=int(mat['sample_idx'])
-    # original_sample=int(mat['original_sample'])
-    # n_samples_original=int(mat['n_samples_original'])
-    return x  # ,file_idx,sample_idx,original_sample,n_samples_original
-
-
-def transform_data_not_transpose(file_name, file_paths, n_features):
-    y_samp = np.empty(len(file_name))
-    # file_idx_vec=np.empty(len(file_name))
-    # sample_idx_vec=np.empty(len(file_name))
-    # original_sample_vec=np.empty(len(file_name))
-    # n_samples_original_vec=np.empty(len(file_name))
-    sample = []
-    for file_number in range(len(file_name)):
-
-        # file_idx,sample_idx,original_sample,n_sample_original
-
-        # print(file_number)
-        sample = import_sample(file_paths[file_number])
-
-        if len(np.shape(sample)) == 3:
-            # It's dealing with files that Elisa's old code generated, so we have to adequate it
-            sample = sample[0, :, 0:16]
-        else:
-            # Dealing with files that Elisa's new code, changed by Rafael, generated
-            sample = np.transpose(sample)
-        if file_number == 0:
-            x_samp = np.empty((len(file_name), np.shape(sample)[0], n_features))
-
-        # print(file_name[file_number])
-        # Gets the label from the file name
-        lab = get_label_from_path(file_name[file_number])
-        # print(lab)
-        # Stores the sample
-        x_samp[file_number, :, :] = sample
-
-        # Encodes the label to a value that will be the target
-        y_samp[file_number] = encod_label(lab)
-
-        # Encodes if the sample was obtained via overlapping or not and the characteristics of it so
-        # The training set can be built with no overlapping regarding the test set
-        # file_idx_vec[file_number]=file_idx
-        # sample_idx_vec[file_number]=sample_idx
-        # original_sample_vec[file_number]=original_sample
-        # n_samples_original_vec[file_number]=n_samples_original
-
-        # x_samp_trasposta = np.transpose(x_samp, (0, 2, 1))
-
-        # , file_idx_vec, sample_idx_vec, original_sample_vec, n_samples_original_vec
-
-    return x_samp, y_samp
 
 
 files_mat = [f for f in os.listdir("../100ms/")]
@@ -167,18 +80,17 @@ check = 0
 f = open("results.txt", "a")
 current_time = datetime.now()
 
-path_folder = "../100ms/"
-file_name = [f for f in os.listdir("../100ms/")]
+path_folder = "../500ms/"
+file_name = [f for f in os.listdir("../500ms/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])
     file_paths.append(file)
 
 
+print(len(file_name))
+
 x_samp, y_samp = transform_data_not_transpose(file_name, file_paths, 16)
-
-
-print(x_samp.shape)
 
 
 train_ratio = 0.80
@@ -213,32 +125,57 @@ x_samp_t = np.transpose(x_samp)
 x_samp_tt = np.transpose(x_samp_t, (0, 2, 1))
 print(x_samp_tt.shape)
 
+class_weights = compute_class_weight(
+    class_weight="balanced", classes=np.unique(y_samp), y=y_samp
+)
+# Convert class weights to a dictionary
+class_weights_dict = dict(enumerate(class_weights))
 
-new = scipy.signal.correlate(x_samp_tt[11][2], x_samp_tt[10][2])
-plt.plot(new)
-plt.show()
 
+# new = scipy.signal.correlate(x_samp_tt[11][2], x_samp_tt[10][2], mode="full")
+# gh = argmax(new)
+# plt.plot(new)
+# plt.axvline(x=gh, color="r", linestyle="--")
+# plt.show()
+
+labels_correlation_windowless = print_value_counts(y_samp)
+lengths = []
+for kk in labels_correlation_windowless.values():
+    lengths.append(kk)
+print(lengths)
+# Split the data_list based on split_indices
+data_merge = split_list_by_lengths(x_samp_tt, lengths)
+
+new_reduced_labels = []
+for i in range(len(data_merge)):
+    splice_index = int(len(data_merge[i]) * 0.50)
+    data_merge[i] = data_merge[i][0:splice_index]
+    new_reduced_labels.extend([i] * splice_index)
+
+print(len(data_merge[2]))
+x_samp_tt = np.concatenate(data_merge)
+print(x_samp_tt.shape)
+new_reduced_labels = np.array(new_reduced_labels)
 
 x_train, x_test, y_train, y_test = train_test_split(
-    x_samp_tt, y_samp, train_size=train_ratio, shuffle=True, random_state=42
+    x_samp_tt, new_reduced_labels, train_size=train_ratio, shuffle=True, random_state=42
 )
 
-y_samp_2 = []
-print(y_samp.shape)
-for i, item in enumerate(y_samp):
-    y_samp_2.extend([item] * 500)
-y_samp_2 = np.array(y_samp_2)
+# y_samp_2 = []
+# print(y_samp.shape)
+# for i, item in enumerate(y_samp):
+#     y_samp_2.extend([item] * 500)
+# y_samp_2 = np.array(y_samp_2)
 
-print(y_samp_2.shape)
+# print(y_samp_2.shape)
 
-x_samp_4 = x_samp_4.transpose()
+# x_samp_4 = x_samp_4.transpose()
 
-labels_correlation_windowless = print_value_counts(y_samp_2)
 
-voting = {}
-for j in range(17):
-    voting[j] = 0
-print(voting)
+# voting = {}
+# for j in range(17):
+#     voting[j] = 0
+# print(voting)
 
 # for train_index, val_index in kf.split(x_train, y_train):
 
@@ -256,7 +193,7 @@ print(voting)
 #         4,
 #         x_val,
 #         y_val,
-#         # labels_correlation_windowless,
+#         labels_correlation_windowless,
 #         f,
 #         500,
 #         correlation_scores,
@@ -289,7 +226,7 @@ for train_index, val_index in kf.split(x_train, y_train):
     checkpoint_path = os.path.join(output_folder_cv, "best_model_checkpoint.h5")
     model_checkpoint = tfk.callbacks.ModelCheckpoint(
         checkpoint_path,
-        monitor="val_f1_score",
+        monitor="val_accuracy",
         save_best_only=True,
         save_weights_only=True,
         verbose=1,
@@ -308,18 +245,18 @@ for train_index, val_index in kf.split(x_train, y_train):
     history = model.fit(
         x=x_train_k,
         y=y_train_k,
-        epochs=50,
+        epochs=120,
         validation_data=(x_val, y_val),
-        # class_weight=class_weights_dict,
+        class_weight=class_weights_dict,
         callbacks=[
             tfk.callbacks.EarlyStopping(
                 monitor="accuracy",
                 mode="max",
-                patience=15,
+                patience=20,
                 restore_best_weights=True,
             ),
             tfk.callbacks.ReduceLROnPlateau(
-                monitor="accuracy", mode="max", patience=15, factor=0.5
+                monitor="accuracy", mode="max", patience=20, factor=0.5
             ),
             model_checkpoint,
         ],
@@ -404,20 +341,20 @@ for train_index, val_index in kf.split(x_train, y_train):
     test_results["test_confusion_matrix"].append(
         confusion_matrix(y_test, y_test_pred_nohot)
     )
-
-    cv_results["val_accuracy"].append(accuracy_score(y_fold_val, y_val_pred_nohot))
+    f1 = f1_score(y_val, y_val_pred_nohot, average="macro")
+    weighted_f1 = f1_score(y_val, y_val_pred_nohot, average="weighted")
+    print("Test Accuracy:", test_results["test_accuracy"])
+    print("Test F1 score:", test_results["test_f1_score"])
+    print("Test weighted F1 score:", test_results["test_weighted_f1_score"])
+    cv_results["val_accuracy"].append(accuracy_score(y_val, y_val_pred_nohot))
     cv_results["val_f1_score"].append(f1)
     cv_results["val_weighted_f1_score"].append(weighted_f1)
     cv_results["val_confusion_matrix"].append(conf_matrix_val)
     cv_results["val_best_weights"].append(model.get_weights())
 
-    cv_results["val_loss"].append(history.history["loss"])
-    cv_results["train_acc_history"].append(history.history["accuracy"])
-    cv_results["val_acc_history"].append(history.history["val_accuracy"])
-
-    print("Test Accuracy:", test_results["test_accuracy"])
-    print("Test F1 score:", test_results["test_f1_score"])
-    print("Test weighted F1 score:", test_results["test_weighted_f1_score"])
+    # cv_results["val_loss"].append(history.history["loss"])
+    # cv_results["train_acc_history"].append(history.history["accuracy"])
+    # cv_results["val_acc_history"].append(history.history["val_accuracy"])
 
     # Plot the confusion matrix
     plt.figure(figsize=(10, 8))

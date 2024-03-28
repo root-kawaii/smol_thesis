@@ -31,7 +31,7 @@ def split_list_by_lengths(data_list, lengths):
     result = []
     start = 0
     for length in lengths:
-        result.append(data_list[:, start : start + length])
+        result.append(data_list[start : start + length])
         start += length
     return result
 
@@ -58,8 +58,6 @@ def correlate_function(
     print(lengths)
     # Split the data_list based on split_indices
     data_merge = split_list_by_lengths(data_merge, lengths)
-    print(len(data_merge))
-    # print(len(data_merge[0]))
     # result = np.array(result)
     # print(len(result[1][2]))
     corr_list = []
@@ -157,26 +155,31 @@ def correlate_function_2(
 
 
 def correlate_function_right(
-    num_features, classes, data_merge, labels, f, window, correlation_scores
+    num_features,
+    classes,
+    data_merge,
+    labels,
+    labels_correlation,
+    f,
+    window,
+    correlation_scores,
 ):
 
     epsilon = 0.8
     lengths = []
-    # test
-    print(data_merge[10][10])
     # need to re-write z_score with new correlation arguments
     for i in range(num_features):
         for o in data_merge:
             o[i] = stats.zscore(o[i])
-    # test
-    print(data_merge[10][10])
     for i in range(num_features):
-        print("...wip...")
+        current_time = datetime.now()
+        print(str(current_time))
 
-        same_col = 0
-        diff_col = 0
+        # same_col = 0
+        # diff_col = 0
+        same_col = []
+        diff_col = []
         for j, k in enumerate(data_merge):
-            print("dato")
             first_class = labels[j]
             same_col_counter = 0
             diff_col_counter = 0
@@ -185,17 +188,21 @@ def correlate_function_right(
                 if (k != w).all():
                     # print(data_merge[n][i])
                     # print(len(data_merge[n][i]))
-                    new = signal.correlate(k[i], w[i], mode="same")
+                    new = signal.correlate(k[i], w[i], mode="full")
                     new = max(new)
                     if first_class == second_class:
-                        same_col += new
+                        # same_col += new
+                        same_col.append(new)
                         same_col_counter += 1
                     else:
-                        diff_col += new
+                        # diff_col += new
+                        diff_col.append(new)
                         diff_col_counter += 1
 
-            avg_same_col = same_col / same_col_counter
-            avg_diff_col = diff_col / diff_col_counter
+            # avg_same_col = same_col / same_col_counter
+            # avg_diff_col = diff_col / diff_col_counter
+            avg_same_col = np.median(same_col)
+            avg_diff_col = np.median(diff_col)
             metric = (epsilon * (+1) * avg_same_col) + (
                 (1 - epsilon) * (-1) * avg_diff_col
             )

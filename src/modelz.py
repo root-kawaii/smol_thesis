@@ -168,7 +168,7 @@ def ENGNet22(
             "or Dropout, passed as a string."
         )
 
-    input1 = Input(shape=(Chans, 500, 1))
+    input1 = Input(shape=(Chans, 2500, 1))
 
     # input2 = tfkl.Reshape((16, 500, 1))(input1)
     ##################################################################
@@ -184,7 +184,6 @@ def ENGNet22(
         (1, kernLength),
         padding="same",
         input_shape=(Chans, Samples, 1),
-        use_bias=False,
     )(concat0)
     block1 = BatchNormalization()(block1)
     block1 = DepthwiseConv2D(
