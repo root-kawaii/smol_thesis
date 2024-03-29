@@ -156,12 +156,8 @@ def correlate_function_2(
 
 def correlate_function_right(
     num_features,
-    classes,
     data_merge,
     labels,
-    labels_correlation,
-    f,
-    window,
     correlation_scores,
 ):
 
@@ -208,3 +204,9 @@ def correlate_function_right(
             )
             correlation_scores[i] += metric
         print(correlation_scores[i])
+
+
+# def correlation_with_500_window(x1, x2, correlation_scores):
+#     for i in range(len(x1)):
+#         new = signal.correlate(x1[i], x2[i, 0:500], mode="full")
+#         return max(new)

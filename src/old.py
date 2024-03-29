@@ -577,7 +577,7 @@ labels_correlation_windowless = print_value_counts(labels_list_windowless)
 
 # Compute class weights
 class_weights = compute_class_weight(
-    class_weight="balanced", classes=np.unique(labels_list), y=labels_list
+    class_weight="balanced", classes=np.unique(labels_list), y=y_samp
 )
 print(labels_correlation_windowless)
 
@@ -930,13 +930,7 @@ f.write("\n")
 # f.close()
 
 
-
-
-
-
 ################################
-
-
 
 
 import neo

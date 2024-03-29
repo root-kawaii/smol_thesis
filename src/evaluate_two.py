@@ -69,7 +69,7 @@ counter = 0
 all_classes = []
 all_classes_windowless = []
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-channel_bool = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+channel_bool = [0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
 num_features = 0
 for i in channel_bool:
     if i:
@@ -138,27 +138,27 @@ class_weights_dict = dict(enumerate(class_weights))
 # plt.axvline(x=gh, color="r", linestyle="--")
 # plt.show()
 
-labels_correlation_windowless = print_value_counts(y_samp)
-lengths = []
-for kk in labels_correlation_windowless.values():
-    lengths.append(kk)
-print(lengths)
-# Split the data_list based on split_indices
-data_merge = split_list_by_lengths(x_samp_tt, lengths)
+# labels_correlation_windowless = print_value_counts(y_samp)
+# lengths = []
+# for kk in labels_correlation_windowless.values():
+#     lengths.append(kk)
+# print(lengths)
+# # Split the data_list based on split_indices
+# data_merge = split_list_by_lengths(x_samp_tt, lengths)
 
-new_reduced_labels = []
-for i in range(len(data_merge)):
-    splice_index = int(len(data_merge[i]) * 0.50)
-    data_merge[i] = data_merge[i][0:splice_index]
-    new_reduced_labels.extend([i] * splice_index)
+# new_reduced_labels = []
+# for i in range(len(data_merge)):
+#     splice_index = int(len(data_merge[i]) * 0.50)
+#     data_merge[i] = data_merge[i][0:splice_index]
+#     new_reduced_labels.extend([i] * splice_index)
 
-print(len(data_merge[2]))
-x_samp_tt = np.concatenate(data_merge)
-print(x_samp_tt.shape)
-new_reduced_labels = np.array(new_reduced_labels)
+# print(len(data_merge[2]))
+# x_samp_tt = np.concatenate(data_merge)
+# print(x_samp_tt.shape)
+# new_reduced_labels = np.array(new_reduced_labels)
 
 x_train, x_test, y_train, y_test = train_test_split(
-    x_samp_tt, new_reduced_labels, train_size=train_ratio, shuffle=True, random_state=42
+    x_samp_tt, y_samp, train_size=train_ratio, shuffle=True, random_state=42
 )
 
 # y_samp_2 = []
@@ -247,7 +247,7 @@ for train_index, val_index in kf.split(x_train, y_train):
         y=y_train_k,
         epochs=120,
         validation_data=(x_val, y_val),
-        class_weight=class_weights_dict,
+        # class_weight=class_weights_dict,
         callbacks=[
             tfk.callbacks.EarlyStopping(
                 monitor="accuracy",
