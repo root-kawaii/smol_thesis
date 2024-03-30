@@ -168,7 +168,7 @@ def ENGNet22(
             "or Dropout, passed as a string."
         )
 
-    input1 = Input(shape=(Chans, 2500, 1))
+    input1 = Input(shape=(Chans, 500, 1))
 
     # input2 = tfkl.Reshape((16, 500, 1))(input1)
     ##################################################################

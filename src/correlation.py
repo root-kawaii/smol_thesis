@@ -160,7 +160,6 @@ def correlate_function_right(
     labels,
     correlation_scores,
 ):
-
     epsilon = 0.8
     lengths = []
     # need to re-write z_score with new correlation arguments
