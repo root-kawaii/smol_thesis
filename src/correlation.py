@@ -209,3 +209,25 @@ def correlate_function_right(
 #     for i in range(len(x1)):
 #         new = signal.correlate(x1[i], x2[i, 0:500], mode="full")
 #         return max(new)
+
+
+def top_indices(arr, x):
+    """
+    Return the indices of the top x elements of the array arr.
+
+    Parameters:
+        arr (numpy.ndarray): Input array.
+        x (int): Number of indices to return.
+
+    Returns:
+        numpy.ndarray: Indices of the top x elements.
+    """
+    # Use argsort to get the indices that would sort the array in ascending order
+    sorted_indices = np.argsort(arr)
+
+    # Take the last x indices from the sorted array to get the top x indices
+    top_x_indices = sorted_indices[-x:]
+
+    flipped_arr = top_x_indices[::-1]
+
+    return flipped_arr

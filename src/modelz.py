@@ -168,7 +168,7 @@ def ENGNet22(
             "or Dropout, passed as a string."
         )
 
-    input1 = Input(shape=(Chans, 500, 1))
+    input1 = Input(shape=(Chans, 2500, 1))
 
     # input2 = tfkl.Reshape((16, 500, 1))(input1)
     ##################################################################
@@ -258,3 +258,180 @@ def ENGNet22(
 #             2 * (precision * recall) / (precision + recall + tf.keras.backend.epsilon())
 #         )
 #         return f1
+
+
+def EEGNet10(
+    nb_classes,
+    Chans,
+    Samples=500,
+    dropoutRate=0.5,
+    kernLength=100,
+    F1=16,
+    D=2,
+    F2=32,
+    norm_rate=0.25,
+    dropoutType="Dropout",
+):
+
+    if dropoutType == "SpatialDropout2D":
+        dropoutType = SpatialDropout2D
+    elif dropoutType == "Dropout":
+        dropoutType = Dropout
+    else:
+        raise ValueError(
+            "dropoutType must be one of SpatialDropout2D "
+            "or Dropout, passed as a string."
+        )
+
+    input1 = Input(shape=(Chans, 500, 1))
+    ##################################################################
+
+    block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input1)
+    block2 = tfkl.Reshape((Chans, 1, 1))(block1)
+    block3 = tfkl.Dense(Chans, activation="sigmoid", name="dense2")(block2)
+    concat0 = tfkl.multiply([block3, input1])
+
+    ##################################################################
+    block1 = Conv2D(
+        F1,
+        (1, kernLength),
+        padding="same",
+        input_shape=(Chans, Samples, 1),
+        use_bias=False,
+    )(concat0)
+    block1 = BatchNormalization()(block1)
+
+    block1 = DepthwiseConv2D(
+        (Chans, 1),
+        use_bias=False,
+        depth_multiplier=D,
+        depthwise_constraint=max_norm(1.0),
+    )(block1)
+
+    block1 = BatchNormalization()(block1)
+    block1 = Activation("elu")(block1)
+    block1 = AveragePooling2D((1, kernLength // 10))(block1)
+    block1 = dropoutType(dropoutRate // 2.5)(block1)
+
+    # block2      = SeparableConv2D(F2, (1, 16), use_bias = False, padding = 'same') (block1)
+
+    block2 = SeparableConv2D(F2, (1, kernLength // 4), use_bias=False, padding="same")(
+        block1
+    )
+
+    block2 = BatchNormalization()(block2)
+    block2 = Activation("elu")(block2)
+    block2 = AveragePooling2D((1, kernLength // 25))(block2)
+    block2 = dropoutType(dropoutRate)(block2)
+
+    flatten = Flatten(name="flatten")(block2)
+
+    dense = Dense(nb_classes, name="dense", kernel_constraint=max_norm(norm_rate))(
+        flatten
+    )
+    softmax = Activation("softmax", name="softmax")(dense)
+
+    model = tfk.models.Model(inputs=input1, outputs=softmax)
+
+    # learning_rate = tf.Variable(0.1, trainable=False)
+    # tf.keras.backend.set_value(learning_rate, 0.1)
+
+    model.compile(
+        loss="sparse_categorical_crossentropy",
+        optimizer=tf.keras.optimizers.legacy.Adam(
+            learning_rate=0.0002
+        ),  # put this as it should perform better on m1/m2 macs, change to tfk.optimizers.Adam(lr=1) for different architecture
+        metrics="accuracy",
+    )
+
+    return model
+
+
+def EEGNetK50(
+    nb_classes,
+    Chans,
+    Samples=500,
+    dropoutRate=0.5,
+    kernLength=50,
+    F1=16,
+    D=2,
+    F2=32,
+    norm_rate=0.25,
+    dropoutType="Dropout",
+):
+
+    if dropoutType == "SpatialDropout2D":
+        dropoutType = SpatialDropout2D
+    elif dropoutType == "Dropout":
+        dropoutType = Dropout
+    else:
+        raise ValueError(
+            "dropoutType must be one of SpatialDropout2D "
+            "or Dropout, passed as a string."
+        )
+
+    input1 = Input(shape=(Chans, Samples, 1))
+    ##################################################################
+
+    block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input1)
+    block2 = tfkl.Reshape((Chans, 1, 1))(block1)
+    block3 = tfkl.Dense(Chans, activation="sigmoid", name="dense2")(block2)
+    concat0 = tfkl.multiply([block3, input1])
+
+    ##################################################################
+
+    block1 = Conv2D(
+        F1,
+        (1, kernLength),
+        padding="same",
+        input_shape=(Chans, Samples, 1),
+        use_bias=False,
+    )(concat0)
+    block1 = BatchNormalization()(block1)
+
+    block1 = DepthwiseConv2D(
+        (Chans, 1),
+        use_bias=False,
+        depth_multiplier=D,
+        depthwise_constraint=max_norm(1.0),
+    )(block1)
+
+    block1 = BatchNormalization()(block1)
+    block1 = Activation("elu")(block1)
+    block1 = AveragePooling2D((1, kernLength // 10))(block1)
+    block1 = dropoutType(dropoutRate // 2.5)(block1)
+
+    # block2      = SeparableConv2D(F2, (1, 16), use_bias = False, padding = 'same') (block1)
+
+    block2 = SeparableConv2D(F2, (1, kernLength // 4), use_bias=False, padding="same")(
+        block1
+    )
+
+    block2 = BatchNormalization()(block2)
+    block2 = Activation("elu")(block2)
+    block2 = AveragePooling2D((1, kernLength // 25))(block2)
+    block2 = dropoutType(dropoutRate)(block2)
+
+    flatten = Flatten(name="flatten")(block2)
+
+    dense = Dense(nb_classes, name="dense", kernel_constraint=max_norm(norm_rate))(
+        flatten
+    )
+    softmax = Activation("softmax", name="softmax")(dense)
+
+    ##################################################################
+
+    model = tfk.models.Model(inputs=input1, outputs=softmax)
+
+    # learning_rate = tf.Variable(0.1, trainable=False)
+    # tf.keras.backend.set_value(learning_rate, 0.1)
+
+    model.compile(
+        loss="sparse_categorical_crossentropy",
+        optimizer=tf.keras.optimizers.legacy.Adam(
+            learning_rate=0.0002
+        ),  # put this as it should perform better on m1/m2 macs, change to tfk.optimizers.Adam(lr=1) for different architecture
+        metrics="accuracy",
+    )
+
+    return model

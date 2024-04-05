@@ -1,21 +1,10 @@
-import neo
 import os
 from matplotlib import pyplot as plt
 import numpy as np
-import scipy
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold, StratifiedKFold, train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.utils.class_weight import compute_class_weight
-import copy
-import scipy.io
 
-# from sklearn.svm import SVC
-import mne
-
-# from mne.decoding import CSP
-import asrpy
-from asrpy import asr_calibrate, asr_process, clean_windows
 
 # from mne.decoding import UnsupervisedSpatialFilter
 # from sklearn.decomposition import PCA, FastICA
@@ -26,13 +15,6 @@ from modelz import *
 # from intervals_mat import *
 
 from datetime import datetime
-from correlation import (
-    correlate_function_2,
-    correlate_function,
-    correlate_function_right,
-    split_list_by_lengths,
-)
-import pywt
 
 from builtins import range
 from utils import *
@@ -69,7 +51,9 @@ counter = 0
 all_classes = []
 all_classes_windowless = []
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-channel_bool = [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+channel_bool = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+
+
 num_features = 0
 for i in channel_bool:
     if i:
@@ -80,8 +64,8 @@ check = 0
 f = open("results.txt", "a")
 current_time = datetime.now()
 
-path_folder = "../500ms/"
-file_name = [f for f in os.listdir("../500ms/")]
+path_folder = "../100ms/"
+file_name = [f for f in os.listdir("../100ms/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])
@@ -208,7 +192,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 into = 0
 for train_index, val_index in kf.split(x_train, y_train):
     into += 1
-    model = ENGNet22(
+    model = EEGNetK50(
         4,
         num_features,
     )
