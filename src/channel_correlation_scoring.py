@@ -37,8 +37,8 @@ from correlation import split_list_by_lengths
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 f = open("results.txt", "a")
-path_folder = "../500ms/"
-file_name = [f for f in os.listdir("../500ms/")]
+path_folder = "../100ms_3/"
+file_name = [f for f in os.listdir("../100ms_3/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])
@@ -97,105 +97,107 @@ data_merge_conc = np.concatenate(data_merge, axis=0)
 counter = 0
 
 epsilon = 0.8
-# for k in range(16):
-#     for i in range(len(data_merge)):
-#         score = []
-#         for j in range(len(data_merge_I[0])):
-#             score.append(
-#                 max(
-#                     signal.correlate(
-#                         data_merge_I[i][j][k, 0:500],
-#                         data_merge_II[i][j][k, 0:500],
-#                         mode="same",
-#                     )
-#                 )
-#             )
-#         # print("\n")
-#         # print(score)
-#         # print(len(score))
-#         # print("\n")
-#         correlation_scores[k] += 0.8 * np.median(score)
 
-# # print(correlation_scores)
-
-# for k in range(16):
-#     for i in range(len(data_merge)):
-#         score = []
-#         for j in range(len(data_merge_I[0])):
-#             x = copy.copy(data_merge_II)
-#             x.pop(i)
-#             if j < 8:
-#                 score.append(
-#                     max(
-#                         signal.correlate(
-#                             data_merge_I[i][j][k, 0:500],
-#                             x[0][j][k, 0:500],
-#                             mode="same",
-#                         )
-#                     )
-#                 )
-#             elif j > 7 and j < 16:
-#                 score.append(
-#                     max(
-#                         signal.correlate(
-#                             data_merge_I[i][j][k, 0:500],
-#                             x[1][j][k, 0:500],
-#                             mode="same",
-#                         )
-#                     )
-#                 )
-#             else:
-#                 score.append(
-#                     max(
-#                         signal.correlate(
-#                             data_merge_I[i][j][k, 0:500],
-#                             x[2][j][k, 0:500],
-#                             mode="same",
-#                         )
-#                     )
-#                 )
-#         # print("\n")
-#         # print(score)
-#         # print(len(score))
-#         # print("\n")
-#         correlation_scores[k] -= 0.2 * np.median(score)
-
+# print(correlation_scores)
 for i in range(100):
-    print("cycling...")
+
     for k in range(16):
-        same_class_score = []
-        diff_class_score = []
-        for ch2 in range(16):
-            if k != ch2:
-                for i in range(len(data_merge)):
-                    for h in range(len(data_merge)):
-                        if i == h:
-                            for j in range(5):
-                                same_class_score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][k][j, 0:2500],
-                                            data_merge_II[h][ch2][j, 0:500],
-                                            mode="same",
-                                        )
-                                    )
-                                )
-                        else:
-                            for j in range(5):
-                                diff_class_score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][k][j, 0:2500],
-                                            data_merge_II[h][ch2][j, 0:500],
-                                            mode="same",
-                                        )
-                                    )
-                                )
-        # print(len(same_class_score))
-        # print(len(diff_class_score))
-        correlation_scores[k] += epsilon * np.median(same_class_score) + (
-            1 - epsilon
-        ) * -1 * np.median(diff_class_score)
+        for i in range(len(data_merge)):
+            score = []
+            for j in range(len(data_merge_I[0])):
+                score.append(
+                    max(
+                        signal.correlate(
+                            data_merge_I[i][j][k, 0:500],
+                            data_merge_II[i][j][k, 0:500],
+                            mode="same",
+                        )
+                    )
+                )
+            # print("\n")
+            # print(score)
+            # print(len(score))
+            # print("\n")
+            correlation_scores[k] += 0.8 * np.median(score)
+
+    for k in range(16):
+        for i in range(len(data_merge)):
+            score = []
+            for j in range(len(data_merge_I[0])):
+                x = copy.copy(data_merge_II)
+                x.pop(i)
+                if j < 8:
+                    score.append(
+                        max(
+                            signal.correlate(
+                                data_merge_I[i][j][k, 0:500],
+                                x[0][j][k, 0:500],
+                                mode="same",
+                            )
+                        )
+                    )
+                elif j > 7 and j < 16:
+                    score.append(
+                        max(
+                            signal.correlate(
+                                data_merge_I[i][j][k, 0:500],
+                                x[1][j][k, 0:500],
+                                mode="same",
+                            )
+                        )
+                    )
+                else:
+                    score.append(
+                        max(
+                            signal.correlate(
+                                data_merge_I[i][j][k, 0:500],
+                                x[2][j][k, 0:500],
+                                mode="same",
+                            )
+                        )
+                    )
+            # print("\n")
+            # print(score)
+            # print(len(score))
+            # print("\n")
+            correlation_scores[k] -= 0.2 * np.median(score)
+
+# for i in range(100):
+#     print("cycling...")
+#     for k in range(16):
+#         same_class_score = []
+#         diff_class_score = []
+#         for ch2 in range(16):
+#             if k != ch2:
+#                 for i in range(len(data_merge)):
+#                     for h in range(len(data_merge)):
+#                         if i == h:
+#                             for j in range(5):
+#                                 same_class_score.append(
+#                                     max(
+#                                         signal.correlate(
+#                                             data_merge_I[i][k][j, 0:2500],
+#                                             data_merge_II[h][ch2][j, 0:500],
+#                                             mode="same",
+#                                         )
+#                                     )
+#                                 )
+#                         else:
+#                             for j in range(5):
+#                                 diff_class_score.append(
+#                                     max(
+#                                         signal.correlate(
+#                                             data_merge_I[i][k][j, 0:2500],
+#                                             data_merge_II[h][ch2][j, 0:500],
+#                                             mode="same",
+#                                         )
+#                                     )
+#                                 )
+#         # print(len(same_class_score))
+#         # print(len(diff_class_score))
+#         correlation_scores[k] += epsilon * np.median(same_class_score) + (
+#             1 - epsilon
+#         ) * -1 * np.median(diff_class_score)
 
 
 print(correlation_scores)

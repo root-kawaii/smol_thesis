@@ -260,7 +260,7 @@ def ENGNet22(
 #         return f1
 
 
-def EEGNet10(
+def EEGNet100(
     nb_classes,
     Chans,
     Samples=500,
@@ -287,8 +287,8 @@ def EEGNet10(
     ##################################################################
 
     block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input1)
-    block2 = tfkl.Reshape((Chans, 1, 1))(block1)
-    block3 = tfkl.Dense(Chans, activation="sigmoid", name="dense2")(block2)
+    # block2 = tfkl.Reshape((Chans, 1, 1))(block1)
+    block3 = tfkl.Dense(1, activation="sigmoid", name="dense2")(block1)
     concat0 = tfkl.multiply([block3, input1])
 
     ##################################################################
@@ -371,15 +371,14 @@ def EEGNetK50(
         )
 
     input1 = Input(shape=(Chans, Samples, 1))
-    ##################################################################
 
+    ##################################################################
     block1 = tfkl.GlobalAveragePooling2D(data_format="channels_first")(input1)
-    block2 = tfkl.Reshape((Chans, 1, 1))(block1)
-    block3 = tfkl.Dense(Chans, activation="sigmoid", name="dense2")(block2)
+    # block2 = tfkl.Reshape((Chans, 1, 1))(block1)
+    block3 = tfkl.Dense(1, activation="sigmoid", name="dense2")(block1)
     concat0 = tfkl.multiply([block3, input1])
 
     ##################################################################
-
     block1 = Conv2D(
         F1,
         (1, kernLength),

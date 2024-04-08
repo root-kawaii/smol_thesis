@@ -23,9 +23,6 @@ from utils import *
 tfk = tf.keras
 tfkl = tf.keras.layers
 
-
-files_mat = [f for f in os.listdir("../100ms/")]
-
 # Initialize variables to store cross-validation results
 cv_results = {
     "val_accuracy": [],
@@ -51,7 +48,7 @@ counter = 0
 all_classes = []
 all_classes_windowless = []
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-channel_bool = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+channel_bool = [1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0]
 
 
 num_features = 0
@@ -64,8 +61,8 @@ check = 0
 f = open("results.txt", "a")
 current_time = datetime.now()
 
-path_folder = "../100ms/"
-file_name = [f for f in os.listdir("../100ms/")]
+path_folder = "../100ms_3/"
+file_name = [f for f in os.listdir("../100ms_3/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])
@@ -192,7 +189,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 into = 0
 for train_index, val_index in kf.split(x_train, y_train):
     into += 1
-    model = EEGNetK50(
+    model = EEGNet100(
         4,
         num_features,
     )

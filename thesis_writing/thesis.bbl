@@ -1,8 +1,34 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Campbell(2008)]{campbellEvaluationManagementPeripheral2008}
+W.~W. Campbell.
+\newblock Evaluation and management of peripheral nerve injury.
+\newblock \emph{Clinical Neurophysiology}, 119\penalty0 (9):\penalty0 1951--1965, Sept. 2008.
+\newblock ISSN 1388-2457.
+\newblock \doi{10.1016/j.clinph.2008.03.018}.
+
+\bibitem[Garbellini(2020)]{garbelliniPNRELAY2020}
+C.~Garbellini.
+\newblock {{PN RELAY}}.
+\newblock https://www.asp-poli.it/pn-relay/, Nov. 2020.
+
+\bibitem[Taylor et~al.(2008)Taylor, Braza, Rice, and Dillingham]{taylorIncidencePeripheralNerve2008}
+C.~A. Taylor, D.~Braza, J.~B. Rice, and T.~Dillingham.
+\newblock The {{Incidence}} of {{Peripheral Nerve Injury}} in {{Extremity Trauma}}.
+\newblock \emph{American Journal of Physical Medicine \& Rehabilitation}, 87\penalty0 (5):\penalty0 381, May 2008.
+\newblock ISSN 0894-9115.
+\newblock \doi{10.1097/PHM.0b013e31815e6370}.
+
+\bibitem[Zhang et~al.(2022)Zhang, Huang, Zhi, Wu, Wang, and Pei]{zhangResearchHotspotsTrends2022}
+S.~Zhang, M.~Huang, J.~Zhi, S.~Wu, Y.~Wang, and F.~Pei.
+\newblock Research {{Hotspots}} and {{Trends}} of {{Peripheral Nerve Injuries Based}} on {{Web}} of {{Science From}} 2017 to 2021: {{A Bibliometric Analysis}}.
+\newblock \emph{Frontiers in Neurology}, 13, May 2022.
+\newblock ISSN 1664-2295.
+\newblock \doi{10.3389/fneur.2022.872261}.
 
 \end{thebibliography}
