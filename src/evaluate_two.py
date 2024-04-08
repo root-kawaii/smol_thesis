@@ -56,6 +56,7 @@ for i in channel_bool:
     if i:
         num_features += 1
 
+# ..
 num_electrodes = 0
 check = 0
 f = open("results.txt", "a")
