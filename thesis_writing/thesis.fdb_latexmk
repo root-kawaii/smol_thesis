@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1712611897.11525 "thesis.aux" "thesis.bbl" "thesis" 1712611901.08334 0
+["bibtex thesis"] 1712764412.68221 "thesis.aux" "thesis.bbl" "thesis" 1712764415.09961 0
   "./Thesis_bibliography.bib" 1712594740.35102 42446 9b114025b1d6a5ec24799bd267554ff4 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1710106625 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "thesis.aux" 1712611900.51116 5576 4e7f375d58ce6c977bb0a0f0ddb7fa62 "pdflatex"
+  "thesis.aux" 1712764414.71091 5537 fd665256a38aefbd530a5785fb0c7d7f "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1712611897.27129 "/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex" "thesis.pdf" "thesis" 1712611901.08357 0
-  "/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex" 1712611895.81716 14281 2030e296ea40ccd09ac8c46599f99a26 ""
+["pdflatex"] 1712764412.85598 "/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex" "thesis.pdf" "thesis" 1712764415.09985 0
+  "/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex" 1712764409.89859 14252 aae2de6a9ab41a0ff85a23806e2ba2b4 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1710106625 5472554 f7861620179a71a79d4bd86251f559d0 ""
@@ -231,13 +231,13 @@
   "Configuration_Files/config.tex" 1706722435.98787 2205 5d2bad9fb593108f48a04f2df8a0320e ""
   "Images/./raggiera_polimi.eps" 1706722714.66919 1813066 dca994a8e6dbfff46979ea0a845ddce3 ""
   "Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO.eps" 1706722861.93087 1016894 87cec33dc4ce62619be8e2b6e306843d ""
-  "thesis.aux" 1712611900.51116 5576 4e7f375d58ce6c977bb0a0f0ddb7fa62 "pdflatex"
-  "thesis.bbl" 1712611897.26133 1604 fa6a97835daa548c79777ec6576bbcfc "bibtex thesis"
-  "thesis.lof" 1712611900.51349 150 7460b00ca4c2d98f724b7acc062e00fd "pdflatex"
-  "thesis.lot" 1712611900.51355 150 7460b00ca4c2d98f724b7acc062e00fd "pdflatex"
-  "thesis.out" 1712611900.51301 4477 d61d9cec4b6cec24b3650687714b03af "pdflatex"
-  "thesis.tex" 1712611895.81716 14281 2030e296ea40ccd09ac8c46599f99a26 ""
-  "thesis.toc" 1712611900.51343 2501 a4c6b49a9839cac838cfb2129fd06c6c "pdflatex"
+  "thesis.aux" 1712764414.71091 5537 fd665256a38aefbd530a5785fb0c7d7f "pdflatex"
+  "thesis.bbl" 1712764412.85076 1604 fa6a97835daa548c79777ec6576bbcfc "bibtex thesis"
+  "thesis.lof" 1712764414.71861 150 7460b00ca4c2d98f724b7acc062e00fd "pdflatex"
+  "thesis.lot" 1712764414.71867 150 7460b00ca4c2d98f724b7acc062e00fd "pdflatex"
+  "thesis.out" 1712764414.71797 4261 4d4334b75637076cb7b3423368251e13 "pdflatex"
+  "thesis.tex" 1712764409.89859 14252 aae2de6a9ab41a0ff85a23806e2ba2b4 ""
+  "thesis.toc" 1712764414.71852 2462 bfebb9751e3c947d0b17ac8340b347a8 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"

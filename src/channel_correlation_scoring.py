@@ -35,10 +35,12 @@ from utils import *
 from correlation import split_list_by_lengths
 
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+correlation_scores_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+correlation_scores_2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 f = open("results.txt", "a")
-path_folder = "../100ms_3/"
-file_name = [f for f in os.listdir("../100ms_3/")]
+path_folder = "../data/500ms_2/"
+file_name = [f for f in os.listdir("../data/500ms_2/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])
@@ -76,17 +78,19 @@ for j in range(len(data_merge)):
 
 for i in range(len(data_merge)):
     # splice_index = int(len(data_merge[i]) * 0.50)
-    random_number = random.randint(0, lengths[i] - 49)
-    data_merge[i] = data_merge[i][random_number : random_number + 48]
-    new_reduced_labels.extend([i] * 48)
+    random_number = random.randint(0, lengths[i] - 81)
+    data_merge[i] = data_merge[i][random_number : random_number + 80]
+    new_reduced_labels.extend([i] * 80)
 
 
 data_merge_I = []
 data_merge_II = []
 
 for i in range(len(data_merge)):
-    data_merge_I.append(data_merge[i][0:24])
-    data_merge_II.append(data_merge[i][24:48])
+    data_merge_I.append(data_merge[i][0:40])
+    data_merge_II.append(data_merge[i][40:80])
+
+
 # x_samp_tt = np.concatenate(data_merge)
 # print("ciao")
 # print(x_samp_tt.shape)
@@ -98,7 +102,8 @@ counter = 0
 
 epsilon = 0.8
 
-# print(correlation_scores)
+
+print(correlation_scores)
 for i in range(100):
 
     for k in range(16):
@@ -108,7 +113,7 @@ for i in range(100):
                 score.append(
                     max(
                         signal.correlate(
-                            data_merge_I[i][j][k, 0:500],
+                            data_merge_I[i][j][k, 0:2500],
                             data_merge_II[i][j][k, 0:500],
                             mode="same",
                         )
@@ -118,7 +123,7 @@ for i in range(100):
             # print(score)
             # print(len(score))
             # print("\n")
-            correlation_scores[k] += 0.8 * np.median(score)
+            correlation_scores_1[k] += np.median(score)
 
     for k in range(16):
         for i in range(len(data_merge)):
@@ -130,7 +135,7 @@ for i in range(100):
                     score.append(
                         max(
                             signal.correlate(
-                                data_merge_I[i][j][k, 0:500],
+                                data_merge_I[i][j][k, 0:2500],
                                 x[0][j][k, 0:500],
                                 mode="same",
                             )
@@ -140,7 +145,7 @@ for i in range(100):
                     score.append(
                         max(
                             signal.correlate(
-                                data_merge_I[i][j][k, 0:500],
+                                data_merge_I[i][j][k, 0:2500],
                                 x[1][j][k, 0:500],
                                 mode="same",
                             )
@@ -150,7 +155,7 @@ for i in range(100):
                     score.append(
                         max(
                             signal.correlate(
-                                data_merge_I[i][j][k, 0:500],
+                                data_merge_I[i][j][k, 0:2500],
                                 x[2][j][k, 0:500],
                                 mode="same",
                             )
@@ -160,9 +165,16 @@ for i in range(100):
             # print(score)
             # print(len(score))
             # print("\n")
-            correlation_scores[k] -= 0.2 * np.median(score)
+            correlation_scores_2[k] -= np.median(score)
 
-# for i in range(100):
+for i in range(16):
+    correlation_scores[i] += (
+        epsilon * correlation_scores_1[i] / 100
+        + (1 - epsilon) * correlation_scores_2[i] / 100
+    )
+
+
+# for y in range(8):
 #     print("cycling...")
 #     for k in range(16):
 #         same_class_score = []
@@ -172,34 +184,37 @@ for i in range(100):
 #                 for i in range(len(data_merge)):
 #                     for h in range(len(data_merge)):
 #                         if i == h:
-#                             for j in range(5):
+#                             for j in range(39):
 #                                 same_class_score.append(
 #                                     max(
 #                                         signal.correlate(
-#                                             data_merge_I[i][k][j, 0:2500],
-#                                             data_merge_II[h][ch2][j, 0:500],
+#                                             data_merge_I[i][j][k, 0:2500],
+#                                             data_merge_II[h][j][ch2, 0:500],
 #                                             mode="same",
 #                                         )
 #                                     )
 #                                 )
 #                         else:
-#                             for j in range(5):
+#                             for j in range(39):
 #                                 diff_class_score.append(
 #                                     max(
 #                                         signal.correlate(
-#                                             data_merge_I[i][k][j, 0:2500],
-#                                             data_merge_II[h][ch2][j, 0:500],
+#                                             data_merge_I[i][j][k, 0:2500],
+#                                             data_merge_II[h][j][ch2, 0:500],
 #                                             mode="same",
 #                                         )
 #                                     )
 #                                 )
 #         # print(len(same_class_score))
 #         # print(len(diff_class_score))
+#         correlation_scores_1[k] += np.median(same_class_score)
+#         correlation_scores_2[k] += np.median(diff_class_score)
 #         correlation_scores[k] += epsilon * np.median(same_class_score) + (
 #             1 - epsilon
 #         ) * -1 * np.median(diff_class_score)
 
-
+print(correlation_scores_1)
+print(correlation_scores_2)
 print(correlation_scores)
 
 print(top_indices(correlation_scores, 16))
@@ -219,3 +234,129 @@ print(top_indices(correlation_scores, 16))
 # for i, j in enumerate(correlation_scores):
 #     correlation_scores[i] = correlation_scores[i] / 5
 # print(correlation_scores)
+
+
+# x = [
+#     27741.894359805046,
+#     30456.98012862733,
+#     28359.515126905902,
+#     27196.5705345903,
+#     31359.662968022265,
+#     33643.65796149252,
+#     25005.298644436156,
+#     26715.147127287873,
+#     31610.14788118171,
+#     30488.104059332054,
+#     25407.14354390039,
+#     26306.929121814388,
+#     31785.600190838904,
+#     31555.79461742658,
+#     28593.309649886676,
+#     28904.723617399362,
+# ]
+
+# x_2 = [
+#     732.482053962357,
+#     761.6008655195773,
+#     737.1869873889632,
+#     720.8385499325378,
+#     770.6208815696847,
+#     795.8753604830462,
+#     692.7994325041677,
+#     722.4649055946104,
+#     769.7374985833649,
+#     768.6664703563209,
+#     703.9201442489036,
+#     711.7144499125869,
+#     770.9491007645128,
+#     774.3017718104165,
+#     734.7361788866406,
+#     741.8855067047688,
+# ]
+
+# y = [
+#     -27331.501740066582,
+#     -29629.078540779974,
+#     -28416.996871003208,
+#     -26825.654251823562,
+#     -30908.243196558695,
+#     -33515.918534939556,
+#     -24834.01815400629,
+#     -26993.645962758335,
+#     -30985.941116820486,
+#     -30964.55140997413,
+#     -25842.201600594155,
+#     -26473.052317600082,
+#     -31325.47416671485,
+#     -31556.608934585965,
+#     -27200.10897146471,
+#     -28918.706124248067,
+# ]
+
+# y_2 = [
+#     729.0314921657954,
+#     758.4481368845007,
+#     735.0648749393167,
+#     722.4477020334097,
+#     774.9469232883007,
+#     795.413411345846,
+#     691.5351060644781,
+#     722.8723226647076,
+#     770.8965811161656,
+#     766.5515475254643,
+#     701.7109935117617,
+#     715.1300164176663,
+#     772.8594611033423,
+#     774.0988579742669,
+#     733.0037817330648,
+#     743.1391090211035,
+# ]
+
+# x = correlation_scores_1
+# y = correlation_scores_2
+# z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# z_t = []
+# w = []
+
+# for i in range(11):
+#     epsilon = 0.1 + i / 10
+#     z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+#     for i in range(16):
+#         z[i] += epsilon * x[i] / 8 + (1 - epsilon) * -1 * y[i] / 8
+#     z_t.append(z)
+
+#     print(top_indices(z, 16))
+#     print(z)
+
+# import csv
+
+# with open("z_list.csv", "w", newline="") as csvfile:
+#     writer = csv.writer(csvfile)
+#     writer.writerow(
+#         [
+#             "Index",
+#             "0",
+#             "1",
+#             "2",
+#             "3",
+#             "4",
+#             "5",
+#             "6",
+#             "7",
+#             "8",
+#             "9",
+#             "10",
+#             "11",
+#             "12",
+#             "13",
+#             "14",
+#             "15",
+#         ]
+#     )
+#     # for j in range(len(z)):
+#     for i, value in enumerate(z_t):
+#         writer.writerow([i / 10] + value)
+
+
+# print(path_folder)

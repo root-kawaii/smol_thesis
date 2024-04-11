@@ -22,7 +22,7 @@
 \contentsline {section}{\numberline {3.7}Power Supplier}{5}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Memory management}{5}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Radiation absorbtion}{5}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Inotrduction to channel selection, maybe put this in sda}{5}{section.3.10}%
+\contentsline {section}{\numberline {3.10}Channel selection}{5}{section.3.10}%
 \contentsline {chapter}{\numberline {4}Conclusions and future developments}{7}{chapter.4}%
 \vspace {2em}
 \contentsline {chapter}{Bibliography\markboth {\MakeUppercase []{Bibliography}}{\MakeUppercase []{Bibliography}}}{9}{chapter*.12}%
