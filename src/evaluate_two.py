@@ -48,7 +48,7 @@ counter = 0
 all_classes = []
 all_classes_windowless = []
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-channel_bool = [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0]
+channel_bool = [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0]
 
 
 num_features = 0
@@ -62,8 +62,8 @@ check = 0
 f = open("results.txt", "a")
 current_time = datetime.now()
 
-path_folder = "../data/100ms_3/"
-file_name = [f for f in os.listdir("../data/100ms_3/")]
+path_folder = "../data/100ms_2/"
+file_name = [f for f in os.listdir("../data/100ms_2/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])

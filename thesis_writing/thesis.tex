@@ -222,7 +222,7 @@ The internal implant includes cuff electrodes for signal acquisition, the Senseb
 \section{Nervous Systems}
 
 \section{Signal Acquisition}
-\section{Datasets}
+
 
 
 \chapter{State of the Art}
@@ -230,12 +230,55 @@ The internal implant includes cuff electrodes for signal acquisition, the Senseb
 
 
 \section{Introduction to Bluetooth Low Energy}
+
+Firstly, we need to define that "Bluetooth low energy is a brand new technology that has been designed as both a complementary
+technology to classic Bluetooth as well as the lowest possible power wireless technology that can be
+designed and built. Although it uses the Bluetooth brand and borrows a lot of technology from its
+parent, Bluetooth low energy should be considered a different technology, addressing different design
+goals". \cite{heydonBluetoothLowEnergy2015}
+""chiara""
+The main advantage of the BLE over the
+standard Bluetooth is that it keeps the radio off as much as possible when no data has
+to be sent [47]. It is optimized for low power consumption and short-range
+communication; thus, it enables devices to operate on a small energy budget, making
+Bluetooth technology is based on a master-slave concept, where one device acts as the
+master and controls one or more slave devices. The master initiates and maintains the
+communication, while the slave devices respond to the master's commands. For this
+there are four roles that a BLE device can implement. A device can be a peripheral
+(slave), it advertises their presence and respond to central devices' requests. A central
+(master), instead, scans for these advertising packets and it could, if the advertisement
+packet allows it, connect to that device. Moreover, there are other two roles possible:
+the broadcaster and the observer. A broadcaster sends out advertising packets without
+allowing any connections, while an observer discovers peripherals and broadcasters,
+but without the capability of accepting connections from a central.
+""chiara""
+
 \section{Communication system}
 \section{Chiara code}
 \section{Communication speed}
 \section{ENGNet advantages and shortcomings}
 
-ciaooo
+EEGNet was introduced by [27] as a variant of CNN specifically designed for Brain- Computer Interace (BCI) applications. Its key advantage lies in being a compact ar- chitecture with fewer parameters compared to traditional CNNs. This makes EEGNet well-suited for processing EEG signals efficiently and effectively, enabling improved per- formance in BCI tasks while reducing computational complexity. EEGNet has also been tested for Steady-state Visual Evoked Potentials (SSVEP) signals, a type of EEG response elicited by visual stimulation [28]. These tests have demonstrated the versatility of EEG- Net in handling various EEG-based BCI tasks, showing promising results in accurately classifying SSVEP responses and opening up new possibilities for real-world applications in brain-computer communication and control systems.
+
+\section{ENGNet architecture}
+
+The architecture involves two convolutional steps, employing 2D convolutional filters to capture EEG signals at different band-pass frequencies and depthwise convolutions to learn spatial filters for each temporal filter. The approach also utilizes separable con- volutions to reduce the number of parameters and efficiently combine feature maps. In the classification block, softmax classification is directly applied to the extracted features without a dense layer, reducing the number of parameters in the model.
+
+
+\section{ENGNet layers}
+
+'foto'
+
+\section{ENGNet results}
+Analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet,
+
+Talk about limitation
+
+Comparison between validation and test re- sults showed that ENGNet can generalize well to new data. This can be further improved by increasing the dropout probability
+
+
+'foto dei results'
+
 
 
 \section{nrf5280 Board pros and cons}
@@ -243,6 +286,35 @@ ciaooo
 \section{Memory management}
 \section{Radiation absorbtion}
 \section{Channel selection}
+
+We have already described in previous sections the project at hand and why every possible improvement can ease the development of a functional implementation.
+One of those crucial aspects is the amount of information sent between the devices, in the particular the channels that get transmitted.
+As previously shown, the dataset at hand was registered using cuff electrodes chirurgically implanted on the animals' peripheral nerves; each of these cuff electrodes has 16 sensors that are able to measure the voltage of the nerve they cover.
+Each of these sensors, being in a different position, will register different data, furthermore one or more of these sensors may be damaged during the surgery or may record data with high noise.
+Because of this, not only it would be useful to limit the channel we share between devices to help with the communication, but we could also help the classifier by removing channels with faulty or noisy sensors.
+In short, the three benefits of channel selection are : reducing the computational complexity of any process on the dataset, reduce the amount of overfitting of the models and reudce the times to setup the application. \cite{alotaibyReviewChannelSelection2015}
+There is a great amount of literature that deals with the issues of channel selection of EEG channels, since it is a well known area of research and proves to be very helpful in reaching better results.
+In particular our area of interest focused on channel selection applied to motion-imagery EEG Signals (MI-EEG).
+We wanted to find algorithm that not only performed well on the usual Accuracy-F1Score metrics while reducing the numbers of channels, but also would fit well with our models.
+Given the architecture of our ENGNet model, we needed an algorithm to perform channel selectiom that would work with a Neural Network model.
+''' expand test case scenario and explain why '''
+In addition, given future test case scenarios we also needed an algorithm that could be performed in an "on-line" way, or as close to it as possible.
+To summarize we needed:
+''list''
+-online
+-Cnn ready
+-good performance on f1-Accuracy
+-works well with few channels
+''list''
+
+There are many algorithms that reduce noise...  \cite{abdullahEEGChannelSelection2022}
+but those are already inside the ENGNet since spatial features ...
+Talk about why ASR didn't improve, basically same reason.
+Ideally we would select channels, by iterating over all possible subsets of features but too much time.
+Particle swarm optimization no, beacuse too much time.
+Therefore correlation algorithms, promising and tested with CNN.
+Since we already had CNN why not implement a new algorithm that hasn't been well tested that requires to add one layer.
+Critical issue could be that generally black but we will discsuss it later.
 
 
 \chapter{Conclusions and future developments}

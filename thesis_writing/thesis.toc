@@ -11,25 +11,27 @@
 \contentsline {section}{\numberline {2.1}Norms}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Nervous Systems}{3}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Signal Acquisition}{3}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Datasets}{3}{section.2.4}%
 \contentsline {chapter}{\numberline {3}State of the Art}{5}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introduction to Bluetooth Low Energy}{5}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Communication system}{5}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Chiara code}{5}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Communication speed}{5}{section.3.4}%
-\contentsline {section}{\numberline {3.5}ENGNet advantages and shortcomings}{5}{section.3.5}%
-\contentsline {section}{\numberline {3.6}nrf5280 Board pros and cons}{5}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Power Supplier}{5}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Memory management}{5}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Radiation absorbtion}{5}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Channel selection}{5}{section.3.10}%
-\contentsline {chapter}{\numberline {4}Conclusions and future developments}{7}{chapter.4}%
+\contentsline {section}{\numberline {3.5}ENGNet advantages and shortcomings}{6}{section.3.5}%
+\contentsline {section}{\numberline {3.6}ENGNet architecture}{6}{section.3.6}%
+\contentsline {section}{\numberline {3.7}ENGNet layers}{6}{section.3.7}%
+\contentsline {section}{\numberline {3.8}ENGNet results}{6}{section.3.8}%
+\contentsline {section}{\numberline {3.9}nrf5280 Board pros and cons}{7}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Power Supplier}{7}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Memory management}{7}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Radiation absorbtion}{7}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Channel selection}{7}{section.3.13}%
+\contentsline {chapter}{\numberline {4}Conclusions and future developments}{9}{chapter.4}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography\markboth {\MakeUppercase []{Bibliography}}{\MakeUppercase []{Bibliography}}}{9}{chapter*.12}%
+\contentsline {chapter}{Bibliography\markboth {\MakeUppercase []{Bibliography}}{\MakeUppercase []{Bibliography}}}{11}{chapter*.12}%
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{11}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{13}{appendix.B}%
-\contentsline {chapter}{List of Figures}{15}{appendix*.16}%
-\contentsline {chapter}{List of Tables}{17}{appendix*.18}%
-\contentsline {chapter}{List of Symbols}{19}{appendix*.20}%
-\contentsline {chapter}{Acknowledgements}{21}{appendix*.23}%
+\contentsline {chapter}{\numberline {A}Appendix A}{13}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{15}{appendix.B}%
+\contentsline {chapter}{List of Figures}{17}{appendix*.16}%
+\contentsline {chapter}{List of Tables}{19}{appendix*.18}%
+\contentsline {chapter}{List of Symbols}{21}{appendix*.20}%
+\contentsline {chapter}{Acknowledgements}{23}{appendix*.23}%

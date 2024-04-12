@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  10 APR 2024 17:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  11 APR 2024 23:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -943,7 +943,7 @@ Package epstopdf Info: Source file: <Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO
 (epstopdf)             Command: <repstopdf --outfile=Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO.eps>
 (epstopdf)             \includegraphics on input line 131.
 Package epstopdf Info: Output file is already uptodate.
-<Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf, id=131, 493.845pt x 227.85126pt>
+<Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf, id=139, 493.845pt x 227.85126pt>
 File: Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf Graphic file (type pdf)
 <use Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf>
 Package pdftex.def Info: Images/02_ING_IND_INFORMAZIONE_COL_POSITIVO-eps-converted-to.pdf  used on input line 131.
@@ -965,7 +965,7 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
 (epstopdf)             \includegraphics on input line 131.
 Package epstopdf Info: Output file is already uptodate.
-<./Images/./raggiera_polimi-eps-converted-to.pdf, id=133, 502.87875pt x 502.87875pt>
+<./Images/./raggiera_polimi-eps-converted-to.pdf, id=141, 502.87875pt x 502.87875pt>
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 131.
@@ -1088,27 +1088,19 @@ Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used o
 
 ]
 Chapter 3.
+
+Package natbib Warning: Citation `heydonBluetoothLowEnergy2015' on page 5 undefined on input line 238.
+
 [5
 
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 248.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 248.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [6
+] [6]
 
-]
+Package natbib Warning: Citation `alotaibyReviewChannelSelection2015' on page 7 undefined on input line 295.
+
+[7] [8]
 Chapter 4.
-(./thesis.bbl [7
+(./thesis.bbl [9
+
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -1124,30 +1116,9 @@ File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 1.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [8
-
-]) [9
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 265.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 265.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [10
 
-]
-Appendix A.
-[11
-
+]) [11
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -1157,17 +1128,18 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 273.
+(epstopdf)             \includegraphics on input line 337.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 273.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 337.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [12
 
 ]
-Appendix B.
+Appendix A.
 [13
+
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -1177,39 +1149,37 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 278.
+(epstopdf)             \includegraphics on input line 345.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 278.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 345.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [14
+
+]
+Appendix B.
+[15
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 350.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 350.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [16
 
 ] (./thesis.lof)
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
-
- [15
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 281.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 281.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [16
-
-] (./thesis.lot)
-\tf@lot=\write7
-\openout7 = `thesis.lot'.
 
  [17
 
@@ -1221,15 +1191,19 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 285.
+(epstopdf)             \includegraphics on input line 353.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 285.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 353.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [18
 
-] [19
+] (./thesis.lot)
+\tf@lot=\write7
+\openout7 = `thesis.lot'.
+
+ [19
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -1239,11 +1213,11 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 296.
+(epstopdf)             \includegraphics on input line 357.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 296.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 357.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [20
 
@@ -1257,13 +1231,31 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 300.
+(epstopdf)             \includegraphics on input line 368.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 300.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 368.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [22
+
+] [23
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 372.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 372.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [24
 
 ]
 
@@ -1274,27 +1266,30 @@ See the caption package documentation for explanation.
 Package caption Warning: Unused \captionsetup[algorithm] on input line 13.
 See the caption package documentation for explanation.
 
+
+Package natbib Warning: There were undefined citations.
+
 (./thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4D4334B75637076CB7B3423368251E13;4261.
+(rerunfilecheck)             Checksum: 68134A00E35E57F08237119195FF02E8;4573.
  ) 
 Here is how much of TeX's memory you used:
- 29986 strings out of 474116
- 570100 string characters out of 5733619
+ 29996 strings out of 474116
+ 570321 string characters out of 5733619
  1937187 words of memory out of 5000000
- 51708 multiletter control sequences out of 15000+600000
+ 51713 multiletter control sequences out of 15000+600000
  574564 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,93p,1809b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on thesis.pdf (30 pages, 252510 bytes).
+Output written on thesis.pdf (32 pages, 260770 bytes).
 PDF statistics:
- 388 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 350 compressed objects within 4 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
