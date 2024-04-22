@@ -2692,7 +2692,7 @@ new algorithm ran 100 times
 animal 3 old algo
 [ 5 13  4 12  8  9  1 15  2  0  7 14  3 11  6 10]
 other algorithm on animal 3
- 5 13  4 12  8  9  1 15  0  2 14  7  3 11 10  6
+ [5 13  4 12  8  9  1 15  0  2 14  7  3 11 10  6 ]
 
 
 worst 9 feature score .. on k100
@@ -2908,9 +2908,435 @@ old
 new
 [ 5  2  1  9  4  7  3  8 15  0 13 12 14 10 11  6]
 
+best 16
+
+Test Accuracy: [0.9463946869070209,
+ 0.9364326375711575,
+ 0.9544592030360531,
+ 0.9468690702087287,
+ 0.9468690702087287]
+Test F1 score: [0.9382930937889584,
+ 0.9307277275115131,
+ 0.947176874208173,
+ 0.9419659718046728,
+ 0.9402624855463844]
+
+ For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9464043335867379
+Standard Deviation of Test Accuracy: 0.006498295915833376
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9390852305711401
+Standard Deviation of Test F1 Score: 0.006147485402670293
+
+best 15
+
+Test Accuracy: [0.9440227703984819,
+ 0.9392789373814042,
+ 0.9345351043643264,
+ 0.9425996204933587,
+ 0.9378557874762808]
+Test F1 score: [0.9354445473354019,
+ 0.9315379397164745,
+ 0.9251087452041585,
+ 0.934181957811936,
+ 0.9273288392138861]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9396584436225946
+Standard Deviation of Test Accuracy: 0.003129950060313461
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9303200054569715
+Standard Deviation of Test F1 Score: 0.003833479219934574
+
+best 14
+
+Test Accuracy: [0.9354838709677419,
+ 0.9278937381404174,
+ 0.9340607210626186,
+ 0.924573055028463,
+ 0.9354838709677419]
+Test F1 score: [0.9244861863455566,
+ 0.9144724251918805,
+ 0.9237400375794417,
+ 0.9084711999737265,
+ 0.924823594058256]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9314982510339968
+Standard Deviation of Test Accuracy: 0.004444134169539255
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9195986884295722
+Standard Deviation of Test F1 Score: 0.006868482947473986
+
+best 13
+
+Test Accuracy: [0.9274193548387096,
+ 0.931214421252372,
+ 0.9278937381404174,
+ 0.9193548387096774,
+ 0.924573055028463]
+Test F1 score: [0.9147725688227898,
+ 0.9180440393263722,
+ 0.9174611584000273,
+ 0.9055449563039218,
+ 0.9119340077006131]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9262918811935275
+Standard Deviation of Test Accuracy: 0.004454005234891615
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.913551346110745
+Standard Deviation of Test F1 Score: 0.004755662903513759
+
+best 12
+
+Test Accuracy: [0.9217267552182163,
+ 0.9278937381404174,
+ 0.9108159392789373,
+ 0.924573055028463,
+ 0.9307400379506642]
+Test F1 score: [0.9054627891671827,
+ 0.9150224446113859,
+ 0.8936491027088382,
+ 0.9112583540208484,
+ 0.9164934479599885]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9237497057233399
+Standard Deviation of Test Accuracy: 0.00706025330818356
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9081774276930488
+Standard Deviation of Test F1 Score: 0.008564975370281471
+
+best 11
+
+Test Accuracy: [0.9160341555977229,
+ 0.9117647058823529,
+ 0.9112903225806451,
+ 0.9198292220113852,
+ 0.9146110056925996]
+Test F1 score: [0.8984842206643815,
+ 0.8923683132041823,
+ 0.8964662152248645,
+ 0.9068097152992289,
+ 0.9010912152916074]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.914705482552741
+Standard Deviation of Test Accuracy: 0.0023488592386216937
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.8998439359368529
+Standard Deviation of Test F1 Score: 0.004250951875398992
+
+best 10
+
+Test Accuracy: [0.8984819734345351,
+ 0.8961100569259962,
+ 0.905123339658444,
+ 0.9013282732447818,
+ 0.8956356736242884]
+  Test F1 score: [0.8791828938491861,
+  0.8746354922163568,
+  0.8889827920174913,
+  0.8813913877854963,
+  0.877285125170206]
+
+  For the updated "Test Accuracy" array:
+
+Average Test Accuracy: 0.8997354631774091
+Standard Deviation of Test Accuracy: 0.0038192192502467816
+For the updated "Test F1 Score" array:
+
+Average Test F1 Score: 0.8804957388071473
+Standard Deviation of Test F1 Score: 0.005102983365689285
+
+best 9
+
+Test Accuracy: [0.8837760910815939,
+ 0.8889943074003795,
+ 0.894212523719165,
+ 0.8889943074003795,
+ 0.8833017077798861]
+Test F1 score: [0.8584458317640732,
+ 0.8635264090496682,
+ 0.8755102150318673,
+ 0.8659431103023438,
+ 0.8606162487171329]
+
+
+For the new "Test Accuracy" array:
+
+Average Test Accuracy: 0.8870559874760806
+Standard Deviation of Test Accuracy: 0.004029053523111094
+For the new "Test F1 Score" array:
+
+Average Test F1 Score: 0.864608563773017
+Standard Deviation of Test F1 Score: 0.00581158430611603
+
+worst 8
+
+Test Accuracy: [0.8795066413662239,
+ 0.8823529411764706,
+ 0.8809297912713473,
+ 0.8766603415559773,
+ 0.8790322580645161]
+Test F1 score: [0.8552353904752199,
+ 0.8584369992856413,
+ 0.8609321621599308,
+ 0.8485580061118778,
+ 0.8563064872748865]
+
+ For the "Test Accuracy" array:
+
+Average Test Accuracy: 0.879496194086907
+Standard Deviation of Test Accuracy: 0.0017289604548368627
+For the "Test F1 Score" array:
+
+Average Test F1 Score: 0.8558930096611113
+Standard Deviation of Test F1 Score: 0.004605609097349754
+
+
  ######### ANIMAL 1 ######################
 
 old
  [13 12  2  1  8  4  3  0 14 15  5  9  7 11 10  6]
  new 
  [12  3 13  1  2  4  8  0 15 14  5  9  7 11 10  6]
+
+
+
+ [3, 5, 8, 13, 6, 14, 9, 12, 0, 10, 11, 7, 2, 4, 15, 1]
+ [7, 15, 4, 8, 10, 14, 3, 13, 5, 11, 1, 0, 9, 12, 2, 6]
+
+ Index 9: 0.5340204
+Index 5: 0.4687251
+Index 4: 0.3196568
+Index 7: 0.25905722
+Index 8: 0.09059477
+Index 15: 0.05326313
+Index 1: -0.00826734
+Index 13: -0.04524803
+Index 11: -0.04207057
+Index 0: -0.082807
+Index 14: -0.13650101
+Index 2: -0.16073066
+Index 12: -0.24739999
+Index 3: -0.35832757
+Index 6: -0.4329862
+Index 10: -0.515804
+
+12 (0.5062319)
+3 (0.41246092)
+0 (0.31039315)
+13 (0.23029631)
+8 (0.19151086)
+2 (0.15324575)
+1 (0.00172323)
+9 (-0.01027256)
+4 (-0.03611934)
+7 (-0.19338194)
+15 (-0.1790278)
+11 (-0.2708033)
+10 (-0.30351758)
+5 (-0.38625264)
+14 (-0.35965717)
+6 (-0.45420814)
+
+ best 15
+
+ Test Accuracy: [0.9909351145038168,
+ 0.9890267175572519,
+ 0.987118320610687,
+ 0.9928435114503816,
+ 0.9861641221374046]
+Test F1 score: [0.9851669249368362,
+ 0.9809540156126452,
+ 0.9810641561011549,
+ 0.9883432648156252,
+ 0.9755189389276315]
+
+ For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9890179570423888
+Standard Deviation of Test Accuracy: 0.002499002891420189
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9822098600789785
+Standard Deviation of Test F1 Score: 0.004389057477272843
+
+ best 14
+
+ Test Accuracy: [0.9813931297709924,
+ 0.9885496183206107,
+ 0.9823473282442748,
+ 0.9833015267175572,
+ 0.9880725190839694]
+Test F1 score: [0.9732245869458447,
+ 0.9784059229724363,
+ 0.9712156741574005,
+ 0.9762468124304542,
+ 0.9811590229049894]
+
+ For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9847528248272811
+Standard Deviation of Test Accuracy: 0.0028696178695980467
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.976850603082625
+Standard Deviation of Test F1 Score: 0.003043835607847895
+
+ best 13
+
+ Test Accuracy: [0.9809160305343512,
+ 0.982824427480916,
+ 0.9775763358778626,
+ 0.9775763358778626,
+ 0.9852099236641222]
+Test F1 score: [0.9743582951565364,
+ 0.9715518902360039,
+ 0.9585079804891374,
+ 0.9621986440937673,
+ 0.9782827716762373]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9804204104872235
+Standard Deviation of Test Accuracy: 0.0030677278450617394
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9681791169305363
+Standard Deviation of Test F1 Score: 0.00677801160042975
+
+ best 12
+
+ Test Accuracy: [0.9813931297709924,
+ 0.9694656488549618,
+ 0.9809160305343512,
+ 0.9699427480916031,
+ 0.9775763358778626]
+Test F1 score: [0.9733543583546324,
+ 0.9539313802068472,
+ 0.973186570447517,
+ 0.9558307710056015,
+ 0.968086509144441]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9756581784259543
+Standard Deviation of Test Accuracy: 0.005147021271709745
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9644779174312083
+Standard Deviation of Test F1 Score: 0.008127111213010778
+
+ best 11
+
+ Test Accuracy: [0.9723282442748091,
+ 0.961354961832061,
+ 0.9718511450381679,
+ 0.9718511450381679,
+ 0.976145038167939]
+Test F1 score: [0.9551329057563084,
+ 0.9395537054095454,
+ 0.957837343899511,
+ 0.9598402078010551,
+  0.9671369763629292]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9705061066706296
+Standard Deviation of Test Accuracy: 0.005147721213722506
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9551006278656619
+Standard Deviation of Test F1 Score: 0.009083839019876028
+
+  best 10
+
+  Test Accuracy: [0.9699427480916031,
+ 0.9618320610687023,
+ 0.9704198473282443,
+ 0.9685114503816794,
+ 0.9661259541984732]
+Test F1 score: [0.9573867156182859,
+ 0.939295276985958,
+ 0.9569772325358047,
+ 0.9492990358307121,
+ 0.9499815457346577]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9673662122139406
+Standard Deviation of Test Accuracy: 0.003418153854924843
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.9505889617416832
+Standard Deviation of Test F1 Score: 0.006526623376221904
+
+ best 9
+
+ Test Accuracy: [0.9637404580152672,
+ 0.9599236641221374,
+ 0.9570610687022901,
+ 0.9637404580152672,
+ 0.9623091603053435]
+Test F1 score: [0.9451077050676341,
+ 0.9418191563735133,
+ 0.9368996934470832,
+ 0.9430604715891894,
+ 0.947851635001814]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.9619543618321513
+Standard Deviation of Test Accuracy: 0.0025300382256875457
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.942547332695646
+Standard Deviation of Test F1 Score: 0.004209037130010593
+
+ best 8
+
+ Test Accuracy: [0.9465648854961832,
+ 0.9379770992366412,
+ 0.9456106870229007,
+ 0.9355916030534351,
+ 0.9475190839694656]
+Test F1 score: [0.9277765615436392,
+ 0.9025595215544255,
+ 0.9202707324100556,
+ 0.9074033082417041,
+ 0.9227582821449508]
+
+
+For the latest "Test Accuracy" array:
+
+Average Test Accuracy: 0.942852851755525
+Standard Deviation of Test Accuracy: 0.004181659177626022
+For the latest "Test F1 Score" array:
+
+Average Test F1 Score: 0.916153281378755
+Standard Deviation of Test F1 Score: 0.009140460261764913

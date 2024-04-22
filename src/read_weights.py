@@ -24,4 +24,11 @@ with h5py.File(weights_file_path, "r") as file:
     # 'kernel:0' is the weight tensor
     weights_values = layer_weights["kernel:0"][:]
     print("\nWeight values:")
+    # weights_values = weights_values[0]
+    # Sort the indices based on the values
+    sorted_indices = sorted(
+        range(len(weights_values)), key=lambda i: weights_values[i][0], reverse=True
+    )
+    # Return the sorted indices
     print(weights_values)
+    print(sorted_indices)

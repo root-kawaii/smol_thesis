@@ -196,30 +196,341 @@ Qui va l'Abstract in lingua italiana della tesi seguito dalla lista di parole ch
 % --------------------------------------------------------------------------
 \chapter{Introduction}
 \section{PNRelay project}
-Peripheral nerve injuries (PNI) are mainly caused by surgery and trauma and are common in clinical practice, with 13 to 23 per 1,00,000 people typically suffering from PNI.
-\cite{zhangResearchHotspotsTrends2022}
-Traumatic injury to peripheral nerves is a significant cause of morbidity and disability today. Different types of extremity trauma can result in specific damage to particular nerves associated with that limb. Extremity trauma may be obvious as to its location, but the depth, severity, and underlying structures involved are not always clear.
-\cite{taylorIncidencePeripheralNerve2008}
-Common etiologies of acute traumatic peripheral nerve injury (TPNI) include penetrating injury, crush, stretch, and ischemia. Management of TPNI requires familiarity with the relevant anatomy, pathology, pathophysiology, and the surgical principles, approaches and concerns.
-\cite{campbellEvaluationManagementPeripheral2008}
-The PNRelay project has been presented as a collaboration effort between the Politecnico di Milano and the Politecnico di Torino.
-The objective of the project is to target this problem developing a new peripheral nerve interface, capable of conveying information between brain and organs. This kind of medical devices generally record the electrical stimulus travelling within the nerve, analyze it and finally artificially stimulate the nerve below the injury to replicate the natural response of the body.\cite{garbelliniPNRELAY2020}
+Peripheral nerves injuries (PNI) are a significant cause of morbidity and disability today,
+they affect almost 20 milions in the USA alone, and deeply damage both the physical and psychological well-being of those who suffer from these injuries. \cite{zhangResearchHotspotsTrends2022}
+The loss of functionality is caused by the damage of the nervous systems pathways that connect the brain to peripheral parts of the body.
+Moreover PNI's receive a poor prognosis since the regenerative capabilities of the nervous systems are limited and slow.
+
+Recently, though there have been promising works of reserach in neuroscience that aim at improving the well-being of people that suffer from PNI by developing implanted devices that can connect to the Pheripheral Nervous System (PNS).
+In particular, bi-directional interfaces have the goal to restore the communication between the brain and the peripheral area whose sensorimotor feedback has been lost, effectively restoring the nervous pathways that have been damaged.
+This kind of interfaces can be realized with nerve electrodes that are installed chirurgically and can measure the voltage of a certain nerve and assess its signal or stimulate them directly.
+In this deeply interesting and thriving area of research it has emerged the PNRelay project 
+which has been presented as a collaboration effort between the Politecnico di Milano and the Politecnico di Torino and has the objective to target PNI related issues by developing a new peripheral nerve interface, capable of conveying information between brain and body peripherical areas.
+In particular, this interface has the goal to register the nerve electrical signal, send it to a computer so that it can be interpreted and classified via a deep learning model and then stimulate the right nerves in order to elicit the corresponding movement.
+Although muscle stimulation has not yet been incorporated, it remains a pivotal area for future exploration and development.
+The project is targeted for preclinical trials on rats and in particular, injuries to the sciatic nerve, but it nontheless has great potential for future clinical applications.
+The recorded signal thanks to the electrode is known as  Electroneurography (ENG) signal
+which has the potential to provide a valuable control signal for closed-loop neuroprostheses [5] (from davide)
+'''davide'''
+Other biological signals have been used with the aim of restoring PNI. Electromyography,
+(EMG) signals from muscle activity and Electroencephalogram (EEG) signals reflecting brain activity are used in restoring limb function. EMG signals decode control commands for powered upper-limb prostheses, facilitating dexterity and mobility, but the acquisition and use of such myosignals are cumbersome and complicated [12]–[14]. EEG signals can be used to decipher user intent, driving neuroprosthetic devices to restore lost limb functionality. In recent studies, these signals are used to examine the functions and movements behavior of humans [15], [16].
+'''davide'''
+
+
 The device that has been engineered as part of the PNRelay is made of two main subparts:
 one that is implanted and one that is external.
 \\
+The internal implant is composed of different parts: the cuff electrodes to acquire the signal, the Senseback ASIC chip, wrapped in a biocompatible capsuel, that is required for the processing of the singal and a transdermal port for the powering of the wireless device.
+
 % copied from davide
-The internal implant includes cuff electrodes for signal acquisition, the Senseback ASIC chip [19] for signal processing, enclosed within a biocompatible capsule, and a transdermal port for wireless device powering. Extra-neural cuff electrodes, positioned externally on the nerve’s surface, are chosen for their lower invasiveness in acquiring ENG data [20]. The data transmission module, which is responsible for data signal processing, is currently being developed for full-body integration. The external component hosts the classifier, which by performing an online operation, allows the different stimuli to be recognized. The signal is then sent to the stimulator, which proceeds to close the loop. The overall scheme for animal testing is shown in Figure 1.1. During initial experimental phases, the classifier may operate on a computer connected to the external circuit, with the ultimate objective being its integration into the implanted circuitry. Due to the typically substan- tial variations in neurological data among individuals, classification algorithms in this domain are often tailored to specific subjects [3]. This further compounds the challenge of gathering a sufficient amount of biological data on same subject. Challenges persist in decoding neural signal information due to limitations imposed by acquisition invasiveness. While extra-neural cuff electrodes represent a less invasive option for chronic implantation [21], the classification of sensory stimuli recorded through them remains complex due to a limited SNR. Various techniques have been explored to address this challenge [22]–[24], but the optimal classification approach remains an open area for further research and exploration.
+Extra-neural cuff electrodes, positioned externally on the nerve’s surface, are chosen for their lower invasiveness in acquiring ENG data [20]. The data transmission module, which is responsible for data signal processing, is currently being developed for full-body integration. The external component hosts the classifier, which by performing an online operation, allows the different stimuli to be recognized. The signal is then sent to the stimulator, which proceeds to close the loop. The overall scheme for animal testing is shown in Figure 1.1. During initial experimental phases, the classifier may operate on a computer connected to the external circuit, with the ultimate objective being its integration into the implanted circuitry. Due to the typically substan- tial variations in neurological data among individuals, classification algorithms in this domain are often tailored to specific subjects [3]. This further compounds the challenge of gathering a sufficient amount of biological data on same subject. Challenges persist in decoding neural signal information due to limitations imposed by acquisition invasiveness. While extra-neural cuff electrodes represent a less invasive option for chronic implantation [21], the classification of sensory stimuli recorded through them remains complex due to a limited SNR. Various techniques have been explored to address this challenge [22]–[24], but the optimal classification approach remains an open area for further research and exploration.
 % copied from davide
 \\
 \subsection{PNRelay Setup}
 
+\subsection{PNRelay functionality (chiara objectives)}
+
+
+
 \subsection{Ethical concerns}
+
+\subsection{Thesis outline}
+
+
+Our master's thesis endeavors to provide a comprehensive understanding of the research project's scope and objectives, aiming to delve into various facets of the subject matter. In Chapter 2, we lay the foundation by presenting the necessary background information essential for contextualizing our study. Moving forward, Chapter 3 offers a detailed exploration of the current state-of-the-art of the topics incorporated in our work, offering insights into the existing research landscape.
+
+In Chapter 4 we delineate our methodology, detailing the approach undertaken to conduct our research. Here, we expound upon the materials utilized and outline the practical implementations of our project. Moreover, this chapter serves as a platform to showcase our contribution to the PNRelay project, elucidating the innovative approaches and methodologies we have introduced.
+
+Transitioning to Chapter 5, we present the results derived from our efforts, providing a comprehensive analysis and discussion of the outcomes obtained. Through an in-depth examination, we elucidate the implications and significance of our findings, shedding light on the potential benefits and applications of our endeavors. This chapter also serves as a repository of the data that underpins our conclusions, offering insights into future directions and avenues for further exploration within the realm of PNRelay.
+
+Finally, Chapter 6 marks the culmination of our thesis, wherein we encapsulate the essence of our research journey. Here, we provide a reflective summary of our contribution, acknowledging both the strengths and limitations of our work. Furthermore, we offer insights into potential areas of improvement and future iterations, paving the way for continued advancements in the field.
+
+
+
 
 
 \chapter{Background}
 
-\section{Norms}
+In this section, we will present an outline of the information transmission process within the nervous system, particularly emphasizing the conveyance of sensory data. The objective is to gain insight into the operational flow of our project and to grasp the attributes of the signal requiring transmission. Additionally, we will delve into the distinctive features of ENG signals and the significance of extra-neural cuff electrodes, as they play pivotal roles in data acquisition for transmission purposes.
+
 \section{Nervous Systems}
+
+The nervous system directs an organism's actions and facilitates communication between different parts of the body. In vertebrates, it comprises two main divisions: the central nervous system (CNS) and the peripheral nervous system (PNS). The CNS, encompassing the brain and spinal cord, serves as the core processing center, while the PNS comprises nerves that extend from the CNS to various body regions.
+
+At the cellular level, the nervous system is characterized by specialized cells known as neurons or "nerve cells." Neurons possess unique properties enabling rapid and precise transmission of signals to other cells. These signals propagate as electrochemical waves along slender fibers called axons, triggering the release of neurotransmitters at synapses—junctions between neurons. Alongside neurons, the nervous system includes specialized support cells called glial cells or glia, which provide structural and metabolic support. Emerging research suggests that glia may also play a significant role in signaling processes.
+'''need to rewrite"""
+'''add neurons picture'''
+
+\subsection{Central nervous system}
+
+
+\subsection{Peripheral nervous system}
+
+\section{Implanted medical devices normative and regulation}
+
+In order to have a medical implanted device, such as the one taken into consideration in this thesis work, it should respect the premarket standards for the specific location where the device is intended to be approved, various organizations co-operate to guarantee the best standards \cite{} 1 . In particular, the responsible authorities are Food and Drugs Administration in the United State (USA) and European Commission (CE) in the European Union (EU). 
+The normative given by these authorities are necessary to guarantee safeness of the patient and a lower grade of risk for the patient who will use the specific medical device, considering for each one the trade off between risks and benefits, together with the ensure of efficiency of medical devices.
+
+\subsection{FDA}
+
+FDA administration subdivides the medical devices that should be evaluated and approved into three classes of risks, based on the specific application. Up to now, more than 1700 different devices have been classified and divided into the specific class. \cite{healthClassifyYourMedical2023}
+The classes of risk that FDA utilizes and their relative needs to be approved are the following ones: 
+\begin{itemize}
+
+	\item  Class I (General Controls): This class can be subdivided into two subclasses: with exemptions and without exemptions.
+	\item  Class II (General Controls and Special Controls): this class can also be subdivided into the two subclasses with and without exemptions.
+	\item  Class III (General Controls and Premarket Approval)
+
+\end{itemize}
+
+The class is assigned to a specific device basing on a risk based approach, the more the device can be dangerous for the patient, the highest would be the class of risk and as a consequence, the more selective would be the approval practice. For what concern Class I and Class II a 510k is required. Class III is the only one which is subject to premarket approval (PMA), unless the device were on the market before the medical amendments in 1976, in which case a 510k could be sufficient.
+To determine the classification of the device for FDA it is possible to consult the device specific device panel \cite{healthDeviceClassificationPanels2023} which best describes the product in analysis. For Senseback, the specific device panel is the one related to neurology. Specifically, the one which best fits the intended use is the 882.5870 “Implanted peripheral nerve stimulator for pain relief” \cite{CFRCodeFederal} which makes Senseback falls into the Class of risk II.
+In order to understand how FDA values the biocompatibility of the devices with the body, standard iso 10993, in particular 10093-1 \cite{14:00-17:00ISO1099312018a} should be taken into account. Recently, on September 8 2023, FDA has published a guidance \cite{healthUseInternationalStandard2023} which explicit how to use this standard for a biological evaluation during the design of medical devices. 
+ISO 10993-1 and FDA guidance
+ISO is an independent, non-governmental international organization \cite{ISOInternationalOrganization}. It provides standards to guarantee to the user that products are safe as much as possible, providing guidance for each step of design and premarket of the device in analysis.
+The standard ISO 10993-1 focuses on the categorization of medical devices basing on the duration and the nature of contact, both for implanted and external devices.
+The flow charts reported in Figure 1 and in Figure 2 reports how to proceed for a biocompatibility evaluation.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{figure1_fda.png}
+	\centering
+\end{figure}
+\begin{figure}[H]
+
+	\includegraphics[scale=0.3]{figure2_fda.png}
+	\centering
+\end{figure}
+
+
+
+
+
+As it is possible to see from these flowcharts, biocompatibility evaluation is not necessary only if the device taken into consideration has not any direct or indirect contact with the body, or if it has the same properties of a similar well known device present in the market.
+Moreover, devices are subdivided into three categories based on the nature of contact with the body: surface-contacting medical devices, which only have an external contact with the body such as the one in contact with the skin, externally communicating devices and implanted medical devices, which are again subdivided into their tissue of contact.
+
+\begin{figure}[H]
+
+	\includegraphics[scale=0.3]{tab1_fda.png}
+	\centering
+\end{figure}
+
+Figure 3: Table A part 1 in FDA guidance \cite{healthUseInternationalStandard2023}, biocompatibility evaluation endpoints.
+
+\begin{figure}[H]
+
+	\includegraphics[scale=0.3]{tab2_fda.png}
+	\centering
+\end{figure}
+
+Figure 4: Table A part 2 in FDA guidance \cite{healthUseInternationalStandard2023}, biocompatibility evaluation endpoints.
+
+The table in Figure 3 and in Figure 4 shows, bases on the category of the product and the tissue and duration of contact, which could the possible biological effect that should be considered for the approval of the specific device.
+Senseback could fall into the external communicating device category, with a long-term contact and tissue surface of contact, with relative biological effects reported in the table.  
+FDA suggests that this table should not be threated as a checklist for testing. Instead, some specific medical devices the reported effects could not be enough and other endpoints should be considered.
+For what concern cytotoxicity, the related ISO standard is 10993-5:2009 \cite{14:00-17:00ISO1099352009a}, a recent study \cite{gruberToxicNotToxic2023} has been conducted in order to verify whether this standard is clear enough to guarantee that devices development which have followed this standard are cytotoxicity safe. The conclusions report that different that this standard should be revised, because cytotoxicity tests performed by different companies with same standard cannot guarantee reliable and comparable results. This standard was last reviewed and confirmed in 2022. Therefore, this version remains current. 
+UE regulations
+In UE the normative that regulate the medical devices approval are the 2017/745/UE \cite{RegolamentoUE20172017} which is relative to medical devices and 2017/746/UE \cite{RegolamentoUE20172017a}, which is relative to in vitro diagnostic. The first one is applied since 26, May 2021, the second one since 26, May 2022 \cite{MedicalDevicesEuropean}. 
+In these regulations, as before, devices are divided into classes of risks from the lowest, which is Class I to Class II-a and Class II-b to Class III, which is the highest one. The device classification follows similar step as in FDA evaluation, in fact some parameters are evaluated such as duration of contact, invasiveness, specific medical purpose and anatomical location \cite{} mcdg , it is up to the manufacturer to correctly classify the device according to the appropriate class of risk.
+As reported in the regulations, all implanted medical devices and long-term surgically invasive devices are classified as class IIb \cite{}mcdg . However, since Senseback is an active device, which means that needs a source of energy which is different from the body itself, it could fall into class III, the highest one.
+With the new normative UE 2023/607 \cite{RegolamentoUE20232023} the deadline for the manufacturers to adequate to 2017/745/UE and 2017/746/UE has been postponed based on the class of risk of the devices as shown in Figure 5
+
+
+Figure 5: new date of application of normative (EU) 2017/745 and (EU) 2017/746 according to (EU) 2023/607 \cite{NewRevisedResource}
+
+\subsection{Medical software regulation}
+
+According to the regulations EU 2017/745 \cite{RegolamentoUE20172017} and EU 2017/746 \cite{RegolamentoUE20172017a}, a medical software that is intended to be used alone or in combination with a hardware which fall under the definition of medical device should be considered as a medical device software (MDSW). 
+In order to understand whether or not the software could be considered as a MDWS, the steps are reported in.
+
+Figure 6: steps to verify whether or not the software falls into the MDSW definition according to European Commission \cite{} b865
+
+First step is to verify that the software under analysis fall under the definition of software in the regulations, as reported in \cite{} untitled , which states that “software” is defined as a set of instructions that processes input data and creates output data. Second step is to determine whether or not the software influences or drives the hardware device, if it does it could be classified as an accessory for the hardware medical device and as a consequence, be considered as a MDSW. If not, next steps need to verify which is the function for which the software is intended to be used, including whether or not the software provides an effective benefit to the patient. If it does and the software falls under the definition of MDSW in \cite{} untitled, which states that a MDSW is a software that is intended to be used, alone or in combination, for a purpose as specified in the definition of a “medical device” in the medical devices regulation or in vitro diagnostic medical devices regulation, than the software should be treated as a medical device and it is covered by the new MDR regulations.
+To sum up, a software is classified as a medical device if it satisfies the following characteristics: it should be independent, so it should have its own medical purpose, it can influence or drive the hardware medical device and it may be intended to be used by medical professionals. Note that a software can be classified ad a MDSW no matter the location intended for it.
+
+The rules to classify a MDSW are reported in Annex VII \cite{massimopANNEXVIII2019}. As it is reported in chapter II, a software which is stand alone and has not influence on the hardware medical device should be classified separately. If it is not, however, it should be classified considering the most critical specified use. I the software and the hardware have two different classes of risks, as a consequence, they both fall into the highest class.
+
+Senseback software, then, falls into the class of risk III. 
+
+\subsection{Normatives for wireless devices}
+
+In European Union, normative EU 2017/745 \cite{RegolamentoUE20172017} treat a wide range of medical devices, including the ones with a radio frequency communication such as Bluetooth low energy like the case in analysis. It is reported that manufacturers should ensure that devices are designed in a way so that external interferences such as external environment or radio signal interferences are removed or at least reduced as much as possible, so it is for possible undesired interaction with the environment which is thought for the device to be used with. 
+In the United States, instead, FDA has provided a regulation \cite{healthWirelessMedicalDevices2023} which regards specifically radio frequency wireless medical devices, this is thought for all the devices which use at least one functionality with a wireless feature such as Bluetooth, WI-FI and so on. 
+In this normative it is reported that wireless communication could be a benefit for the patient in terms of mobility, due to the fact that wires are not present anymore, moreover also a remote monitoring of the real-time health of the patient is possible. However, possible risks in patient daily life should be considered, and it is up to the manufacturer to inform the patient about them. Firstly, a possible issue regards the fact that airways are shared, and the device could be influenced by other devices operating the near range of work of the medical device which is intended to be used. The increasing usage of these kinds of products, including the non-medical one, could condition the medical device performance. The suggested aspects that the manufacturer should take into consideration are the following ones then:
+Selection of the wireless technology 
+\begin{itemize}
+
+	\item Quality of service
+	\item  Coexistence
+	\item  Security
+	\item  Electromagnetic Compatibility (EMC)
+
+\end{itemize}
+For these, many standards are directly suggested by FDA itself, such as the directives AAMI TIR 69 \cite{RecognizedConsensusStandards} or ANSI C63-27/D1.0 \cite{IEEEANSIC63} for what concern the Wireless coexistence or IEC 60601-1-2 \cite{IEC60601122014} for electromagnetic compatibility (EMC).
+For the security field FDA issued a guidance \cite{healthCybersecurityMedicalDevices2023} on September 2023 which regards specifically the cybersecurity in Medical devices, this document substitute the previous one \cite{ContentPremarketSubmissions} issued on October 2014.
+
+
+\subsection{FDA Medical devices cybersecurity }
+
+
+According to FDA guidance \cite{healthCybersecurityMedicalDevices2023}, manufacturers have the responsibility of the identification of possible cybersecurity risks associated to their devices, including both the ones related to the device itself and the ones related to the environment in which the product operates, for example the ones introduced by device reliance on hospital networks.
+FDA also recommends the submitting of a detailed documentation about the security features of the product which is intended to be approved by them. They also recommend that this information should take the form of views in order to effectively prove that the developed architectures are effective and safe. Manufacturers should demonstrate that security features are effectively been implemented and tested.
+The necessary requirements asked by FDA are the following ones:
+\begin{itemize}
+	\item Authentication
+	\item Authorization
+	\item Cryptography 
+	\item Code, Data and Execution Integrity
+	\item Confidentiality
+	\item Event Detection and Logging
+	\item Resiliency and recovery
+	\item Updatability and Patchability
+\end{itemize}
+Note that these aspects are just the suggested ones, but the necessary features may vary depending on the specific intended usage of the device.
+These aspects are explained in detail in Appendix 1
+\subsubsection{Authentication}
+Authentication is divided into two controls: 
+\begin{itemize}
+	\item Authentication of information: this means that it is possible to prove that data are generated from a trusted and verified source and they have not been altered during the transmission to the endpoint.
+	\item Authentication of entities: it is possible to prove the identity of an endpoint from which is the one which provides information.
+\end{itemize}
+The device then, needs to verify that information received from an external source are reliable and so are the ones generated from the device itself. 
+Authenticity can then be evaluated for:
+\begin{itemize}
+	\item Information at rest (stored)
+	\item Information in transit (transmitted)
+	\item Entity authentication of communication endpoints 
+	\item Software binaries
+	\item Integrity of the execution state of currently running software 
+	\item Any other appropriate parts of the medical device system where manufacturer’s threat model and/or risk analyses reveal the need for it
+\end{itemize}
+The effective strength of the authentication implemented is evaluated on the difficulty that an external unauthorised source would need to identify the decomposition of authentication scheme.
+A cryptographic algorithm in general should be preferred, this is because non-cryptographic ones are generally weak. As a consequence, an attacker could easily emulate the behaviour of an authorized user.
+Some of the other recommendations regards the usage of a proper authentication method such as the multi-factors ones, strong passwords choices, authentication requirement before possible software updates, anti-replay measure in communications which can result harmful and the avoidance of cyclic redundant checks as security control.
+Furthermore, manufacturer should consider how the device reacts to a possible authentication failure.  
+\subsubsection{Authorization} 
+Authorization is required in order to prevent the access to sensitive information or resources. In a well-designed system, only an authorized which has fully permissions can have the access to specific functions of the medical device, depending of the least privilege principle. This means that, in case of a hacker attack, they should not be able to access to possible functionality reserved to the manufacturer in case they gained the credential associated to patient privilege.
+The recommendation about authorization regards the access to the device, which should be limited to authorized users, the usage of timer in order to terminate sessions and “deny by default” principle, which means that device should reject unauthorized connections by default.
+\subsubsection{Cryptography} 
+About cryptography, this is suggested to be implemented because of its higher level of security. It is underlined that this should be properly implemented to avoid undesired vulnerabilities.
+The recommendation which regards this field suggest the usage of industry-standard cryptographic algorithms, in particular the one suggested in the current NIST standard for cryptography, the algorithm should also allow the device to use the highest level of security possible, unless otherwise necessary. Recommendation also suggests avoiding a situation in which the fully revealing of the key for a specific device could implicate the revealing of keys for other devices. Eventually, it is suggested avoiding downgrades in security level unless they are strictly necessary for the health of the patient.
+\subsubsection{Code, Data and Execution Integrity } 
+Integrity is subdivided into three field: Code, Data and Execution. 
+In the code field it is suggested, in addition to previous suggestions, to prefer, when possible, solution which are hardware-based, to disable the access to unauthorized ports such as the UART and to ensure that device is physically integer by employing the usage of tamper seals.
+For data integrity, the suggestions regard the verification of the received data coming from an external source, which should be validated and not modified during the transit and the protection of the data which are relevant for the safeness of the device. 
+Finally, for the execution integrity purposes it is suggested to use industry-accepted best practices to maintain the code integrity during the execution process and the design and review all code that handles external data.
+
+\subsubsection{Confidentiality} 
+
+Even if authentication ad authorization suggestions provided in previous points should be enough to ensure confidentiality, manufacturers should verify if for the specific implementation it could be necessary to implement additional features. A loss of confidential could result in a potential harmful effect on the patient.
+\subsubsection{Event detection and logging} 
+The suggestions regarding this point suggest that each security relevant event, in particular suspicious behaviours should be detected and logged promptly, including possible software changes or malfunctions. Manufacturers should also implement a log file in which these tracked events are stored. It is also suggested to design devices which are able to integrate antivirus/anti-malware protections.
+\subsubsection{Resiliency and recovery} 
+Resiliency and recovery are the capabilities of the device to face with a safety margin a possible incident scenario and maintain availability.
+Manufacturers should then design devices which are resilient to possible incidents or noises, specifying the level of resilience that any component of the medical device have. Th design should also include methods for recovery default configurations and protections for critical functionality or data.
+\subsubsection{Firmware and software updates} 
+Last recommendations regard software and firmware updates. These should anticipate the future cybersecurity vulnerabilities, should be reliable even in case of interruption or failure of the process, and the cybersecurity related ones should be separated from regular feature update cycles. 
+Moreover, it is indicated that updates should be easily verified, validated and distributed. Manufacturers should also implement all the necessary tools and processes to ensure that updates are applied in a safely ad timely manner. Lastly, third party licenses should be maintained for the whole life of the device.
+\subsubsection{Cybersecurity regulations for medical devices in EU} 
+Regarding cybersecurity, the European Union has recently issued the (EU) 2022/2555 \cite{DirectiveEU20222022} normative on Security of Networks and Information systems (NIS2), which is entered into force in January 2023. 
+The normative is not just focused on medical device as the FDA guidance \cite{ContentPremarketSubmissions}, but it also discusses about them. The first article reports that the purpose of this normative is to establish rules in terms of cybersecurity risk management for the topics which are considered “critical” in normative 2022/2557 \cite{} publicationsoffice or the ones reported in the Annex I or Annex II of (EU) 2022/2555, such as point 5.a of Annex II which is referred to the fabrication of medical devices and diagnostic medical devices in vitro. 
+In NIS2 a distinction had been made between important entities and essential ones, allowing to have in this way a fair trade-off between risks-based requirements and relative obligations and administrative burden stemming. As it is reported in Article 3, entities in Annex II could be classified as essential depending on whether or not they are classified like that by a Member State.
+One of the main differences in terms of regulations between important entities and essential entities is the fact that the essential ones are proactively supervised by the authorities, while important ones are subject just to a light ex post supervisory regime, which can be triggered in cases in which evidence of a possible infringement of the directives are brought to the authorities.
+In the article 21 point 2 of the NIS2 directive cybersecurity management measures are threated, which both essential and important entities should follow. It is reported that companies have to manage their own security risks and take adequate measures to manage them. 
+The recommendations about the measures to take are reported below. They need to include:
+\begin{itemize}
+	\item Policies on risk analysis and information system security 
+	\item Incident handling
+	\item Business continuity and crisis management
+	\item Supply chain security
+	\item Security in network and system acquisition
+	\item Policies and procedures to assess the effectiveness of cybersecurity risk management measures
+	\item Cryptography and encryption, and multi-factor authentication
+	\item Cybersecurity training and basic cyber hygiene practices
+\end{itemize}
+
+
+
+\section{Ethical concerns}
+
+Even if scientific and biomedical research is essential for the development of our society, it helps people to recover from medical diseases which were chronical before for example, it is important to wonder which is the limit that medical research should reach.
+Ethical implications should then be considered, especially in some setups like the one considered in this Master Thesis, which purpose is to have in close future an effective usage in vivo.
+In all of the steps, from the premarket ones and relative experimentations to the post market ones and relative surveillance, ethic should be taken as a monitor, in order to guarantee that not only the device in use is safe and effective, but also the development of it has been made respecting environment, the work ethic of people involved in, and the eventual animals used for the experimentation phase. To do that, research should be the as transparent as possible, by clearly explaining the goals and the intended benefits of the project, the methods and design of the study and which could be the possible risks. 
+When available the results of the study should be published, possibly even the experimental ones. This would contribute to the check of the results by other researchers, promoting the re-doability and consenting a critical evaluation of the work. In case of possible criticisms or questions coming from the scientific community, these should be answered, and corrective actions should be taken when necessary. The practicality of sharing the information on the project is essential in an ethical and responsible research. 
+Some of the principal ethical topics that should be considered are treated in detail below.
+
+
+\subsection{Animal welfare }
+
+The first aspect that should be considered for this purpose is animal welfare. The World Organisation for Animal Health (OIE), defined animal welfare as follows: An animal is in a good state of welfare, if it is healthy, comfortable, well-nourished, safe, able to express innate behaviour, and if it is not suffering from unpleasant states such as pain, fear and distress \cite{Chapter}. Animal welfare, in this kind of research, implies the careful and responsible consideration of the management, the treatment and health conditions of the animals involved in the research.
+Animals are still necessary to test pharmaceutical or medical products before putting them into the market, because the experimental phase made on animals guarantees that each product on the market is effectively safe and which could be eventual collateral effects that patients should be warned about. However, the treatment of the animals involved in the experiments must be ethically correct. This means that this phase should respect current rules and animal welfare regulations, and this also means that animal experimentation is made only when necessary and the least number of animals is involved. 
+The Animal Welfare Act (AWA) \cite{}comps was the first policy responsible for guaranteeing the standards for animal welfare in the USA. It included rules relative to transportation, treatment during tests and research, teaching and dealings by animal dealers. This standard was issued in 1966, but it only covered some warm-blooded animals such as dogs, cats or rabbits, and some other animals like birds or rats, which are the ones mostly used in scientific experiments, were excluded from the act. The Act was amended eight times until now, however it is just in 2002 with the publication of Farm Security and Rural Investment Act \cite{}plaw that the excluded animals, including rats used in medical research, has been included into the definition of “animals” of the Animal Welfare Act.
+The European Union also issued some policies to define the minimum standards necessary for animal welfare, which are some of the world’s highest animal welfare standards \cite{AnimalWelfareEU}. The current normative responsible for setting this kind of standards in the EU is the 2010/63/EU \cite{Direttiva201063}, published in 2010 and effective 1 January 2013. It is strictly related to animals used for scientific research and treats all the related steps, from development to manufacture to tests. The ultimate goal would be to have fully non-animal methods.
+By following these policies and by implementing the right measurements to guarantee animals well-being, it is possible to reduce the negative impact on the life of the animals involved in the study.
+Some of the terms that implies a sufficient welfare of the animal are:
+Implant procedure. The chirurgical procedure necessary for the implanting of the device should be painless and as less invasive as possible. It is important to reduce at the minimum the pain of the patient during this operation and guarantee that the patient would have sufficient time for recovery after that. 
+Health monitoring. The health of the patient should be monitored for the whole time of the experiment. This includes the monitoring of vital functions, the behaviour of the animal and physiologic indicators.
+Duration of the experiment. The experiment duration should have the strictly necessary duration to get the necessary data for the experiment. The minimum number possible of involved animals should also be considered.
+Usage of positive and negative controls. They should be implemented in order to check if the observed effects are due to the intervention or external environment.
+Environment in which animals live. This should guarantee that animals' physiological needs are respected. These include water and food access other than movement range and social iteration.
+Biological behaviour of the animals. The natural behaviour of the animal involved in the experiment should be respected, including the possible negative impacts on their daily life, which should be minimised.
+In those cases in which euthanasia is necessary, it should be performed in agreement with the current normative of the corresponding country. This process should be conducted in a way which is ethical and respectful towards animals, making sure that this is conducted with attention on animal welfare. 
+When possible, animal usage should be avoided in favour of cultured cells and computer-based models.
+Transparency. The documentation of all the precautions taken during the study underlines the ethical diligence of the research.
+
+
+
+
+
+\subsection{Need of research}
+
+
+When approaching biomedical research, in which living beings are involved, it should be considered whether or not the intended research is necessary and whether or not the purpose of the research could be reached without animal usage. It is important for this purpose to make a trade-off between the possible benefits that people or animals could get from the research and the eventual damages caused to animals. 
+The concept of “Need” for research refers to whether or not there is proper justification and needs to conduct the intended research. This means that developers should wonder whether or not the research faces a significant demand in the scientific development and in practical applications, these could justify resources usage and experimentations conducted on the animals.
+In order to make sure that ethical implications have correctly been monitored in the intended experiment, it is suggested to submit it to a careful revision from an ethical committee or institutional ones. 
+To sum up, needs of the research means carefully wondering about the scientific and ethical value of the project, making sure that these justify animal involvement. These precautions make sure that research is conducted in a responsible way and it is in line with the highest ethical standards.
+
+\subsection{Safety of the patient}
+
+
+The concept of safety of the patient is fundamental for guaranteeing that the iteration between the device implanted in the animal’s body and the external device happens in a safe way and it does not involve any risks for the animal's health.
+One of the first aspects that should be considered for this purpose, is the fact that materials should be safe and biocompatible. The utilised components should minimise risks and adverse reactions in surrounding tissues. A careful planning and a correct post-operation management could contribute to reducing the minimum uneasiness and collateral effects.
+Moreover, during the implantation procedure, protocols should be adopted in order to prevent possible risks of infections. Hygiene is essential to prevent issues that could intact the safety of the animal.
+Furthermore, considering that Senseback communicates with the external device wirelessly, the right procedures for assuring that the protocol of communication, in this case for Bluetooth Low Energy (BLE), is secure and cryptographed in order to protect sensitive data. This is essential for the protection of the privacy of the patient.
+Lastly, it is important to consider the procedure to follow in those cases in which the experiment presents issues or complications. This includes the planning of emergency procedures and the possibility to interrupt the experiment if some warnings related to the safety of the patient come up.
+
+\subsection{Inclusivity}
+ 
+
+The concepts of inclusivity and heterogeneity are linked to ethical and social considerations related to equal access, representation and to the individual differences in the process of research and in the application of the results.
+Firstly, the project should promote equality in the access of the benefits coming from the research. This includes the consideration on how the application of the technology can be made available to different ethnic groups, avoiding discriminations and differences in the therapeutic approach.
+Talking about this specific project, this is intended to be experimented on animals in next few years, however in a distant future this should be made available on humans. For this reason, the differences between the group of patients should be taken into consideration, to make the project more general and inclusive. An example of this is a study, \cite{nagaokaDevelopmentRealisticHighresolution2004} proposed by Institute of Physic and Engineering in Medicine (IPEM), in which a whole-body voxel model for the average Japanese man and woman has been developed. This study shows how different are some physical effects such as SAR on the body. A comparison with previous studies, in which only Caucasian men were studied, has been performed in order to underline the differences. This study should be taken as a monitor to take into account that different bodies of men and women of different ethnicities could have some substantial differences. Moreover, the project should also respect individual differences in response to technology in order to maximise efficiency and minimise collateral effect. Some genetic, physiologic or lifestyle related variations or possible disabilities can influence the response of the patient to the treatment. The project should then be relatable for the higher range of individuals possible, including the ones with special needs. Furthermore, the manufacturer should also consider how the related project could impact society in terms of inclusion and diversity and which could be possible positive or negative effects on social dynamics and equity of health.
+Inclusivity could also mean the respect for different cultural sensitivities, which should be taken into account in the design of the project. Medical practices could vary by varying the country and these differences must be considered. Research could work in strict contact with the related community, this could help to better understand the needs and the expectation of the people involved.
+Also the informed agreement in case of experimentation on humans should be sensitive to culture and should be understandable for all the participants. Information contained in that should respect differences in terms of language and culture.
+All in all, the concepts of inclusivity and diversity focused on the obtaining of an equal approach, representative and respectful of the differences both in the research phase and in the usage one. The attention to these considerations would contribute to guarantee that the project has a positive impact on a larger range of individuals and communities.
+
+
+\subsection{Informed agreement }
+
+Informed agreement is crucial in those projects in which humans are involved in experimental research or in the application of new medical technologies. The informed agreement is an ethical process which guarantees that all the participants have a complete view of the intended purposes, the risks and the possible benefits of the research or the medical intervention in which they have given their voluntary consent to participate. Before submitting anyone to experimental treatments or to procedures linked to the related technology, it is necessary to get an informed agreement.
+In the agreement it is important to furnish to the participants all the necessary details about the procedure, including the goals of the study, the kind of intervention that will be made and possible issues or risks. All of the available options should be illustrated, and information about possible alternative or standard treatments. This allows participants to make clear decisions about their participation. 
+The agreement should also assure that anyone who is not purported to participate anymore could retire themselves from the study without any negative consequence. This enforces the principle of voluntary consent and respect about the autonomous decision of the participant.
+The operator should explain in detail and in a clear manner how technology will work in the context of treatment or research. The participants should have the chance to ask questions and receive clarifications about the utilised technology.
+For what concerns animals, since they cannot give a proper informed agreement, it becomes more and more important to have a consent from an ethical committee and from authorities. This will assure that animal welfare is respected.
+Ultimately, researchers should have a clear documentation of the informed agreement, including the details related to the explanation given, the comprehension from the participants and their signs. This documentation is fundamental for transparency and ethical conformity.
+To conclude, assuring that an informed agreement is obtained in a complete and ethical manner is fundamental for the respect of rights and dignity of the human or animals participants involved in the project.
+
+\subsection{Privacy and surveillance}
+
+
+Considering that in the Senseback project a wireless communication (BLE) is used, the concepts of surveillance and privacy are fundamentals and should be treated.
+It is essential that, in the communication, security regarding the transmission of data is guaranteed. To do that, all the necessary robust precautions, such as cryptography, should be taken, in order to protect the communications from possible non authorised interceptions. It is also important to focus on the nature of the transmitted data, only necessary information should be shared, and the communication should be limited to the finalities related to the project.
+Due to the sensitive nature of the biological or medical information, the privacy of the generated data should also be protected. To do that, measures to guarantee that data are treated in accordance with privacy-related laws and ethical standards becomes crucial. Moreover, collected data should be conserved and stored in a secure way, by limiting the access just to necessary cases and by implementing security protocols to avoid losses, manipulations and unauthorised accesses.
+Another precautions to guarantee the privacy of the patient is the anonymity of the data when possible, especially in those cases in which data are shared or aggregated. This would protect the identity of the patient involved in the project.
+Other than communication, also the device in usage should be securely designed. This includes protections against unauthorised access to the device itself and preventions against possible risks linked to the implant.
+In addition, during the informed agreement, human participants should be warned about data management and privacy. They should have a clear explanation about how their personal information will be treated and an explicit agreement about storage and usage of data should be furnished. In particular, it is important to follow the norms related to the privacy of the patient in the related geographical context, in order to guarantee that the project is ethically and legally acceptable. In EU privacy is regulated by the General Data Protection Regulation (GDPR) \cite{L_2016119EN01000101Xml}, whose publication has provided a clear regulation for personal data treatment. In the USA, privacy regulation is not uniform and it is present just in some states like in California with the California Consumer Privacy Act (CCPA) \cite{}california or in Virginia with the Virginia Consumer Data Protection Act (VCDP) \cite{CodeVirginiaCode}. Normative however, should be continuously monitored, since dynamics related to privacy can evolve and the adaptation to new normative or to the recent ethical worries is essential.
+To sum up, the concepts of surveillance and privacy regard the responsible management of sensitive information, while it is guaranteed that secure measurements are in line with the ethical and legal normative applicable. This is fundamental to respect the rights and dignity of the involved people and to maintain trust in the research. 
+
+
 
 \section{Signal Acquisition}
 
@@ -256,21 +567,67 @@ but without the capability of accepting connections from a central.
 \section{Communication system}
 \section{Chiara code}
 \section{Communication speed}
-\section{ENGNet advantages and shortcomings}
+\section{EEGNet and ENGNet: advantages and shortcomings}
 
-EEGNet was introduced by [27] as a variant of CNN specifically designed for Brain- Computer Interace (BCI) applications. Its key advantage lies in being a compact ar- chitecture with fewer parameters compared to traditional CNNs. This makes EEGNet well-suited for processing EEG signals efficiently and effectively, enabling improved per- formance in BCI tasks while reducing computational complexity. EEGNet has also been tested for Steady-state Visual Evoked Potentials (SSVEP) signals, a type of EEG response elicited by visual stimulation [28]. These tests have demonstrated the versatility of EEG- Net in handling various EEG-based BCI tasks, showing promising results in accurately classifying SSVEP responses and opening up new possibilities for real-world applications in brain-computer communication and control systems.
+EEGNet was introduced by \cite{lawhernEEGNetCompactConvolutional2018}, it presents a tailored variant of CNNs aimed at Brain-Computer Interface (BCI) applications. Its primary advantage lies in its compact architecture, boasting fewer parameters compared to traditional CNNs. This efficiency renders EEGNet well-suited for the processing of EEG signals, facilitating improved performance in BCI tasks while simultaneously reducing computational complexity.
+Davide developed ENGnet bla bla
 
-\section{ENGNet architecture}
+\subsection{ENGNet architecture}
 
 The architecture involves two convolutional steps, employing 2D convolutional filters to capture EEG signals at different band-pass frequencies and depthwise convolutions to learn spatial filters for each temporal filter. The approach also utilizes separable con- volutions to reduce the number of parameters and efficiently combine feature maps. In the classification block, softmax classification is directly applied to the extracted features without a dense layer, reducing the number of parameters in the model.
 
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{engNet_arch.png}
+	\centering
+\end{figure}
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.3]{engNet_params.png}
+		\centering
+		\end{figure}
 
-\section{ENGNet layers}
 
-'foto'
 
-\section{ENGNet results}
+
+
+\subsubsection{ENGNet layers}
+
+The configuration for block 1 is as follows:
+\begin{itemize}
+\item Conv2D layer: Conv2D(, (1, kernLength), input shape=(Chans, Samples, 1))
+\item AveragePooling2D layer: AveragePooling2D((1, kernLength//10))
+\end{itemize}
+
+Here, F1 represents the number of 2D convolutional filters (F1 = 16), Chans is the number of channels in the EEG signals (Chans = 16), and Samples is the length of the ENG samples. The Conv2D layer uses the kernel length to create a 2D convolutional filter with height 1 and width equal to kernLength. The AveragePooling2D layer reduces the spatial dimensions of the feature maps by performing average pooling with a pool size of (1, kernLength//10).
+
+For block 2, the configuration is as follows:
+\begin{itemize}
+\item SeparableConv2D layer: SeparableConv2D(F2, (1, kernLength//4))
+\item AveragePooling2D layer: AveragePooling2D((1, kernLength//25))
+\end{itemize}
+
+In block 2, the SeparableConv2D layer is used with a kernel size of (1, kernLength//4) and F2 = 32 to conduct depthwise separable convolution. This layer effectively reduces the number of parameters while preserving feature extraction capabilities. The parameters F1 and F2 are doubled compared to what was explained in chapter 3.5.1 and in [27] due to the larger frequency and consequently greater number of samples, while D remains equal to 2. This adjustment has been validated as a superior solution in preliminary tests.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.25]{engNet_layers.png}
+	\centering
+\end{figure}
+
+
+\subsection{ENGNet results}
+
+
 Analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet,
+
+\begin{figure}[H]
+	\includegraphics[scale=0.25]{engNet_accuracy.png}
+	\centering
+	\end{figure}
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.3]{engNet_f1score.png}
+		\centering
+		\end{figure}
 
 Talk about limitation
 
@@ -284,6 +641,29 @@ Comparison between validation and test re- sults showed that ENGNet can generali
 \section{nrf5280 Board pros and cons}
 \section{Power Supplier}
 \section{Memory management}
+
+Our boards, the nRF52840 contain 1024 kB of flash memory and 256 kB of RAM, they can be used for both code and data storage. [https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf52840%2Fmemory.html]
+
+\includegraphics[scale=0.3]{memNRF.png}
+\begin{figure}[H]
+\includegraphics[scale=0.4]{memory2.png}
+\centering
+\end{figure}
+
+
+Structure of the board memory, many images to describe ram.
+No cache
+Why no cache is a problem and why it is ok.
+What devices have caches maybe.
+Show a couple methods to avoid programmer control over memory managment from paper.
+We could include metrics later if we have time, like space occupied and shit and if we can reduce that.
+
+
+
+
+
+
+
 \section{Radiation absorbtion}
 \section{Channel selection}
 
@@ -295,17 +675,326 @@ Because of this, not only it would be useful to limit the channel we share betwe
 In short, the three benefits of channel selection are : reducing the computational complexity of any process on the dataset, reduce the amount of overfitting of the models and reudce the times to setup the application. \cite{alotaibyReviewChannelSelection2015}
 There is a great amount of literature that deals with the issues of channel selection of EEG channels, since it is a well known area of research and proves to be very helpful in reaching better results.
 In particular our area of interest focused on channel selection applied to motion-imagery EEG Signals (MI-EEG).
+We will now present an overview of the most relevant methods for channel selection.
+
+\subsection{Common spatial patterns methods}
+
+Common spatial patterns (CSP) method was firstly suggested for classification of multi-channel EEG during imagined hand movements by H. Ramoser \cite{ramoserOptimalSpatialFiltering2000}. The core concept involves employing a linear transformation to map multi-channel EEG data into a reduced-dimensional spatial realm using a projection matrix. Each row of this matrix represents channel weights. This process aims to optimize the variance of signal matrices for two classes. The CSP method relies on concurrently diagonalizing the covariance matrices of both classes. \cite{abdullahEEGChannelSelection2022}
+
+Let X $\epsilon$ $R^{M x N}$ denote a matrix of EEG, where the channel number is M and the samples are denoted by N. The classic CSP problem is stated as follows:
+
+\begin{align}
+	\max_{W \epsilon R^{M}} = \frac{W^{T} C_1 W}{W^{T} C_2 W}
+	\label{eq:CSP1}
+\end{align}
+
+where W is a spatial filter coefficient, $C_{i}$(i=1,2) indicates a single-class covariance matrix. The generalised eigenvalue decomposition (EVD) generally can handle this problem. \cite{abdullahEEGChannelSelection2022}
+
+\subsubsection{Sparse CSP}
+
+Due to classic CSP inadequacies, several researchers aim to integrate sparsing behavior with conventional CSP to discover and eliminate highly noisy or interfering channels. Given w’s sparsity k, i.e., the number of nonzero items in w. The sparse CSP problem is stated as follows:
+
+\subsubsection{Regularized CSP}
+
+% Despite its well-established efficacy and widespread adoption, CSP is acknowledged for its susceptibility to noise and tendency for overfitting. To tackle this concern, researchers have proposed the regularization of CSP \cite{lotteRegularizingCommonSpatial2011}. A recommended strategy is the adoption of a regularized CSP (RCSP) approach, which focuses on regulating the covariance matrix estimate within CSP extraction. This involves employing regularization techniques derived from general learning principles \cite{friedmanRegularizedDiscriminantAnalysis1989,wangSolvingFaceRecognition2006}. The regularization of CSP can occur at two levels, the first being at the estimation of the covariance matrix. Since CSP relies on these estimates, which can be adversely affected by noise or limited training data, regularization can significantly improve performance. Alternatively, regularization can be implemented at the objective function level (Eq. 1), where spatial filters are subjected to prior constraints to enhance stability \cit{lotteRegularizingCommonSpatial2011}.
+
+% The first, based on \cite{luRegularizedCommonSpatial2009} can be implemented in the following way:
+
+\begin{align}
+	\tilde{C}_{C} = (1 - \gamma) \hat{C}_{C} + \gamma I
+	\label{eq:RCSP1}
+\end{align}
+
+\begin{align}
+	\hat{C}_{C} = (1 - \beta) {s}_{C} {C}_{C} + \beta {G}_{C}
+	\label{eq:RCSP2}
+\end{align}
+
+
+% where $C_{c}$ is the initial spatial covariance matrix for class $c$, $\tilde{C}_{c}$ is the regularized estimate, $I$ is the identity matrix, $S_{c}$ is a constant scaling parameter (a scalar), $\gamma$ and $\beta$ are the two user-defined regularization parameters ($\gamma$, $\beta \in [0,1]$), and $G_{c}$ is a “generic” covariance matrix. \cite{lotteRegularizingCommonSpatial2011}
+
+Another approach to obtain RCSP algorithms consists in regularizing the CSP objective function itself (1). More precisely, such a method consists in adding a regularization term to the CSP objective function in order to penalize solutions (i.e., resulting spatial filters) that do not satisfy a given prior. Formally, the objective function becomes:
+
+\begin{align}
+	{J}_{P_{1}}(w) = \frac{w^{T}C_{1}w}{w^{T}C_{2}w + \alpha P(w)}
+	\label{eq:RCSP3}
+\end{align}
+
+% where P(w) is a penalty function, measuring how much the spatial filter w satisfies a given prior. The more w satisfies it, the lower P(w). Hence, to maximize JP1(w), we must minimize P(w), thus ensuring spatial filters satisfying the prior. $\alpha$ is a user-defined regularization parameter ( $\alpha$ $\geq$  0, the higher $\alpha$, the more satisfied the prior). With this regularization, we expect that enforcing specific solutions, due to priors, will guide the optimization process toward good spatial filters, especially with limited or noisy training data. \cite{lotteRegularizingCommonSpatial2011}
+
+
+% ciao \ref*{cap}
+
+\subsection{Correlation-based methods}
+
+These methods help identifying which subsets of channels is the most relevant by defining a correlation metric and ranking higher those channels that show stronger similarities between them according to the metric.
+There are various ways in which we can score the correlation between signals of different channels and here we will briefly present three.
+
+\subsubsection{Spectral entropy dunno first citation}
+
+Spectral entropy is a generic measure of disorganization of signal, as expressed in \cite{yangEEGChannelSelection2018b} with the following formulas:
+
+\begin{align}
+H(E)=-\sum_{i=1}^N p\left(E_i\right) \log _{10} p\left(E_i\right),
+\end{align}
+
+where \( \mathcal{E} = \{ \mathcal{E}_1, \mathcal{E}_2, \ldots, \mathcal{E}_n \} \) is the signal in the time domain. \( p(\mathcal{E}_i) \) is the probability of \( \mathcal{E}_i \). It is usually estimated by Burg's algorithm. \cite{schalkBCI2000GeneralpurposeBraincomputer2004} \\
+Spectral entropy separates the background noise from the organized signal, the motor imagery in this study.
+
+The 'interested class versus the rest' strategy is adopted for the channel selection using the correlation coefficient method. EEG data are split into two groups, \( s_1 \) and \( s_2 \), where \( s_1 \) is the group containing the class of interest. \\
+Spectral entropy \( H_1 \) and \( H_2 \) are identified corresponding to \( s_1 \) and \( s_2 \). Correlation of the spectral entropy from the two groups, \( s_1 \) and \( s_2 \), is an indicator of how closely these two groups have a linear relationship, written as:
+
+\begin{align}
+\rho\left(H_{1, j}, H_{2, j}\right)=\frac{\operatorname{cov}\left(H_{1, j}, H_{2, j}\right)}{\sigma_{H_1, j} \sigma_{H_2, j}},
+\end{align}
+
+where \( \sigma_{H_j} \) is the standard deviation of the respective spectral entropy. \( j \) is the index of the channel. \\
+ For the purpose of channel selection, we consider the spectral entropy of each channel across all frequency ranges by taking the sum of the squared correlation coefficient,
+
+\begin{align}
+P\left(H_{1, j}, H_{2, j}\right)=\sum_{i=1}^N \rho^2\left(H_{1, j}, H_{2, j}\right),
+\end{align}
+
+where $i$ = 1 - $N$ is the number of frequency bins during estimation of the spectral entropy.
+
+\subsubsection{Pearson’s Correlation Coefficient }
+
+Pearson correlation coefficient is a statistical association or linear dependence between two or more random variables and, in our case, it can measure the linear correlation between two channels. \cite{thibeaultUsingHybridNeuron2013}
+
+
+\begin{align}
+	\rho (X,Y) = \frac{1}{n-1} \sum_{i}^{N}(\frac{X_i - \bar{X}}{\sigma_{X}})( \frac{Y_i - \bar{Y}}{\sigma_{Y}})
+	\label{eq:correlationCoefficient}
+\end{align}
+
+Considering the two variables, denoted as \( X \) and \( Y \), with \( n \) representing the number of observations, \( \bar{X} \) and \( \bar{Y} \) as their respective means, and \( \sigma_X \) and \( \sigma_Y \) as the default deviations between them, the correlation coefficient \( \rho(X,Y) \) ranges from 0 to 1. This range indicates the strength of the relationship, varying from low to high. In this context, the correlation coefficient is computed for each pair of EEG channels.
+
+\subsubsection{Cross-Correlation Based Discriminant Criterion (XCDC)}
+
+XCDC is another correlation method whose fundamental idea is that if a channel is informative and useful for the classification task at hand, then it should be highly correlated 
+
+
+Given two finite discrete time series $x(i)$ and $y(j)$
+(i $\epsilon$ $[0, 1, . . . , n - 1]$, j $\epsilon$ $[0, 1, . . . , m - 1]$, $m \geq n$),
+their cross-correlation series is given as follows:
+
+\begin{align}
+	 r_{xy}(k) = \sum_{i=0}^{n-1}x(i)y(i + k), k = 0,1,...,m-n+1
+	\label{eq:XCDC1}
+\end{align}
+
+where x and y are EEG signals of length T (m=n=T). \\ 
+Zero-padding is performed at both sides of y so that the length of the cross-correlation series is the same of the original signals. \\
+We apply the cross-correlation formula to the signals x and y, but we must firstly apply z-score normalization to account for the effect of signal amplitudes on cross-correlation.
+
+\begin{align}
+	\tilde{x_i} = \frac{x_i - \bar x_i}{\sigma_{x_i}}
+   \label{eq:XCDC3}
+\end{align}
+
+
+Then, the similarity between x and y is measured with the following formula:
+
+\begin{align}
+	S(x,y) = \max(r_{x\hat{y}(k)}), k=0,1,..., T - 1 
+   \label{eq:XCDC2}
+\end{align}
+
+with $\hat{y}$ being y with zero-padding.
+where $x_i$ is the signal of the i-th trial collected from our channel of interest. $\bar{x_i}$ and $\sigma{x_i}$ are
+the mean and standard deviation of $x_i$ respectively.
+Having defined the function $S$ we now define the within-class similarity $R_w$ and betweenclass dissimilarity $R_b$ which are obtained as follows:
+
+\begin{align}
+	R_w = \mathbf{mean}(S(\tilde{x_i}\tilde{x_j}| c_i = c_j))
+   \label{eq:XCDC4}
+\end{align}
+
+\begin{align}
+	R_b = -\mathbf{mean}(S(\tilde{x_i}\tilde{x_j}| c_i \neq  c_j))
+   \label{eq:XCDC5}
+\end{align}
+
+where $c_i$ is the class label of the i-th trial. The discriminant score D is then defined as follows:
+
+\begin{align}
+	D = \lambda R_w + (1-\lambda)R_b
+   \label{eq:XCDC6}
+\end{align}
+
+in which $\lambda$ is a weighting hyperparameter to be tuned empirically.
+Channels are ranked in a descending order according to their discriminant score D after obtaining D for every channel using.
+
+\begin{table}[H]
+	\caption{Accuracy for correlation based methods}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+	\hline
+	Methods & Methods' stategy & Classifier &Accuracy&No. of Selected Channels/Total No. of Channels&Dataset\\
+	\hline
+	Afghanistan   & AF    &AFG&   004&   004&   004\\
+	Afghanistan   & AF    &AFG&   004&   004&   004\\
+	\hline
+	\end{tabular}
+	\end{table}
+\subsection{Sequential Based methods}
+
+These methods implement a sequential approach where top features are identified iteratively.
+The most common example of Sequential method is the Sequential Forward Selection that was first used for variable selection by Whitney (1971). \\
+It begins the research with an empty set of features, all the features are evaluated according to their impact on the evaluation metric and then, the variable with the best effect gets added to the subset of features. \\
+This step gets re-iterated untill all the variables are progressively included in the set for comparisons purposes.
+SFS has what is defined as the "nesting property" which means that once a feature gets included in the subset, that feature stays in the subset even if removing it would improve the results.  \cite{reunanenOverfittingMakingComparisons}
+A different version is the Sequential Backward Search which functions identically but starts from a full set of variables and removes one them one by one according to the worst impact on the evaluation metrics. \cite{pudilFloatingSearchMethods1994} \\
+Both of these methods' complexity is O($n^2$). \cite{kudoComparisonAlgorithmsThat2000}
+
+\subsubsection{Sequential Floating Forward Selection (SFFS)}
+
+The sequential forward floating selection has in many instances demonstrated to be a superior algorithm.\cite{reunanenOverfittingMakingComparisons} \cite{zongkerAlgorithmsFeatureSelection1996}
+In our case in particular by addressing the nesting issue we better account for two features that highly impact the evaluation metrics but being highly correlated effectively carry the same information and may be not be both relevant to the final subset of features.
+It returns a better subset of feature at the cost of a higher complexity of O($2^n$). \cite{kudoComparisonAlgorithmsThat2000} \\
+The core approach utilized in Sequential Floating Forward Selection (SFFS) to address nesting issues involves initiating a backtracking phase after the addition of each variable. During this phase, variables are systematically excluded until superior subsets of corresponding sizes are identified. This process continues until no better subset is discovered, prompting a return to the initial step to include the best previously excluded variable. Subsequently, another backtracking phase ensues. \cite{reunanenOverfittingMakingComparisons} \cite{ pudilFloatingSearchMethods1994} \\ 
+In the original work of Pudil (1994) it is also proposed a floating version of the SBS called SBFS that implements the same idea but once again starting with a full set of features and removing them iteratively. Its complexity is O($2^n$).
+
+\subsubsection{Generalized Sequential Forward Selection (GSFS) }
+
+Generalized Sequential Forward Selection (GSFS) is an extension of the Sequential Forward Selection (SFS) algorithm. \\
+In GSFS, similar to SFS, the algorithm starts with an empty set of features and iteratively adds features to the model based on some evaluation criterion, such as minimizing error or maximizing predictive performance. However, GSFS introduces additional flexibility by allowing the inclusion of multiple features at each step instead of just one. This can potentially speed up the feature selection process and lead to better performance by considering feature combinations more efficiently.
+
+The key idea behind GSFS is to explore feature subsets in a more generalized manner, considering not only individual features but also combinations of features at each step of the selection process. This can be particularly useful in situations where interactions between features are important for modeling complex relationships in the data.
+
+Overall, GSFS offers a more flexible and comprehensive approach to feature selection compared to traditional forward selection methods like SFS, making it suitable for a wide range of applications in machine learning and data analysis. \cite{radmanGeneralizedSequentialForward2019}
+GSFS and the backward implementation GSBS, both have a complexity that depend of the number of features they can add per iteration, if we define g as the number of features added per iteration, then their complexity is O($n^{g+1}$). \\
+ With g = 1 GSFS is equal to SFS.
+
+\subsection{Binary Particle Swarm Optimization Based methods}
+
+In 1995, the PSO algorithm was presented by Kennedy and Eberhart. \cite{okwuMetaheuristicOptimizationNatureInspired2020} \\
+The idea behind it is inspired by the social behavior of birds flocking or fish schooling. \cite{vanneschiParticleSwarmOptimization2023}
+In standard PSO, particles move around in a continuous solution space, adjusting their positions and velocities based on their own best-known position and the global best-known position found by any particle in the swarm.
+\\
+This collective learning process guides the particles toward better regions of the search space, converging to the optimal solution. \\
+The balance between exploration (searching for new solutions) and exploitation (refining known solutions) is controlled by various parameters such as inertia weight, cognitive factor, and social factor. \\
+Example update functions for position ($x_{i}(t+1)$) and speed ($v^{i}_{k+1}$) are as follows from Abdullah\cite{abdullahEEGChannelSelection2022}:
+
+\begin{align}
+	v_{k+1}^i=w v_k^i+c_1 r_1\left(p_k^i+x_k^i\right)+c_2 r_2\left(g b e s t-x_k^i\right)
+	\label{eq:bpso1}
+\end{align}
+\begin{align}
+	x_i(t+1)=x_i t+v_i(t+1)
+	\label{eq:bpso2}
+\end{align}
+
+where i represents the i-th particle. $c_1$ is the cognitive coefficient and $c_2$ is the social one. They regulate how fast the particle is going and are both constant. $w$ is the inertial weight which limits the speed. $r_1$,$r_2$ are random values between 0 and 1. $k$ represents the iteration of the update function. $t$ represents the time. $p^{i}_{k}$ represents the best solution found so far by the i-th particle at k-th iteration. gbest is the best position found by the swarm so far.
+Just below we present a visualization of particle movement in a 3D space. 
+
+\begin{figure}[H]
+	\includegraphics[scale=0.35]{pso.png}
+	\caption{Illustration of particles moving in a 3D space}
+\end{figure}
+
+PSO has also a binary implementation called Binary Particle Swarm Optimization (BPSO).
+The basic principles of BPSO are similar to those of standard PSO, with particles searching for the optimal solution through iterative updates of their positions and velocities. However, in BPSO, the binary representation of the particle's position is manipulated using binary operators such as bitwise AND, OR, and NOT, instead of arithmetic operations used in continuous PSO. \cite{kennedyDiscreteBinaryVersion1997}
+
+The binary version suits feature selection since the binary values represent whether a feature is present or not in the subest of the most relvevant features.
+
+We present here the updated equations for BPSO, the main difference being that here the position of the particle can either be 1 or 0. \cite{abdullahEEGChannelSelection2022}
+
+
+\begin{align}
+S(v) &= \left(1+e^{-v}\right)^{-1} \\
+x_{k+1}^i &=1 \:\:\:\:\:\: \text { if } \tau<S\left(v_{k+1}^i\right) \\
+x_{k+1}^i &=0 \:\:\:\:\:\: \text { if } \tau>S\left(v_{k+1}^i\right),
+\end{align}
+
+With v defined as previously in PSO, and S being a logistic function that varies from 0 to 1.
+We decide if the position of the i-th particle is 1 or 0 depending on the $\tau$.
+There are also multi-objective versions for both PSO and BPSO called Multi-Objective Particle Swarm Optimization (MOPSO) and Binary Multi-Objective Particle Swarm Optimization respectively (BMOPSO). \cite{coellocoelloMOPSOProposalMultiple2002}
+
+\begin{table}[H]
+\caption{Accuracy for particle swarm optimization methods}
+\begin{tabular}{|c|c|c|c|p{2cm}|c|}
+\hline
+Methods & Methods' stategy & Classifier &Accuracy&No. of Selected Channels/Total No. of Channels&Dataset\\
+\hline
+Afghanistan   & AF    &AFG&   004&   004&   004\\
+Albania &AL & ALB&  008&   004&   004\\
+Algeria    &asdasdsssssssssssasd & DZA&  012&   004&   004\\
+Andorra& AD  & AND   &020&   004&   004\\
+Angola& AO  & AGO&024&   004&   004\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Other methods}
+
+We will now present a few other methods that are relvant for the idea behind them, the performance on the evaluation metrics or are particularly interesting with regard to future possible developments.
+
+\subsubsection{Min. Redundancy Max. Relevancy (mRMR)}
+
+\subsubsection{Rayleigh coefficient maximization Based Genetic Algorithm}
+
+\subsubsection{Fisher's criterion}
+
+% The aim of channel selection is to select the most discriminative EEG channels from the original 30 channels by applying the Fisher's criterion. The FD features from the 30 channels are concatenated to a feature vector (called data hereafter) of dimension q
+% , where q=30
+% . Let 𝐱𝑖𝑗∈𝑅𝑞
+%  denotes the jth training data of class 𝑖
+% , where 𝑖=1,…, 𝑐
+% , 𝐦𝑖
+%  is the mean of the training data of the ith class, and 𝐦
+%  is the mean of the training data from all classes. In this study, we focused on the classification problem in a motor imagery task (resting vs. motor imagery). Thus, 𝑐=2
+% . The within-class 𝐒𝑤
+%  and the between-class 𝐒𝑏
+%  scatter matrices are calculated by
+
+%  \cite{liuMotorImageryEEG2017}
+
+ 
+% \begin{aligned}
+% & \mathbf{S}_w=\sum_{i=1}^c P_i\left(\frac{1}{n_i} \sum_{j=1}^{n_i}\left(\mathbf{x}_{i j}-\mathbf{m}_i\right)\left(\mathbf{x}_{i j}-\mathbf{m}_i\right)^t\right) \\
+% & \mathbf{S}_w=\sum_{i=1}^c P_i\left(\frac{1}{n_i} \sum_{j=1}^{n_i}\left(\mathbf{x}_{i j}-\mathbf{m}_i\right)\left(\mathbf{x}_{i j}-\mathbf{m}_i\right)^t\right)
+% \end{aligned}
+
+% respectively, where 𝑛𝑖
+%  denotes the number of data in the ith class, the superscript ‘t’ stands for the transpose of a matrix, and 𝑃𝑖=𝑛𝑖/∑𝑐𝑗=1𝑛𝑗
+%  is the prior probability of the ith class. The class separability for the fth feature (𝑓=1,…,𝑞
+% ) can be represented by the Fisher score 𝐹(𝑓)
+% As
+
+% \begin{aligned}
+% F(f)=\frac{\mathbf{S}_b(f)}{\mathbf{S}_w(f)}, \quad f=1,2, \ldots, q
+% \end{aligned}
+
+% where 𝐒𝑏(𝑓)
+%  and 𝐒𝑤(𝑓)
+%  are the fth diagonal elements of 𝐒𝑏
+%  and 𝐒𝑤
+% , respectively. The higher the value of 𝐹(𝑓)
+%  is, the better the class separability of the feature extracted from the fth channel is. Based on the class separability criterion, we can select 𝑑
+%  top channels among the 30 ones. The 𝑑
+%  features from the selected channels are concatenated to a feature vector.
+
+\subsubsection{Automatic Channel Selection with Sparse Squeeze and Excitation Blocks (ACS-SE)}
+
+
+\subsubsection{Auto-encoder}
+
+
+\subsubsection{Dataset and results}
+
+
 We wanted to find algorithm that not only performed well on the usual Accuracy-F1Score metrics while reducing the numbers of channels, but also would fit well with our models.
 Given the architecture of our ENGNet model, we needed an algorithm to perform channel selectiom that would work with a Neural Network model.
 ''' expand test case scenario and explain why '''
 In addition, given future test case scenarios we also needed an algorithm that could be performed in an "on-line" way, or as close to it as possible.
 To summarize we needed:
-''list''
--online
--Cnn ready
--good performance on f1-Accuracy
--works well with few channels
-''list''
+\begin{itemize}
+	\item-online
+	\item Cnn ready
+	\item good performance on f1-Accuracy
+	\item works well with few channels
+\end{itemize}
 
 There are many algorithms that reduce noise...  \cite{abdullahEEGChannelSelection2022}
 but those are already inside the ENGNet since spatial features ...
