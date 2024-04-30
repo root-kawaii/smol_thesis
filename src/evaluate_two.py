@@ -79,7 +79,7 @@ train_ratio = 0.80
 validation_ratio = 0.20
 test_ratio = 0.20
 
-k = 5  # Number of folds
+k = 50  # Number of folds
 kf = StratifiedKFold(n_splits=k, shuffle=True, random_state=42)
 
 x_samp_2 = np.concatenate(x_samp, axis=0)
@@ -205,22 +205,25 @@ for train_index, val_index in kf.split(x_train, y_train):
 
     output_folder_cv = ""
 
+    weights_file_path = str(into) + "saved_weights.h5"
     checkpoint_path = os.path.join(output_folder_cv, "best_model_checkpoint.h5")
     model_checkpoint = tfk.callbacks.ModelCheckpoint(
-        checkpoint_path,
+        weights_file_path,
         monitor="val_accuracy",
-        save_best_only=True,
+        # save_best_only=True,
         save_weights_only=True,
         verbose=1,
+        save_freq="epoch",
     )
 
     # Save the weights to a file
-    weights_file_path = str(into) + "saved_weights.h5"
-    with tf.keras.utils.CustomObjectScope(
-        {"GlorotUniform": tf.keras.initializers.GlorotUniform}
-    ):
-        layer_to_save_weights.set_weights(weights_to_save)
-        model.save_weights(weights_file_path)
+
+    # with tf.keras.utils.CustomObjectScope(
+    #     {"GlorotUniform": tf.keras.initializers.GlorotUniform}
+    # ):
+    #     layer_to_save_weights.set_weights(weights_to_save)
+    #     print("save weights")
+    # model.save_weights(weights_file_path)
     print(x_train.shape)
     print(y_train_k.shape)
 
@@ -244,7 +247,7 @@ for train_index, val_index in kf.split(x_train, y_train):
         ],
     ).history
 
-    model.load_weights(checkpoint_path)
+    # model.load_weights(checkpoint_path)
 
     # Plotting, da aggiiungere la loss
     best_epoch = np.argmax(history["accuracy"])

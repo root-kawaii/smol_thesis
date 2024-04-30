@@ -4,35 +4,189 @@ import numpy as np
 # Generating some random data
 np.random.seed(10)
 
-x = [16, 15, 14, 13, 12, 11, 10, 9, 8]
-
-data = [
-    0.939085231,
-    0.930320005,
-    0.919598688,
-    0.913551346,
-    0.908177428,
-    0.899843936,
-    0.880495739,
-    0.864608564,
-    0.85589301,
+x = [
+    "16",
+    "15 - 10",
+    "14 - 6",
+    "13 - 11",
+    "12 - 3",
+    "11 - 14",
+    "10 - 7",
+    "9 - 0",
+    "8 - 2",
+    "7 - 15",
 ]
 
 
-data_2 = [
+accuracy_2 = [
+    0.8532,
+    0.8485,
+    0.8471,
+    0.842,
+    0.8367,
+    0.832,
+    0.8285,
+    0.8123,
+    0.8178,
+    0.7361,
+]
+f1_score_2 = [
+    0.8279,
+    0.8242,
+    0.817,
+    0.8194,
+    0.8154,
+    0.8076,
+    0.8069,
+    0.7919,
+    0.7963,
+    0.7184,
+]
+
+
+std_data_ac_2 = [
+    0.005128203,
+    0.006858865,
+    0.005365904,
+    0.007093232,
+    0.004287042,
+    0.007487694,
+    0.005618573,
+    0.011471681,
+    0.009159471,
+    0.006235253,
+]
+
+std_data_f1_2 = [
+    0.006044684,
+    0.007350249,
+    0.00705451,
+    0.007617024,
+    0.003320661,
+    0.007184426,
+    0.005864662,
+    0.009475886,
+    0.012247129,
+    0.007207906,
+]
+
+
+accuracy_2 = [x * 100 for x in accuracy_2]
+f1_score_2 = [x * 100 for x in f1_score_2]
+std_data_ac_2 = [x * 100 for x in std_data_ac_2]
+std_data_f1_2 = [x * 100 for x in std_data_f1_2]
+
+# plot_data = []
+# plot_data_2 = []
+
+# for i, j in enumerate(accuracy_2):
+#     if i != 0:
+#         plot_data.append(
+#             accuracy_2[0] + std_data_ac_2[0] - accuracy_2[i] - std_data_ac_2[i]
+#         )
+#     if i != 0:
+#         plot_data_2.append(
+#             f1_score_2[0] + std_data_f1_2[0] - f1_score_2[i] - std_data_ac_2[i]
+#         )
+
+# Creating a box plot
+plt.errorbar(
+    x,
+    accuracy_2,
+    yerr=std_data_ac_2,
+    fmt="-o",
+    color="tab:orange",
+    ecolor="lightgray",
+    elinewidth=5,
+    capsize=0,
+    label="Accuracy",
+)
+
+plt.errorbar(
+    x,
+    f1_score_2,
+    yerr=std_data_f1_2,
+    fmt="-o",
+    color="tab:blue",
+    ecolor="lightgray",
+    elinewidth=5,
+    capsize=0,
+    label="F1-Score",
+)
+
+for i in range(len(x)):
+    plt.text(
+        x[i],
+        accuracy_2[i],
+        f"{accuracy_2[i]:.1f} ± {std_data_ac_2[i]:.1f}",
+        fontsize=10,
+        ha="left",
+        va="bottom",
+    )
+
+for i in range(len(x)):
+    plt.text(
+        x[i],
+        f1_score_2[i],
+        f"{f1_score_2[i]:.1f} ± {std_data_f1_2[i]:.1f}",
+        fontsize=10,
+        ha="left",
+        va="bottom",
+    )
+# plt.gca().invert_xaxis()
+plt.xticks(x)
+
+# Adding labels and title
+plt.xlabel("Number of channels - {Removed channel}")
+plt.ylabel("Metric (%)")
+plt.title("Animal 3 - ENGNet100K - 100ms - 4 classes")
+plt.legend()
+
+plt.ylim(min(min(accuracy_2), min(f1_score_2)) - 2, 100)
+# Showing the plot
+plt.show()
+
+
+"""
+x = [
+    "16 - 6",
+    "15 - 10",
+    "14 - 11",
+    "13 - 7",
+    "12 - 9",
+    "11 - 5",
+    "10 - 15",
+    "9 - 14,
+    "8 - 0",
+]
+
+accuracy_1 = [
+    0.993,
+    0.98901795,
+    0.98475282,
+    0.98042041,
+    0.97565817,
+    0.97050610,
+    0.96736621,
+    0.961954361,
+    0.942852,
+]
+
+f1_1 = [
     0.991,
-    0.98220986,
-    0.976850603,
-    0.968179117,
-    0.964477917,
-    0.955100628,
-    0.950588962,
-    0.942547333,
-    0.916153281,
+    0.9822098,
+    0.9768506,
+    0.9681791,
+    0.9644779,
+    0.95510062,
+    0.9505889,
+    0.9425473,
+    0.9161532,
 ]
 
 
-std_data = [
+
+std_data_ac_1 = [
     0.002,
     0.002499003,
     0.002869618,
@@ -45,7 +199,7 @@ std_data = [
 ]
 
 
-std_data_2 = [
+std_data_f1_1 = [
     0.002,
     0.004389057,
     0.003043836,
@@ -58,120 +212,35 @@ std_data_2 = [
 ]
 
 
-# Creating a box plot
-plt.errorbar(
-    x,
-    data,
-    yerr=std_data,
-    fmt="-o",
-    color="tab:orange",
-    ecolor="lightgray",
-    elinewidth=5,
-    capsize=0,
-    label="Accuracy",
-)
-
-plt.errorbar(
-    x,
-    data_2,
-    yerr=std_data_2,
-    fmt="-o",
-    color="tab:blue",
-    ecolor="lightgray",
-    elinewidth=5,
-    capsize=0,
-    label="F1-Score",
-)
-
-for i in range(len(x)):
-    plt.text(x[i], data[i], f"{data[i]:.3f}", fontsize=10, ha="left", va="bottom")
-
-for i in range(len(x)):
-    plt.text(x[i], data_2[i], f"{data_2[i]:.3f}", fontsize=10, ha="left", va="bottom")
-
-plt.gca().invert_xaxis()
-plt.xticks(x)
-
-# Adding labels and title
-plt.xlabel("Number of channels")
-plt.ylabel("Metric (%)")
-plt.title("Animal 2")
-plt.legend()
 
 
-# Showing the plot
-plt.show()
 
 
-"""data = [
-    0.946404334,
-    0.939658444,
-    0.931498251,
-    0.926291881,
-    0.923749706,
-    0.914705483,
-    0.899735463,
-    0.887055987,
-    0.879496194,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x = [
+    "16 - 10",
+    "15 - 6",
+    "14 - 11",
+    "13 - 3",
+    "12 - 14",
+    "11 - 7",
+    "10 - 0",
+    "9 - 2,
+    "8 - 15",
 ]
-data_2 = [
-    0.939085231,
-    0.930320005,
-    0.919598688,
-    0.913551346,
-    0.908177428,
-    0.899843936,
-    0.880495739,
-    0.864608564,
-    0.85589301,
-]
-
-
-std_data = [
-    0.006498296,
-    0.00312995,
-    0.004444134,
-    0.004454005,
-    0.007060253,
-    0.002348859,
-    0.003819219,
-    0.004029054,
-    0.00172896,
-]
-
-std_data_2 = [
-    0.006147485,
-    0.003833479,
-    0.006868483,
-    0.004755663,
-    0.008564975,
-    0.004250952,
-    0.005102983,
-    0.005811584,
-    0.004605609,
-]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 data = [0.8532, 0.8485, 0.8471, 0.842, 0.8367, 0.832, 0.8285, 0.8123, 0.8178, 0.7361]
