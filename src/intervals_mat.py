@@ -84,29 +84,31 @@ for counts, fil in enumerate(folders_nev):
 
                 # data elements for each ms * 250ms
                 if fil == "noci":
-                    read_noci(
-                        counts,
-                        count,
-                        x,
-                        ult_data,
-                        raw,
-                        file,
-                        fil,
-                        tui,
-                    )
+                    print("not now")
+                    # read_noci(
+                    #     counts,
+                    #     count,
+                    #     x,
+                    #     ult_data,
+                    #     raw,
+                    #     file,
+                    #     fil,
+                    #     tui,
+                    # )
 
                 elif fil == "touch":
-                    read_touch(
-                        counts,
-                        count,
-                        x,
-                        ult_data,
-                        yt,
-                        file,
-                        fil,
-                        tui,
-                        raw,
-                    )
+                    print("not now")
+                    # read_touch(
+                    #     counts,
+                    #     count,
+                    #     x,
+                    #     ult_data,
+                    #     yt,
+                    #     file,
+                    #     fil,
+                    #     tui,
+                    #     raw,
+                    # )
                 else:
                     read_prop(
                         counts,

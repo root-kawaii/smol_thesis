@@ -57,25 +57,42 @@ print(x_samp_tt.shape)
 
 ################### generate substitute ################################
 
+animal_num = input("Enter animal number 1,2 or 3 \n")
+animal_num = animal_num + "/"
+patho = "../src/data/animal "
+path_arrays = "../src/numpy_arrays/animal "
+patho_nev = "../src/data_nev/animal "
+animal_number_folders = [f for f in os.listdir(path_arrays + str(animal_num))]
+anima_number_folders_nev = [f for f in os.listdir(patho_nev + str(animal_num))]
+meanss = []
+stdss = []
 
-for i in range(len(x_samp_tt)):
-    x_samp_tt[i] = stats.zscore(x_samp_tt[i])
+for iteration_classes, classes in enumerate(animal_number_folders):
+    # f.write(str(counts) + " is " + fil + "\n")
+    # print(classes)
+    if classes != "prop":
+        continue
+    files = [f for f in os.listdir(path_arrays + str(animal_num) + classes)]
+    one_class_list = []
+    one_class_list_window = []
+    for file_count, file in enumerate(files):
+        # num_electrodes = 0
+        # print(file)
+        if file == ".DS_Store":
+            continue
+        temp = np.load(
+            "numpy_arrays/" + "animal " + animal_num + classes + "/" + file,
+            allow_pickle=True,
+        )
+        meanss.append(np.mean(temp))
+        stdss.append(np.std(temp))
 
-sub = np.zeros(2500)
-summ = []
-for k in range(15):
-    for i in range(len(x_samp_tt)):
-        for j in range(len(x_samp_tt[i, 0])):
-            # print(j)
-            summ.append(x_samp_tt[i, k, j])
 
-
-print(len(summ))
 # Calculate average (mean)
-average = np.mean(summ)
+average = np.nanmean(np.array(meanss))
 print(average)
 # Calculate standard deviation
-std_dev = np.std(summ)
+std_dev = np.nanmean(np.array(stdss))
 print(std_dev)
 
 
@@ -84,16 +101,23 @@ signal_mean = average  # Mean of the signal
 signal_std = std_dev  # Standard deviation of the signal
 num_data_points = 2500  # Number of data points
 
+print(x_samp_tt.shape)
+
 # Generate the signal without noise
-for j in range(15):
+for j in range(6):
     for i in range(2013):
         signalo = np.random.normal(signal_mean, signal_std, num_data_points)
         x_samp_tt[i, j] = signalo
 
+for i in range(len(x_samp_tt)):
+    for j in range(16):
+        x_samp_tt[i][j] = stats.zscore(x_samp_tt[i][j])
+
 
 # Plot the noisy signal
 plt.figure(figsize=(10, 6))
-plt.plot(signalo, color="b", label="Noisy Signal")
+plt.plot(x_samp_tt[14, 2], color="b", label="Noisy Signal")
+plt.plot(x_samp_tt[14, 15], color="orange", label="Noisy Signal")
 plt.xlabel("Data Points")
 plt.ylabel("Amplitude")
 plt.title("Noisy Signal with AWGN")
@@ -229,48 +253,48 @@ print(correlation_scores)
 #     )
 
 
-for y in range(20):
+for y in range(8):
     print("cycling...")
-    # for batch in range(2):
-    for k in range(16):
-        # k = k + (8 * batch)
-        same_class_score = []
-        diff_class_score = []
-        # for batch2 in range(2):
-        for ch2 in range(16):
-            # ch2 = ch2 + (8 * batch)
-            if k != ch2:
-                for i in range(len(data_merge)):
-                    for h in range(len(data_merge)):
-                        if i == h:
-                            for j in range(39):
-                                same_class_score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][j][k, 0:2500],
-                                            data_merge_II[h][j][ch2, 0:500],
-                                            mode="same",
+    for batch in range(2):
+        for k in range(8):
+            k = k + (8 * batch)
+            same_class_score = []
+            diff_class_score = []
+            for batch2 in range(2):
+                for ch2 in range(8):
+                    ch2 = ch2 + (8 * batch)
+                    if k != ch2:
+                        for i in range(len(data_merge)):
+                            for h in range(len(data_merge)):
+                                if i == h:
+                                    for j in range(39):
+                                        same_class_score.append(
+                                            max(
+                                                signal.correlate(
+                                                    data_merge_I[i][j][k, 0:2500],
+                                                    data_merge_II[h][j][ch2, 0:2500],
+                                                    mode="same",
+                                                )
+                                            )
                                         )
-                                    )
-                                )
-                        else:
-                            for j in range(39):
-                                diff_class_score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][j][k, 0:2500],
-                                            data_merge_II[h][j][ch2, 0:500],
-                                            mode="same",
+                                else:
+                                    for j in range(39):
+                                        diff_class_score.append(
+                                            max(
+                                                signal.correlate(
+                                                    data_merge_I[i][j][k, 0:2500],
+                                                    data_merge_II[h][j][ch2, 0:2500],
+                                                    mode="same",
+                                                )
+                                            )
                                         )
-                                    )
-                                )
-        # print(len(same_class_score))
-        # print(len(diff_class_score))
-        correlation_scores_1[k] += np.median(same_class_score)
-        correlation_scores_2[k] += np.median(diff_class_score)
-        correlation_scores[k] += epsilon * np.median(same_class_score) + (
-            1 - epsilon
-        ) * -1 * np.median(diff_class_score)
+                # print(len(same_class_score))
+                # print(len(diff_class_score))
+                correlation_scores_1[k] += np.median(same_class_score)
+                correlation_scores_2[k] += np.median(diff_class_score)
+                correlation_scores[k] += epsilon * np.median(same_class_score) + (
+                    1 - epsilon
+                ) * -1 * np.median(diff_class_score)
 
 print(correlation_scores_1)
 print(correlation_scores_2)

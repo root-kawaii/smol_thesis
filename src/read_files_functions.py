@@ -136,17 +136,21 @@ def read_prop(counts, count, x, ult_data, yt, file, fil, tui, raw):
     is_first_time_on = 1
     rangee = len(yt)
     rangee_half = int(len(yt) / 2)
-    for i in range(rangee):
-        if is_first_time_on:
-            if i % 2 == 0:
-                ult_data[counts, count, i] = (yt[i][0] + int(cut_piece * 2)) / 6
-            elif i % 2 != 0:
-                ult_data[counts, count, i] = (yt[i - 1][0] + int(cut_piece * 11)) / 6
-        else:
-            if i % 2 != 0:
-                ult_data[counts, count, i] = (yt[i][0] + int(cut_piece * 2)) / 6
-            elif i % 2 == 0:
-                ult_data[counts, count, i] = (yt[i - 1][0] + int(cut_piece * 11)) / 6
+    for i in range(rangee - 1):
+        # if is_first_time_on:
+        #     if i % 2 == 0:
+        #         ult_data[counts, count, i] = (yt[i][0] + int(cut_piece * 2)) / 6
+        #     elif i % 2 != 0:
+        #         ult_data[counts, count, i] = (yt[i - 1][0] + int(cut_piece * 11)) / 6
+        # else:
+        #     if i % 2 != 0:
+        #         ult_data[counts, count, i] = (yt[i][0] + int(cut_piece * 2)) / 6
+        #     elif i % 2 == 0:
+        #         ult_data[counts, count, i] = (yt[i - 1][0] + int(cut_piece * 11)) / 6
+        if i % 2 == 0:
+            ult_data[counts, count, i] = (yt[i + 1][0] + int(cut_piece * 1)) / 6
+        elif i % 2 != 0:
+            ult_data[counts, count, i] = (yt[i][0] + int(cut_piece * 11)) / 6
     for i in range(0, len(ult_data[counts, count, :]) - 1, 2):
         print(ult_data[counts, count, i + 1] - ult_data[counts, count, i])
     for j in range(rangee_half):
@@ -160,8 +164,8 @@ def read_prop(counts, count, x, ult_data, yt, file, fil, tui, raw):
         # else:
         #     y = x[:, int(ult_data[counts, count, (j*2)]):
         #           int(ult_data[counts, count, (j*2)+1])]
-        # print(int(ult_data[counts, count, j*2]))
-        # print(int(ult_data[counts, count, (j*2)+1]))
+        print(int(ult_data[counts, count, j * 2]))
+        print(int(ult_data[counts, count, (j * 2) + 1]))
         print(len(y[0]))
         current_time = datetime.now()
         np.save(
@@ -179,7 +183,7 @@ def read_prop(counts, count, x, ult_data, yt, file, fil, tui, raw):
         )
 
     for i in range(16):
-        # plt.plot(x[i])
+        plt.plot(x[i])
         h = raw.get_data()
         # plt.plot(h[16] / 50000, color="k")  # black
         for h, val in enumerate(ult_data[counts, count]):
@@ -196,7 +200,7 @@ def read_prop(counts, count, x, ult_data, yt, file, fil, tui, raw):
                 else:
                     plt.axvline(x=val, color="g", linestyle="--")
 
-        # plt.show()
+        plt.show()
         # plt.savefig("numpy_arrays/" + "img__  " + tui + " " +
         #             file + "  channel  " + str(i) + "h.jpg")
 

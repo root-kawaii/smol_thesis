@@ -187,7 +187,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 # print(correlation_scores)
 
 
-into = 0
+into = 7
 for train_index, val_index in kf.split(x_train, y_train):
     into += 1
     model = EEGNet100(

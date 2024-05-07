@@ -2,7 +2,7 @@ import h5py
 
 weights_sums = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 # Specify the path to your H5 weights file
-for i in range(1, 13):
+for i in range(1, 50):
     weights_file_path = str(i) + "saved_weights.h5"
 
     # Open the H5 file in read-only mode
