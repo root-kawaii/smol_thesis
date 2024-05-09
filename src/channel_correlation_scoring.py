@@ -57,7 +57,7 @@ print(x_samp_tt.shape)
 
 ################### generate substitute ################################
 
-animal_num = input("Enter animal number 1,2 or 3 \n")
+animal_num = "3"  # input("Enter animal number 1,2 or 3 \n")
 animal_num = animal_num + "/"
 patho = "../src/data/animal "
 path_arrays = "../src/numpy_arrays/animal "
@@ -66,6 +66,7 @@ animal_number_folders = [f for f in os.listdir(path_arrays + str(animal_num))]
 anima_number_folders_nev = [f for f in os.listdir(patho_nev + str(animal_num))]
 meanss = []
 stdss = []
+signalo = []
 
 for iteration_classes, classes in enumerate(animal_number_folders):
     # f.write(str(counts) + " is " + fil + "\n")
@@ -77,22 +78,26 @@ for iteration_classes, classes in enumerate(animal_number_folders):
     one_class_list_window = []
     for file_count, file in enumerate(files):
         # num_electrodes = 0
-        # print(file)
+        print(file_count)
         if file == ".DS_Store":
             continue
         temp = np.load(
             "numpy_arrays/" + "animal " + animal_num + classes + "/" + file,
             allow_pickle=True,
-        )
+        )[2]
         meanss.append(np.mean(temp))
         stdss.append(np.std(temp))
+        signalo.append(temp)
 
+
+print(len(signalo))
+signalo2 = np.concatenate(signalo, axis=0)
 
 # Calculate average (mean)
 average = np.nanmean(np.array(meanss))
 print(average)
 # Calculate standard deviation
-std_dev = np.nanmean(np.array(stdss))
+std_dev = np.std(signalo2)
 print(std_dev)
 
 
@@ -104,7 +109,7 @@ num_data_points = 2500  # Number of data points
 print(x_samp_tt.shape)
 
 # Generate the signal without noise
-for j in range(6):
+for j in range(2):
     for i in range(2013):
         signalo = np.random.normal(signal_mean, signal_std, num_data_points)
         x_samp_tt[i, j] = signalo
