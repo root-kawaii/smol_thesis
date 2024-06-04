@@ -48,7 +48,7 @@ counter = 0
 all_classes = []
 all_classes_windowless = []
 correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-channel_bool = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+channel_bool = [0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0]
 
 
 num_features = 0
@@ -62,8 +62,8 @@ check = 0
 f = open("results.txt", "a")
 current_time = datetime.now()
 
-path_folder = "../data/100ms/"
-file_name = [f for f in os.listdir("../data/100ms/")]
+path_folder = "../data/100ms_3/"
+file_name = [f for f in os.listdir("../data/100ms_3/")]
 file_paths = []
 for file_number in range(len(file_name)):
     file = os.path.join(path_folder, file_name[file_number])
@@ -79,7 +79,7 @@ train_ratio = 0.80
 validation_ratio = 0.20
 test_ratio = 0.20
 
-k = 50  # Number of folds
+k = 5  # Number of folds
 kf = StratifiedKFold(n_splits=k, shuffle=True, random_state=42)
 
 x_samp_2 = np.concatenate(x_samp, axis=0)
@@ -187,7 +187,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 # print(correlation_scores)
 
 
-into = 7
+into = 0
 for train_index, val_index in kf.split(x_train, y_train):
     into += 1
     model = EEGNet100(
@@ -205,7 +205,7 @@ for train_index, val_index in kf.split(x_train, y_train):
 
     output_folder_cv = ""
 
-    weights_file_path = str(into) + "saved_weights.h5"
+    weights_file_path = str(into) + "_2 " + "saved_weights.h5"
     checkpoint_path = os.path.join(output_folder_cv, "best_model_checkpoint.h5")
     model_checkpoint = tfk.callbacks.ModelCheckpoint(
         weights_file_path,

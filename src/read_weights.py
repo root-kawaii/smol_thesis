@@ -2,7 +2,7 @@ import h5py
 
 weights_sums = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 # Specify the path to your H5 weights file
-for i in range(1, 9):
+for i in range(10, 40):
     weights_file_path = str(i) + "saved_weights.h5"
 
     # Open the H5 file in read-only mode
@@ -32,8 +32,8 @@ for i in range(1, 9):
             weights_sums[j] += k
 
 sorted_indices = sorted(
-    range(len(weights_values)), key=lambda i: weights_values[i][0], reverse=True
+    range(len(weights_sums)), key=lambda i: weights_sums[i][0], reverse=True
 )
 # Return the sorted indices
-# print(weights_values)
+print(weights_sums)
 print(sorted_indices)

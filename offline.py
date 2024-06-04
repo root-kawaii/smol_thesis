@@ -22,7 +22,7 @@ c_read = device.char_write(serviceUUID_read, characteristicUUID_read)
 
 
 # Subscribe to notifications for reading data
-device.subscribe(characteristicUUID_read, callback=ble_data_received(7, 1))
+device.subscribe(characteristicUUID_read, callback=ble_data_received())
 
 # Write command to start
 command_start = input("Command (start): ")

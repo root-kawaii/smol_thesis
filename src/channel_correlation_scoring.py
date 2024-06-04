@@ -49,11 +49,11 @@ for file_number in range(len(file_name)):
 x_samp, y_samp = transform_data_not_transpose(file_name, file_paths, 16)
 
 
-print(x_samp.shape)
+# print(x_samp.shape)
 # x_samp_t = np.transpose(x_samp)
 x_samp_tt = np.transpose(x_samp, (0, 2, 1))
-print(x_samp_tt.shape)
-
+# print(x_samp_tt.shape)
+x_samp_tt_2 = x_samp_tt.copy()
 
 ################### generate substitute ################################
 
@@ -78,7 +78,7 @@ for iteration_classes, classes in enumerate(animal_number_folders):
     one_class_list_window = []
     for file_count, file in enumerate(files):
         # num_electrodes = 0
-        print(file_count)
+        # print(file_count)
         if file == ".DS_Store":
             continue
         temp = np.load(
@@ -90,15 +90,15 @@ for iteration_classes, classes in enumerate(animal_number_folders):
         signalo.append(temp)
 
 
-print(len(signalo))
+# print(len(signalo))
 signalo2 = np.concatenate(signalo, axis=0)
 
 # Calculate average (mean)
 average = np.nanmean(np.array(meanss))
-print(average)
+# print(average)
 # Calculate standard deviation
 std_dev = np.std(signalo2)
-print(std_dev)
+# print(std_dev)
 
 
 # Parameters for the signal
@@ -106,345 +106,392 @@ signal_mean = average  # Mean of the signal
 signal_std = std_dev  # Standard deviation of the signal
 num_data_points = 2500  # Number of data points
 
-print(x_samp_tt.shape)
-
-# Generate the signal without noise
-for j in range(2):
-    for i in range(2013):
-        signalo = np.random.normal(signal_mean, signal_std, num_data_points)
-        x_samp_tt[i, j] = signalo
-
-for i in range(len(x_samp_tt)):
-    for j in range(16):
-        x_samp_tt[i][j] = stats.zscore(x_samp_tt[i][j])
-
-
-# Plot the noisy signal
-plt.figure(figsize=(10, 6))
-plt.plot(x_samp_tt[14, 2], color="b", label="Noisy Signal")
-plt.plot(x_samp_tt[14, 15], color="orange", label="Noisy Signal")
-plt.xlabel("Data Points")
-plt.ylabel("Amplitude")
-plt.title("Noisy Signal with AWGN")
-plt.legend()
-plt.grid(True)
-plt.show()
-plt.plot(x_samp_tt[0, 0], color="b", label="Noisy Signal")
-plt.show()
-
-
-#############################################################################
-
-
-labels_correlation_windowless = print_value_counts(y_samp)
-lengths = []
-for kk in labels_correlation_windowless.values():
-    lengths.append(kk)
-print(lengths)
-# Split the data_list based on split_indices
-data_merge = split_list_by_lengths(x_samp_tt, lengths)
-new_reduced_labels = []
-
-# plt.plot(data_merge[0][0][0])
-# plt.show()
-
-# Generate a random number between the intervals
-# for j in range(len(data_merge)):
-#     for i in range(len(data_merge[j])):
-#         # for k in range(len(data_merge[j][i])):
-#         data_merge[j][i] = stats.zscore(data_merge[j][i])
-
-# plt.plot(data_merge[0][0][0])
-# plt.show()
-
-
-for i in range(len(data_merge)):
-    # splice_index = int(len(data_merge[i]) * 0.50)
-    random_number = random.randint(0, lengths[i] - 81)
-    data_merge[i] = data_merge[i][random_number : random_number + 80]
-    new_reduced_labels.extend([i] * 80)
-
-
-data_merge_I = []
-data_merge_II = []
-
-for i in range(len(data_merge)):
-    data_merge_I.append(data_merge[i][0:40])
-    data_merge_II.append(data_merge[i][40:80])
-
-
-# x_samp_tt = np.concatenate(data_merge)
-# print("ciao")
 # print(x_samp_tt.shape)
-new_reduced_labels = np.array(new_reduced_labels)
 
-data_merge_conc = np.concatenate(data_merge, axis=0)
-# print(data_merge_conc.shape)
-counter = 0
+already = []
+# Generate the signal without noise
+for t in range(1, 16):
+    channelss = t
+    for jk in range(1):
+        random_number = random.randint(0, 15)
+        while random_number in already:
+            random_number = random.randint(0, 15)
+        if random_number not in already:
+            already.append(random_number)
+    print(already)
+    correlation_scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    correlation_scores_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    correlation_scores_2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for pp in range(3):
+        # print(x_samp_tt_2[0, already[0], 0])
+        # print(x_samp_tt[0, already[0], 0])
+        np.copyto(x_samp_tt, x_samp_tt_2)
+        # print(x_samp_tt_2[0, already[0], 0])
+        # print(x_samp_tt[0, already[0], 0])
+        for j in already:
+            # print(j)
+            for i in range(2013):
+                # signalo = np.random.normal(average, std_dev, num_data_points)
+                # x_samp_tt[i, j] = signalo
+                for o in range(len(x_samp_tt[i, random_number])):
+                    if o % 2:
+                        x_samp_tt[i, random_number, o] = 0.000030
+                    else:
+                        x_samp_tt[i, random_number, o] = 0.000031
 
-epsilon = 0.8
+        # print(already)
+        # if t == 1:
+        for i in range(len(x_samp_tt)):
+            for j in range(16):
+                # if j not in already:
+                x_samp_tt[i][j] = stats.zscore(x_samp_tt[i][j])
+        # else:
+        #     x_samp_tt[i][random_number] = stats.zscore(x_samp_tt[i][random_number])
 
+        # not_already = []
+        # for ppp in range(16):
+        #     if pp not in already:
+        #         not_already.append(ppp)
+        # # Plot the noisy signal
+        # plt.figure(figsize=(10, 6))
+        # plt.plot(x_samp_tt[14, already[0]], color="b", label="Noisy Signal")
+        # plt.plot(
+        #     x_samp_tt[14, not_already[0]],
+        #     color="orange",
+        #     label="Noisy Signal",
+        # )
+        # plt.xlabel("Data Points")
+        # plt.ylabel("Amplitude")
+        # plt.title("Noisy Signal with AWGN")
+        # plt.legend()
+        # plt.grid(True)
+        # plt.show()
+        # plt.plot(x_samp_tt[0, 0], color="b", label="Noisy Signal")
+        # plt.show()
 
-print(correlation_scores)
-# for i in range(10):
-#     for batch in range(2):
-#         for k in range(8):
-#             k = k + (8 * batch)
-#             for i in range(len(data_merge)):
-#                 score = []
-#                 for j in range(len(data_merge_I[0])):
-#                     score.append(
-#                         max(
-#                             signal.correlate(
-#                                 data_merge_I[i][j][k, 0:2500],
-#                                 data_merge_II[i][j][k, 0:500],
-#                                 mode="same",
-#                             )
-#                         )
-#                     )
-#                 # print("\n")
-#                 # print(score)
-#                 # print(len(score))
-#                 # print("\n")
-#                 correlation_scores_1[k] += np.median(score)
+        #############################################################################
 
-#         for k in range(8):
-#             k = k + (8 * batch)
-#             for i in range(len(data_merge)):
-#                 score = []
-#                 for j in range(len(data_merge_I[0])):
-#                     x = copy.copy(data_merge_II)
-#                     x.pop(i)
-#                     if j < 8:
-#                         score.append(
-#                             max(
-#                                 signal.correlate(
-#                                     data_merge_I[i][j][k, 0:2500],
-#                                     x[0][j][k, 0:500],
-#                                     mode="same",
-#                                 )
-#                             )
-#                         )
-#                     elif j > 7 and j < 16:
-#                         score.append(
-#                             max(
-#                                 signal.correlate(
-#                                     data_merge_I[i][j][k, 0:2500],
-#                                     x[1][j][k, 0:500],
-#                                     mode="same",
-#                                 )
-#                             )
-#                         )
-#                     else:
-#                         score.append(
-#                             max(
-#                                 signal.correlate(
-#                                     data_merge_I[i][j][k, 0:2500],
-#                                     x[2][j][k, 0:500],
-#                                     mode="same",
-#                                 )
-#                             )
-#                         )
-#                 # print("\n")
-#                 # print(score)
-#                 # print(len(score))
-#                 # print("\n")
-#                 correlation_scores_2[k] -= np.median(score)
+        labels_correlation_windowless = print_value_counts(y_samp)
+        lengths = []
+        for kk in labels_correlation_windowless.values():
+            lengths.append(kk)
+        # print(lengths)
+        # Split the data_list based on split_indices
+        data_merge = split_list_by_lengths(x_samp_tt, lengths)
+        new_reduced_labels = []
 
-# for i in range(16):
-#     correlation_scores[i] += (
-#         epsilon * correlation_scores_1[i] / 100
-#         + (1 - epsilon) * correlation_scores_2[i] / 100
-#     )
+        # plt.plot(data_merge[0][0][0])
+        # plt.show()
 
+        # Generate a random number between the intervals
+        # for j in range(len(data_merge)):
+        #     for i in range(len(data_merge[j])):
+        #         # for k in range(len(data_merge[j][i])):
+        #         data_merge[j][i] = stats.zscore(data_merge[j][i])
 
-for y in range(8):
-    print("cycling...")
-    for batch in range(2):
-        for k in range(8):
-            k = k + (8 * batch)
-            same_class_score = []
-            diff_class_score = []
-            for batch2 in range(2):
-                for ch2 in range(8):
-                    ch2 = ch2 + (8 * batch)
-                    if k != ch2:
-                        for i in range(len(data_merge)):
-                            for h in range(len(data_merge)):
-                                if i == h:
-                                    for j in range(39):
-                                        same_class_score.append(
-                                            max(
-                                                signal.correlate(
-                                                    data_merge_I[i][j][k, 0:2500],
-                                                    data_merge_II[h][j][ch2, 0:2500],
-                                                    mode="same",
-                                                )
-                                            )
+        # plt.plot(data_merge[0][0][0])
+        # plt.show()
+
+        for i in range(len(data_merge)):
+            # splice_index = int(len(data_merge[i]) * 0.50)
+            random_number = random.randint(0, lengths[i] - 81)
+            data_merge[i] = data_merge[i][random_number : random_number + 80]
+            new_reduced_labels.extend([i] * 80)
+
+        data_merge_I = []
+        data_merge_II = []
+
+        for i in range(len(data_merge)):
+            data_merge_I.append(data_merge[i][0:40])
+            data_merge_II.append(data_merge[i][40:80])
+
+        # x_samp_tt = np.concatenate(data_merge)
+        # print("ciao")
+        # print(x_samp_tt.shape)
+        new_reduced_labels = np.array(new_reduced_labels)
+
+        data_merge_conc = np.concatenate(data_merge, axis=0)
+        # print(data_merge_conc.shape)
+        counter = 0
+
+        epsilon = 0.8
+
+        # print(correlation_scores)
+        for i in range(10):
+            for batch in range(2):
+                for k in range(8):
+                    k = k + (8 * batch)
+                    for i in range(len(data_merge)):
+                        score = []
+                        for j in range(len(data_merge_I[0])):
+                            score.append(
+                                max(
+                                    signal.correlate(
+                                        data_merge_I[i][j][k, 0:2500],
+                                        data_merge_II[i][j][k, 0:500],
+                                        mode="same",
+                                    )
+                                )
+                            )
+
+                        # print("\n")
+                        # print(score)
+                        # print(len(score))
+                        # print("\n")
+                        correlation_scores_1[k] += np.median(score)
+
+                for k in range(8):
+                    k = k + (8 * batch)
+                    for i in range(len(data_merge)):
+                        score = []
+                        for j in range(len(data_merge_I[0])):
+                            x = copy.copy(data_merge_II)
+                            x.pop(i)
+                            if j < 8:
+                                score.append(
+                                    max(
+                                        signal.correlate(
+                                            data_merge_I[i][j][k, 0:2500],
+                                            x[0][j][k, 0:500],
+                                            mode="same",
                                         )
-                                else:
-                                    for j in range(39):
-                                        diff_class_score.append(
-                                            max(
-                                                signal.correlate(
-                                                    data_merge_I[i][j][k, 0:2500],
-                                                    data_merge_II[h][j][ch2, 0:2500],
-                                                    mode="same",
-                                                )
-                                            )
+                                    )
+                                )
+                            elif j > 7 and j < 16:
+                                score.append(
+                                    max(
+                                        signal.correlate(
+                                            data_merge_I[i][j][k, 0:2500],
+                                            x[1][j][k, 0:500],
+                                            mode="same",
                                         )
-                # print(len(same_class_score))
-                # print(len(diff_class_score))
-                correlation_scores_1[k] += np.median(same_class_score)
-                correlation_scores_2[k] += np.median(diff_class_score)
-                correlation_scores[k] += epsilon * np.median(same_class_score) + (
-                    1 - epsilon
-                ) * -1 * np.median(diff_class_score)
+                                    )
+                                )
+                            else:
+                                score.append(
+                                    max(
+                                        signal.correlate(
+                                            data_merge_I[i][j][k, 0:2500],
+                                            x[2][j][k, 0:500],
+                                            mode="same",
+                                        )
+                                    )
+                                )
+                        # print("\n")
+                        # print(score)
+                        # print(len(score))
+                        # print("\n")
+                        correlation_scores_2[k] -= np.median(score)
 
-print(correlation_scores_1)
-print(correlation_scores_2)
-print(correlation_scores)
+        for i in range(16):
+            correlation_scores[i] += (
+                epsilon * correlation_scores_1[i] / 10
+                + (1 - epsilon) * correlation_scores_2[i] / 10
+            )
 
-print(top_indices(correlation_scores, 16))
+        print(correlation_scores)
+        correlation_scores_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        correlation_scores_2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-# correlate_function_right(
-#     16,
-#     4,
-#     x_train,
-#     y_train,
-#     labels_correlation_windowless,
-#     f,
-#     500,
-#     correlation_scores,
-#     # voting,
-# )
+        for y in range(1):
+            # print("cycling...")
+            for batch in range(2):
+                for k in range(8):
+                    k = k + (8 * batch)
+                    same_class_score = []
+                    diff_class_score = []
+                    for batch2 in range(2):
+                        for ch2 in range(8):
+                            ch2 = ch2 + (8 * batch)
+                            if k != ch2:
+                                for i in range(len(data_merge)):
+                                    for h in range(len(data_merge)):
+                                        if i == h:
+                                            for j in range(39):
+                                                same_class_score.append(
+                                                    max(
+                                                        signal.correlate(
+                                                            data_merge_I[i][j][
+                                                                k, 0:2500
+                                                            ],
+                                                            data_merge_II[h][j][
+                                                                ch2, 0:2500
+                                                            ],
+                                                            mode="same",
+                                                        )
+                                                    )
+                                                )
+                                        else:
+                                            for j in range(39):
+                                                diff_class_score.append(
+                                                    max(
+                                                        signal.correlate(
+                                                            data_merge_I[i][j][
+                                                                k, 0:2500
+                                                            ],
+                                                            data_merge_II[h][j][
+                                                                ch2, 0:2500
+                                                            ],
+                                                            mode="same",
+                                                        )
+                                                    )
+                                                )
+                        # print(len(same_class_score))
+                        # print(len(diff_class_score))
+                        correlation_scores_1[k] += np.median(same_class_score)
+                        correlation_scores_2[k] += np.median(diff_class_score)
+                        correlation_scores[k] += epsilon * np.median(
+                            same_class_score
+                        ) + (1 - epsilon) * -1 * np.median(diff_class_score)
 
-# for i, j in enumerate(correlation_scores):
-#     correlation_scores[i] = correlation_scores[i] / 5
-# print(correlation_scores)
+        for i in range(16):
+            correlation_scores[i] += (
+                epsilon * correlation_scores_1[i] / 100
+                + (1 - epsilon) * correlation_scores_2[i] / 100
+            )
 
+        # print(correlation_scores_1)
+        # print(correlation_scores_2)
+        print(correlation_scores)
 
-# x = [
-#     27741.894359805046,
-#     30456.98012862733,
-#     28359.515126905902,
-#     27196.5705345903,
-#     31359.662968022265,
-#     33643.65796149252,
-#     25005.298644436156,
-#     26715.147127287873,
-#     31610.14788118171,
-#     30488.104059332054,
-#     25407.14354390039,
-#     26306.929121814388,
-#     31785.600190838904,
-#     31555.79461742658,
-#     28593.309649886676,
-#     28904.723617399362,
-# ]
+        print(top_indices(correlation_scores, 16))
 
-# x_2 = [
-#     732.482053962357,
-#     761.6008655195773,
-#     737.1869873889632,
-#     720.8385499325378,
-#     770.6208815696847,
-#     795.8753604830462,
-#     692.7994325041677,
-#     722.4649055946104,
-#     769.7374985833649,
-#     768.6664703563209,
-#     703.9201442489036,
-#     711.7144499125869,
-#     770.9491007645128,
-#     774.3017718104165,
-#     734.7361788866406,
-#     741.8855067047688,
-# ]
+        # correlate_function_right(
+        #     16,
+        #     4,
+        #     x_train,
+        #     y_train,
+        #     labels_correlation_windowless,
+        #     f,
+        #     500,
+        #     correlation_scores,
+        #     # voting,
+        # )
 
-# y = [
-#     -27331.501740066582,
-#     -29629.078540779974,
-#     -28416.996871003208,
-#     -26825.654251823562,
-#     -30908.243196558695,
-#     -33515.918534939556,
-#     -24834.01815400629,
-#     -26993.645962758335,
-#     -30985.941116820486,
-#     -30964.55140997413,
-#     -25842.201600594155,
-#     -26473.052317600082,
-#     -31325.47416671485,
-#     -31556.608934585965,
-#     -27200.10897146471,
-#     -28918.706124248067,
-# ]
+        # for i, j in enumerate(correlation_scores):
+        #     correlation_scores[i] = correlation_scores[i] / 5
+        # print(correlation_scores)
 
-# y_2 = [
-#     729.0314921657954,
-#     758.4481368845007,
-#     735.0648749393167,
-#     722.4477020334097,
-#     774.9469232883007,
-#     795.413411345846,
-#     691.5351060644781,
-#     722.8723226647076,
-#     770.8965811161656,
-#     766.5515475254643,
-#     701.7109935117617,
-#     715.1300164176663,
-#     772.8594611033423,
-#     774.0988579742669,
-#     733.0037817330648,
-#     743.1391090211035,
-# ]
+        # x = [
+        #     27741.894359805046,
+        #     30456.98012862733,
+        #     28359.515126905902,
+        #     27196.5705345903,
+        #     31359.662968022265,
+        #     33643.65796149252,
+        #     25005.298644436156,
+        #     26715.147127287873,
+        #     31610.14788118171,
+        #     30488.104059332054,
+        #     25407.14354390039,
+        #     26306.929121814388,
+        #     31785.600190838904,
+        #     31555.79461742658,
+        #     28593.309649886676,
+        #     28904.723617399362,
+        # ]
 
-# x = correlation_scores_1
-# y = correlation_scores_2
-# z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-# z_t = []
-# w = []
+        # x_2 = [
+        #     732.482053962357,
+        #     761.6008655195773,
+        #     737.1869873889632,
+        #     720.8385499325378,
+        #     770.6208815696847,
+        #     795.8753604830462,
+        #     692.7994325041677,
+        #     722.4649055946104,
+        #     769.7374985833649,
+        #     768.6664703563209,
+        #     703.9201442489036,
+        #     711.7144499125869,
+        #     770.9491007645128,
+        #     774.3017718104165,
+        #     734.7361788866406,
+        #     741.8855067047688,
+        # ]
 
-# for i in range(11):
-#     epsilon = 0.1 + i / 10
-#     z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        # y = [
+        #     -27331.501740066582,
+        #     -29629.078540779974,
+        #     -28416.996871003208,
+        #     -26825.654251823562,
+        #     -30908.243196558695,
+        #     -33515.918534939556,
+        #     -24834.01815400629,
+        #     -26993.645962758335,
+        #     -30985.941116820486,
+        #     -30964.55140997413,
+        #     -25842.201600594155,
+        #     -26473.052317600082,
+        #     -31325.47416671485,
+        #     -31556.608934585965,
+        #     -27200.10897146471,
+        #     -28918.706124248067,
+        # ]
 
-#     for i in range(16):
-#         z[i] += epsilon * x[i] / 8 + (1 - epsilon) * -1 * y[i] / 8
-#     z_t.append(z)
+        # y_2 = [
+        #     729.0314921657954,
+        #     758.4481368845007,
+        #     735.0648749393167,
+        #     722.4477020334097,
+        #     774.9469232883007,
+        #     795.413411345846,
+        #     691.5351060644781,
+        #     722.8723226647076,
+        #     770.8965811161656,
+        #     766.5515475254643,
+        #     701.7109935117617,
+        #     715.1300164176663,
+        #     772.8594611033423,
+        #     774.0988579742669,
+        #     733.0037817330648,
+        #     743.1391090211035,
+        # ]
 
-#     print(top_indices(z, 16))
-#     print(z)
+        # x = correlation_scores_1
+        # y = correlation_scores_2
+        # z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        # z_t = []
+        # w = []
 
-# import csv
+        # for i in range(11):
+        #     epsilon = 0.1 + i / 10
+        #     z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-# with open("z_list.csv", "w", newline="") as csvfile:
-#     writer = csv.writer(csvfile)
-#     writer.writerow(
-#         [
-#             "Index",
-#             "0",
-#             "1",
-#             "2",
-#             "3",
-#             "4",
-#             "5",
-#             "6",
-#             "7",
-#             "8",
-#             "9",
-#             "10",
-#             "11",
-#             "12",
-#             "13",
-#             "14",
-#             "15",
-#         ]
-#     )
-#     # for j in range(len(z)):
-#     for i, value in enumerate(z_t):
-#         writer.writerow([i / 10] + value)
+        #     for i in range(16):
+        #         z[i] += epsilon * x[i] / 8 + (1 - epsilon) * -1 * y[i] / 8
+        #     z_t.append(z)
 
+        #     print(top_indices(z, 16))
+        #     print(z)
 
-# print(path_folder)
+        # import csv
+
+        # with open("z_list.csv", "w", newline="") as csvfile:
+        #     writer = csv.writer(csvfile)
+        #     writer.writerow(
+        #         [
+        #             "Index",
+        #             "0",
+        #             "1",
+        #             "2",
+        #             "3",
+        #             "4",
+        #             "5",
+        #             "6",
+        #             "7",
+        #             "8",
+        #             "9",
+        #             "10",
+        #             "11",
+        #             "12",
+        #             "13",
+        #             "14",
+        #             "15",
+        #         ]
+        #     )
+        #     # for j in range(len(z)):
+        #     for i, value in enumerate(z_t):
+        #         writer.writerow([i / 10] + value)
+
+        # print(path_folder)
