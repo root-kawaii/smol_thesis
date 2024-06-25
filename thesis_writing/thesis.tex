@@ -23,6 +23,8 @@
 \setlength\parindent{0pt} % Indentation
 \raggedbottom  
 
+\usepackage[utf8]{csquotes}
+
 % PACKAGES FOR TITLES
 \usepackage{titlesec}
 % \titlespacing{\section}{left spacing}{before spacing}{after spacing}
@@ -255,16 +257,23 @@ In this section, we will present an outline of the information transmission proc
 
 \section{Nervous Systems}
 
-The nervous system directs an organism's actions and facilitates communication between different parts of the body. In vertebrates, it comprises two main divisions: the central nervous system (CNS) and the peripheral nervous system (PNS). The CNS, encompassing the brain and spinal cord, serves as the core processing center, while the PNS comprises nerves that extend from the CNS to various body regions.
+The nervous system orchestrates an organism's activities and ensures seamless communication throughout the body. In vertebrates, it is divided into two primary components: the central nervous system (CNS) and the peripheral nervous system (PNS). The CNS, consisting of the brain and spinal cord, acts as the main processing hub, whereas the PNS includes nerves that branch out from the CNS to various parts of the body.
 
-At the cellular level, the nervous system is characterized by specialized cells known as neurons or "nerve cells." Neurons possess unique properties enabling rapid and precise transmission of signals to other cells. These signals propagate as electrochemical waves along slender fibers called axons, triggering the release of neurotransmitters at synapses—junctions between neurons. Alongside neurons, the nervous system includes specialized support cells called glial cells or glia, which provide structural and metabolic support. Emerging research suggests that glia may also play a significant role in signaling processes.
+On a cellular scale, the nervous system is distinguished by its specialized nerve cells, known as neurons. These neurons are equipped with unique features that facilitate the rapid and precise transmission of signals to other cells. These signals travel as electrochemical waves along slender fibers called axons, leading to the release of neurotransmitters at synapses—the contact points between neurons. In addition to neurons, the nervous system encompasses glial cells, or glia, which offer structural and metabolic support. Recent studies indicate that glia may also have important roles in signaling processes.
 '''need to rewrite"""
 '''add neurons picture'''
 
 \subsection{Central nervous system}
 
+The central nervous system (CNS) is essential for processing sensory information from the peripheral nervous system (PNS) and integrating it to form appropriate responses. It generates motor responses, coordinates voluntary movements, and manages reflex actions. The CNS also governs higher cognitive functions and emotions, maintains homeostasis, facilitates learning and memory, processes sensory inputs, and controls autonomic functions such as heart rate and digestion. Through these roles, the CNS ensures the organism's ability to perceive, respond, and adapt to its environment while maintaining internal stability.
+It consist of two main parts: the brain and the spinal cord.
+The brain is housed inside the cranium and is responsible for all the main functions of the brain, while the spinal cord can be found inside the vertebral column and is crucial in linking the CNS to the PNS, allowing the transmission of motor commands from the brain to the rest of the body and the sensory information back to the brain.
+The spinal cord is also responsible for reflexes, unconcious responses to quick or unexpected stimuli.
+
 
 \subsection{Peripheral nervous system}
+
+
 
 \section{Implanted medical devices normative and regulation}
 
@@ -277,7 +286,7 @@ FDA administration subdivides the medical devices that should be evaluated and a
 The classes of risk that FDA utilizes and their relative needs to be approved are the following ones: 
 \begin{itemize}
 
-	\item  Class I (General Controls): This class can be subdivided into two subclasses: with exemptions and without exemptions.
+	\item  Class I (General Controls): This class can be subdivided into two subclasses: with exe        t4mptions and without exemptions.
 	\item  Class II (General Controls and Special Controls): this class can also be subdivided into the two subclasses with and without exemptions.
 	\item  Class III (General Controls and Premarket Approval)
 
@@ -565,33 +574,328 @@ but without the capability of accepting connections from a central.
 ""chiara""
 
 \section{Communication system}
-\section{Chiara code}
-\section{Communication speed}
-\section{EEGNet and ENGNet: advantages and shortcomings}
+\section{Previous code implementation}
 
-EEGNet was introduced by \cite{lawhernEEGNetCompactConvolutional2018}, it presents a tailored variant of CNNs aimed at Brain-Computer Interface (BCI) applications. Its primary advantage lies in its compact architecture, boasting fewer parameters compared to traditional CNNs. This efficiency renders EEGNet well-suited for the processing of EEG signals, facilitating improved performance in BCI tasks while simultaneously reducing computational complexity.
-Davide developed ENGnet bla bla
+
+
+As show in the introduction, Senseback is an implanted device which communicates with an external unit through Bluetooth Low Energy. The starting point for the firmware code of this communication was previously developed [Chiara Master Thesis]. This master thesis purposes improvement and additional features on the previous code, which presents some limitations.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{prev1.png.png}
+	\centering
+\end{figure}
+
+Figure 1: BLE communication between Senseback and external device
+The general architecture for the previous code is shown in Figure 2.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{prev2.png.png}
+	\centering
+\end{figure}
+
+
+
+Figure 2: Previous implementation, setup of the experiment.
+As is it possible to see, two main devices facilitate communication: the transmitter and the receiver. For the experiment, two identical nRF52 Development Kits (DKs) \cite{NRF52DKDevelopment} were used as the transmitter and receiver. These boards were thought to be employed just for testing, the final implementation, in fact, will replace the transmitter board with the Senseback device, and the external unit will serve as the receiver. Both boards were powered and controlled through the external unit, which was a PC connected via serial ports.
+External unit allowed the user to manage the communication by sending "START," "STOP," and "RESET" commands. This was done thanks to the usage of a Matlab script. These commands were transmitted through the serial port and received by the receiver using Universal Asynchronous Receiver/Transmitter (UART). UART is a common serial communication protocol used for connecting microcontrollers and other devices, often facilitated by USB-UART converters \cite{LessonSerialCommunication}.
+For both the transmitter and receiver, separate codes were implemented to manage communication. The first code set, designated as "Offline," was designed to test communication with a fixed number of packets. Specifically, 32,400 packets of one byte each were transmitted. The test began when the user entered the "START{\textbackslash}n" command through MATLAB, giving the signal to the transmitter to start sending packets. This test ended when all packets were sent. The "Online" communication, on the other hand, simulated real-time behaviour with no predefined packet count. This test also begun once the user digited the "START{\textbackslash}n" command, but it required also a "STOP{\textbackslash}n" command to end. Lastly, the "RESET{\textbackslash}n" command was just used in those cases in which it was necessary to restart the communication from the beginning.
+Upon receiving the appropriate command in MATLAB, the external unit would send it to the receiver via UART, which then relayed the command to the transmitter through BLE. The transmitter would start sending data to the receiver upon receiving the "START{\textbackslash}n" command and stop when it received the "STOP{\textbackslash}n" command or all packets had been sent, depending on the test mode. After receiving the packets, the receiver printed the data to the serial port, allowing the external unit to read it through MATLAB. 
+Last element of the previous setup is the sniffer. The purpose of this was to detect the packets exchanged from transmitter and receiver, including possible retransmissions during the communication. The chosen software to play this role is Wireshark (v.4.0.6) with the nRF Sniffer Tool (v.4.1.1), provided by Nordic Semiconductor©.
+All the codes used for this setup are deeply analysed below.
+
+\subsection{Matlab scripts}
+
+To achieve the two main objectives of communication control and data verification through a serial port, two separate MATLAB scripts were created. The first script is designed for offline testing, the second one for online. Here's how they work:
+Both scripts start by creating a vector that simulates the incoming ADC samples from a Senseback device. These samples are in uint16 format. Each value is then split into two uint8 values using the MATLAB function typecast, ensuring that the data is converted without losing information. The next step is to set up the serial port with a baud rate of 115200 bps, whose limit is imposed by the UART communication. After setting the baud rate, the serial port is flushed to ensure it's clear before communication begins.
+The scripts, instead, differ in the following ways:
+Commands: In the offline test script, only one command is required from the user, while the online test script requires two commands, the start and the stop of the communication.
+Data Reception: The online script does not include any data reception functionality due to memory limitations and the slower baud rate. In contrast, the offline script does receive data from the serial port.
+The online test script is simpler, focusing on generating the data and ensuring the serial port is set up properly. There is no data reception because of the limitations mentioned earlier.
+The offline test script uses a callback function to handle data reception. It uses the MATLAB configureCallback function to call the readData function each time new data is received from the selected serial port. The purpose of this function is to store the incoming data in a vector and keep track of the total data received. The callback function is turned off when the last two values are both 255 (indicating the end of a data sequence). Once all data is received, it can be converted back to uint16 using typecast and organized into a matrix for plotting and further analysis. The offline test script can then compare the received data with the data originally generated in MATLAB to ensure its accuracy and reliability.
+
+\subsection{Offline transmitter code}
+Figure 3 illustrates a flow chart of the offline code for the transmitter. Each block represents a distinct function. Below is a brief explanation of each one.
+Log init: This function initializes the log module. This module provides logging capabilities for the intended embedded application \cite{NordicSemiconductorInfocentera}. It has different usages such as debugging, which means to provide diagnosis for possible issues, info, which implies to check whether or not the application works as expected, warning, so indications about something unexpected which is happened, and error in those cases in which the software is not able to execute one of the functions.
+This function initializes the timers. For the offline code of the transmitter, two timers have been used. The first one is the timer responsible for data generation, and the second one is responsible for monitoring the total time required for data generation, data pre-processing, and sending to the central device. The two timers are both equally initialized, with the frequency set to 2 MHz for both.
+
+The main difference between these two timers is given by the functions \texttt{nrfx\_timer\_us\_to\_ticks} and \texttt{nrfx\_timer\_ms\_to\_ticks} for the first and the second timer, respectively. These functions create an interrupt each time the timer reaches the specified value, which is 12.5 $\mu$s for the first one and 1 ms for the second. The value of 12.5 $\mu$s has been chosen to simulate the arrival of samples coming from the ADC in the actual application; in fact, 12.5 $\mu$s represents a frequency of data generation of 80 kHz.
+
+This function is responsible for data generation. Firstly, it checks whether the transmission is active, i.e., whether the command \texttt{START} has been received from the central device. If it is active, a new data \texttt{CNT} is generated. Data generation is done as a step, so each new value is equal to the previous one plus one. \texttt{CNT} is a \texttt{uint16\_t} variable. This choice is made because the ADC samples have 10 bits size, and the \texttt{uint16\_t} variables are the smallest ones which guarantee that the samples are saved without wasting information, which would occur if a \texttt{uint8\_t} variable were chosen.
+
+Once the new \texttt{uint16\_t} data is generated, it is put into the ring buffer \texttt{uartRx}. \texttt{Ringbuf} is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end. This structure is useful for buffering data streams, where data needs to be overwritten as new data comes in, particularly when the buffer is full. It's commonly used in scenarios where the producer and consumer operate at different rates, as in this case. The size of \texttt{uartRx} has been set to 16384 \texttt{uint16\_t} variables, representing the maximum size imposed by the RAM storage limits.
+
+Once \texttt{CNT} has been put into the ring buffer, the function \texttt{data\_arrived}, which is responsible for counting the number of data generated, is incremented by one. Then, it is checked whether the new value generated is the first one using the boolean variable \texttt{first}. If this is still true, as initialized, it means that the new data generated is the first one, so \texttt{timer2} starts counting from a time elapsed equal to zero milliseconds. When the condition \texttt{first=true} is triggered, the boolean variable \texttt{first} is set to \texttt{false}, thus avoiding entering the previous condition in the next cycle and starting \texttt{timer2} again.
+
+The last step for this function is to check whether the data generation process has arrived at the end. This is done by checking the value that the variable \texttt{data\_arrived} has reached. If this value is greater than the value imposed by \(\left(\frac{\texttt{DATA\_TO\_SEND} - 2}{2}\right) - 1\), the condition is triggered. For the offline test, the \texttt{DATA\_TO\_SEND} variable is equal to 32400 and represents the number of bytes that should be sent to the central device to complete an offline test. Consequently, the condition is triggered when the variable \texttt{data\_arrived} has reached a value of 16198, which also represents the number of samples arrived from the ADC. The choice for this condition triggering will be explained in detail when discussing the \texttt{spibuff} process function, which is responsible for data preprocessing before sending.
+
+Once the condition is triggered, the \texttt{data\_arrived}, \texttt{first}, and \texttt{CNT} values are reset, and the last 16-bit value is put into the ring buffer: 65535. This value represents the highest value in binary that can be represented using 16 bits. It is, in fact, a sequence of 16 bits all set to 1. Then, the boolean variable \texttt{transmission} is set to \texttt{false}, indicating that data generation is finished.
+
+Timer2 handler:
+\texttt{Timer2} is the timer responsible for the computation of the total time elapsed during the data generation, data preprocessing, and data sending processes. This function increments the variable \texttt{total\_time\_elapsed\_ms} by one each time the interrupt is triggered, so each millisecond. In this way, \texttt{total\_time\_elapsed\_ms} provides a timestamp of the current total time elapsed in milliseconds.
+
+
+Power management init: this function initializes the power management module, which handles power management features. \cite{NordicSemiconductorInfocenterb}
+Ble stack init: This function is responsible for the initialization of the SoftDevice and BLE event interrupts. A SoftDevice is a precompiled and linked binary software implementing a wireless protocol developed by Nordic Semiconductor. \cite{NordicSemiconductorInfocenterc} In this function, it is first requested to enable the SoftDevice using the \texttt{Nrf\_sdh\_enable\_request} function. Once the SoftDevice has been enabled, it is configured through the function \texttt{Nrf\_sdh\_ble\_default\_cfg\_set} by using the default settings specified in the SoftDevice handler BLE configuration. Finally, the functions \texttt{Nrf\_sdh\_ble\_enable} and \texttt{Nrf\_sdh\_ble\_observer} respectively enable the BLE stack and register a handler for BLE events.
+
+Ble evt handler: This function manages the different BLE events. It first creates a pointer to the specific GAP events, then a switch gives the instructions for each different event.
+
+\begin{itemize}
+    \item \textbf{First case:} the device is connected. If this case is triggered, a log and the usage of LEDs, enabled through the function \texttt{bsp\_indication\_set}, indicate to the user that the connection has been correctly performed. The connection handle is then stored in the variable \texttt{m\_conn\_handle}. The connection handle is a value provided by the BLE stack that uniquely identifies a connection with another BLE device \cite{BluetoothLowEnergy2016}. Then, the function \texttt{nrf\_ble\_qwr\_conn\_handle\_assign} assigns a connection handle to the given instance of the Queued Writes module \cite{NordicSemiconductorInfocenterd}. Ultimately, the data rate (PHY) is set to 2 Mbps for both the TX and RX BLE characteristics.
+    
+    \item \textbf{Second case:} the device is disconnected. In this case, it is logged to the user that a disconnection occurred, and the connection handle is set to invalid.
+    
+    \item \textbf{Third case:} PHY update request. In this case, the data rate is automatically changed to respond to a PHY update request.
+    
+    \item \textbf{Fourth case:} security parameters request. In this implementation, security features are not implemented, which means that the reply to the security parameters request is that pairing is not supported.
+    
+    \item \textbf{Fifth case:} system attribute access pending, such as bonding information \cite{NordicSemiconductorInfocenterf}. Again, in this case, no system attribute is stored.
+    
+    \item \textbf{Next cases:} timeout events. If these are triggered, the connection is terminated.
+    
+    \item \textbf{Last case:} transmission has been completed. If this happens, the function \texttt{on\_tx\_complete} is called.
+\end{itemize}
+
+
+On Tx complete: This function manages the packet transmission queue mechanism. If the \texttt{BleTxBusy} variable is true, indicating that a packet has not been sent due to the transmission channel being busy, the variable is reset to false. Then, the \texttt{notification\_send} function is called to attempt retransmission. This ensures that no packets are lost, as transmission attempts continue until successful completion.
+
+\section*{Notification Send}
+This function oversees the data transmission process and calculates the transmitter's throughput. Initially, a \texttt{uint32\_t} variable \texttt{err\_code} is set to \texttt{NRF\_SUCCESS}, indicating no errors. Before sending data to the receiver, the function checks two conditions:
+
+\begin{itemize}
+    \item \textbf{Error Check}: It verifies that \texttt{err\_code} remains \texttt{NRF\_SUCCESS}, ensuring no transmission errors have occurred.
+    \item \textbf{Data Availability Check}: It ensures that the \texttt{uint16\_t} variable \texttt{txRdPtr} (index tracking the last number of bytes sent) is less than \texttt{txSize} (total number of available data bytes). This ensures sufficient new data is pre-processed and ready for transmission.
+\end{itemize}
+
+If both conditions are satisfied, the length of the new packet to be sent, stored in the \texttt{length} variable, is updated to \texttt{txSize - txRdPtr}. This data of this length is then sent via the \texttt{ble\_nus\_data\_send} function and \texttt{err\_code} is updated accordingly. If \texttt{ble\_nus\_data\_send} completes successfully without errors, \texttt{txRdPtr} is incremented by the size of \texttt{length}, and the \texttt{data\_sent} variable, which tracks the total bytes sent to the central device, is also increased by \texttt{length}. 
+
+Next, the function checks if the transmission has reached the end by verifying if the last two bytes sent are both 255. Since 255 is the maximum value representable with 8 bits, this check ensures the last \texttt{uint16\_t} variable in the ring buffer \texttt{uartRx} (set to 65535 in \texttt{timer1\_handler} function) has been sent. If true, the total elapsed time is calculated by converting the timer ticks of \texttt{timer2} to milliseconds. The throughput is then calculated using the formula: throughput=number of bits senttotal time elapsed
+\[
+\text{throughput} = \frac{\text{data\_sent} \times 8}{\text{total\_elapsed\_time}}
+\]
+All relevant values, including the number of waits, are logged. If \texttt{ble\_nus\_data\_send} function returns an error, indicating an unsuccessful transmission, \texttt{bleTxBusy} is set to true, and the wait counter is incremented. Finally, if \texttt{txRdPtr} is greater than or equal to \texttt{txSize}, the \texttt{txActive} variable is set to false, indicating that another packet can be pre-processed.
+% Gap params init: this function sets the necessary Generic Access Profile (GAP) parameters of the device, such as security level and the name of the device. In this implementation, since security features have not been implemented, function BLE_GAP_CONN_SEC_MODE_SET_OPEN sets the level of security at the minimum, meaning that the board is totally open. The other parameters that are set in this function are the ones related to the packet exchanges such as minimum and maximum connection interval (CI), the slave latency and the connection superior timeout. These parameters have a great impact on the overall throughput that would be reached in the end.
+Gatt init: This function initializes the Generic Attribute Profile (GATT) library. It also sets the Attribute Protocol (ATT) Maximum Transmission Unit (MTU). This parameter defines the maximum amount of data that can be exchanged by a single BLE packet, specifically for the peripheral side. For this application, the MTU has been set to \texttt{NRF\_SDH\_BLE\_GATT\_MAX\_MTU\_SIZE}, which corresponds to a value of 247 bytes, the maximum achievable with BLE version 5.2. A high value for \texttt{GATT\_MTU} generally implies higher efficiency for data exchange and consequently, a higher throughput. In fact, with a single exchange, it is possible to send a larger amount of data, minimizing the wasted time due to latency.
+
+\section*{GATT Event Handler}
+
+This function handles events coming from the GATT library. It first checks whether the event triggering is caused by the current connection by looking at the connection handle stored in the variable \texttt{m\_conn\_handle}. In this implementation, the condition will always be triggered since there is only one connection, which is point-to-point. It also checks, together with the previous condition, whether the event that occurred is an update of the GATT ATT MTU. If both these conditions are satisfied, then the \texttt{m\_ble\_nus\_max\_data\_len} variable is updated to the effective ATT Payload for the connection, which is equal to ATT Data minus the two headers shown in Figure 4, specifically, the Op Code and the Attribute Handle.
+
+% \begin{figure}[h]
+%     \centering
+%     % \includegraphics[width=\textwidth]{ble_packet_format.png}
+%     \caption{BLE packet format (\href{https://novelbits.io/bluetooth-5-speed-maximum-throughput/}{link})}
+% \end{figure}
+
+Once this value is updated, the desired values for ATT MTU of the central and peripheral devices are logged to allow the user to check whether they are the same, ensuring that both devices agree on the maximum achievable value.
+
+\section*{Services Initialization}
+
+This function is used to initialize all the services which will be used in the application. For the intended purposes, the services that are initialized are two: Queued Write Module (qwr) and NUS module. The qwr module handles prepare write, execute write, and cancel write commands. It also manages memory requests related to these operations (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__nrf__ble__qwr.html}{link}). The NUS module is a custom Bluetooth Low Energy (BLE) service designed to emulate a UART (Universal Asynchronous Receiver/Transmitter) over BLE. This allows devices to communicate wirelessly in a manner similar to serial communication over a wired connection (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__ble__nus__c.html}{link}).
+
+\section*{NUS Data Handler}
+
+% This function manages the start, stop, and reset occurrences of the BLE communication by checking the command received from the central device. The function starts with an \texttt{if} condition, which checks whether a command is received by the peripheral device via NUS. If this is the case, the value of the received string is saved into the variable \texttt{dongle\_command}. Then, the actual value of the string is checked. If the received string through \texttt{ble\_nus} is equal to ``START\n'', this means that the user has sent the command to begin communication. Consequently, the boolean variable \texttt{transmission} is set to \texttt{true}, indicating that transmission should start, \texttt{timer1} is enabled, and \texttt{timer2} is reset. In this way, data generation starts, and it is ensured that the total time elapsed counter starts from 0. If instead, the command received is equal to ``RESET\n'', then the \texttt{CNT} variable is set to 0, meaning that data generation is reset to the beginning. Finally, if the received command is equal to ``STOP\n'', then \texttt{timer1} is disabled. By stopping the data generation, no more data will be available for transmission, and the whole process of data sending will stop.
+
+\section*{NRF QWR Error Handler}
+
+This function handles Queued Write Module (qwr) errors. A pointer to this function will be passed to each service which may need to inform the application about an error.
+
+Advertising init: This function is used to initialize the advertising functionality of the peripheral device. When a BLE device broadcasts its presence, it sends out advertising packets that can include various types of information, such as device name, service UUIDs, manufacturer-specific data, and appearance. For the current application, the advertising packets include the device’s full name but not the appearance data. Appearance data is a predefined value that indicates the type or category of the device. This value is used to give a general idea of the device's functionality without requiring a full connection. It helps other BLE devices and applications quickly identify what kind of device they are encountering. The choice of not including the appearance value in the advertising packets could be made both for privacy reasons and for saving space for other information. Another included parameter in the advertising packets is the advertising flag field, which in this case is set to \texttt{BLE\_GAP\_ADV\_FLAGS\_LE\_ONLY\_LIMITED\_DISC\_MODE}, meaning that the device only supports BLE and not classic Bluetooth, and that the device will be in a discoverable state for a limited time. 
+
+Furthermore, UUIDs should be defined. A UUID is a unique identifier for services offered by the BLE device. The function \texttt{advertising\_init} first computes the number of UUIDs that are present in the \texttt{m\_adv\_uuids} array, then it sets \texttt{uuid\_cnt} to that value. Then, \texttt{init.srdata.uuids\_complete.p\_uuids} sets the pointer to the array of UUIDs, which tells the program where to find the list of UUIDs that describe the services the BLE device offers. Finally, the advertising settings are set. In particular, fast advertising mode is enabled, meaning that the device will advertise itself frequently, making it quicker to be discovered. 
+
+The last two parameters for advertising are set as follows:
+\begin{itemize}
+    \item \texttt{APP\_ADV\_INTERVAL}, which defines how often the device will send out advertising packets when in fast advertising mode. In this case, the \texttt{APP\_ADV\_INTERVAL} parameter is set to 64 in units of 0.625 ms, which corresponds to 40 ms.
+    \item \texttt{APP\_ADV\_DURATION}, which defines how long the device will stay in fast advertising mode before stopping or switching to another mode. In this case, this value is equal to 18000 in units of 10 ms, which corresponds to 180 s.
+\end{itemize}
+
+Ultimately, the event handler function for advertising events is set, which will handle various events related to advertising, such as starting, stopping, or timing out. Once this configuration has been completed, the advertising module is initialized using the function \texttt{ble\_advertising\_init}, and \texttt{ble\_advertising\_conn\_cfg\_tag\_set} sets the connection configuration settings tag for the advertising instance.
+
+
+On adv evt: This function is responsible for handling the advertising events. Two possible cases are considered:
+\begin{itemize}
+    \item \textbf{Fast Advertising Event:} If this event occurs, LED1 starts blinking to signal that the device is in the advertising phase.
+    \item \textbf{Advertising Idle Event:} If this event occurs, the \texttt{sleep\_mode\_enter} function is called.
+\end{itemize}
+
+\section*{Sleep Mode Enter}
+
+This function puts the chip into sleep mode to save battery when the device is not in use. To signal the state of the board, the behavior of the LEDs is changed. Specifically, for the idle case, all LEDs are turned off. The \texttt{bsp\_btn\_ble\_sleep\_mode\_prepare} function is used to prepare the wakeup buttons before going into sleep mode \cite{nordic_semi}. Lastly, the system is put into sleep mode using the \texttt{sd\_power\_system\_off} function.
+
+\section*{Connection Parameters Initialization}
+
+This function initializes the connection parameters module that will be used when establishing and maintaining a connection with a central device. The pointer to the initial connection parameters is set to NULL, meaning no initial parameters are provided. The delay before the first update of the connection parameters and the following parameters update delay are set to 5000 ms and 30000 ms respectively. These parameters describe the delay before the first update of the connection parameters is attempted and the delay between subsequent attempts if the first attempt fails. The maximum number of attempts to update the connection parameters before giving up the connection parameter negotiation is set to three. If the connection parameter update procedure fails, disconnection does not happen since \texttt{cp\_init.disconnect\_on\_fail} is set to false. The \texttt{cp\_init.start\_on\_notify\_cccd\_handle} sets the handle of the Client Characteristic Configuration Descriptor (CCCD), which triggers the connection parameter update procedure. \texttt{BLE\_GATT\_HANDLE\_INVALID} indicates that the connection parameter update procedure is not started by any specific CCCD. The functions \texttt{on\_conn\_params\_evt} and \texttt{conn\_params\_error\_handle} are assigned to manage possible changes or updates to connection parameters and handle errors during the connection parameters update process. All the settings chosen inside the \texttt{conn\_params\_init} function become effective through the \texttt{ble\_conn\_params\_init} function.
+
+\section*{On Connection Parameters Event}
+
+This function manages possible changes or updates to connection parameters. If a connection parameters event fails, the devices are disconnected.
+
+\section*{Connection Parameters Error Handler}
+
+This function handles possible errors coming from the Connection Parameters module. The \texttt{uint32\_t} variable \texttt{nrf\_error} contains information about what went wrong.
+
+\section*{TX Power Set}
+
+This function sets the transmission power level for a Bluetooth Low Energy (BLE) advertising role. Specifically, \texttt{BLE\_GAP\_TX\_POWER\_ROLE\_ADV} specifies the role for which the transmission power is being set, in this case, the role is advertising. The variables used to set transmission power are \texttt{m\_advertising.adv\_handle}, which holds the handle of the advertising set, and \texttt{TX\_POWER\_LEVEL}, a predefined constant or variable representing the transmission power level in dBm. For this implementation, this value is set to 0.
+
+\section*{Advertising Start}
+
+This function starts the advertising process through the \texttt{ble\_advertising\_start} function, setting the advertising mode to fast.
+
+\section*{Idle State Handle}
+
+This function handles the idle state of the embedded system. It first calls \texttt{spiBuff\_process}, responsible for data preprocessing. Then, it calls the \texttt{NRF\_LOG\_PROCESS} macro and uses the \texttt{UNUSED\_RETURN\_VALUE} to ignore its return value. Finally, it calls the \texttt{nrf\_pwr\_mgmt\_run} function, which handles power management tasks, such as putting the microcontroller into a low-power state if there is nothing else to do, ensuring the system conserves power when idle.
+
+\section*{SPI Buffer Process}
+
+This function preprocesses data coming from the \texttt{timer1\_handler} function. It checks that transmission is not active through the boolean \texttt{txActive}. If transmission is not active, it starts the process. The \texttt{ringbuf\_elements} function returns the number of \texttt{uint16\_t} data still present in the \texttt{uartRx} ring buffer, stored in the \texttt{queueLength} variable. If \texttt{queueLength} is at least half of the \texttt{SENSEBACK\_MTU} divided by two (at least 122 bytes), a full-size BLE packet can be prepared since there are enough data to fill it. Data from the Senseback ADC are 10 bits in size and are stored in \texttt{uint16\_t} variables. Each value from the ring buffer is converted into bytes for sending. A cycle executed 122 times prepares each BLE packet. Each cycle iteration gets a new value from the ring buffer using \texttt{ringbuf\_get}, saved into a temporary \texttt{uint16\_t} variable \texttt{element}. Two positions in the \texttt{nusTx} array, which will contain the final data sent to the central device, are filled. Specifically, position \texttt{i*2} (where \texttt{i} is the cycle index) is filled with the 8 most significant bits of \texttt{element}, while position \texttt{i*2+1} is filled with the 8 least significant bits of \texttt{element}. This ensures no information is wasted, but the inefficiency and memory waste are generated since 6 bits of each 16-bit variable are empty. Once a packet is fully prepared, \texttt{txActive} is set to true, enabling data sending to the central device. The \texttt{txSize} value is set to \texttt{SENSEBACK\_MTU}, representing the prepared packet size, and \texttt{txRdPtr} is reset to 0. Once this process is completed, the \texttt{notification\_send} function can be called to send processed data. If there are elements in the ring buffer but not enough to fill a BLE packet, the last packet of the communication is reached. Data are preprocessed as before, but the cycle completes \texttt{queueLength} times, and \texttt{txSize} is set to \texttt{queueLength*2}.
+
+\section*{Offline Receiver Code}
+
+Some functions in the receiver code are common with those in the transmitter, such as the \texttt{log\_init} function, used in both receiver and transmitter in the same way. The \texttt{timer\_init} function is also similar, differing in the number of timers initialized (one in the receiver). The receiver’s timer computes the time elapsed in the data receiving process, equivalent to the transmitter’s timer2. Functions \texttt{power\_management\_init} and \texttt{ble\_stack\_init} are identical for both. Some functions are similar but differ due to the different central/peripheral roles, particularly:
+\begin{itemize}
+    \item \textbf{GATT Init:} \texttt{nrf\_ble\_gatt\_att\_mtu\_periph\_set} is replaced by \texttt{nrf\_ble\_gatt\_att\_mtu\_central\_set}.
+    \item \textbf{GATT Event Handler:} The connection handle check is not present in the receiver code since the peripheral can be connected to more than one central device.
+\end{itemize}
+
+Other functions are different or not present in the transmitter code and are explained below.
+
+\section*{UART Initialization}
+
+This function initializes the UART, which lets the central device communicate with the external unit. First, the communication parameters are defined, setting the pin number for the UART receive (RX), UART transmit (TX), UART Ready To Send (RTS), and UART Clear To Send (CTS) lines. In this case, they are 8 and 6 for RX and TX, and 5 and 7 for RTS and CTS, respectively. Hardware flow control is disabled through the \texttt{APP\_UART\_FLOW\_CONTROL\_DISABLED} macro, and parity checking is disabled, meaning no parity bit will be used for error checking. The baud rate is set to 115200 bits per second. Finally, the \texttt{APP\_UART\_FIFO\_INIT} function makes the parameters effective. This setup ensures the UART is correctly configured and ready to handle data transmission and reception with FIFO buffers and appropriate event handling.
+
+UART event handler: This function is responsible for receiving commands from the external unit. Within this function, a switch statement manages different cases. The first case handles the reception of new data through UART. Commands from the external unit are received as sequences of characters in the UART\_event\_handler function. Upon receiving a new character via \texttt{app\_uart\_get}, it is stored in \texttt{data\_array} at position \texttt{index}, which is then incremented. Once a character is saved, it checks if the character is equal to '\textbackslash n' and if \texttt{index} exceeds \texttt{m\_ble\_nus\_max\_data\_len}. If true, it indicates the command is fully received, and the string is sent to the peripheral device via the function \texttt{ble\_nus\_c\_string\_send}. \texttt{m\_ble\_nus\_max\_data\_len} represents the maximum data length in bytes that can be transmitted by the Nordic UART service module, specifically BLE\_GATT\_ATT\_MTU\_DEFAULT minus the two headers OP Code and Handle Length, which is 23 minus 3 bytes. After sending the string, \texttt{index} is reset to zero. The other cases handled in this function are \texttt{APP\_UART\_COMMUNICATION\_ERROR} and \texttt{APP\_UART\_FIFO\_ERROR}, which report communication and FIFO module errors to the user through log messages.
+
+\section*{Buttons LEDs Initialization}
+This function initializes buttons and LEDs using two functions: \texttt{bsp\_init} for LEDs and \texttt{bsp\_btn\_ble\_init} for buttons.
+
+\section*{BSP Event Handler}
+Handles events from the Board Support Package (BSP) module using a switch-case statement. The sleep event calls \texttt{nrf\_pwr\_mgmt\_shutdown} with \texttt{NRF\_PWR\_MGMT\_SHUTDOWN\_GOTO\_SYSOFF} to put the system into a low-power system-off state. The disconnect event calls \texttt{sd\_ble\_gap\_disconnect} to terminate the Bluetooth connection, providing the connection handle and reason for disconnection.
+
+\section*{Database Discovery Initialization}
+Initializes the Database Discovery (DB) module using \texttt{ble\_db\_discovery\_init}, which handles service discovery on GATT servers.
+
+\section*{DB Discovery Handler}
+A callback function to handle events from the database discovery module, forwarding events to respective services based on discovered UUIDs.
+
+\section*{BLE Event Handler}
+Handles BLE events with differences between transmitter and central code. For connection events, changes LED behavior and assigns the connection handle using \texttt{ble\_nus\_c\_handles\_assign}. Additional tasks include starting service discovery with \texttt{ble\_db\_discovery\_start}. PHY settings are not set in central code as it responds to PHY update requests from the peripheral. Disconnect events log disconnection without changing the connection handle. Common cases include security parameter requests, PHY update requests, and GATTC/GATTS event timeouts. Unique cases not present in the transmitter's \texttt{ble\_evt\_handler} are BLE\_GAP\_EVT\_TIMEOUT for GAP operation timeouts and BLE\_GAP\_EVT\_CONN\_PARAM\_UPDATE\_REQUEST for peripheral-initiated connection parameter updates.
+
+\section*{NUS Central Initialization}
+Initializes the Nordic UART Service (NUS) for the central role using specific functions.
+
+\section*{BLE NUS Central Event Handler}
+Handles data reception from the peripheral through NUS. Uses a switch statement to manage cases:
+\begin{itemize}
+    \item Completes NUS discovery, assigns connection handle, and enables notifications for data reception.
+    \item Manages arrival of data packets from peripheral. Increments \texttt{received\_bytes} and computes throughput based on the time elapsed since the first packet.
+    \item Saves packet data into \texttt{senseback\_buff}. Computes throughput when the last two bytes of a packet are 255.
+    \item Updates \texttt{senseback\_buff\_length} and checks for buffer overwrite.
+    \item Handles disconnection events by calling \texttt{scan\_start} to initiate a new connection.
+\end{itemize}
+Throughput is computed using the formula: \(\text{throughput} = \frac{\text{number of bits received from peripheral}}{\text{time elapsed in data receiving process}}\). This throughput computation differs from that in the transmitter code by focusing solely on data receiving time, making it more reliable for communication speed analysis.
+
+
+
+
+
+Scan start: This function initiates the scan process by performing two actions. Firstly, it starts the board scanning using \texttt{nrf\_ble\_scan\_start}. Secondly, it sets the LEDs to indicate that the board is in the scanning phase, with \texttt{LED1} specifically configured to start blinking.
+
+\section*{Scan Init}
+This function serves two main purposes: setting scanning parameters and enabling scan filters. It sets two scanning parameters:
+\begin{itemize}
+    \item \texttt{connect\_if\_match} is set to \texttt{true}, allowing the scanning process to automatically attempt to establish a connection.
+    \item \texttt{conn\_cfg\_tag} is set to \texttt{APP\_BLE\_CONN\_CFG\_TAG}, which refers to the BLE stack configuration tag. In this case, the value is set to 1, indicating the configuration with handle one.
+\end{itemize}
+After initializing BLE scanning, filters are configured and enabled. The scanning module filter type is \texttt{SCAN\_UUID\_FILTER}, ensuring that only advertisements from devices offering the NUS service are reported.
+
+\section*{Scan Event Handler}
+This function handles events from the Scanning Module, addressing three specific events:
+\begin{itemize}
+    \item An error occurring during the connection process retrieves the error code from the event parameters.
+    \item Successful establishment of a connection retrieves the connected event parameters and logs the address of the connected peer.
+    \item Timeout event during the scan process logs a message indicating the scan has timed out and calls \texttt{scan\_start} to restart the scanning process.
+\end{itemize}
+
+\section*{BLE NUS Chars Received Parameters Print}
+This function is continuously called in the main program until there is no data overwrite in the circular buffer \texttt{senseback\_buff}. It handles sending data to the external unit via UART. It takes as inputs each newly stored row in \texttt{senseback\_buff} and the length of the new packet. Data are sent via UART using \texttt{app\_uart\_put} until all data are sent or a memory resource error occurs. Error checking mechanisms are implemented to notify the user of the position in the packet where an error occurred. Additionally, the function allows for flagging \texttt{ECHOBACK\_BLE\_UART\_DATA}. In this case, data sent via UART to the external unit are also sent back to the peripheral, providing an additional transmission verification.
+
+\section*{Idle State Handle}
+This function
+
+\subsection{Online transmitter code}
+
+Figure 6: flow chart implant code online - previous implementation
+The online transmitter code is quite similar to the offline one, it just presents some small differences to guarantee the previously described different intended behaviour. The flow chart of this code is shown in Figure 6. The differences between the two codes inside the functions will be underlined below. 
+Timer1 handler: This function remains responsible for data generation but differs from the offline case in several aspects. Firstly, although the generated \texttt{uint16\_t} value \texttt{CNT} still increments step-wise, an upper limit of 65530 is set. Upon reaching this value, \texttt{CNT} resets and data generation resumes from zero. In offline tests, \texttt{CNT} would not exceed 16198 to communicate 32400 bytes, whereas online tests allow \texttt{CNT} to potentially grow endlessly. Secondly, in the online code, \texttt{timer1\_handler} is not responsible for ending communication; instead, transmission concludes upon receiving the STOP command from the user.
+
+\section*{Notification Send}
+% This function is nearly identical to its offline counterpart, with a small difference in the condition for determining the end of communication. In addition to checking if the last two bytes sent are 255, it verifies if transmission is still ongoing by examining the boolean variable \texttt{transmission}. If \texttt{transmission} is false, indicating the user sent the command "STOP\n", this ensures the last two bytes 255 signal the transmission's end.
+
+\section*{NUS Data Handler}
+This function manages reception of commands from the external unit, particularly handling the STOP command differently. Upon receiving this command, \texttt{timer1} is disabled to halt the data transmission process. Additionally, the value 65535 is placed into the ring buffer, and \texttt{transmission} is set to false. These steps are placed differently from the offline code to accommodate behavior variations between tests. In offline tests, these actions were inside \texttt{timer1\_handler} to end communication upon data generation completion. In online tests, communication ends only upon user command.
+
+\section*{SpiBuff Process}
+This function processes data similarly to the offline case until reaching the last packet. In the online code, it does not check if the remaining number of data to be sent is less than 244. Instead, it verifies if there is still data in the ring buffer and if transmission is false, indicating receipt of the STOP command. If true, it processes the final stop as before.
+
+\section*{Additional Functions}
+Two functions added to the online receiver code that are not in the offline version:
+\begin{itemize}
+    \item \texttt{buttons\_leds\_init} and \texttt{uart\_init}, previously explained in the offline receiver code section. These are not strictly necessary for the online transmitter code's purposes.
+\end{itemize}
+
+\section*{Online Receiver Code}
+For the online receiver code, the flow chart mirrors Figure 5. However, some functions have minor differences to accommodate the online test's different behavior:
+\begin{itemize}
+    % \item \texttt{Uart event handle}: Similar to the offline receiver case, but the received UART command is stored and checked locally. If it matches "STOP\n", \texttt{end\_transmission} is set to true, signaling the receiver to end communication.
+    \item \texttt{Ble nus c evt handler}: Similar to the offline case, with an additional condition to check the end of transmission. Besides checking the last two values being 255, it verifies \texttt{end\_transmission} is true. This ensures the receiver recognizes the last two 255 values after the user enters the STOP command, concluding data reception.
+\end{itemize}
+
+\section*{Sniffer Code}
+The sniffer provides real-time monitoring of transmission parameters such as PHY, ATT MTU, and protocol, and also tracks the number of retransmissions during tests. To utilize it:
+\begin{itemize}
+    \item A software tool is needed, available for the nRF52840 dongle when in debug mode. Specifically, \texttt{sniffer\_nrf52840dongle\_nrf52840\_4.1.1.hex} is used.
+    \item Cross-platform development software like nRF Connect for Desktop is required, with the "Programmer" app used to execute the code on the sniffer.
+    \item Once the sniffer is connected to the PC in debug mode, the code can be executed, enabling it to function with Wireshark for analysis.
+\end{itemize}
+
+\section{Communication speed}
+
+\section{ENGNet: advantages and shortcomings}
+
+Given the structure of the project there is the need of a fast, computationally efficient model that can boast good performance on classification of ENG signals.
+In particular we need this model to classify the electroneurography signal sent from the board to the computer in different classes that correspond to different movements.
+Because of this, as we said, there is a strong need for both speed of classification, since we don't want excessive delay between the firing of the neurons and the transmission to the area of stimulation, but we also need accuracy since a movement different from the one that has been transmitted by the firing of the neurons would compromise the result of the project as a whole.
+
+A first promising model called EEGNet was introduced by \cite{lawhernEEGNetCompactConvolutional2018} for the classification of EEG singals, it presents a tailored variant of CNNs aimed at Brain-Computer Interface (BCI) applications. Its primary advantage lies in its compact architecture, boasting fewer parameters compared to traditional CNNs. This efficiency renders EEGNet well-suited for the processing of EEG signals, facilitating improved performance in BCI tasks while simultaneously reducing computational complexity. [tesi di davide]
+Starting from this model previous work by Davide Gottardello in the PRelay project developed a newer model in order to classify ENG Data called ENGNet.
+In this section we will describe this model and outline the most relevant features along with the advantages and shortcomings.
+As we will show in Chapter 4, ENGNet was the model we used to verify the performance of our channel selection algorithms and as such, understanding its functioning and performance was a key aspect of our work.
+In particular, at the beginning of our work of research, we spent some time setting up on our machines the same testing conditions such as the same dataset and code, this not only allowed us to gain familiarity with the architecture of the model and previous code but also gave us the possibility of verifying all previous results and benchmarks in order to acquire data to compare our own work to. 
 
 \subsection{ENGNet architecture}
 
+The principal parameter to modify in EEGNet architecture to create an ENGNet is the kernel length, which plays a crucial role in shaping the network’s feature extraction capabilities. [Davide]
+A kernel length of 100 samples, which translates to a sequence of 20 ms at a 5 kHz sampling rate, could be a compromise between kernel length and the ability to capture ENG signal characteristics effectively. Hence, kernel lengths of 10, 20, and 30 ms are investigated in this study which correspond to different values for the kernel length (denoted as kernLength) which means 50, 100 and 150 samples [Davide].
+''re write ''
+All the layers after the first one are therefore scaled to maintain the proportions proposed in the EEGNet model. [Davide 27]
+
+
+
 The architecture involves two convolutional steps, employing 2D convolutional filters to capture EEG signals at different band-pass frequencies and depthwise convolutions to learn spatial filters for each temporal filter. The approach also utilizes separable con- volutions to reduce the number of parameters and efficiently combine feature maps. In the classification block, softmax classification is directly applied to the extracted features without a dense layer, reducing the number of parameters in the model.
 
+
 \begin{figure}[H]
-	\includegraphics[scale=0.4]{engNet_arch.png}
+	\includegraphics[scale=0.3]{engNet_params.png}
 	\centering
 \end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[scale=0.3]{engNet_params.png}
-		\centering
-		\end{figure}
 
-
-
-
-
-\subsubsection{ENGNet layers}
-
+The number of parameters in a neural network is strictly related to the performance metrics of the network.
+Given too many parameters a model will inevitably overfit to the training test and will therefore poorly generalize on the validation and test portion of the data. Conversely, too few parameters will make the model unable to learn effectively the classification required for the task at hand.
+There is plenty of tools to overcome these kind of issues when training model, given that is one of the most prominent issues when dealing with neural networks performances such as tweaking the learning rate or adding dropouts layers in the architecture of the model in order to discard some of the parameters.
+Clearly, reducing the number of parameters not only reduces the chances of overfitting but also decreases training and inference time.
+Let us now delve deeper into the actual architecture.
 The configuration for block 1 is as follows:
 \begin{itemize}
 \item Conv2D layer: Conv2D(, (1, kernLength), input shape=(Chans, Samples, 1))
@@ -609,12 +913,97 @@ For block 2, the configuration is as follows:
 In block 2, the SeparableConv2D layer is used with a kernel size of (1, kernLength//4) and F2 = 32 to conduct depthwise separable convolution. This layer effectively reduces the number of parameters while preserving feature extraction capabilities. The parameters F1 and F2 are doubled compared to what was explained in chapter 3.5.1 and in [27] due to the larger frequency and consequently greater number of samples, while D remains equal to 2. This adjustment has been validated as a superior solution in preliminary tests.
 
 \begin{figure}[H]
+	\includegraphics[scale=0.4]{engNet_arch.png}
+	\centering
+\end{figure}
+	
+
+\subsubsection{ENGNet layers}
+
+We will now briefly explain the main layers present in the ENGNet model to outline what each layer does.
+
+
+
+\begin{figure}[H]
 	\includegraphics[scale=0.25]{engNet_layers.png}
 	\centering
 \end{figure}
 
+\subsection{Classification performance metrics}
+
+\textbf{Accuracy} \quad This measures the proportion of correctly classified examples in the dataset. It is calculated as:
+
+\begin{equation}
+\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} \quad (3.21)
+\end{equation}
+
+\textbf{F1-Score} \quad It combines precision and recall to offer a balanced evaluation of a model’s performance. Precision (or Positive Predicted Value (PPV)) is the ratio of correctly predicted positive observations to the total predicted positive observations. Recall (or sensitivity, or True Positive Rate (TPR)), is the ratio of correctly predicted positive observations to the total actual positive observations. F1-Score is computed as:
+
+\begin{equation}
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \quad (3.22)
+\end{equation}
+
+where:
+
+\begin{equation}
+\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
+\end{equation}
+
+\begin{equation}
+\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
+\end{equation}
+
+F1-Score combines precision and recall exploiting the harmonic mean to penalize the extreme values. Both Accuracy and the F1-score are important for a classification task:
+\begin{itemize}
+    \item Accuracy is preferred when correctly identifying True Positives and True Negatives is the primary concern.
+    \item F1-score is favored when minimizing the impact of False Negatives and False Positives is crucial.
+\end{itemize}
+
+Moreover, when dealing with imbalanced class distributions, where some classes have significantly fewer instances than others, the F1-score tends to be a more suitable metric for model evaluation.
+
+
+\textbf{Confusion Matrix} \quad This matrix visualizes a model’s performance by showing the number of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). A general construction of confusion matrix is given in Table 3.1. It is particularly helpful for understanding the model’s ability to correctly classify each class and to investigate the errors in predict phase.
+
+\begin{table}[h!]
+\centering
+\caption*{Table 3.1: Confusion Matrix for two classes (Positive and Negative) or outcomes to evaluate. The word "Predicted" refers to the output label from the classifier, while the "Actual" label is the one associated to the data.}
+\begin{tabular}{|c|c|c|}
+\hline
+ & \textbf{Predicted Positive} & \textbf{Predicted Negative} \\
+\hline
+\textbf{Actual Positive} & TP & FN \\
+\hline
+\textbf{Actual Negative} & FP & TN \\
+\hline
+\end{tabular}
+\end{table}
+
+In a confusion matrix with multiple classes, it is possible to compute precision, recall, and the F1-score for each individual class. Precision for a class is calculated as the ratio of true positives for that class to the total instances predicted as that class (both true positive and false positives). It is calculated as the ratio of true positives to the sum of true positives and false positives for that class.
+
+\begin{equation}
+	\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
+	\end{equation}
+	
+	\begin{equation}
+	\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
+	\end{equation}
+
+The F1-score is the harmonic of precision and recall. It provides a balanced measure that considers both false positives and false negatives. It is calculated using the following formula:
+
+\begin{equation}
+	F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \quad (3.22)
+	\end{equation}
+
+By calculating these metrics for each class, one gains insights into the model’s performance for individual categories, allowing a more nuanced evaluation of classification effectiveness.
+
+
 
 \subsection{ENGNet results}
+
+\begin{figure}[H]
+	\includegraphics[scale=0.25]{trainingAccuracyDavide.png}
+	\centering
+	\end{figure}
 
 
 Analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet,
@@ -641,6 +1030,216 @@ Comparison between validation and test re- sults showed that ENGNet can generali
 \section{nrf5280 Board pros and cons}
 \section{Power Supplier}
 \section{Memory management}
+
+The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. Below is a detailed explanation of each component illustrated in the provided diagram:
+
+1. Central Processing Unit (CPU)
+ARM Cortex-M4: The CPU is based on the ARM Cortex-M4 architecture, which is a highly efficient processor designed for high-performance, low-power applications. It includes a rich set of features such as floating-point unit (FPU), digital signal processing (DSP) extensions, and low-latency interrupt handling.
+2. Memory Organization
+The memory is divided into several sections, each serving a specific purpose and connected via different buses to optimize performance.
+
+RAM Sections (AHB Slaves)
+The system contains multiple RAM sections, each interfaced through the Advanced High-performance Bus (AHB). These sections are labeled from RAM0 to RAM8, with each section further divided into smaller subsections. The sections are organized as follows:
+
+RAM0 to RAM8: These RAM sections are accessible via the System bus, DCODE, and ICODE buses, providing flexible access paths for different types of data operations. Each RAM section is split into two subsections (Section 0 and Section 1), and their memory addresses are specified for both data RAM (System) and code RAM (ICODE/DCODE).
+
+Memory Addresses: The RAM sections have designated address ranges:
+
+% Data RAM (System): Ranges from 0x2000_0000 to 0x2003_8000.
+% Code RAM (ICODE/DCODE): Corresponding code addresses range from 0x0080_0000 to 0x0083_8000.
+Flash Memory
+Flash memory is used for non-volatile storage, providing persistent data retention even when the system is powered down. The flash memory is divided into pages and accessed via the ICODE and DCODE buses.
+
+% Flash Pages: The flash memory is organized into pages, with the address range for flash starting at 0x0000_0000 and extending to 0x000F_F000.
+Page Addresses: Specific addresses for pages include:
+% Page 0: 0x0000_0000
+% Page 1: 0x0000_1000
+% Page 2: 0x0000_2000
+Subsequent pages follow this addressing pattern up to Page 255.
+3. Bus Architecture
+The system utilizes a multilayer AHB interconnect to manage data flow between different components efficiently.
+
+Advanced High-performance Bus (AHB)
+The AHB multilayer interconnect ensures high-speed data transfer between the CPU, RAM sections, flash memory, and peripherals. It allows multiple masters (such as the CPU and DMA controllers) to access shared resources without significant performance bottlenecks.
+
+System Bus, DCODE, and ICODE
+These buses provide specific pathways for different types of data access:
+
+System Bus: Used for general data transfers.
+DCODE Bus: Dedicated to instruction fetches from flash memory.
+ICODE Bus: Used for instruction fetches from both RAM and flash memory, enabling efficient code execution.
+4. Peripherals and EasyDMA
+Peripherals: The system includes various peripherals connected via the AHB2APB bridge, allowing integration with different peripheral devices.
+EasyDMA: Direct Memory Access (DMA) controllers facilitate direct data transfers between peripherals and memory, bypassing the CPU to enhance efficiency. EasyDMA controllers are connected via DMA buses to the peripheral modules.
+5. Address Mapping
+The memory map clearly defines the address ranges for each memory section and peripheral, ensuring well-organized access to system resources.
+RAM Sections: Each RAM section has a specific address range, both for system data and code execution, ensuring organized and conflict-free memory access.
+6. Interconnect and Bus Matrix
+The AHB multilayer interconnect/bus matrix allows concurrent access to different memory sections and peripherals, reducing latency and improving overall system throughput.
+
+The Nordic board's memory architecture is a sophisticated system designed for efficient data handling and high performance. By leveraging multiple RAM sections, a well-organized flash memory layout, and an advanced bus interconnect system, the architecture supports the demanding requirements of modern embedded applications. The integration of DMA controllers further enhances data transfer efficiency, making the Nordic board suitable for a wide range of applications requiring reliable and high-speed memory access.
+
+\section{Introduction}
+The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. This document provides a detailed analysis suitable for a thesis.
+
+\section{Overview of the Address Map}
+The address map is divided into two main sections: the System Address Map and the Address Map for peripherals. The System Address Map shows the hierarchical arrangement of different memory regions and device spaces, while the Address Map specifies the address ranges for peripherals and other key components.
+
+\section{System Address Map}
+
+\subsection{Device Space (0xE0000000 - 0xFFFFFFFF)}
+This region is reserved for device-specific addresses, typically used for system control and private peripheral bus (PPB) mappings. The PPB includes critical control registers for system-level operations such as interrupts and debugging.
+
+\subsection{RAM (0x80000000 - 0xBFFFFFFF)}
+This region is designated for RAM, divided into two main blocks:
+\begin{itemize}
+    \item \textbf{0x80000000 - 0x9FFFFFFF}: General RAM space.
+    \item \textbf{0xA0000000 - 0xBFFFFFFF}: Additional RAM or special-purpose RAM.
+\end{itemize}
+
+\subsection{Peripheral Space (0x60000000 - 0x7FFFFFFF)}
+This area is allocated for peripheral devices, allowing the CPU to interact with various hardware modules via memory-mapped I/O.
+
+\subsection{SRAM (0x40000000 - 0x5FFFFFFF)}
+This region is dedicated to SRAM, providing fast, volatile memory storage for critical data that requires quick access times.
+
+\subsection{Code Space (0x00000000 - 0x1FFFFFFF)}
+This segment includes different types of memory used for storing executable code:
+\begin{itemize}
+    \item \textbf{0x00000000 - 0x007FFFFF}: Flash memory for non-volatile code storage.
+    \item \textbf{0x00800000 - 0x00FFFFFF}: Code RAM for executing code from RAM.
+    \item \textbf{0x10000000 - 0x10000FFF}: FICR (Factory Information Configuration Registers) containing device-specific configuration data.
+    \item \textbf{0x12000000 - 0x12000FFF}: UICR (User Information Configuration Registers) for user-specific configuration.
+    \item \textbf{0x19FFFFFF - 0x20000000}: XIP (Execute In Place) memory, allowing execution directly from external flash.
+\end{itemize}
+
+\section{Peripheral Address Map}
+
+\subsection{Private Peripheral Bus (0xE0000000)}
+The PPB includes system control space (SCS), NVIC (Nested Vectored Interrupt Controller), and other essential control registers.
+
+\subsection{AHB Peripherals (0x50000000)}
+This range is used for high-performance peripherals connected via the Advanced High-performance Bus (AHB), providing efficient data transfer capabilities.
+
+\subsection{APB Peripherals (0x40000000)}
+The Advanced Peripheral Bus (APB) space is designated for slower peripherals that do not require the high throughput provided by the AHB.
+
+\section{Detailed Address Ranges and Usage}
+
+\subsection{Flash Memory (0x00000000 - 0x007FFFFF)}
+Used for storing the firmware and application code. Flash memory is non-volatile, retaining data even when power is off.
+
+\subsection{Code RAM (0x00800000 - 0x00FFFFFF)}
+Provides a space for loading and executing code from RAM, useful for applications requiring high-speed code execution.
+
+\subsection{FICR (0x10000000 - 0x10000FFF)}
+Contains factory-programmed data specific to the device, such as calibration values and unique identifiers.
+
+\subsection{UICR (0x12000000 - 0x12000FFF)}
+Stores user-programmable configuration data, which can include bootloader settings and memory protection configurations.
+
+\subsection{XIP (0x19FFFFFF - 0x20000000)}
+Allows the system to execute code directly from external flash memory, saving internal RAM for other uses.
+
+\section{Summary}
+The Nordic board's memory architecture is designed to efficiently manage various types of memory and peripheral access. The system address map and peripheral address map clearly define regions for devices, RAM, peripherals, and code execution. This structured organization allows for optimized performance, flexibility in code execution, and efficient interaction with peripherals.
+
+By understanding this memory layout, developers can make informed decisions about memory usage, peripheral integration, and system optimization, ultimately enhancing the performance and functionality of applications running on the Nordic board.
+
+Based on the detailed analysis of the Nordic board's memory architecture, several key observations can be made to optimize code and effectively manage memory. These recommendations will help developers enhance the performance and efficiency of their applications.
+
+\section{Observations and Recommendations}
+
+\subsection{Utilizing Flash Memory for Code Storage}
+\textbf{Observation:}
+\begin{itemize}
+    \item Flash memory (0x00000000 - 0x007FFFFF) is non-volatile and ideal for storing the firmware and application code.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Store all static code and infrequently updated data in flash memory to ensure data persistence across reboots and power cycles.
+    \item Optimize the code to minimize the frequency of flash writes, as flash memory has a limited number of write cycles.
+\end{itemize}
+
+\subsection{Efficient Use of Code RAM}
+\textbf{Observation:}
+\begin{itemize}
+    \item Code RAM (0x00800000 - 0x00FFFFFF) allows for high-speed code execution.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Load performance-critical code segments and frequently accessed functions into Code RAM to benefit from faster execution times.
+    \item Use this space judiciously due to its limited size, prioritizing code that requires low-latency access.
+\end{itemize}
+
+\subsection{Managing Volatile Data with SRAM}
+\textbf{Observation:}
+\begin{itemize}
+    \item SRAM (0x40000000 - 0x5FFFFFFF) provides fast, volatile memory for temporary data storage.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Use SRAM for variables, stack, and heap allocation that require quick read/write access.
+    \item Regularly monitor SRAM usage to prevent stack overflows and ensure efficient memory allocation.
+\end{itemize}
+
+\subsection{Leveraging XIP for External Code Execution}
+\textbf{Observation:}
+\begin{itemize}
+    \item XIP (0x19FFFFFF - 0x20000000) enables execution directly from external flash memory.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Utilize XIP for large codebases or rarely executed code to free up internal RAM and Flash memory.
+    \item Ensure that the execution speed from external memory meets the application's performance requirements.
+\end{itemize}
+
+\subsection{Using FICR and UICR for Configuration Data}
+\textbf{Observation:}
+\begin{itemize}
+    \item FICR (0x10000000 - 0x10000FFF) and UICR (0x12000000 - 0x12000FFF) store factory and user-specific configuration data, respectively.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Store device-specific and user-defined configuration settings in FICR and UICR.
+    \item Use these regions to keep calibration data, unique identifiers, and bootloader settings.
+    \item These registers should be written infrequently to avoid wear.
+\end{itemize}
+
+\subsection{Optimizing Peripheral Access}
+\textbf{Observation:}
+\begin{itemize}
+    \item AHB (0x50000000) and APB (0x40000000) peripheral spaces are designated for high and low throughput peripherals.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Map high-speed peripherals that require frequent access to the AHB space for efficient data transfers.
+    \item Use the APB space for peripherals with lower bandwidth requirements.
+    \item Ensure that peripheral access patterns do not create bottlenecks, particularly in real-time applications.
+\end{itemize}
+
+\subsection{Balancing RAM and Peripheral Usage}
+\textbf{Observation:}
+\begin{itemize}
+    \item The board has multiple RAM sections and peripheral regions connected via AHB and APB buses.
+\end{itemize}
+
+\textbf{Recommendation:}
+\begin{itemize}
+    \item Distribute memory usage across different RAM sections to avoid contention and ensure balanced load.
+    \item Efficiently manage DMA transfers to minimize CPU involvement in data movement between peripherals and memory, thus improving overall system performance.
+\end{itemize}
+
+
+
+
+
 
 Our boards, the nRF52840 contain 1024 kB of flash memory and 256 kB of RAM, they can be used for both code and data storage. [https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf52840%2Fmemory.html]
 
@@ -1006,10 +1605,145 @@ Since we already had CNN why not implement a new algorithm that hasn't been well
 Critical issue could be that generally black but we will discsuss it later.
 
 
-\chapter{Conclusions and future developments}
-\label{ch:conclusions}%
-A final chapter containing the main conclusions of your research/study
-and possible future developments of your work have to be inserted in this chapter.
+\chapter{Materials and Methods}
+% \label{ch:conclusions}%
+This chapter delves deeper into the materials and methods we used to both write the firmware code for the boards of the PNRelay project and to work on the algorithms for the channel selection.
+Given the limitations at hand, the focus of our work was to try and solve a list of different issues that came up during the development of the project.
+In particular:
+
+\begin{itemize}
+	\item Optimization of firmware communication parameters
+	\item Safe transmission via BLE
+	\item Channel selection
+	\item Calculation of dissipated power
+	\item Memory management
+	\item Reversible transmission
+\end{itemize}
+
+We will divide this chapter into two main parts: one that is related to the firmware and the hardware aspects, one that is related to the channel selection algorithms.
+These two parts have been carried on for the majority of our work indipendently and despite the common goal share little to no similarities as far as materials and methods go.
+
+\section{Channel selection}
+
+\subsection{Newcastle Dataset}
+
+The Newcastle Dataset presents the recording of ENG signals of three different Sprague Dawley rats in response to mechanical sensory stimulation.
+To each of these rats a 16-contact cuff electrode was chrirurgically inserted and placed around the sciatic nerve in a distal position, close to where the nerve branches into its peroneal, sural, and tibial components.
+The data include ten different kinds of stimulation grouped into the three main categories of stimulation: Nociception, Proprioception and Touch.
+
+\textbf{Nociception} \quad This class represents the pinching at two different points in the foot: the heel and the outer toe.
+These two nociceptive stimuli were elicited through manually operated tweezers with a Force Sensitive Resistor sensor connected to them in order to standardize the force applied, the duration and the synchronization in order to replicate the stimulus with precision.
+
+\textbf{Proprioception} \quad This class of stimulus includes six different kinds of applied stimulation, each of them correspond to a different angle of ankle flexion, considered either dorsiflexion or plantarflexion.
+Ther is three different angles for dorsiflexion with positive degrees (-10°, -20°, -30°) and three different angles for plantarflexion with positive degrees (+10°, +20°, +30°).
+The angle measurement is relative to the neutral position of the ankle.
+This movements were obtained by pushing the hind paw of the rats with a bar, with a flex sensor to detect precisely the movement in order to standardize the procedure.
+Each movement was performed and then the position at the specific angle was kept for three seconds, then the neutral position was restored.
+
+\textbf{Touch} \quad This class represents two different stimuli based on the force of the touch: 0.1 Kg and 0.3 Kg.
+These two stimuli were elicited using Von Frey(VF) fibers, once again with a flex sensor in order to synchronize the procedure and standardize it by unfolding as the motor pushed the VF fiber to touch the hind paw.
+
+While these ENG recordings were taken the rats were anesthetized in order to eliminate any possible EMG voluntary activity. The signals were captured at a frequency of 30 kHz and then digitally flitered between 0.25 and 5kHz.
+Each of the different stimuli previously presented was applied 50 times, producing 500 sampples in total for each rat. [davide]
+
+\subsubsection{Preprocessing}
+
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{acquiredStimuli.png}
+	\centering
+	\end{figure}
+
+
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{balanceClass.png}
+	\centering
+	\end{figure}
+	
+
+\subsection{Channel selection algorithms}
+
+As stated previously, the focus of the channel selection algorithm is to reduce the number of channels that need to be transmitted in order to perform the classification of the signals properly.
+In particular as we will see better in the results chapter, we consider as an acceptable loss anything better than a 5 percentage points drop in F1-Score which is our core metric for the evaluation of the classification.
+
+\subsubsection{Test-case conditions}
+
+Poeple + setup +time + how signals come ....
+
+Our dataset as explained in the previous section comprises 16 channels.
+Once condition that needs to be specified is that in order to simulate real test-case condtions on people, the channels may not come in batches of 16 channels, but as 8 channels + 8 channels.
+Therefore we performed our algorithms of evaluation not only on the whole 16 channels, but also on 8 channels, then other 8 channels and then cross-checked the results.
+In addition we have also tried a different approach we will explain later that due to its characteristic of being implemented at training time could not be applied to both 16 channels and 8 + 8 channels but requiered the 16 channels
+
+\subsubsection{Correlation based algorithms}
+
+These methods help identifying which subsets of channels is the most relevant by defining a correlation metric and ranking higher those channels that show stronger similarities between them according to the metric.
+As shown in Chapter 3 there are more than a few examples of correlation based algorithms for channel selection.
+We focus here on the ones we used extensively during our work: Cross-Correlation Based Discriminant Criterion (XCDC) and our own iteration.
+We will now present again the structure of the algorithms explaining the steps and our overall pipeline for the channel selection.
+
+First of all, we take 48 samples for each one of the four classes we described in the dataset section.
+
+\begin{itemize}
+	\item 48 Nociception samples
+	\item 48 Plantaflexion samples
+	\item 48 Dorsiflexion samples
+	\item 48 Touch samples
+\end{itemize}
+
+Given two finite discrete time series $x(i)$ and $y(j)$
+(i $\epsilon$ $[0, 1, . . . , n - 1]$, j $\epsilon$ $[0, 1, . . . , m - 1]$, $m \geq n$),
+their cross-correlation series is given as follows:
+
+\begin{align}
+	 r_{xy}(k) = \sum_{i=0}^{n-1}x(i)y(i + k), k = 0,1,...,m-n+1
+	\label{eq:XCDC1}
+\end{align}
+
+where x and y are EEG signals of length T (m=n=T). \\ 
+Zero-padding is performed at both sides of y so that the length of the cross-correlation series is the same of the original signals. \\
+We apply the cross-correlation formula to the signals x and y, but we must firstly apply z-score normalization to account for the effect of signal amplitudes on cross-correlation.
+
+\begin{align}
+	\tilde{x_i} = \frac{x_i - \bar x_i}{\sigma_{x_i}}
+   \label{eq:XCDC3}
+\end{align}
+
+
+Then, the similarity between x and y is measured with the following formula:
+
+\begin{align}
+	S(x,y) = \max(r_{x\hat{y}(k)}), k=0,1,..., T - 1 
+   \label{eq:XCDC2}
+\end{align}
+
+with $\hat{y}$ being y with zero-padding.
+where $x_i$ is the signal of the i-th trial collected from our channel of interest. $\bar{x_i}$ and $\sigma{x_i}$ are
+the mean and standard deviation of $x_i$ respectively.
+Having defined the function $S$ we now define the within-class similarity $R_w$ and betweenclass dissimilarity $R_b$ which are obtained as follows:
+
+\begin{align}
+	R_w = \mathbf{mean}(S(\tilde{x_i}\tilde{x_j}| c_i = c_j))
+   \label{eq:XCDC4}
+\end{align}
+
+\begin{align}
+	R_b = -\mathbf{mean}(S(\tilde{x_i}\tilde{x_j}| c_i \neq  c_j))
+   \label{eq:XCDC5}
+\end{align}
+
+where $c_i$ is the class label of the i-th trial. The discriminant score D is then defined as follows:
+
+\begin{align}
+	D = \lambda R_w + (1-\lambda)R_b
+   \label{eq:XCDC6}
+\end{align}
+
+in which $\lambda$ is a weighting hyperparameter to be tuned empirically.
+Channels are ranked in a descending order according to their discriminant score D after obtaining D for every channel using.
+
+
+
+
 
 
 %-------------------------------------------------------------------------

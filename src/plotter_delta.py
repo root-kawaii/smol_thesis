@@ -156,125 +156,125 @@ plt.title("Animal 1 - ENGNet100K - 100ms - 4 classes")
 #     "8 - 0",
 # ]
 
-accuracy_1 = [
-    0.993,
-    0.98901795,
-    0.98475282,
-    0.98042041,
-    0.97565817,
-    0.97050610,
-    0.96736621,
-    0.961954361,
-    # 0.942852,
-]
+# accuracy_1 = [
+#     0.993,
+#     0.98901795,
+#     0.98475282,
+#     0.98042041,
+#     0.97565817,
+#     0.97050610,
+#     0.96736621,
+#     0.961954361,
+#     # 0.942852,
+# ]
 
-f1_1 = [
-    0.985,
-    0.9822098,
-    0.9768506,
-    0.9681791,
-    0.9644779,
-    0.95510062,
-    0.9505889,
-    0.9425473,
-    # 0.9161532,
-]
-
-
-std_data_ac_1 = [
-    0.002,
-    0.002499003,
-    0.002869618,
-    0.003067728,
-    0.005147021,
-    0.005147721,
-    0.003418154,
-    0.002530038,
-    # 0.004181659,
-]
+# f1_1 = [
+#     0.985,
+#     0.9822098,
+#     0.9768506,
+#     0.9681791,
+#     0.9644779,
+#     0.95510062,
+#     0.9505889,
+#     0.9425473,
+#     # 0.9161532,
+# ]
 
 
-std_data_f1_1 = [
-    0.004,
-    0.004389057,
-    0.003043836,
-    0.006778012,
-    0.008127111,
-    0.009083839,
-    0.006526623,
-    0.004209037,
-    # 0.00914046,
-]
-
-accuracy_2 = [x * 100 for x in accuracy_1]
-f1_score_2 = [x * 100 for x in f1_1]
-std_data_ac_2 = [x * 100 for x in std_data_ac_1]
-std_data_f1_2 = [x * 100 for x in std_data_f1_1]
-
-plot_data = []
-plot_data_2 = []
-
-for i, j in enumerate(accuracy_2):
-    if i != 0:
-        plot_data.append(
-            accuracy_2[0] + std_data_ac_2[0] - accuracy_2[i] - std_data_ac_2[i]
-        )
-    if i != 0:
-        plot_data_2.append(
-            f1_score_2[0] + std_data_f1_2[0] - f1_score_2[i] - std_data_f1_2[i]
-        )
+# std_data_ac_1 = [
+#     0.002,
+#     0.002499003,
+#     0.002869618,
+#     0.003067728,
+#     0.005147021,
+#     0.005147721,
+#     0.003418154,
+#     0.002530038,
+#     # 0.004181659,
+# ]
 
 
-plt.plot(
-    plot_data,
-    label="Accuracy XCDC",
-)
-plt.plot(x, plot_data_2, label="F1-Score XCDC")
+# std_data_f1_1 = [
+#     0.004,
+#     0.004389057,
+#     0.003043836,
+#     0.006778012,
+#     0.008127111,
+#     0.009083839,
+#     0.006526623,
+#     0.004209037,
+#     # 0.00914046,
+# ]
 
-# # Creating a box plot
-# plt.errorbar(
-#     x,
-#     accuracy_2,
-#     yerr=std_data_ac_2,
-#     fmt="-o",
-#     color="tab:orange",
-#     ecolor="lightgray",
-#     elinewidth=5,
-#     capsize=0,
-#     label="Accuracy",
+# accuracy_2 = [x * 100 for x in accuracy_1]
+# f1_score_2 = [x * 100 for x in f1_1]
+# std_data_ac_2 = [x * 100 for x in std_data_ac_1]
+# std_data_f1_2 = [x * 100 for x in std_data_f1_1]
+
+# plot_data = []
+# plot_data_2 = []
+
+# for i, j in enumerate(accuracy_2):
+#     if i != 0:
+#         plot_data.append(
+#             accuracy_2[0] + std_data_ac_2[0] - accuracy_2[i] - std_data_ac_2[i]
+#         )
+#     if i != 0:
+#         plot_data_2.append(
+#             f1_score_2[0] + std_data_f1_2[0] - f1_score_2[i] - std_data_f1_2[i]
+#         )
+
+
+# plt.plot(
+#     plot_data,
+#     label="Accuracy XCDC",
 # )
+# plt.plot(x, plot_data_2, label="F1-Score XCDC")
 
-# plt.errorbar(
-#     x,
-#     f1_score_2,
-#     yerr=std_data_f1_2,
-#     fmt="-o",
-#     color="tab:blue",
-#     ecolor="lightgray",
-#     elinewidth=5,
-#     capsize=0,
-#     label="F1-Score",
-# )
+# # # Creating a box plot
+# # plt.errorbar(
+# #     x,
+# #     accuracy_2,
+# #     yerr=std_data_ac_2,
+# #     fmt="-o",
+# #     color="tab:orange",
+# #     ecolor="lightgray",
+# #     elinewidth=5,
+# #     capsize=0,
+# #     label="Accuracy",
+# # )
 
-for i in range(len(x)):
-    plt.text(
-        x[i],
-        plot_data[i],
-        f"{plot_data[i]:.1f}",
-        fontsize=10,
-        ha="left",
-        va="bottom",
-    )
+# # plt.errorbar(
+# #     x,
+# #     f1_score_2,
+# #     yerr=std_data_f1_2,
+# #     fmt="-o",
+# #     color="tab:blue",
+# #     ecolor="lightgray",
+# #     elinewidth=5,
+# #     capsize=0,
+# #     label="F1-Score",
+# # )
 
-for i in range(len(x)):
-    plt.text(
-        x[i],
-        plot_data_2[i],
-        f"{plot_data_2[i]:.1f}",
-        fontsize=10,
-        ha="left",
-        va="bottom",
-    )
+# for i in range(len(x)):
+#     plt.text(
+#         x[i],
+#         plot_data[i],
+#         f"{plot_data[i]:.1f}",
+#         fontsize=10,
+#         ha="left",
+#         va="bottom",
+#     )
+
+# for i in range(len(x)):
+#     plt.text(
+#         x[i],
+#         plot_data_2[i],
+#         f"{plot_data_2[i]:.1f}",
+#         fontsize=10,
+#         ha="left",
+#         va="bottom",
+#     )
 plt.legend()
 plt.show()
 
