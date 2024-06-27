@@ -217,71 +217,72 @@ for t in range(1, 16):
         epsilon = 0.8
 
         # print(correlation_scores)
-        for i in range(10):
-            for batch in range(2):
-                for k in range(8):
-                    k = k + (8 * batch)
-                    for i in range(len(data_merge)):
-                        score = []
-                        for j in range(len(data_merge_I[0])):
-                            score.append(
-                                max(
-                                    signal.correlate(
-                                        data_merge_I[i][j][k, 0:2500],
-                                        data_merge_II[i][j][k, 0:500],
-                                        mode="same",
+        for iterations in range(10):
+            for i in range(4):
+                for batch in range(2):
+                    for k in range(8):
+                        k = k + (8 * batch)
+                        for i in range(len(data_merge)):
+                            score = []
+                            for j in range(len(data_merge_I[0])):
+                                score.append(
+                                    max(
+                                        signal.correlate(
+                                            data_merge_I[i][j][k, 0:2500],
+                                            data_merge_II[i][j][k, 0:500],
+                                            mode="same",
+                                        )
                                     )
                                 )
-                            )
 
-                        # print("\n")
-                        # print(score)
-                        # print(len(score))
-                        # print("\n")
-                        correlation_scores_1[k] += np.median(score)
+                            # print("\n")
+                            # print(score)
+                            # print(len(score))
+                            # print("\n")
+                            correlation_scores_1[k] += np.median(score)
 
-                for k in range(8):
-                    k = k + (8 * batch)
-                    for i in range(len(data_merge)):
-                        score = []
-                        for j in range(len(data_merge_I[0])):
-                            x = copy.copy(data_merge_II)
-                            x.pop(i)
-                            if j < 8:
-                                score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][j][k, 0:2500],
-                                            x[0][j][k, 0:500],
-                                            mode="same",
+                    for k in range(8):
+                        k = k + (8 * batch)
+                        for i in range(len(data_merge)):
+                            score = []
+                            for j in range(len(data_merge_I[0])):
+                                x = copy.copy(data_merge_II)
+                                x.pop(i)
+                                if j < 8:
+                                    score.append(
+                                        max(
+                                            signal.correlate(
+                                                data_merge_I[i][j][k, 0:2500],
+                                                x[0][j][k, 0:500],
+                                                mode="same",
+                                            )
                                         )
                                     )
-                                )
-                            elif j > 7 and j < 16:
-                                score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][j][k, 0:2500],
-                                            x[1][j][k, 0:500],
-                                            mode="same",
+                                elif j > 7 and j < 16:
+                                    score.append(
+                                        max(
+                                            signal.correlate(
+                                                data_merge_I[i][j][k, 0:2500],
+                                                x[1][j][k, 0:500],
+                                                mode="same",
+                                            )
                                         )
                                     )
-                                )
-                            else:
-                                score.append(
-                                    max(
-                                        signal.correlate(
-                                            data_merge_I[i][j][k, 0:2500],
-                                            x[2][j][k, 0:500],
-                                            mode="same",
+                                else:
+                                    score.append(
+                                        max(
+                                            signal.correlate(
+                                                data_merge_I[i][j][k, 0:2500],
+                                                x[2][j][k, 0:500],
+                                                mode="same",
+                                            )
                                         )
                                     )
-                                )
-                        # print("\n")
-                        # print(score)
-                        # print(len(score))
-                        # print("\n")
-                        correlation_scores_2[k] -= np.median(score)
+                            # print("\n")
+                            # print(score)
+                            # print(len(score))
+                            # print("\n")
+                            correlation_scores_2[k] -= np.median(score)
 
         for i in range(16):
             correlation_scores[i] += (
@@ -300,7 +301,8 @@ for t in range(1, 16):
                     k = k + (8 * batch)
                     same_class_score = []
                     diff_class_score = []
-                    for batch2 in range(2):
+                    # is this useless ? range(2)
+                    for batch2 in range(1):
                         for ch2 in range(8):
                             ch2 = ch2 + (8 * batch)
                             if k != ch2:

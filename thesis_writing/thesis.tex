@@ -273,6 +273,20 @@ The spinal cord is also responsible for reflexes, unconcious responses to quick 
 
 \subsection{Peripheral nervous system}
 
+Since the PNRelay aims at elicitng motor stimulation by transmitting electrical signals through the body is of the utmost importance that we well understand how our nervous system propagates signals.
+The Peripheral Nervous System comprises all the network structures apart from the brain and the spinal cord that instead form the CNS as described above.
+Its purpose is to propagate nervous signals to every corner of our body and handle the subsequent motor responses.
+It is how our organism sends information to the brain (CNS) and how, vice-versa, sends the responses to the rest of the body in the opposite direction.
+
+Despite the complexity just described, the Peripheral Nervous System is composed of two types of cell:
+
+\begin{itemize}
+
+	\item  Neurons: cells that conduct impulses inside the NS.
+	\item Glial cells: these are nonconductive cells and provide a support system for
+	neurons protecting them.
+\end{itemize}
+
 
 
 \section{Implanted medical devices normative and regulation}
@@ -1681,6 +1695,18 @@ As shown in Chapter 3 there are more than a few examples of correlation based al
 We focus here on the ones we used extensively during our work: Cross-Correlation Based Discriminant Criterion (XCDC) and our own iteration.
 We will now present again the structure of the algorithms explaining the steps and our overall pipeline for the channel selection.
 
+\subsubsection{Cross-Correlation Based Discriminant
+Criterion (XCDC)}
+
+The goal of the XCDC is to return a metric that correctly evaluates ths signals based on same-channel correlation.
+The steps required are as follows:
+\begin{itemize}
+	\item XCDC between same-channel signals
+	\item Score for same-class correlation
+	\item Score for different-class correlation
+	\item Final score
+\end{itemize}
+
 First of all, we take 48 samples for each one of the four classes we described in the dataset section.
 
 \begin{itemize}
@@ -1689,6 +1715,24 @@ First of all, we take 48 samples for each one of the four classes we described i
 	\item 48 Dorsiflexion samples
 	\item 48 Touch samples
 \end{itemize}
+
+Then we split each of the 48 samples in two batches of 24 samples represented in the figure as Column I and Column II.
+We split each of the columns in 3 batches of 8 samples.
+We now proceed to perform XCDC between the batches of Column I and Column II as represented in Figure 
+
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{dataSplit.png}
+	\centering
+	\end{figure}
+
+
+
+	\begin{figure}[H]
+		\includegraphics[scale=0.4]{scoreDifferentClass.png}
+		\centering
+		\end{figure}
+	
+
 
 Given two finite discrete time series $x(i)$ and $y(j)$
 (i $\epsilon$ $[0, 1, . . . , n - 1]$, j $\epsilon$ $[0, 1, . . . , m - 1]$, $m \geq n$),
@@ -1741,11 +1785,24 @@ where $c_i$ is the class label of the i-th trial. The discriminant score D is th
 in which $\lambda$ is a weighting hyperparameter to be tuned empirically.
 Channels are ranked in a descending order according to their discriminant score D after obtaining D for every channel using.
 
+\subsubsection{Our approach}
+
+Since XCDC evaluates same-channel metrics, we wanted to iterate over this approach and create a metric that could evaluate how much different channels carried the same amount of information.
+Let us delve deeper in the actual differences.
+The steps of the algorithm are as follows:
+
+\begin{itemize}
+	\item XCDC between same-channel signals
+	\item Discard noisy signals
+	\item Cross-correlation between different-channel signals
+	\item Score for same-class correlation
+	\item Score for different-class correlation
+	\item Final score
+\end{itemize}
 
 
-
-
-
+Therefore, compared to the previous algorithm, we don't correlate a channel with itself, we correlate it with each of the other 15 channels.
+Therefore we now have 15 times the amount of data we had with the first iteration.
 %-------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %-------------------------------------------------------------------------
