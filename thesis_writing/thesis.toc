@@ -1,0 +1,145 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{i}{chapter*.2}%
+\contentsline {chapter}{Abstract in lingua italiana}{iii}{chapter*.4}%
+\contentsline {chapter}{Contents\markboth {\MakeUppercase []{Contents}}{\MakeUppercase []{Contents}}}{v}{chapter*.6}%
+\vspace {2em}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}PNRelay project}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}PNRelay Setup}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}PNRelay functionality (chiara objectives)}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Ethical concerns}{3}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Thesis outline}{3}{subsection.1.1.4}%
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Nervous Systems}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Central nervous system}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Peripheral nervous system}{6}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Implanted medical devices normative and regulation}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}FDA}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Medical software regulation}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Normatives for wireless devices}{12}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}FDA Medical devices cybersecurity }{13}{subsection.2.2.4}%
+\contentsline {subsubsection}{Authentication}{14}{subsubsection*.13}%
+\contentsline {subsubsection}{Authorization}{15}{subsubsection*.14}%
+\contentsline {subsubsection}{Cryptography}{15}{subsubsection*.15}%
+\contentsline {subsubsection}{Code, Data and Execution Integrity }{15}{subsubsection*.16}%
+\contentsline {subsubsection}{Confidentiality}{16}{subsubsection*.17}%
+\contentsline {subsubsection}{Event detection and logging}{16}{subsubsection*.18}%
+\contentsline {subsubsection}{Resiliency and recovery}{16}{subsubsection*.19}%
+\contentsline {subsubsection}{Firmware and software updates}{16}{subsubsection*.20}%
+\contentsline {subsubsection}{Cybersecurity regulations for medical devices in EU}{17}{subsubsection*.21}%
+\contentsline {section}{\numberline {2.3}Ethical concerns}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Animal welfare }{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Need of research}{20}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Safety of the patient}{20}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Inclusivity}{21}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Informed agreement }{22}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Privacy and surveillance}{22}{subsection.2.3.6}%
+\contentsline {section}{\numberline {2.4}Signal Acquisition}{23}{section.2.4}%
+\contentsline {chapter}{\numberline {3}State of the Art}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction to Bluetooth Low Energy}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Communication system}{25}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Previous code implementation}{25}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Matlab scripts}{27}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Offline transmitter code}{28}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Online transmitter code}{40}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Security in Bluetooth Low Energy}{42}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Pairing}{43}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Bonding}{43}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Legacy Pairing and Low Energy Secure Connection (LE-SC)}{44}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Encryption}{44}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Man-in-the-Middle Attack}{44}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Modes 2 and 3}{44}{section.3.10}%
+\contentsline {chapter}{Bibliography\markboth {\MakeUppercase []{Bibliography}}{\MakeUppercase []{Bibliography}}}{45}{chapter*.27}%
+\contentsline {section}{\numberline {3.11}Communication speed}{45}{section.3.11}%
+\contentsline {section}{\numberline {3.12}ENGNet: advantages and shortcomings}{45}{section.3.12}%
+\contentsline {subsection}{\numberline {3.12.1}ENGNet architecture}{46}{subsection.3.12.1}%
+\contentsline {subsubsection}{ENGNet layers}{48}{subsubsection*.30}%
+\contentsline {subsection}{\numberline {3.12.2}Classification performance metrics}{48}{subsection.3.12.2}%
+\contentsline {subsection}{\numberline {3.12.3}ENGNet results}{50}{subsection.3.12.3}%
+\contentsline {section}{\numberline {3.13}nrf5280 Board pros and cons}{51}{section.3.13}%
+\contentsline {section}{\numberline {3.14}Power Supplier}{51}{section.3.14}%
+\contentsline {section}{\numberline {3.15}Memory management}{51}{section.3.15}%
+\contentsline {section}{\numberline {3.16}Introduction}{52}{section.3.16}%
+\contentsline {section}{\numberline {3.17}Overview of the Address Map}{52}{section.3.17}%
+\contentsline {section}{\numberline {3.18}System Address Map}{53}{section.3.18}%
+\contentsline {subsection}{\numberline {3.18.1}Device Space (0xE0000000 - 0xFFFFFFFF)}{53}{subsection.3.18.1}%
+\contentsline {subsection}{\numberline {3.18.2}RAM (0x80000000 - 0xBFFFFFFF)}{53}{subsection.3.18.2}%
+\contentsline {subsection}{\numberline {3.18.3}Peripheral Space (0x60000000 - 0x7FFFFFFF)}{53}{subsection.3.18.3}%
+\contentsline {subsection}{\numberline {3.18.4}SRAM (0x40000000 - 0x5FFFFFFF)}{53}{subsection.3.18.4}%
+\contentsline {subsection}{\numberline {3.18.5}Code Space (0x00000000 - 0x1FFFFFFF)}{53}{subsection.3.18.5}%
+\contentsline {section}{\numberline {3.19}Peripheral Address Map}{54}{section.3.19}%
+\contentsline {subsection}{\numberline {3.19.1}Private Peripheral Bus (0xE0000000)}{54}{subsection.3.19.1}%
+\contentsline {subsection}{\numberline {3.19.2}AHB Peripherals (0x50000000)}{54}{subsection.3.19.2}%
+\contentsline {subsection}{\numberline {3.19.3}APB Peripherals (0x40000000)}{54}{subsection.3.19.3}%
+\contentsline {section}{\numberline {3.20}Detailed Address Ranges and Usage}{54}{section.3.20}%
+\contentsline {subsection}{\numberline {3.20.1}Flash Memory (0x00000000 - 0x007FFFFF)}{54}{subsection.3.20.1}%
+\contentsline {subsection}{\numberline {3.20.2}Code RAM (0x00800000 - 0x00FFFFFF)}{54}{subsection.3.20.2}%
+\contentsline {subsection}{\numberline {3.20.3}FICR (0x10000000 - 0x10000FFF)}{54}{subsection.3.20.3}%
+\contentsline {subsection}{\numberline {3.20.4}UICR (0x12000000 - 0x12000FFF)}{54}{subsection.3.20.4}%
+\contentsline {subsection}{\numberline {3.20.5}XIP (0x19FFFFFF - 0x20000000)}{55}{subsection.3.20.5}%
+\contentsline {section}{\numberline {3.21}Summary}{55}{section.3.21}%
+\contentsline {section}{\numberline {3.22}Observations and Recommendations}{55}{section.3.22}%
+\contentsline {subsection}{\numberline {3.22.1}Utilizing Flash Memory for Code Storage}{55}{subsection.3.22.1}%
+\contentsline {subsection}{\numberline {3.22.2}Efficient Use of Code RAM}{55}{subsection.3.22.2}%
+\contentsline {subsection}{\numberline {3.22.3}Managing Volatile Data with SRAM}{56}{subsection.3.22.3}%
+\contentsline {subsection}{\numberline {3.22.4}Leveraging XIP for External Code Execution}{56}{subsection.3.22.4}%
+\contentsline {subsection}{\numberline {3.22.5}Using FICR and UICR for Configuration Data}{56}{subsection.3.22.5}%
+\contentsline {subsection}{\numberline {3.22.6}Optimizing Peripheral Access}{57}{subsection.3.22.6}%
+\contentsline {subsection}{\numberline {3.22.7}Balancing RAM and Peripheral Usage}{57}{subsection.3.22.7}%
+\contentsline {section}{\numberline {3.23}Radiation absorbtion}{59}{section.3.23}%
+\contentsline {section}{\numberline {3.24}Channel selection}{59}{section.3.24}%
+\contentsline {subsection}{\numberline {3.24.1}Common spatial patterns methods}{59}{subsection.3.24.1}%
+\contentsline {subsubsection}{Sparse CSP}{60}{subsubsection*.45}%
+\contentsline {subsubsection}{Regularized CSP}{60}{subsubsection*.46}%
+\contentsline {subsection}{\numberline {3.24.2}Correlation-based methods}{60}{subsection.3.24.2}%
+\contentsline {subsubsection}{Spectral entropy dunno first citation}{61}{subsubsection*.50}%
+\contentsline {subsubsection}{Pearson’s Correlation Coefficient }{61}{subsubsection*.54}%
+\contentsline {subsubsection}{Cross-Correlation Based Discriminant Criterion (XCDC)}{62}{subsubsection*.56}%
+\contentsline {subsection}{\numberline {3.24.3}Sequential Based methods}{63}{subsection.3.24.3}%
+\contentsline {subsubsection}{Sequential Floating Forward Selection (SFFS)}{64}{subsubsection*.64}%
+\contentsline {subsubsection}{Generalized Sequential Forward Selection (GSFS) }{64}{subsubsection*.65}%
+\contentsline {subsection}{\numberline {3.24.4}Binary Particle Swarm Optimization Based methods}{65}{subsection.3.24.4}%
+\contentsline {subsection}{\numberline {3.24.5}Other methods}{67}{subsection.3.24.5}%
+\contentsline {subsubsection}{Min. Redundancy Max. Relevancy (mRMR)}{67}{subsubsection*.71}%
+\contentsline {subsubsection}{Rayleigh coefficient maximization Based Genetic Algorithm}{67}{subsubsection*.72}%
+\contentsline {subsubsection}{Fisher's criterion}{67}{subsubsection*.73}%
+\contentsline {subsubsection}{Automatic Channel Selection with Sparse Squeeze and Excitation Blocks (ACS-SE)}{67}{subsubsection*.74}%
+\contentsline {subsubsection}{Auto-encoder}{67}{subsubsection*.75}%
+\contentsline {subsubsection}{Dataset and results}{67}{subsubsection*.76}%
+\contentsline {chapter}{\numberline {4}Materials and Methods}{69}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Firmware}{69}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Firmware Security Implementation}{73}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Theoretical throughput computation}{78}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Test Procedures}{81}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Power Profiler Tests}{82}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Multicentral Implementation}{85}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Receiver Firmware Multicentral}{85}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Transmitter Firmware Multicentral}{86}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Command Sending Process}{87}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Direct Communication between Board and Windows PC}{88}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Offline Receiver Code}{88}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Online Receiver Code}{90}{subsection.4.9.2}%
+\contentsline {subsection}{\numberline {4.9.3}Receiver Code with Shift}{90}{subsection.4.9.3}%
+\contentsline {subsection}{\numberline {4.9.4}Reverse Transmission}{90}{subsection.4.9.4}%
+\contentsline {subsubsection}{Board Side}{91}{subsubsection*.92}%
+\contentsline {subsubsection}{PC Side}{91}{subsubsection*.94}%
+\contentsline {subsection}{\numberline {4.9.5}Linux testing environment}{92}{subsection.4.9.5}%
+\contentsline {section}{\numberline {4.10}Channel selection}{93}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Newcastle Dataset}{93}{subsection.4.10.1}%
+\contentsline {subsubsection}{Preprocessing}{93}{subsubsection*.95}%
+\contentsline {subsection}{\numberline {4.10.2}Channel selection algorithms}{95}{subsection.4.10.2}%
+\contentsline {subsubsection}{Test-case conditions}{95}{subsubsection*.98}%
+\contentsline {subsubsection}{Correlation based algorithms}{95}{subsubsection*.99}%
+\contentsline {subsubsection}{Cross-Correlation Based Discriminant Criterion (XCDC)}{96}{subsubsection*.100}%
+\contentsline {subsubsection}{Our approach to XCDC}{97}{subsubsection*.107}%
+\contentsline {subsubsection}{Testing correlation algorithms results}{98}{subsubsection*.108}%
+\contentsline {subsubsection}{Channel Attention Layer}{98}{subsubsection*.109}%
+\contentsline {subsubsection}{Our approach}{99}{subsubsection*.113}%
+\vspace {2em}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}Appendix A}{103}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{105}{appendix.B}%
+\contentsline {chapter}{List of Figures}{107}{appendix*.117}%
+\contentsline {chapter}{List of Tables}{109}{appendix*.119}%
+\contentsline {chapter}{List of Symbols}{111}{appendix*.121}%
+\contentsline {chapter}{Acknowledgements}{113}{appendix*.124}%
