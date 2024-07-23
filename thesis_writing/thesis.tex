@@ -2005,12 +2005,12 @@ Finally, the theoretical throughput is equal to 663.68 Mbps.
 \section{Test Procedures}
 For each implementation, offline and online tests were performed. The purpose of the offline tests is to understand how the chosen parameters impact the codes. This allows for the selection of the best parameters for use in the online tests. Specifically, the parameters studied for each implementation are the connection interval (CI) and the connection supervision timeout (ST).
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{connection_interval_timeout.png}
-%     \caption{Connection interval and connection supervision timeout\footnote{\url{https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-connections/multi-peripheral-topology}}}
-%     \label{fig:connection_interval_timeout}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/1.png}
+    \caption{Connection interval and connection supervision timeout\footnote{\url{https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-connections/multi-peripheral-topology}}}
+    \label{fig:connection_interval_timeout}
+\end{figure}
 
 The connection interval is defined as the elapsed time between two consecutive connection events, i.e., the time between the reception of the last packet and the reception of the new one. In the context of BLE, it has minimum and maximum thresholds, ranging from 7.5ms to 32000ms:
 \[
@@ -2027,21 +2027,21 @@ The connection supervision timeout is defined as the time that can pass after re
 
 To vary these parameters in the firmware, changes on the peripheral side are sufficient. Since the boards are of the same type, they would always reach an agreement about the parameters. However, a further check can be done using a sniffer. An example of this is shown below.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{sniffed_connection_parameter_update.png}
-%     \caption{Sniffed connection parameter update}
-%     \label{fig:sniffed_connection_parameter_update}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/2.png}
+    \caption{Sniffed connection parameter update}
+    \label{fig:sniffed_connection_parameter_update}
+\end{figure}
 
 By clicking on the connection update, it is possible to see the chosen parameters set.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{connection_parameters_wireshark.png}
-%     \caption{Connection parameters in Wireshark}
-%     \label{fig:connection_parameters_wireshark}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/3.png}
+    \caption{Connection parameters in Wireshark}
+    \label{fig:connection_parameters_wireshark}
+\end{figure}
 
 In the purposed example, the parameters were 50ms for the CI and 110ms for the ST. For the offline tests, the connection intervals studied are 7.5ms, 12.5ms, 20ms, 50ms, 100ms, 200ms, 500ms, and 1000ms. After these, the trend was already reached, and further results would not be so significant. The connection supervision timeouts chosen for the offline tests were 2, 4, 8, 16, and 32 times the connection interval selected. Due to the lower limit imposed by the connection supervision timeout threshold, when the connection interval value is 7.5ms, 12.5ms, or 20ms, the ST cannot be 2 times the connection interval because this would conflict with the previous condition. In these cases, the minimum admissible connection supervision timeout was set, which is 100ms.
 
@@ -2049,158 +2049,158 @@ The online tests were performed when the best supervision timeout was chosen bas
 
 For both the online and offline tests, a sniffer was used to count the retransmissions in cases where this process could be performed, i.e., when security is not involved. The experimental setup for the different cases is shown below. They respectively represent the tests without security, tests with security, multicentral tests, and tests with board-PC communication.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{ideal_tests_without_security.png}
-%     \caption{Ideal tests without security}
-%     \label{fig:ideal_tests_without_security}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/4.png}
+    \caption{Ideal tests without security}
+    \label{fig:ideal_tests_without_security}
+\end{figure}
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{ideal_tests_with_security.png}
-%     \caption{Ideal tests with security}
-%     \label{fig:ideal_tests_with_security}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/5.png}
+    \caption{Ideal tests with security}
+    \label{fig:ideal_tests_with_security}
+\end{figure}
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{multicentral_implementation.png}
-%     \caption{Multicentral implementation}
-%     \label{fig:multicentral_implementation}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/6.png}
+    \caption{Multicentral implementation}
+    \label{fig:multicentral_implementation}
+\end{figure}
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{direct_communication_board_PC.png}
-%     \caption{Direct communication board-PC}
-%     \label{fig:direct_communication_board_PC}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/7.png}
+    \caption{Direct communication board-PC}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
 
 All tests were performed in the ideal case, with the boards attached and air as the transmission medium.
 
 \section{Power Profiler Tests}
 Power profiler tests were performed using the PPK2, which offers two different modalities: source meter and ammeter. In the first one, the board under test is directly supplied by the power profiler itself, with no need for external supply such as USB. In the second one, current is measured, but the USB wire is needed. The figures below show how the PPK2 and the board should be connected in both cases.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{ppk2_source_amperemeter_mode.png}
-%     \caption{PPK2 in source and ammeter mode}
-%     \label{fig:ppk2_source_amperemeter_mode}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/8.png}
+    \caption{PPK2 in source and ammeter mode}
+    \label{fig:ppk2_source_amperemeter_mode}
+\end{figure}
 
 To use the PPK2 in source and ammeter mode, the links to be established are the following ones:
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{pin_connections_source_meter.png}
-%     \caption{Pin connections in Source Meter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
-%     \label{fig:pin_connections_source_meter}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/9.png}
+    \caption{Pin connections in Source Meter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
+    \label{fig:pin_connections_source_meter}
+\end{figure}
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{pin_connections_amperemeter.png}
-%     \caption{Pin connections in Ammeter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
-%     \label{fig:pin_connections_amperemeter}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/10.png}
+    \caption{Pin connections in Ammeter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
+    \label{fig:pin_connections_amperemeter}
+\end{figure}
 
 For the firmware side, a specific app has been developed for the Nordic PPK2. When opened, the PPK2 can be selected, as shown in Figure~\ref{fig:power_profiler_kit_app}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{power_profiler_kit_app.png}
-%     \caption{Power profiler kit app}
-%     \label{fig:power_profiler_kit_app}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/11.png}
+    \caption{Power profiler kit app}
+    \label{fig:power_profiler_kit_app}
+\end{figure}
 
 Once the PPK is selected, the modality can be chosen between source meter and ammeter mode. When the source meter mode is chosen, the screen would look like Figure~\ref{fig:power_profiler_app_source_meter_mode}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{power_profiler_app_source_meter_mode.png}
-%     \caption{Power profiler app source meter mode}
-%     \label{fig:power_profiler_app_source_meter_mode}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/12.png}
+    \caption{Power profiler app source meter mode}
+    \label{fig:power_profiler_app_source_meter_mode}
+\end{figure}
 
 Through this, it is possible to set the voltage to supply the board and the number of samplings per second. To see the effective absorbed current, the power output should be enabled. The results would be displayed on the right, where the average current, the maximum current reached, the time of the measurement, and the required charge are displayed. The screen for ammeter mode is similar, as shown in Figure~\ref{fig:power_profiler_app_amperemeter_mode}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{power_profiler_app_amperemeter_mode.png}
-%     \caption{Power profiler app ammeter mode}
-%     \label{fig:power_profiler_app_amperemeter_mode}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/13.png}
+    \caption{Power profiler app ammeter mode}
+    \label{fig:power_profiler_app_amperemeter_mode}
+\end{figure}
 
 In this case, since the board is not supplied by the PPK2, it is not possible to set the voltage, but only the number of samples per second. An example of measurement is shown below. For this example, just noise was measured, and the current measured should be 0A.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{example_measurement_ppk2.png}
-%     \caption{Example of measurement done with PPK2}
-%     \label{fig:example_measurement_ppk2}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/14.png}
+    \caption{Example of measurement done with PPK2}
+    \label{fig:example_measurement_ppk2}
+\end{figure}
 
 In order to have a proper current measurement, the board under test should be prepared, as explained in the guide\footnote{\url{https://docs.nordicsemi.com/bundle/ug_nrf52832_dk/page/UG/dk/prepare_board.html}}. To do this, SB9 should be cut.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{SB9_solder_bridge.png}
-%     \caption{SB9 solder bridge}
-%     \label{fig:SB9_solder_bridge}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/15.png}
+    \caption{SB9 solder bridge}
+    \label{fig:SB9_solder_bridge}
+\end{figure}
 
 Occasionally, in cases where the board should be supplied by an external power source other than USB, SB12 should also be cut to bypass the protection diode.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{SB12_solder_bridge.png}
-%     \caption{SB12 solder bridge}
-%     \label{fig:SB12_solder_bridge}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/16.png}
+    \caption{SB12 solder bridge}
+    \label{fig:SB12_solder_bridge}
+\end{figure}
 
 Once current measurements have been performed, to restore the previous functions of the board, SB9 should be soldered or a jumper on P22 should be put in place. Then, SB12 should be cut or desoldered to reconnect the protection diode. The SOC can then be reprogrammed by removing the PPK2, applying a jumper on P22, and connecting the board to the PC through a USB.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{cutting_process_SB9.png}
-%     \caption{Cutting process of SB9}
-%     \label{fig:cutting_process_SB9}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/17.png}
+    \caption{Cutting process of SB9}
+    \label{fig:cutting_process_SB9}
+\end{figure}
 
 For the purpose of current measurement, as in this master thesis, only SB9 needs to be cut. This process is shown in Figure~\ref{fig:cutting_process_SB9}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{current_measurement_BLE_communication.png}
-%     \caption{Current measurement during a BLE communication}
-%     \label{fig:current_measurement_BLE_communication}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/18.png}
+    \caption{Current measurement during a BLE communication}
+    \label{fig:current_measurement_BLE_communication}
+\end{figure}
 
 Through the power profiler, it is possible to zoom into the communication to see how much each packet consumes in terms of current consumption. Figure~\ref{fig:current_measurement_BLE_communication} shows a series of packet exchanges. The larger spikes represent the current consumption of a full-sized BLE packet, while the smaller ones represent acknowledgment packets.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{current_consumption_connection_interval.png}
-%     \caption{Current consumption connection interval}
-%     \label{fig:current_consumption_connection_interval}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/19.png}
+    \caption{Current consumption connection interval}
+    \label{fig:current_consumption_connection_interval}
+\end{figure}
 
 Figure~\ref{fig:current_consumption_connection_interval} is obtained by zooming out the previous exchange shown in Figure~\ref{fig:current_measurement_BLE_communication}. It represents a connection event, including its respective time of latency and active communication time. Moreover, the effect of different environments, such as distance, has been evaluated. The boards have been evaluated at distances of 0cm, 10cm, and 50cm to see how these impact the throughput and the PER of each application.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{boards_distance_10cm.png}
-%     \caption{Boards at a distance of 10cm}
-%     \label{fig:boards_distance_10cm}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/20.png}
+    \caption{Boards at a distance of 10cm}
+    \label{fig:boards_distance_10cm}
+\end{figure}
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{boards_distance_50cm.png}
-%     \caption{Boards at a distance of 50cm}
-%     \label{fig:boards_distance_50cm}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Test_Procedure/21.png}
+    \caption{Boards at a distance of 50cm}
+    \label{fig:boards_distance_50cm}
+\end{figure}
 
 \section*{Summary}
 \begin{enumerate}
@@ -2214,21 +2214,21 @@ Figure~\ref{fig:current_consumption_connection_interval} is obtained by zooming 
 \section{Multicentral Implementation}
 As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure \ref{fig:user_command_sending_procedure}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{previous_implementation_command_sending.png}
-%     \caption{User command sending procedure in previous implementation}
-%     \label{fig:user_command_sending_procedure}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/1.png}
+    \caption{User command sending procedure in previous implementation}
+    \label{fig:user_command_sending_procedure}
+\end{figure}
 
 In the current Senseback device, the wires used in the previous implementation to send commands are not present. This makes it impossible to control the communication as in the previous version of the firmware. To solve this problem, a new way to send commands to control the communication has been devised. The proposed idea is shown in Figure \ref{fig:multicentral_implementation}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{multicentral_implementation.png}
-%     \caption{Multicentral implementation}
-%     \label{fig:multicentral_implementation}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/2.png}
+    \caption{Multicentral implementation}
+    \label{fig:multicentral_implementation}
+\end{figure}
 
 The new implementation requires the involvement of two central devices, which is why it is called multicentral. The peripheral device would not only be connected to the board that should receive data, but also to another device whose purpose is to send the START, STOP, and RESET commands. This avoids the need for UART command sending and allows the peripheral device to receive commands through Bluetooth as before, but from a second device this time.
 
@@ -2239,21 +2239,21 @@ Before explaining how the final communication works when the multicentral setup 
 \section{Receiver Firmware Multicentral}
 Specifically, in the receiver code of the firmware, only a few differences are present. The first one relates to the configuration file. In particular, the \texttt{NRF\_SDH\_BLE\_CENTRAL\_LINK\_COUNT} and \texttt{NRF\_SDH\_BLE\_TOTAL\_LINK\_COUNT} values have been changed from 1 to 2. These define the number of central devices present in the application and the total number of simultaneous connections, which are both two in this case. Due to these changes, more RAM memory needs to be allocated compared to the previous implementation. Segger provides an easy way to change the settings of the project the developer is working on. The procedure is shown in Figure \ref{fig:memory_allocation_seggar}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{memory_allocation_seggar.png}
-%     \caption{Procedure to allocate memory in Segger}
-%     \label{fig:memory_allocation_seggar}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/3.png}
+    \caption{Procedure to allocate memory in Segger}
+    \label{fig:memory_allocation_seggar}
+\end{figure}
 
 Specifically, in the Section Placement Macros, it was required to change the RAM START and RAM SIZE values. The minimum values required are directly shown to the user when the application is debugged. An example of this is shown in Figure \ref{fig:memory_allocation_error}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{memory_allocation_error.png}
-%     \caption{Memory allocation error in Segger}
-%     \label{fig:memory_allocation_error}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/4.png}
+    \caption{Memory allocation error in Segger}
+    \label{fig:memory_allocation_error}
+\end{figure}
 
 The other difference regards the main file. It is related to when the end of the communication should occur. In the previous implementation, this happened when both the last two bytes received were 255 and the \texttt{end\_transmission} variable was set to true, which means the STOP command was received. In the multicentral case, this last condition could not be verified since the STOP command is directly sent to the peripheral device. For implementations without shift, the last condition can simply be deleted, as the only bytes with a value of 255 would be the last ones, making the first condition sufficient. When shift is implemented, some bytes might have a value of 255 even if they are not the last ones, which could prematurely end the byte receiving process. To avoid this, a further value of 15 has been added. The receiving process correctly ends when the last three bytes are 255, 255, and 15. This further condition ensures that the last three values in the buffer are the expected ones. The value 15 was chosen randomly and can be substituted with any value except 255.
 
@@ -2262,12 +2262,12 @@ For the transmitter code, the steps previously explained have already been perfo
 
 Firstly, NUS and QWR module definitions should account for the two simultaneous connections. Once these are defined, the \texttt{notification\_send} function, which sends data to the central device, should indicate to which device data should be sent. The connection handle is no longer singular but two, distinguished using the QWR module syntax \texttt{m\_qwr[0].conn\_handle} for the first and \texttt{m\_qwr[1].conn\_handle} for the second one. The best choice is to use the second board as the first central device and the smartphone as the second one, ensuring that the smartphone can reconnect if a disconnection event occurs. If the smartphone is treated as the first central device and a disconnection occurs, the board identified as the second central device becomes the first one, causing the peripheral to send data to the wrong device. For the multicentral and security features code, the smartphone is used as the first central device because it connects faster. This prevents simultaneous board-smartphone and board-board connections, which could cause the central board to enter a faulty error state.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{faulty_error_state_central_board.png}
-%     \caption{Faulty error state central board}
-%     \label{fig:faulty_error_state_central_board}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/5.png}
+    \caption{Faulty error state central board}
+    \label{fig:faulty_error_state_central_board}
+\end{figure}
 
 Other modifications handle connection and disconnection events separately. For example, the \texttt{on\_conn\_params\_evt} function manages possible connection errors by disconnecting the respective device. Managing these separately ensures that an error in one connection does not affect the other. Two additional functions, \texttt{on\_connected} and \texttt{on\_disconnected}, manage the respective GAP events previously handled by the \texttt{ble\_evt\_handler} function.
 
@@ -2280,68 +2280,68 @@ Finally, the \texttt{gatt\_evt\_handler} function, responsible for managing GATT
 \section{Command Sending Process}
 The procedure to send data through the smartphone is shown below. Firstly, the user should enable Bluetooth on the smartphone and open the nRF Connect app for mobile. The app will start scanning for nearby advertising Bluetooth devices.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_scanning.png}
-%     \caption{nRF Connect scanning for devices}
-%     \label{fig:nrf_connect_scanning}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/6.png}
+    \caption{nRF Connect scanning for devices}
+    \label{fig:nrf_connect_scanning}
+\end{figure}
 
 The app offers various features, including a peripheral mode, which is not used in this case. Default settings are sufficient for this purpose. The app shows the names of advertising devices and their power in dBm, allowing the user to connect with them. When the user clicks “Connect,” the app shows the following state:
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_connected.png}
-%     \caption{nRF Connect connected state}
-%     \label{fig:nrf_connect_connected}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/7.png}
+    \caption{nRF Connect connected state}
+    \label{fig:nrf_connect_connected}
+\end{figure}
 
 By clicking on “Senseback” after connecting, the app shows different menus. The first menu relates to advertisements, showing a chart of the advertising power, the device name and features, and packet reception details.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_advertisements.png}
-%     \caption{nRF Connect advertisements menu}
-%     \label{fig:nrf_connect_advertisements}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/8.png}
+    \caption{nRF Connect advertisements menu}
+    \label{fig:nrf_connect_advertisements}
+\end{figure}
 
 The second menu is of interest for sending commands to the board. The interface is shown below:
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_commands.png}
-%     \caption{nRF Connect commands menu}
-%     \label{fig:nrf_connect_commands}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/9.png}
+    \caption{nRF Connect commands menu}
+    \label{fig:nrf_connect_commands}
+\end{figure}
 
 The interface shows all attributes and characteristics of the connected device. The characteristic used to send commands is the RX one. By clicking the indicator at the bottom right, the user can send data.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_send_data.png}
-%     \caption{nRF Connect send data}
-%     \label{fig:nrf_connect_send_data}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/10.png}
+    \caption{nRF Connect send data}
+    \label{fig:nrf_connect_send_data}
+\end{figure}
 
 The user is prompted to choose the type of data to send, ranging from byte arrays to unsigned values to Boolean and 8-bit values. UTF8 is chosen for this purpose, and the choice between Request and Command is not influential as the command will be received either way.
 
 The third menu, “Services,” and the “DFU” menu are empty for this application.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_services.png}
-%     \caption{nRF Connect services menu}
-%     \label{fig:nrf_connect_services}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/11.png}
+    \caption{nRF Connect services menu}
+    \label{fig:nrf_connect_services}
+\end{figure}
 
 The fourth menu, the “Log menu,” logs all processes in real-time, similar to the debug menu in Segger.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{nrf_connect_log.png}
-%     \caption{nRF Connect log menu}
-%     \label{fig:nrf_connect_log}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/12.png}
+    \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
+\end{figure}
 
 \section{Direct Communication between Board and Windows PC}
 An alternative approach to the previous method involving two boards and UART communication is to have the peripheral board directly communicate with the external unit through the PC's Bluetooth.
@@ -2351,39 +2351,32 @@ In this alternative, the peripheral board acts as a transmitter, while the PC se
 \subsection{Offline Receiver Code}
 The central device code is written in Matlab and is simpler compared to the board-to-board approach. Matlab provides a list of nearby Bluetooth devices through the function \texttt{blelist}. When this function is executed, the user can view something similar to Figure \ref{fig:matlab_blelist} in the command window.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{matlab_blelist.png}
-%     \caption{Matlab \texttt{blelist}}
-%     \label{fig:matlab_blelist}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/13.png}
+    \caption{Matlab \texttt{blelist}}
+    \label{fig:matlab_blelist}
+\end{figure}
 
 The \texttt{blelist} function displays the number of devices advertising via BLE, their names (if known), addresses, advertising power in dB, and the "Advertisement" field, which contains information about the advertising device, as shown in Figure \ref{fig:matlab_advertisement}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{matlab_advertisement.png}
-%     \caption{Advertisement field in Matlab}
-%     \label{fig:matlab_advertisement}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/14.png}
+    \caption{Advertisement field in Matlab}
+    \label{fig:matlab_advertisement}
+\end{figure}
 
 The next step in the Matlab code involves creating a connection between the board and PC using the \texttt{ble} function. Once the connection is established, a new object is created, containing the following fields, as shown in Figure \ref{fig:matlab_ble_object}:
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{matlab_ble_object.png}
-%     \caption{BLE object in Matlab}
-%     \label{fig:matlab_ble_object}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/15.png}
+    \caption{BLE object in Matlab}
+    \label{fig:matlab_ble_object}
+\end{figure}
 
 This object includes the device name, address, a Boolean variable indicating whether the device is connected to the PC, and the device's services and characteristics. These characteristics are crucial because the developer needs to subscribe to them to receive and transmit data. The relevant characteristic fields are illustrated in Figure \ref{fig:matlab_characteristics}.
-
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{matlab_characteristics.png}
-%     \caption{Characteristics of Senseback BLE object in Matlab}
-%     \label{fig:matlab_characteristics}
-% \end{figure}
 
 The last two characteristics shown in Figure \ref{fig:matlab_characteristics} are of particular interest. The first allows the developer to write data to the board, essential for sending commands, while the second is used to receive data from the board, necessary for receiving BLE packets from the peripheral. The \texttt{subscribe} function is used to subscribe to a specific characteristic, which, in this application, is required only for the last characteristic.
 
@@ -2393,12 +2386,12 @@ The final step in the main code is calling the function that receives the data, 
 
 The callback function is dedicated to receiving data. It first re-defines all global variables used in the main code. It checks if the function is triggered for the first time. If so, a timer is triggered through the \texttt{tic} function to count the elapsed time for the communication. The Boolean variable is set to false to prevent multiple timer starts. The first packet is read using the \texttt{read} function, which reads data from a characteristic. The last two bytes of each received BLE packet are stored, and a byte counter is incremented. A matrix with 244 columns and rows equal to the number of received BLE packets is created. Each new packet creates a new row, with the last packet's columns filled with zeros to reach 244 values if needed. After the online test, the vector looks like Figure \ref{fig:matlab_received_data}.
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{matlab_received_data.png}
-%     \caption{Received data from board in Matlab}
-%     \label{fig:matlab_received_data}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Multicentral/15.png}
+    \caption{Received data from board in Matlab}
+    \label{fig:matlab_received_data}
+\end{figure}
 
 As shown, bytes received from the board without shift are gradually increased. If the size of the last received packet is at least two bytes and both are equal to 255, the data receiving process ends. The central device then unsubscribes from the characteristic using the \texttt{unsubscribe} function, stops the timer, and computes the throughput by dividing the total number of bits by the elapsed time. Unlike C, Matlab timers use seconds as units, so the result must be multiplied by 1000 to convert to milliseconds.
 
@@ -2730,6 +2723,11 @@ The steps of the algorithm are as follows:
 So the first few steps are the same since our objective is still to discard any channel that is too noisy and will score poorly with the XCDC metric.
 After that we don't correlate a channel with itself as we just did but we correlate each channel with each of the other 15 channels.
 We now have 15 times the amount of data we had with the first iteration.
+
+\chapter{Results}
+
+In this chapter we will be illustrating the results we obtained from the Materials and
+Methods chapter.
 %-------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %-------------------------------------------------------------------------

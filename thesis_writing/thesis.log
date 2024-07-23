@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  22 JUL 2024 22:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.3.20)  23 JUL 2024 23:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1696,383 +1696,131 @@ LaTeX Warning: Reference `eq:size_empty_packet' on page 81 undefined on input li
 
 LaTeX Warning: Reference `eq:size_full_size_packet' on page 81 undefined on input line 1987.
 
-[81] [82]
-
-LaTeX Warning: Reference `fig:power_profiler_kit_app' on page 83 undefined on input line 2108.
-
-
-LaTeX Warning: Reference `fig:power_profiler_app_source_meter_mode' on page 83 undefined on input line 2117.
-
-
-LaTeX Warning: Reference `fig:power_profiler_app_amperemeter_mode' on page 83 undefined on input line 2126.
-
-
-LaTeX Warning: Reference `fig:cutting_process_SB9' on page 83 undefined on input line 2171.
-
-
-LaTeX Warning: Reference `fig:current_measurement_BLE_communication' on page 83 undefined on input line 2180.
-
-
-LaTeX Warning: Reference `fig:current_consumption_connection_interval' on page 83 undefined on input line 2189.
-
-
-LaTeX Warning: Reference `fig:current_measurement_BLE_communication' on page 83 undefined on input line 2189.
-
-[83] [84]
-
-LaTeX Warning: Reference `fig:user_command_sending_procedure' on page 85 undefined on input line 2215.
-
-
-LaTeX Warning: Reference `fig:multicentral_implementation' on page 85 undefined on input line 2224.
-
-
-LaTeX Warning: Reference `fig:memory_allocation_seggar' on page 85 undefined on input line 2240.
-
-
-Underfull \hbox (badness 1102) in paragraph at lines 2240--2241
-[]\T1/cmr/m/n/12 Specifically, in the re-ceiver code of the firmware, only a few dif-fer-ences are
- []
-
-
-Underfull \hbox (badness 3118) in paragraph at lines 2240--2241
-\T1/cmr/m/n/12 present. The first one re-lates to the con-fig-u-ra-tion file. In par-tic-u-lar, the
- []
-
-
-Underfull \hbox (badness 2495) in paragraph at lines 2240--2241
-\T1/cmtt/m/n/12 NRF_SDH_BLE_CENTRAL_LINK_COUNT \T1/cmr/m/n/12 and \T1/cmtt/m/n/12 NRF_SDH_BLE_TOTAL_LINK_COUNT \T1/cmr/m/n/12 val-ues
- []
-
-[85]
-
-LaTeX Warning: Reference `fig:memory_allocation_error' on page 86 undefined on input line 2249.
-
-[86] [87]
-
-Package natbib Warning: Citation `matlab_ble' on page 88 undefined on input line 2349.
-
-
-LaTeX Warning: Reference `fig:matlab_blelist' on page 88 undefined on input line 2352.
-
-
-LaTeX Warning: Reference `fig:matlab_advertisement' on page 88 undefined on input line 2361.
-
-
-LaTeX Warning: Reference `fig:matlab_ble_object' on page 88 undefined on input line 2370.
-
-[88]
-
-LaTeX Warning: Reference `fig:matlab_characteristics' on page 89 undefined on input line 2379.
-
-
-LaTeX Warning: Reference `fig:matlab_characteristics' on page 89 undefined on input line 2388.
-
-
-Package natbib Warning: Citation `matlab_callbacks' on page 89 undefined on input line 2392.
-
-
-LaTeX Warning: Reference `fig:matlab_received_data' on page 89 undefined on input line 2394.
-
-[89]
-
-LaTeX Warning: Reference `fig:matlab_shifted_bytes' on page 90 undefined on input line 2409.
-
-
-LaTeX Warning: Reference `fig:matlab_characteristics' on page 90 undefined on input line 2409.
-
-
-LaTeX Warning: File `matlab_shifted_bytes.png' not found on input line 2413.
-
-
-/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex:2413: Package pdftex.def Error: File `matlab_shifted_bytes.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+<./Images/Test_Procedure/1.png, id=673, 530.98375pt x 227.85126pt>
+File: ./Images/Test_Procedure/1.png Graphic file (type png)
+<use ./Images/Test_Procedure/1.png>
+Package pdftex.def Info: ./Images/Test_Procedure/1.png  used on input line 2010.
+(pdftex.def)             Requested size: 455.24411pt x 195.35373pt.
+/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex:2011: Argument of \caption@ydblarg has an extra }.
+<inserted text> 
+                \par 
+l.2011 ...connections/multi-peripheral-topology}}}
                                                   
-l.2413 ...th=\textwidth]{matlab_shifted_bytes.png}
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+{\@caption \@captype }{\@xfootnote }\def \reserved@b {\stepcounter \@mpfn \ETC.
+/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex:2011: Paragraph ended before \caption@ydblarg was complete.
+<to be read again> 
+                   \par 
+l.2011 ...connections/multi-peripheral-topology}}}
                                                   
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2011--2011
+[][][][][]$\T1/cmtt/m/n/10 https : / / docs . silabs . com / bluetooth / latest / bluetooth-[]fundamentals-[]connections /
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package natbib Warning: Citation `matlab_bitor' on page 90 undefined on input line 2418.
-
-
-Package natbib Warning: Citation `matlab_bitshift' on page 90 undefined on input line 2418.
-
-
-LaTeX Warning: Reference `fig:matlab_shifted_data' on page 90 undefined on input line 2418.
-
-
-LaTeX Warning: File `matlab_shifted_data.png' not found on input line 2422.
-
-
-/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex:2422: Package pdftex.def Error: File `matlab_shifted_data.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2422 ...dth=\textwidth]{matlab_shifted_data.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[81]
+<./Images/Test_Procedure/2.png, id=685, 591.20876pt x 189.70876pt>
+File: ./Images/Test_Procedure/2.png Graphic file (type png)
+<use ./Images/Test_Procedure/2.png>
+Package pdftex.def Info: ./Images/Test_Procedure/2.png  used on input line 2032.
+(pdftex.def)             Requested size: 455.24411pt x 146.08487pt.
+<./Images/Test_Procedure/3.png, id=686, 602.25pt x 295.1025pt>
+File: ./Images/Test_Procedure/3.png Graphic file (type png)
+<use ./Images/Test_Procedure/3.png>
+Package pdftex.def Info: ./Images/Test_Procedure/3.png  used on input line 2041.
+(pdftex.def)             Requested size: 455.24411pt x 223.07794pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[90]
-
-LaTeX Warning: File `timer_summary.png' not found on input line 2439.
-
-
-/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex:2439: Package pdftex.def Error: File `timer_summary.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2439 ...ics[width=\textwidth]{timer_summary.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[82 <./Images/Test_Procedure/1.png> <./Images/Test_Procedure/2.png>]
+<./Images/Test_Procedure/4.png, id=696, 414.54875pt x 255.95625pt>
+File: ./Images/Test_Procedure/4.png Graphic file (type png)
+<use ./Images/Test_Procedure/4.png>
+Package pdftex.def Info: ./Images/Test_Procedure/4.png  used on input line 2054.
+(pdftex.def)             Requested size: 455.24411pt x 281.09187pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[91] [92] [93]
-<./Images/acquiredStimuli.png, id=766, 596.2275pt x 737.75626pt>
-File: ./Images/acquiredStimuli.png Graphic file (type png)
-<use ./Images/acquiredStimuli.png>
-Package pdftex.def Info: ./Images/acquiredStimuli.png  used on input line 2543.
-(pdftex.def)             Requested size: 238.48677pt x 295.09727pt.
-<./Images/balanceClass.png, id=767, 709.65125pt x 283.0575pt>
-File: ./Images/balanceClass.png Graphic file (type png)
-<use ./Images/balanceClass.png>
-Package pdftex.def Info: ./Images/balanceClass.png  used on input line 2549.
-(pdftex.def)             Requested size: 283.85547pt x 113.22098pt.
- [94 <./Images/acquiredStimuli.png>] [95 <./Images/balanceClass.png>] [96] [97]
-<./Images/channelLayer.png, id=807, 1111.15125pt x 573.14125pt>
-File: ./Images/channelLayer.png Graphic file (type png)
-<use ./Images/channelLayer.png>
-Package pdftex.def Info: ./Images/channelLayer.png  used on input line 2698.
-(pdftex.def)             Requested size: 444.45262pt x 229.25243pt.
-<./Images/dataSplit.png, id=808, 1226.5825pt x 248.93pt>
-File: ./Images/dataSplit.png Graphic file (type png)
-<use ./Images/dataSplit.png>
-Package pdftex.def Info: ./Images/dataSplit.png  used on input line 2703.
-(pdftex.def)             Requested size: 490.62431pt x 99.57022pt.
+<./Images/Test_Procedure/5.png, id=697, 413.545pt x 264.99pt>
+File: ./Images/Test_Procedure/5.png Graphic file (type png)
+<use ./Images/Test_Procedure/5.png>
+Package pdftex.def Info: ./Images/Test_Procedure/5.png  used on input line 2061.
+(pdftex.def)             Requested size: 455.24411pt x 291.71632pt.
 
-Overfull \hbox (35.3802pt too wide) in paragraph at lines 2703--2705
- [][] 
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[98 <./Images/channelLayer.png>]
-<./Images/scoreDifferentClass.png, id=817, 1606.0pt x 422.57875pt>
-File: ./Images/scoreDifferentClass.png Graphic file (type png)
-<use ./Images/scoreDifferentClass.png>
-Package pdftex.def Info: ./Images/scoreDifferentClass.png  used on input line 2710.
-(pdftex.def)             Requested size: 642.38864pt x 169.0285pt.
+<./Images/Test_Procedure/6.png, id=698, 413.545pt x 350.30875pt>
+File: ./Images/Test_Procedure/6.png Graphic file (type png)
+<use ./Images/Test_Procedure/6.png>
+Package pdftex.def Info: ./Images/Test_Procedure/6.png  used on input line 2068.
+(pdftex.def)             Requested size: 455.24411pt x 385.64015pt.
 
-Overfull \hbox (187.14453pt too wide) in paragraph at lines 2710--2712
- [][] 
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-(./thesis.bbl) [99 <./Images/dataSplit.png> <./Images/scoreDifferentClass.png>] [100] [101] [102]
-Appendix A.
-[103
+<./Images/Test_Procedure/7.png, id=699, 413.545pt x 224.84pt>
+File: ./Images/Test_Procedure/7.png Graphic file (type png)
+<use ./Images/Test_Procedure/7.png>
+Package pdftex.def Info: ./Images/Test_Procedure/7.png  used on input line 2075.
+(pdftex.def)             Requested size: 455.24411pt x 247.51688pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[83 <./Images/Test_Procedure/3.png>]
+<./Images/Test_Procedure/8.png, id=708, 574.145pt x 340.27126pt>
+File: ./Images/Test_Procedure/8.png Graphic file (type png)
+<use ./Images/Test_Procedure/8.png>
+Package pdftex.def Info: ./Images/Test_Procedure/8.png  used on input line 2087.
+(pdftex.def)             Requested size: 455.24411pt x 269.80823pt.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2752.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2752.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [104
-
-]
-Appendix B.
-[105
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2757.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2757.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [106
-
-]
-No file thesis.lof.
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
-
-[107
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2760.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2760.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [108
-
-]
-No file thesis.lot.
-\tf@lot=\write7
-\openout7 = `thesis.lot'.
-
-[109
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2764.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2764.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [110
-
-] [111
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2775.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2775.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [112
-
-] [113
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2779.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2779.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [114
-
-]
-
-Package caption Warning: Unused \captionsetup[algorithm] on input line 13.
-See the caption package documentation for explanation.
-
-
-Package transparent Warning: Rerun to get transparencies right.
-
-
-Package natbib Warning: There were undefined citations.
-
-
-/Users/root-kawaii/Desktop/order/theso/thesis_writing/thesis.tex:2781: LaTeX Error: \begin{thebibliography} on input line 970 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2781 \end{document}
-                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-(./thesis.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
+<./Images/Test_Procedure/9.png, id=709, 217.81375pt x 103.38625pt>
+File: ./Images/Test_Procedure/9.png Graphic file (type png)
+<use ./Images/Test_Procedure/9.png>
+Package pdftex.def Info: ./Images/Test_Procedure/9.png  used on input line 2096.
+(pdftex.def)             Requested size: 455.24411pt x 216.08421pt.
 )
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-02-20>
- ***********
+Runaway argument?
+{Pin connections in Source Meter mode\footnote {\url {https://infocen\ETC.
+! File ended while scanning use of \caption@xdblarg.
+<inserted text> 
+                \par 
+<*> ...sktop/order/theso/thesis_writing/thesis.tex
+                                                  
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
 
+! Emergency stop.
+<*> ...sktop/order/theso/thesis_writing/thesis.tex
+                                                  
+*** (job aborted, no legal \end found)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  F420ED3D5C522FB05B6E1C4CE77389DF;19843.
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 970 (\begingroup)
-### bottom level 
+ 
 Here is how much of TeX's memory you used:
- 31275 strings out of 474116
- 593945 string characters out of 5733619
+ 31035 strings out of 474116
+ 589510 string characters out of 5733619
  1947187 words of memory out of 5000000
- 52647 multiletter control sequences out of 15000+600000
+ 52511 multiletter control sequences out of 15000+600000
  584347 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,93p,2170b,1324s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></opt/homebrew/Cellar/texlive/20240312/share/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on thesis.pdf (122 pages, 6413031 bytes).
-PDF statistics:
- 1089 PDF objects out of 1200 (max. 8388607)
- 866 compressed objects within 9 object streams
- 413 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 84i,15n,93p,2170b,1375s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
