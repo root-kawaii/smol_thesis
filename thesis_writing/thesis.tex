@@ -588,7 +588,7 @@ but without the capability of accepting connections from a central.
 ""chiara""
 
 \section{Communication system}
-\section{Previous code implementation}
+\subsection{Previous code implementation}
 
 
 
@@ -672,7 +672,7 @@ Ble evt handler: This function manages the different BLE events. It first create
 
 On Tx complete: This function manages the packet transmission queue mechanism. If the \texttt{BleTxBusy} variable is true, indicating that a packet has not been sent due to the transmission channel being busy, the variable is reset to false. Then, the \texttt{notification\_send} function is called to attempt retransmission. This ensures that no packets are lost, as transmission attempts continue until successful completion.
 
-\section*{Notification Send}
+\subsection*{Notification Send}
 This function oversees the data transmission process and calculates the transmitter's throughput. Initially, a \texttt{uint32\_t} variable \texttt{err\_code} is set to \texttt{NRF\_SUCCESS}, indicating no errors. Before sending data to the receiver, the function checks two conditions:
 
 \begin{itemize}
@@ -690,27 +690,27 @@ All relevant values, including the number of waits, are logged. If \texttt{ble\_
 % Gap params init: this function sets the necessary Generic Access Profile (GAP) parameters of the device, such as security level and the name of the device. In this implementation, since security features have not been implemented, function BLE_GAP_CONN_SEC_MODE_SET_OPEN sets the level of security at the minimum, meaning that the board is totally open. The other parameters that are set in this function are the ones related to the packet exchanges such as minimum and maximum connection interval (CI), the slave latency and the connection superior timeout. These parameters have a great impact on the overall throughput that would be reached in the end.
 Gatt init: This function initializes the Generic Attribute Profile (GATT) library. It also sets the Attribute Protocol (ATT) Maximum Transmission Unit (MTU). This parameter defines the maximum amount of data that can be exchanged by a single BLE packet, specifically for the peripheral side. For this application, the MTU has been set to \texttt{NRF\_SDH\_BLE\_GATT\_MAX\_MTU\_SIZE}, which corresponds to a value of 247 bytes, the maximum achievable with BLE version 5.2. A high value for \texttt{GATT\_MTU} generally implies higher efficiency for data exchange and consequently, a higher throughput. In fact, with a single exchange, it is possible to send a larger amount of data, minimizing the wasted time due to latency.
 
-\section*{GATT Event Handler}
+\subsection*{GATT Event Handler}
 
 This function handles events coming from the GATT library. It first checks whether the event triggering is caused by the current connection by looking at the connection handle stored in the variable \texttt{m\_conn\_handle}. In this implementation, the condition will always be triggered since there is only one connection, which is point-to-point. It also checks, together with the previous condition, whether the event that occurred is an update of the GATT ATT MTU. If both these conditions are satisfied, then the \texttt{m\_ble\_nus\_max\_data\_len} variable is updated to the effective ATT Payload for the connection, which is equal to ATT Data minus the two headers shown in Figure 4, specifically, the Op Code and the Attribute Handle.
 
 % \begin{figure}[h]
 %     \centering
-%     % \includegraphics[width=\textwidth]{ble_packet_format.png}
+%     % \includegraphics[scale=0.3]{ble_packet_format.png}
 %     \caption{BLE packet format (\href{https://novelbits.io/bluetooth-5-speed-maximum-throughput/}{link})}
 % \end{figure}
 
 Once this value is updated, the desired values for ATT MTU of the central and peripheral devices are logged to allow the user to check whether they are the same, ensuring that both devices agree on the maximum achievable value.
 
-\section*{Services Initialization}
+\subsection*{Services Initialization}
 
 This function is used to initialize all the services which will be used in the application. For the intended purposes, the services that are initialized are two: Queued Write Module (qwr) and NUS module. The qwr module handles prepare write, execute write, and cancel write commands. It also manages memory requests related to these operations (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__nrf__ble__qwr.html}{link}). The NUS module is a custom Bluetooth Low Energy (BLE) service designed to emulate a UART (Universal Asynchronous Receiver/Transmitter) over BLE. This allows devices to communicate wirelessly in a manner similar to serial communication over a wired connection (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__ble__nus__c.html}{link}).
 
-\section*{NUS Data Handler}
+\subsection*{NUS Data Handler}
 
-% This function manages the start, stop, and reset occurrences of the BLE communication by checking the command received from the central device. The function starts with an \texttt{if} condition, which checks whether a command is received by the peripheral device via NUS. If this is the case, the value of the received string is saved into the variable \texttt{dongle\_command}. Then, the actual value of the string is checked. If the received string through \texttt{ble\_nus} is equal to ``START\n'', this means that the user has sent the command to begin communication. Consequently, the boolean variable \texttt{transmission} is set to \texttt{true}, indicating that transmission should start, \texttt{timer1} is enabled, and \texttt{timer2} is reset. In this way, data generation starts, and it is ensured that the total time elapsed counter starts from 0. If instead, the command received is equal to ``RESET\n'', then the \texttt{CNT} variable is set to 0, meaning that data generation is reset to the beginning. Finally, if the received command is equal to ``STOP\n'', then \texttt{timer1} is disabled. By stopping the data generation, no more data will be available for transmission, and the whole process of data sending will stop.
+This function manages the start, stop, and reset occurrences of the BLE communication by checking the command received from the central device. The function starts with an \texttt{if} condition, which checks whether a command is received by the peripheral device via NUS. If this is the case, the value of the received string is saved into the variable \texttt{dongle\_command}. Then, the actual value of the string is checked. If the received string through \texttt{ble\_nus} is equal to START, this means that the user has sent the command to begin communication. Consequently, the boolean variable \texttt{transmission} is set to \texttt{true}, indicating that transmission should start, \texttt{timer1} is enabled, and \texttt{timer2} is reset. In this way, data generation starts, and it is ensured that the total time elapsed counter starts from 0. If instead, the command received is equal to RESET, then the \texttt{CNT} variable is set to 0, meaning that data generation is reset to the beginning. Finally, if the received command is equal to STOP, then \texttt{timer1} is disabled. By stopping the data generation, no more data will be available for transmission, and the whole process of data sending will stop.
 
-\section*{NRF QWR Error Handler}
+\subsection*{NRF QWR Error Handler}
 
 This function handles Queued Write Module (qwr) errors. A pointer to this function will be passed to each service which may need to inform the application about an error.
 
@@ -733,39 +733,39 @@ On adv evt: This function is responsible for handling the advertising events. Tw
     \item \textbf{Advertising Idle Event:} If this event occurs, the \texttt{sleep\_mode\_enter} function is called.
 \end{itemize}
 
-\section*{Sleep Mode Enter}
+\subsection*{Sleep Mode Enter}
 
 This function puts the chip into sleep mode to save battery when the device is not in use. To signal the state of the board, the behavior of the LEDs is changed. Specifically, for the idle case, all LEDs are turned off. The \texttt{bsp\_btn\_ble\_sleep\_mode\_prepare} function is used to prepare the wakeup buttons before going into sleep mode \cite{nordic_semi}. Lastly, the system is put into sleep mode using the \texttt{sd\_power\_system\_off} function.
 
-\section*{Connection Parameters Initialization}
+\subsection*{Connection Parameters Initialization}
 
 This function initializes the connection parameters module that will be used when establishing and maintaining a connection with a central device. The pointer to the initial connection parameters is set to NULL, meaning no initial parameters are provided. The delay before the first update of the connection parameters and the following parameters update delay are set to 5000 ms and 30000 ms respectively. These parameters describe the delay before the first update of the connection parameters is attempted and the delay between subsequent attempts if the first attempt fails. The maximum number of attempts to update the connection parameters before giving up the connection parameter negotiation is set to three. If the connection parameter update procedure fails, disconnection does not happen since \texttt{cp\_init.disconnect\_on\_fail} is set to false. The \texttt{cp\_init.start\_on\_notify\_cccd\_handle} sets the handle of the Client Characteristic Configuration Descriptor (CCCD), which triggers the connection parameter update procedure. \texttt{BLE\_GATT\_HANDLE\_INVALID} indicates that the connection parameter update procedure is not started by any specific CCCD. The functions \texttt{on\_conn\_params\_evt} and \texttt{conn\_params\_error\_handle} are assigned to manage possible changes or updates to connection parameters and handle errors during the connection parameters update process. All the settings chosen inside the \texttt{conn\_params\_init} function become effective through the \texttt{ble\_conn\_params\_init} function.
 
-\section*{On Connection Parameters Event}
+\subsection*{On Connection Parameters Event}
 
 This function manages possible changes or updates to connection parameters. If a connection parameters event fails, the devices are disconnected.
 
-\section*{Connection Parameters Error Handler}
+\subsection*{Connection Parameters Error Handler}
 
 This function handles possible errors coming from the Connection Parameters module. The \texttt{uint32\_t} variable \texttt{nrf\_error} contains information about what went wrong.
 
-\section*{TX Power Set}
+\subsection*{TX Power Set}
 
 This function sets the transmission power level for a Bluetooth Low Energy (BLE) advertising role. Specifically, \texttt{BLE\_GAP\_TX\_POWER\_ROLE\_ADV} specifies the role for which the transmission power is being set, in this case, the role is advertising. The variables used to set transmission power are \texttt{m\_advertising.adv\_handle}, which holds the handle of the advertising set, and \texttt{TX\_POWER\_LEVEL}, a predefined constant or variable representing the transmission power level in dBm. For this implementation, this value is set to 0.
 
-\section*{Advertising Start}
+\subsection*{Advertising Start}
 
 This function starts the advertising process through the \texttt{ble\_advertising\_start} function, setting the advertising mode to fast.
 
-\section*{Idle State Handle}
+\subsection*{Idle State Handle}
 
 This function handles the idle state of the embedded system. It first calls \texttt{spiBuff\_process}, responsible for data preprocessing. Then, it calls the \texttt{NRF\_LOG\_PROCESS} macro and uses the \texttt{UNUSED\_RETURN\_VALUE} to ignore its return value. Finally, it calls the \texttt{nrf\_pwr\_mgmt\_run} function, which handles power management tasks, such as putting the microcontroller into a low-power state if there is nothing else to do, ensuring the system conserves power when idle.
 
-\section*{SPI Buffer Process}
+\subsection*{SPI Buffer Process}
 
 This function preprocesses data coming from the \texttt{timer1\_handler} function. It checks that transmission is not active through the boolean \texttt{txActive}. If transmission is not active, it starts the process. The \texttt{ringbuf\_elements} function returns the number of \texttt{uint16\_t} data still present in the \texttt{uartRx} ring buffer, stored in the \texttt{queueLength} variable. If \texttt{queueLength} is at least half of the \texttt{SENSEBACK\_MTU} divided by two (at least 122 bytes), a full-size BLE packet can be prepared since there are enough data to fill it. Data from the Senseback ADC are 10 bits in size and are stored in \texttt{uint16\_t} variables. Each value from the ring buffer is converted into bytes for sending. A cycle executed 122 times prepares each BLE packet. Each cycle iteration gets a new value from the ring buffer using \texttt{ringbuf\_get}, saved into a temporary \texttt{uint16\_t} variable \texttt{element}. Two positions in the \texttt{nusTx} array, which will contain the final data sent to the central device, are filled. Specifically, position \texttt{i*2} (where \texttt{i} is the cycle index) is filled with the 8 most significant bits of \texttt{element}, while position \texttt{i*2+1} is filled with the 8 least significant bits of \texttt{element}. This ensures no information is wasted, but the inefficiency and memory waste are generated since 6 bits of each 16-bit variable are empty. Once a packet is fully prepared, \texttt{txActive} is set to true, enabling data sending to the central device. The \texttt{txSize} value is set to \texttt{SENSEBACK\_MTU}, representing the prepared packet size, and \texttt{txRdPtr} is reset to 0. Once this process is completed, the \texttt{notification\_send} function can be called to send processed data. If there are elements in the ring buffer but not enough to fill a BLE packet, the last packet of the communication is reached. Data are preprocessed as before, but the cycle completes \texttt{queueLength} times, and \texttt{txSize} is set to \texttt{queueLength*2}.
 
-\section*{Offline Receiver Code}
+\subsection*{Offline Receiver Code}
 
 Some functions in the receiver code are common with those in the transmitter, such as the \texttt{log\_init} function, used in both receiver and transmitter in the same way. The \texttt{timer\_init} function is also similar, differing in the number of timers initialized (one in the receiver). The receiver’s timer computes the time elapsed in the data receiving process, equivalent to the transmitter’s timer2. Functions \texttt{power\_management\_init} and \texttt{ble\_stack\_init} are identical for both. Some functions are similar but differ due to the different central/peripheral roles, particularly:
 \begin{itemize}
@@ -775,31 +775,31 @@ Some functions in the receiver code are common with those in the transmitter, su
 
 Other functions are different or not present in the transmitter code and are explained below.
 
-\section*{UART Initialization}
+\subsection*{UART Initialization}
 
 This function initializes the UART, which lets the central device communicate with the external unit. First, the communication parameters are defined, setting the pin number for the UART receive (RX), UART transmit (TX), UART Ready To Send (RTS), and UART Clear To Send (CTS) lines. In this case, they are 8 and 6 for RX and TX, and 5 and 7 for RTS and CTS, respectively. Hardware flow control is disabled through the \texttt{APP\_UART\_FLOW\_CONTROL\_DISABLED} macro, and parity checking is disabled, meaning no parity bit will be used for error checking. The baud rate is set to 115200 bits per second. Finally, the \texttt{APP\_UART\_FIFO\_INIT} function makes the parameters effective. This setup ensures the UART is correctly configured and ready to handle data transmission and reception with FIFO buffers and appropriate event handling.
 
 UART event handler: This function is responsible for receiving commands from the external unit. Within this function, a switch statement manages different cases. The first case handles the reception of new data through UART. Commands from the external unit are received as sequences of characters in the UART\_event\_handler function. Upon receiving a new character via \texttt{app\_uart\_get}, it is stored in \texttt{data\_array} at position \texttt{index}, which is then incremented. Once a character is saved, it checks if the character is equal to '\textbackslash n' and if \texttt{index} exceeds \texttt{m\_ble\_nus\_max\_data\_len}. If true, it indicates the command is fully received, and the string is sent to the peripheral device via the function \texttt{ble\_nus\_c\_string\_send}. \texttt{m\_ble\_nus\_max\_data\_len} represents the maximum data length in bytes that can be transmitted by the Nordic UART service module, specifically BLE\_GATT\_ATT\_MTU\_DEFAULT minus the two headers OP Code and Handle Length, which is 23 minus 3 bytes. After sending the string, \texttt{index} is reset to zero. The other cases handled in this function are \texttt{APP\_UART\_COMMUNICATION\_ERROR} and \texttt{APP\_UART\_FIFO\_ERROR}, which report communication and FIFO module errors to the user through log messages.
 
-\section*{Buttons LEDs Initialization}
+\subsection*{Buttons LEDs Initialization}
 This function initializes buttons and LEDs using two functions: \texttt{bsp\_init} for LEDs and \texttt{bsp\_btn\_ble\_init} for buttons.
 
-\section*{BSP Event Handler}
+\subsection*{BSP Event Handler}
 Handles events from the Board Support Package (BSP) module using a switch-case statement. The sleep event calls \texttt{nrf\_pwr\_mgmt\_shutdown} with \texttt{NRF\_PWR\_MGMT\_SHUTDOWN\_GOTO\_SYSOFF} to put the system into a low-power system-off state. The disconnect event calls \texttt{sd\_ble\_gap\_disconnect} to terminate the Bluetooth connection, providing the connection handle and reason for disconnection.
 
-\section*{Database Discovery Initialization}
+\subsection*{Database Discovery Initialization}
 Initializes the Database Discovery (DB) module using \texttt{ble\_db\_discovery\_init}, which handles service discovery on GATT servers.
 
-\section*{DB Discovery Handler}
+\subsection*{DB Discovery Handler}
 A callback function to handle events from the database discovery module, forwarding events to respective services based on discovered UUIDs.
 
-\section*{BLE Event Handler}
+\subsection*{BLE Event Handler}
 Handles BLE events with differences between transmitter and central code. For connection events, changes LED behavior and assigns the connection handle using \texttt{ble\_nus\_c\_handles\_assign}. Additional tasks include starting service discovery with \texttt{ble\_db\_discovery\_start}. PHY settings are not set in central code as it responds to PHY update requests from the peripheral. Disconnect events log disconnection without changing the connection handle. Common cases include security parameter requests, PHY update requests, and GATTC/GATTS event timeouts. Unique cases not present in the transmitter's \texttt{ble\_evt\_handler} are BLE\_GAP\_EVT\_TIMEOUT for GAP operation timeouts and BLE\_GAP\_EVT\_CONN\_PARAM\_UPDATE\_REQUEST for peripheral-initiated connection parameter updates.
 
-\section*{NUS Central Initialization}
+\subsection*{NUS Central Initialization}
 Initializes the Nordic UART Service (NUS) for the central role using specific functions.
 
-\section*{BLE NUS Central Event Handler}
+\subsection*{BLE NUS Central Event Handler}
 Handles data reception from the peripheral through NUS. Uses a switch statement to manage cases:
 \begin{itemize}
     \item Completes NUS discovery, assigns connection handle, and enables notifications for data reception.
@@ -816,7 +816,7 @@ Throughput is computed using the formula: \(\text{throughput} = \frac{\text{numb
 
 Scan start: This function initiates the scan process by performing two actions. Firstly, it starts the board scanning using \texttt{nrf\_ble\_scan\_start}. Secondly, it sets the LEDs to indicate that the board is in the scanning phase, with \texttt{LED1} specifically configured to start blinking.
 
-\section*{Scan Init}
+\subsection*{Scan Init}
 This function serves two main purposes: setting scanning parameters and enabling scan filters. It sets two scanning parameters:
 \begin{itemize}
     \item \texttt{connect\_if\_match} is set to \texttt{true}, allowing the scanning process to automatically attempt to establish a connection.
@@ -824,7 +824,7 @@ This function serves two main purposes: setting scanning parameters and enabling
 \end{itemize}
 After initializing BLE scanning, filters are configured and enabled. The scanning module filter type is \texttt{SCAN\_UUID\_FILTER}, ensuring that only advertisements from devices offering the NUS service are reported.
 
-\section*{Scan Event Handler}
+\subsection*{Scan Event Handler}
 This function handles events from the Scanning Module, addressing three specific events:
 \begin{itemize}
     \item An error occurring during the connection process retrieves the error code from the event parameters.
@@ -832,10 +832,10 @@ This function handles events from the Scanning Module, addressing three specific
     \item Timeout event during the scan process logs a message indicating the scan has timed out and calls \texttt{scan\_start} to restart the scanning process.
 \end{itemize}
 
-\section*{BLE NUS Chars Received Parameters Print}
+\subsection*{BLE NUS Chars Received Parameters Print}
 This function is continuously called in the main program until there is no data overwrite in the circular buffer \texttt{senseback\_buff}. It handles sending data to the external unit via UART. It takes as inputs each newly stored row in \texttt{senseback\_buff} and the length of the new packet. Data are sent via UART using \texttt{app\_uart\_put} until all data are sent or a memory resource error occurs. Error checking mechanisms are implemented to notify the user of the position in the packet where an error occurred. Additionally, the function allows for flagging \texttt{ECHOBACK\_BLE\_UART\_DATA}. In this case, data sent via UART to the external unit are also sent back to the peripheral, providing an additional transmission verification.
 
-\section*{Idle State Handle}
+\subsection*{Idle State Handle}
 This function
 
 \subsection{Online transmitter code}
@@ -844,29 +844,29 @@ Figure 6: flow chart implant code online - previous implementation
 The online transmitter code is quite similar to the offline one, it just presents some small differences to guarantee the previously described different intended behaviour. The flow chart of this code is shown in Figure 6. The differences between the two codes inside the functions will be underlined below. 
 Timer1 handler: This function remains responsible for data generation but differs from the offline case in several aspects. Firstly, although the generated \texttt{uint16\_t} value \texttt{CNT} still increments step-wise, an upper limit of 65530 is set. Upon reaching this value, \texttt{CNT} resets and data generation resumes from zero. In offline tests, \texttt{CNT} would not exceed 16198 to communicate 32400 bytes, whereas online tests allow \texttt{CNT} to potentially grow endlessly. Secondly, in the online code, \texttt{timer1\_handler} is not responsible for ending communication; instead, transmission concludes upon receiving the STOP command from the user.
 
-\section*{Notification Send}
-% This function is nearly identical to its offline counterpart, with a small difference in the condition for determining the end of communication. In addition to checking if the last two bytes sent are 255, it verifies if transmission is still ongoing by examining the boolean variable \texttt{transmission}. If \texttt{transmission} is false, indicating the user sent the command "STOP\n", this ensures the last two bytes 255 signal the transmission's end.
+\subsection*{Notification Send}
+This function is nearly identical to its offline counterpart, with a small difference in the condition for determining the end of communication. In addition to checking if the last two bytes sent are 255, it verifies if transmission is still ongoing by examining the boolean variable \texttt{transmission}. If \texttt{transmission} is false, indicating the user sent the command STOP, this ensures the last two bytes 255 signal the transmission's end.
 
-\section*{NUS Data Handler}
+\subsection*{NUS Data Handler}
 This function manages reception of commands from the external unit, particularly handling the STOP command differently. Upon receiving this command, \texttt{timer1} is disabled to halt the data transmission process. Additionally, the value 65535 is placed into the ring buffer, and \texttt{transmission} is set to false. These steps are placed differently from the offline code to accommodate behavior variations between tests. In offline tests, these actions were inside \texttt{timer1\_handler} to end communication upon data generation completion. In online tests, communication ends only upon user command.
 
-\section*{SpiBuff Process}
+\subsection*{SpiBuff Process}
 This function processes data similarly to the offline case until reaching the last packet. In the online code, it does not check if the remaining number of data to be sent is less than 244. Instead, it verifies if there is still data in the ring buffer and if transmission is false, indicating receipt of the STOP command. If true, it processes the final stop as before.
 
-\section*{Additional Functions}
+\subsection*{Additional Functions}
 Two functions added to the online receiver code that are not in the offline version:
 \begin{itemize}
     \item \texttt{buttons\_leds\_init} and \texttt{uart\_init}, previously explained in the offline receiver code section. These are not strictly necessary for the online transmitter code's purposes.
 \end{itemize}
 
-\section*{Online Receiver Code}
+\subsection*{Online Receiver Code}
 For the online receiver code, the flow chart mirrors Figure 5. However, some functions have minor differences to accommodate the online test's different behavior:
 \begin{itemize}
     % \item \texttt{Uart event handle}: Similar to the offline receiver case, but the received UART command is stored and checked locally. If it matches "STOP\n", \texttt{end\_transmission} is set to true, signaling the receiver to end communication.
     \item \texttt{Ble nus c evt handler}: Similar to the offline case, with an additional condition to check the end of transmission. Besides checking the last two values being 255, it verifies \texttt{end\_transmission} is true. This ensures the receiver recognizes the last two 255 values after the user enters the STOP command, concluding data reception.
 \end{itemize}
 
-\section*{Sniffer Code}
+\subsection*{Sniffer Code}
 The sniffer provides real-time monitoring of transmission parameters such as PHY, ATT MTU, and protocol, and also tracks the number of retransmissions during tests. To utilize it:
 \begin{itemize}
     \item A software tool is needed, available for the nRF52840 dongle when in debug mode. Specifically, \texttt{sniffer\_nrf52840dongle\_nrf52840\_4.1.1.hex} is used.
@@ -881,107 +881,181 @@ Bluetooth Low Energy, as well as all wireless technologies, is potentially expos
 
 The paper published in the Elsevier journal \cite{caesar2022survey} provides a brief explanation of the security features related to the specific intended Bluetooth Low Energy version. These can be summarized in Table \ref{table:ble-security}.
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Mode & Level & Pairing Security & Message Security & Since Version \\ \hline
-1 & 1 & No pairing & No security & $\geq$ 4.0 \\ \hline
-1 & 2 & Unauthenticated legacy & Encryption + MAC & $\geq$ 4.0 \\ \hline
-1 & 3 & Authenticated legacy & Encryption + MAC & $\geq$ 4.0 \\ \hline
-1 & 4 & Authentication LE-SC & Encryption + MAC & $\geq$ 4.2 \\ \hline
-2 & 1 & Unauthenticated & GATT layer data signing & $\geq$ 4.0 \\ \hline
-2 & 2 & Authenticated & GATT layer data signing & $\geq$ 4.0 \\ \hline
-3 & 1 & No pairing & No security & $\geq$ 5.2 \\ \hline
-3 & 2 & Unauthenticated & Encryption + MAC & $\geq$ 5.2 \\ \hline
-3 & 3 & Authenticated & Encryption + MAC & $\geq$ 5.2 \\ \hline
-\end{tabular}
-\caption{Overview of BLE security modes and levels \cite{caesar2022survey}}
-\label{table:ble-security}
-\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/1.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
 As seen in Table \ref{table:ble-security}, security in BLE is organized into modes and levels to distinguish between different security features. Developers can choose to implement a specific mode based on the purpose of the intended application and the features needed. In particular, mode 1 refers to the decision of device pairing \cite{circuits2021}, mode 2 is based on the verification of the authenticity of the data exchanged, and mode 3 is intended for broadcast applications which might need encryption or other features to protect data transfer.
 
-\section{Pairing}
+\subsection{Pairing}
 
-Pairing procedures involve the agreement of keys between the devices involved in the connection, allowing for encrypted data exchange. This procedure is required for all security modes and levels, as shown in Table \ref{table:ble-security}, except for mode 1 level 1 and mode 3 level 1, which provide no security features at all.
+The pairing procedure involves the agreement of keys between the devices involved in the connection, to enable the encryption of exchanged data. This procedure is required for all security modes and levels, as shown in Table~\ref{tab:security_modes}, except for Mode 1 Level 1 and Mode 3 Level 1, which provide no security features at all. The pairing procedure is shown in detail in Figure~\ref{fig:pairing_procedure}.
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=\textwidth]{pairing-procedure}
-% \caption{Pairing procedure \cite{caesar2022survey}}
-% \label{fig:pairing}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/2.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
-As shown in Figure \ref{fig:pairing}, the pairing procedure consists of two different phases. The first phase involves the exchange of security features, such as association modes, whether MITM protection is required, and the input-output capabilities of both devices to reach an agreement on the security level and mode. Additionally, during this phase, devices exchange the possible bonding request.
+As shown in the figure, the pairing procedure consists of two different phases. The first phase is responsible for exchanging features related to security, such as the association modes, whether or not Man-In-The-Middle (MITM) protection is required, and the input/output capabilities of both devices to agree on the security level and mode to establish. Additionally, during this phase, the devices exchange possible bonding requests, which will be explained in detail later in this section. Once phase 1 is complete, phase 2 occurs, where the actual exchange of keys happens. These keys will be used to encrypt the connection in the future.
 
-The second phase involves the actual exchange of keys, which will be used to encrypt future connections. Depending on the information exchanged in phase 1, the mode of pairing is chosen. Various methods include "Just Works", "Passkey Entry", "Numeric Comparison", and "Out of Band". Each method varies in the level of security provided.
+Based on the information exchanged in phase 1, the mode of pairing is chosen. As shown in Figure~\ref{fig:pairing_procedure}, these modes could be different. Specifically, the lowest security value is provided by the “Just Works” method, where no authentication method is required. This can be used in applications where at least one of the devices has neither input nor output capabilities. When possible, this method should be avoided in favor of one that guarantees a higher level of security. When the “Just Works” method is chosen, the Temporary Key (TK) is set to 0, and the user is simply asked to accept the connection, as reported in \cite{nordic_academy}. When the Passkey method is selected, it indicates that all devices involved in the connection have at least one input/output capability, and the connection is authenticated. The specific authentication method varies based on the intended application. For example, if one device has only input capabilities and the other only output, the user may be required to enter the password displayed on the first device into the second device. Another example is when both devices have only input capabilities; in this case, the user may need to enter the same password on both devices. These methods of authentication are called “Passkey Entry” and require at least one of the devices to have keyboard capabilities. Another method is “Numeric Comparison,” which requires only output capabilities. Both devices display a password, and the user must confirm that these are equal on both devices. For both methods, the password is 6 digits long. The last method, “Out of Band,” requires another communication method like NFC to exchange the password, which is 128 digits long in this case. To summarize, Figure~\ref{fig:authentication_methods} shows a recap of the pairing authentication methods based on the input/output capabilities of the devices involved. The password exchanged in phase 1 is known as TK (Temporary Key).
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=\textwidth]{pairing-authentication-method}
-% \caption{Pairing authentication method based on the input/output capabilities \cite{nordic2021}}
-% \label{fig:pairing-auth}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/3.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
-\section{Bonding}
+The actual authentication, however, is done at a lower level. As shown in Figure~\ref{fig:pairing_procedure}, both devices generate a random value: \texttt{LP\_RAND\_R} for the peripheral and \texttt{LP\_RAND\_I} for the central device. These values, together with the information exchanged in phase 1 and the TK, generate the confirmation values \texttt{LP\_CONFIRM\_I} and \texttt{LP\_CONFIRM\_R}. Once the exchange of these two confirmation values is performed, their reliability is checked by exchanging the previously generated random values \texttt{LP\_RAND\_I} and \texttt{LP\_RAND\_R}. If the check is successful, the two random values, along with the TK, are used to generate the Short-Term Key (STK). The pairing procedure then ends, and the last computed value STK will be used in future procedures to encrypt the connection.
 
-The pairing procedure could involve a further phase, phase 3, if bonding is required. Bonding allows devices to avoid restarting the pairing process each time there is a new connection, useful for devices that enter standby mode and need to restore communication. Phase 3 involves exchanging long-term keys (LTK) and optional keys such as the Identity Resolving Key (IRK) and the Connection Signature Resolving Key (CSRK).
+\subsection{Bonding}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=\textwidth]{bonding-procedure}
-% \caption{Summary of the pairing procedure with all three phases \cite{nordic2021}}
-% \label{fig:bonding}
-% \end{figure}
+The pairing procedure may involve an additional phase, referred to as Phase 3, in cases where bonding is required. The term "bonding" refers to connections where it is necessary to avoid restarting the pairing process from scratch each time a new connection is established. This is particularly relevant when devices enter standby mode and need to restore communication after some time. If bonding is required, it is possible to exchange different keys compared to those generated during the pairing process, specifically Long-Term Keys (LTK). During Phase 3, it is also possible to share additional optional keys such as the Identity Resolving Key (IRK), which is useful for resolving private addresses to allow devices to recognize each other even with random resolvable addresses, or the Connection Signature Resolving Key (CSRK), which can be used to authenticate data in unencrypted connections to verify that the data received comes from the intended device. 
 
-\section{Legacy Pairing and Low Energy Secure Connection (LE-SC)}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.7]{Bluetooth_Security/3.png}
+% \caption{Summary of the pairing procedure, including Phase 3. Source: \url{https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/lessons/lesson-5-bluetooth-le-security-fundamentals/topic/pairing-process/}}
+\label{fig:pairing_summary}
+\end{figure}
 
-Since the introduction of Bluetooth Low Energy version 4.2, a further level in mode 1 has been added: Low Energy Secure Connection (LE-SC). LE-SC uses elliptic curve Diffie-Hellman (ECDH) instead of the Short-Term Key (STK), which allows devices to choose a private key without sharing it over the air, thereby providing enhanced security.
+\subsection{Legacy Pairing and Low Energy Secure Connection (LE-SC)}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=\textwidth]{LE-SC-pairing-procedure}
-% \caption{LE-SC pairing procedure \cite{caesar2022survey}}
-% \label{fig:le-sc}
-% \end{figure}
+Since the introduction of Bluetooth Low Energy version 4.2, a further level in mode 1 has been added to the initial three. This new level is named Low Energy Secure Connection (LE-SC), while the previously described pairing procedure is referred to as legacy authentication. This new level is an addition rather than an alternative to the previous levels. LE-SC provides a higher level of security compared to legacy pairing, as the short-term key (STK) generated during legacy pairing has been found to be susceptible to attacks, particularly in cases where the "Just Works" procedure was used. Even with passkey entry, the passkey exchange can be sniffed, allowing a hacker to potentially compromise the STK. Out of band is somewhat more secure, but its safety depends on the security of the secondary channel.
 
-LE-SC supports association modes like "Just Works", "Numeric Comparison", "Passkey Entry", and "Out of Band", providing different levels of security.
+For these reasons, legacy pairing has become obsolete, and LE-SC should be preferred when supported. The main idea behind LE-SC is the use of Elliptic Curve Diffie-Hellman (ECDH) instead of STK. ECDH allows devices to select a private key without sharing it over the air, ensuring that the password can be agreed upon without the risk of interception. Only a public key is exchanged during the process.
 
-\section{Encryption}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/4.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
-Once the pairing procedure ends, the generated keys (LTK or STK) are used to encrypt the connection. Figure \ref{fig:encryption} shows the encryption procedure in BLE.
+Figure \ref{fig:LE-SC_pairing} shows the pairing procedure for a Low Energy Secure Connection. As illustrated, the procedure consists of two distinct phases. The first phase is almost equivalent to Phase 1 in the legacy pairing process, with one notable difference: a flag is added to indicate whether the devices are capable of performing the LE-SC procedure, as indicated in the pairing response. 
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=\textwidth]{encryption-procedure}
-% \caption{Encryption procedure in BLE \cite{caesar2022survey}}
-% \label{fig:encryption}
-% \end{figure}
+Phase 2 is divided into two stages. The first stage begins when both devices generate a random private key (Ska or Skb) and a public key (Pka and Pkb). The public keys are exchanged, and a common key (DHKEY) is computed from these values. The subsequent steps depend on the chosen association mode. Specifically, LE-SC supports three different association modes: Just Works, Numeric Comparison, Passkey Entry, and Out of Band.
 
-\section{Man-in-the-Middle Attack}
+\subsection{Association Modes}
 
-MITM attacks involve a hacker intercepting and potentially altering communications between two devices. BLE security features can protect against MITM attacks if both legitimate devices require MITM protection and have input/output capabilities.
+\textbf{Just Works} is the association mode that offers the lowest level of security, as no authentication is required, even though LE-SC makes this mode more secure. This mode does not protect against man-in-the-middle (MITM) attacks. Both Just Works and Numeric Comparison association modes are depicted in Figure \ref{fig:JustWorks_NumericComparison}.
 
-\section{Modes 2 and 3}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/5.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
-Modes 2 and 3 provide different security features in Bluetooth Low Energy. Mode 2, based on connection-based data signing, ensures data authenticity and reliability. Mode 3 is used for broadcast connections where encryption is required.
+The procedures start when peripheral and central devices generate random numbers (Na and Nb). Once this step is complete, the central device generates a new value Cb, based on the previously generated values Pkax and Pkbx along with the new value Nb. This value Cb is then sent to the peripheral device. Both devices share their generated random values Na and Nb, allowing the peripheral device to verify the correctness of the received value Cb. If Cb is incorrect, the procedure is aborted, which can happen if values Pkax, Pkbx, or Nb change during the exchange, such as during a hacker attack. If the Just Works procedure is chosen, the association process ends at this stage. If Numeric Comparison is chosen, both devices display a random 6-digit number (Va and Vb), and the user must confirm that the numbers are identical. Numeric Comparison introduces additional protection against MITM attacks, ensuring that none of the random numbers have been altered.
 
-\begin{thebibliography}{9}
+Another association mode supported by LE-SC is the Passkey Entry, detailed in Figure \ref{fig:PasskeyEntry}.
 
-\bibitem{caesar2022survey}
-Matthias Cäsar et al., "A survey on Bluetooth Low Energy security and privacy", Elsevier, 06/01/2022. DOI: \href{https://doi.org/10.1016/j.comnet.2021.108712}{10.1016/j.comnet.2021.108712}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/6.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
-\bibitem{circuits2021}
-\href{https://www.allaboutcircuits.com/technical-articles/bluetooth-le-security-modes-and-procedures-explained/}{All About Circuits: Bluetooth LE Security Modes and Procedures Explained}.
+The Passkey Entry procedure requires that at least one of the devices has keyboard capabilities. Depending on whether one or both devices have input capabilities, the procedure may vary slightly. Specifically, the user may be asked to enter the same value on both devices, or a randomly generated value may be displayed on one device, which must then be entered into the other device. This process is repeated for each bit of the password. Each iteration generates a commitment value Cb, based on the ECDH values Pkax and Pkbx, along with the random values Na and Nb and the last bit of the password (ra and rb). To prevent MITM attacks, the central device shares its random value Na with the peripheral device to verify its commitment value Ca, and this step is repeated with roles reversed. If a mismatch occurs, the procedure is aborted. If no errors occur, LTK and MACkey are generated. A MITM attacker would need to alter each bit of the password for each iteration, which is mitigated by the high length of Na and Nb values. Following Bluetooth SIG requirements, each password is used only once, preventing reuse attacks. The values Pkax and Pkbx are included in the commitment value to prevent separate ECDH exchanges and password entries by a potential attacker.
 
-\bibitem{nordic2021}
-\href{https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/lessons/lesson-5-bluetooth-le-security-fundamentals/topic/pairing-process/}{Nordic Semiconductor Academy: Bluetooth LE Security Fundamentals}.
+The final association mode supported by LE-SC is Out of Band (OOB), as shown in Figure \ref{fig:OutOfBand}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/7.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
+To indicate that OOB association mode is required, the OOB data flag must be set to true for each device. This indication occurs when the devices initiate the pairing procedure, and the OOB connection must be established before this moment. OOB can be performed in various ways, and the pairing procedure might be triggered by the OOB procedure. Both devices generate public and private ECDH keys and select random values ra and rb. Commitment values Ca and Cb are computed as in the previously explained association modes. The OOB connection is then established, which varies based on the devices' capabilities. If both devices can receive and transmit data, values 1a and 1b are exchanged; otherwise, only one device exchanges data. After completing the OOB data transfer, BLE communication is established, and the pairing procedure proceeds as before, with flags set to indicate authentication requirements. If OOB data exchange occurs, the commitment value is verified. If mismatches are found, the pairing procedure is aborted. The OOB data flag indicates successful data exchange. OOB is considered secure enough for legacy pairing and is recommended for LE-SC, provided the OOB channel is secure.
+
+All association modes result in the generation of two random values Na and Nb. Phase 2, Stage 2 then begins, where LTK and MACkey are generated using Na, Nb, device addresses, and public and private keys from the chosen association mode. This final value links all previous procedures and prevents attacks. Confirmation values Ea and Eb are computed using Mackey, Na, Nb, ra, rb, device BLE addresses, and keyboard/display capabilities. These values are shared and checked without directly exchanging the DHkey. If no errors occur, LTK is generated, and the pairing procedure is completed. Unlike legacy pairing, LTK generation is not an optional consequence of STK but is automatically generated after the process. LTK can be discarded if bonding is not required, or stored for future use. In LE-SC, if bonding is requested, IRK and CSRK values may also be used.
+When switching roles, if a mismatch occurs, the procedure is immediately aborted. If no errors are found during each iteration, the Long-Term Key (LTK) and the Media Access Control key (MACkey) are generated. The MACkey is used for media access control. To prevent a potential man-in-the-middle (MITM) attacker from exploiting the password, each bit of the password must be changed in every iteration. This high complexity prevents such attacks, as the length of Na and Nb values is significant. According to Bluetooth SIG requirements, each password must be used only once, which prevents an attacker from gaining information from an aborted procedure. Additionally, to prevent an attacker from performing independent ECDH exchanges and password entries, the values Pkax and Pkbx are included in the commitment value.
+
+\subsection{Out of Band Association Mode}
+
+The final association method supported by LE-SC is the Out of Band (OOB) association mode, as illustrated in Figure \ref{fig:OOB_association}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/8.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
+To signal that the OOB association mode is required, the OOB data flag must be set to true for each device. This flag is set when the devices start the pairing procedure, and the OOB connection must be established beforehand. The OOB procedure may vary; for instance, it could trigger the pairing process. Both devices generate public and private ECDH keys and select random values \( r_a \) and \( r_b \). Commitment values \( C_a \) and \( C_b \) are computed as in the previously explained association modes. 
+
+Next, the OOB connection is established, which can differ based on the devices' capabilities. If both devices can transmit and receive data, they exchange \( 1_a \) and \( 1_b \) values. If only one device can handle data exchange, only one set of values is transferred. Once the OOB data exchange is complete, BLE communication is established, and the pairing procedure proceeds as in previous cases, with flags set to indicate if authentication is required. If OOB data exchange occurs, the commitment value is verified. If mismatches are detected, the pairing procedure is aborted. The flag indicating OOB data exchange is called the "OOB data flag". If this flag is true, the device can be assured that the data has been received. OOB is considered secure enough for legacy pairing and is recommended for LE-SC, provided that the OOB channel is secure.
+
+\subsection{Generation of LTK and MACkey}
+
+All previously discussed association modes result in the generation of two random values, \( N_a \) and \( N_b \). In Phase 2, Stage 2, the LTK and MACkey are generated using these random values, device addresses, and the public and private keys obtained from the chosen association mode. This process links all previously performed procedures and mitigates possible attacks. Confirmation values \( E_a \) and \( E_b \) are computed using the MACkey, random values \( N_a \) and \( N_b \), \( r_a \) and \( r_b \) (depending on the chosen association modes), device BLE addresses, and input/output capabilities. These values are shared and checked, without directly sending the DHkey. If no errors occur, the LTK is generated, and the pairing procedure is completed. Unlike legacy pairing, LTK generation is not optional but automatically generated at the end of the process. However, the LTK may not always be used for future connections; it may be discarded if bonding is not required. If bonding is required, the LTK is stored for future use. In LE-SC, if bonding is requested, IRK and CSRK values can also be utilized.
+
+\subsection{Encryption}
+
+Once the pairing procedure concludes, the devices have generated the LTK or STK, depending on the procedure chosen and whether bonding is enabled. These keys are used to encrypt the connection. The encryption procedure is shown in Figure \ref{fig:encryption_procedure}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/9.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
+If a long-term key (LTK) has been generated, the values EDIV and RAND are shared between the devices to reconstruct the LTK. These values act as identifiers to recover the LTK. Specifically, the central device shares its EDIV and RAND values with the peripheral device, which can retrieve its values from its database. If only the pairing procedure is performed and STK and LTK are not present, these fields are set to zero. 
+
+MISSING PART HERE
+% Both devices then generate and share two random numbers, each 128 bits long: \( \text{SKD}_C \), \( \text{IV}_C \) for the central device and \( \text{SKD}_P \), \( \text{IV}_P \) for the peripheral device. These represent the session key diversifiers and initialization vectors. The values for central and peripheral devices are concatenated through a link layer encryption request (LL_ENC_REQ). After concatenation, the session key is computed using the AES-128 algorithm, incorporating the newly generated SKD values and the previously generated STK/LTK. This session key is then used for encryption.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/10.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
+The encryption process begins by adding a message integrity check (MIC) field to the BLE packet, as shown in Figure \ref{fig:MIC_field}. The MIC field is 4 bytes long. Encryption is applied to the PDU and the MIC field. As illustrated in Figure \ref{fig:MIC_field}, not the entire BLE packet is encrypted; only the payload and MIC field are encrypted, as they may contain sensitive data. The remaining parts, including headers, remain unencrypted. The unencrypted portions of the BLE packet contain minimal, generally non-sensitive information.
+
+\subsection{Man-in-the-Middle Attack}
+
+The implementation of security measures aims to protect against man-in-the-middle (MITM) attacks. A MITM attack allows the attacker not only to intercept packets using a sniffer but also to potentially compromise the reliability of the BLE connection. Specifically, in Bluetooth Low Energy, the attacker must impersonate both the receiver and transmitter devices, causing legitimate central and peripheral devices to connect to the malicious devices and exchange data. Protection against such attacks is only guaranteed if both legitimate devices require MITM protection and possess input/output capabilities. Otherwise, no protection is assured.
+
+\subsection{Modes 2 and 3}
+
+Modes 2 and 3 offer different security features in Bluetooth Low Energy. Mode 2 is based on connection-based data signing, which ensures that data remains intact and reliable throughout the process. This is achieved by generating a unique identifier (starting from CSRK) for each sent packet. This procedure ensures that data has not been altered during transit and that the data is authenticated, meaning it originates from the expected device. As shown in Table \ref{tab:security_modes}, Mode 2 is divided into two levels:
+
+\begin{itemize}
+    \item \textbf{Level 1}: Provides no data authentication. Pairing is performed without the need for input/output capabilities, typically using the Just Works association mode, with no MITM protection.
+    \item \textbf{Level 2}: Includes other association modes such as Out of Band, Numeric Comparison, or Passkey Entry, which offer higher levels of security.
+\end{itemize}
+
+The connection data signing procedure is as follows:
+\begin{enumerate}
+    \item Pairing procedure is performed, and CSRK is generated and exchanged.
+    \item The transmitter device prepares a data packet and generates a signature using CSRK, which includes a MAC and a counter that increments with each new data packet.
+    \item The BLE packet and its corresponding signature are sent from the transmitter to the receiver device.
+    \item The receiver device reconstructs the signature using its CSRK and data counter. If the signatures from the receiver and transmitter do not match, the receiver cannot be certain of the data's reliability. A mismatch in the counter value indicates potential manipulation by an attacker.
+\end{enumerate}
+
+Mode 3 is used in broadcast connections requiring encryption and is divided into three levels:
+\begin{itemize}
+    \item \textbf{Level 1}: Provides no security and does not implement encryption.
+    \item \textbf{Level 2}: Data is encrypted, but there is no authentication process, providing a moderate level of security.
+    \item \textbf{Level 3}: Data is both encrypted and authenticated using a Broadcast Code. This feature, implemented in BLE version 5.4, uses the CCM encryption algorithm for both encryption and authentication of Advertisement Data (AD data). The Key Material, used for encryption, is stored in the peripheral device and shared with the GATT client.
+\end{itemize}
 
 
-\section{Communication speed}
+\subsection{Communication speed}
 
-\section{ENGNet: advantages and shortcomings}
+\subsection{ENGNet: advantages and shortcomings}
 
 Given the structure of the project there is the need of a fast, computationally efficient model that can boast good performance on classification of ENG signals.
 In particular we need this model to classify the electroneurography signal sent from the board to the computer in different classes that correspond to different movements.
@@ -1744,83 +1818,134 @@ These two parts have been carried on for the majority of our work indipendently 
 
 \section{Firmware}
 
-\section*{Shift Algorithm}
+\subsection{Shift Algorithm}
 
-Even if in previous firmware implementation the data that were exchanged from one board to the other one were directly generated from the peripheral itself, this would not be the case in the actual implementation, in which data would directly come from the ADC, whose samples will contain information which are relative to the neural system. This sampling procedure is done at a frequency of 80 kHz. Each sample will then be provided to the peripheral board, which is the one responsible to send them to the central device and then to the external unit. All of these data which come from the ADC have a size of 10 bits, which is quite uncomfortable to be handled. The microcontroller, in fact, needs to store the samples, but storing them into a \texttt{uint8\_t} variable would imply a waste of information, variables of 16 bits size would instead guarantee a waste of memory. In the previous implementation, the second approach is adopted, as shown below:
+Even if in previous firmware implementation the data that were exchanged from one board to the other one were directly generated from the peripheral itself, this would not be the case in the actual implementation, in which data would directly come from the ADC, whose samples will contain information which are relative to neural system. This sampling procedure is done at a frequency of 80 kHz. Each sample will then be provided to the peripheral board, which is the one responsible to send them to central device and then to external unit. All of these data which come from the ADC have as a size 10 bits, which is quite uncomfortable to be threated. The microcontroller, in fact, needs to store the samples, but store them into a \texttt{uint8\_t} variable would implicate a waste of information, variables of 16 bits size would instead guarantee a waste of memory. In the previous implementation, the second approach is adopted, as shown below:
+
 \begin{center}
-\begin{tabular}{|c|c|}
-    \hline
-    16 bits variable & \\
-    \hline
-    Empty (6 bits) & ADC sample (10 bits) \\
-    \hline
-\end{tabular}
+16 bits variable
 \end{center}
 
-As mentioned above, this approach is responsible for a great waste of memory. In fact, every time a new 10-bit sample is generated from the ADC, this is saved into 16-bit variables, guaranteeing for each sample a waste of 6 bits. This approach should be improved because memory in microcontrollers is very limited, and 6 bits out of 16 wasted for each sample means that $\frac{6}{16}$ of the throughput obtained is not informative. In all of the online tests two different throughputs are computed as explained below:
+\begin{verbatim}
+Empty (6 bits)                 ADC sample (10 bits)
+\end{verbatim}
+
+As mentioned above, this approach is responsible for a great waste of memory. In fact, every time a 10 bits new sample is generated from the ADC, this is saved into 16 bits variables, guaranteeing for each sample a waste of 6 bits. This approach should be improved, because memory in microcontrollers is very limited, and 6 bits out of 16 wasted for each samples means that 6/16 of the throughput obtained is not informative. In all of the online tests two different throughputs are computed as explained below:
 
 \[
-\text{Throughput} = \frac{\text{n° bits received from central device}}{\text{elapsed time}}
+\text{Throughput} = \frac{\text{number of bits received from central device}}{\text{elapsed time}}
 \]
 
 \[
-\text{Real throughput} = \frac{\text{n° bits received from central device} - \text{n° empty bits}}{\text{elapsed time}}
+\text{Real throughput} = \frac{\text{number of bits received from central device} - \text{number of empty bits}}{\text{elapsed time}}
 \]
 
-Where the first one represents the effective speed of the BLE communication, while the second one takes into account just the number of bits which contain information, which would result more or less in $\frac{10}{16}$ of the first one. In order to have a better understanding of what was happening with the previous version of the firmware, the pre-processing operations done for each single BLE packet could be analyzed. The function responsible for doing this is the \texttt{Spibuff} function. As previously said, data were generated at a constant frequency of 80 kHz. Once there are enough samples inside the ring buffer to fulfill a BLE packet (which means at least 244 bytes), data preprocessing operations were performed. Since each sample has a size which cannot be contained into a single byte, this means 2 bytes are dedicated to each one, and then data preprocessing operation is performed each time 122 samples have been generated from ADC. Once they are, each sample is taken from the ring buffer. Then, the 8 most informative bits of the \texttt{uint16\_t} variable which temporarily contains it would form the first byte, and the 8 less informative bits would form the second one. This operation is performed 122 times for each BLE packet, in order to fulfill them. By doing this, the final number of samples received from the central device is half of the received bytes. The figure below represents this concept in case of an offline test.
+Where the first one represents the effective speed of the BLE communication, while the second one takes into account just the number of bits which contains information, which would result more or less in 10/16 of the first one. In order to have a better understanding of what was happening with previous version of the firmware, the pre-processing operations done for each single BLE packet could be analysed. The function responsible for doing this is the \texttt{Spibuff} function. As previously said, data were generated at a constant frequency of 80 kHz. Once there are enough samples inside the ring buffer to full fill a BLE packet (which means at least 244 bytes), data preprocessing operations were performed. Since each sample has a size which cannot be contained into a single byte, this means 2 bytes are dedicate to each one, and then data preprocessing operation is performed each time 122 samples have been generated from ADC. Once they are, each sample is taken from the ring-buffer. Then, the 8 most informative bits of the \texttt{uint16\_t} variable which temporarily contains it would form the first byte, and the 8 less informative bits would form the second one. This operation is performed 122 times for each BLE packet, in order to full fill them. By making this, the final number of samples reived from central device is a half of the received bytes. The figure below represents this concept in case of an offline test.
 
-Bytes generation procedure done in the previous implementation is schematized below, where the parentheses represent the bytes that would be contained in the BLE packet and sent to the central device:
+Bytes generation procedure done in previous implementation is schematized below, where the parentheses represent the bytes that would be contained in BLE packet and sent to central device:
+
 \begin{center}
-\begin{tabular}{|c|c|c|}
-    \hline
-    16 bits variable & 1\textsuperscript{st} byte & 2\textsuperscript{nd} byte \\
-    \hline
-\end{tabular}
+16 bits variable
 \end{center}
 
-Each couple of bytes would then be packed into the original 16 bits variable in the central device, in order to reconstruct the ADC samples. To improve this operation, a shifting algorithm has been implemented. The idea is to perform some bit-masking operations in order to use also those bits which previously were empty. As a consequence, data need to be compressed in the peripheral and then decompressed in the central device. A scheme of the compression operation is shown below:
+\begin{verbatim}
+                              1st byte                         2nd byte
+\end{verbatim}
 
-To be precise the ADC samples are saved into \texttt{uint16\_t} variables, but since they have a size of 10 bits just the 10 less significant bits out of this 16 are considered. The shifting procedure performed by the peripheral can be summarized in the following steps:
+Each couple of bytes would then be packed into the original 16 bits variable in central device, in order to reconstruct the ADC samples. To improve this operation, a shifting algorithm has been implemented. The idea is to perform some bit-masking operations in order to use also those bits which previously were empty. As a consequence, data need to be compressed in the peripheral and then decompressed in central device. A scheme of the compression operation is shown below:
+
+To be precise the ADC samples are saved into \texttt{uint16\_t} variables, but since they have a size of 10 bits just the 10 less significant bits out of this 16 are considered. The shifting procedure performed by peripheral can be summarized in the following steps:
+
 \begin{enumerate}
-    \item First byte is obtained by taking the 8 most significant bits of the first sample obtained from the ADC
-    \item Second byte is obtained by putting the 2 less significant bits of the first sample into the 2 most significant positions and the 6 most significant bits of the second sample into the remaining 6 positions
-    \item Third byte is obtained by putting together the four right positioned bits of the second sample and the 4 left positioned bits of the third sample
-    \item Fourth byte is obtained by considering the 6 less significant bits of the third sample and the 2 most significant bits of the fifth sample
-    \item Lastly, the fifth byte is obtained by taking the 8 most rightly positioned bits inside the fourth sample
+    \item First byte is obtained by taking the 8 most significant bits of the first sample obtained from the ADC.
+    \item Second byte is obtained by putting the 2 less significant bits of first sample into the 2 most significant positions and the 6 most significant bits of second sample into the remaining 6 positions.
+    \item Third byte is obtained by putting together the four right positioned bits of second sample and the 4 left positioned bits of third sample.
+    \item Fourth one is obtained by considering the 6 less significant bits of third sample and the 2 most significant bits of fifth sample.
+    \item Lastly, fifth byte is obtained by taking the 8 most rightly positioned bits inside fourth sample.
 \end{enumerate}
 
-Once these steps are completed, the procedure becomes periodical, and it is repeated from the beginning. By doing this, it can be noted that, in order to send 4 samples, just 5 bytes are necessary and not 8 like in the previous implementation. Moreover, each single bit contains information, and it is not wasted. However, it should also be noted that this procedure can only be performed when at least 4 samples have been generated from the ADC, differently from before where just one was necessary. Another limitation is imposed by the BLE packet size, which can contain 244 bytes as a maximum value, which is not a number multiple of five. This means that not all of the samples inside a single BLE packet can be shifted if the BLE maximum packet size is maintained.
+Once these steps are completed, the procedure becomes periodical, and it is repeated from the beginning. By making this, it can be noted that, in order to send 4 samples, just 5 bytes are necessary and not 8 like in previous implementation. Moreover, each single bit contains information, and it is not wasted. However, it should also be noted that this procedure can only be performed when at least 4 samples have been generated from the ADC, differently from before where just one was necessary. Another limitation is imposed by BLE packet size, which can contain 244 bytes as a maximum value, which is not a number multiple of five. This means that not all of the samples inside a single BLE packet can be shifted if the BLE maximum packet size is maintained.
 
-To be more precise, the generation of a single BLE packet can be analyzed as done for the previous implementation. As previously said, shifting operations can be performed if the number of samples is more than four and the number of bytes generated does not exceed the maximum size of 244 bytes. Then, these conditions imply that a single BLE packet of 244 bytes is composed of 240 bytes which contain the samples shifted. This number is the highest multiple of five which does not exceed the limit of 244 bytes. The number of samples that can be contained into these 240 bytes can be computed by considering that 5 bytes contain 4 samples as previously explained. As a consequence, the exact number of samples could be computed by multiplying 240 bytes times $\frac{4}{5}$, which would result in 192 samples. This concept is summarized in the following formula:
-
-\[
-\text{n° shifted samples} = \text{n° shifted bytes} \times \frac{4}{5}
-\]
-
-Once this procedure is completed, however, the BLE maximum size has not been reached yet. In fact, since only 240 bytes are generated, there is still the possibility to send other two samples by organizing them in four bytes, as done in the previous implementation. In this way the maximum size of 244 bytes is reached, where 240 bytes contain the samples shifted and the last 4 contain the samples organized as in the previous implementation. This means that, in a single BLE packet whose size is 244 bytes, 194 samples can be contained.
+To be more precise, the generation of a single BLE packet can be analysed as done for the previous implementation. As previously said, shifting operations can be performed if the number of samples is more than four and the number of bytes generated does not exceed the maximum size of 244 bytes. Then, these conditions implicates that a single BLE packet of 244 bytes is composed of 240 bytes which contains the samples shifted. This number is the highest multiple of five which does not exceed the limit of 244 bytes. The number of samples that can be contained into these 240 bytes can be computed by considering that 5 bytes contain 4 samples as previously explained. As a consequence, the exact number of samples could be computed by multiplying 240 bytes times 4/5, which would result in 192 samples. This concept is summarised in the following formula:
 
 \[
-\text{n° samples in a BLE packet} = \text{n° shifted samples} + \frac{\text{n° remaining bytes}}{2}
+\text{number of shifted samples} = \text{number of shifted bytes} \times \frac{4}{5}
 \]
 
-It should also be noted that, by making a comparison between the previous implementation and the new one with the shift algorithm, the number of empty bits is way different. In a full-sized BLE packet which was packed with the previous implementation procedure, there were 6 empty bits for each 16 bits variable which contained the 122 samples, resulting in 732 empty bits for each BLE packet of 244 bytes size. With the shift algorithm, just the last 2 samples are not packed optimally, implying that the empty bits are just 12.
+Once this procedure is completed, however, the BLE maximum size has not been reached yet. In fact, since only 240 bytes are generated, there is still the possibility to send other two samples by organizing them in four bytes, as done in previous implementation. In this way the maximum size of 244 bytes is reached, where 240 bytes contain the samples shifted and the last 4 contain the samples organized as in previous implementation. This means that, in a single BLE packet whose size is 244 bytes, 194 samples can be contained.
 
-Another comparison can be made considering an offline test composed of 32400 bytes. In fact, in order to have a better understanding of what this decreasing of empty bits would imply, it could be asked what is the number of samples that will be received by the central device at the end of a test. By taking into account an offline test, the total number of BLE packets shared during the whole communication should firstly be computed by dividing the size of the communication by the size of each packet, resulting in 133 packets exchanged, where the last one would not be fully filled.
+\[
+\text{number of samples in a BLE packet} = \text{number of shifted samples} + \frac{\text{number of remaining bytes}}{2}
+\]
 
+It should also be noted that, by making a comparison between previous implementation and the new one with shift algorithm, the number of empty bits is way different. In a full sized BLE packet which was packed with previous implementation procedure, there were 6 empty bits for each 16 bits variable which contained the 122 samples, resulting in 732 empty bits for each BLE packet of 244 bytes size. With shift algorithm, just the last 2 samples are not packed optimally, implying that the empty bits are just 12.
+
+Another comparison can be made considering an offline test composed of 32400 bytes. In fact, in order to have a better understanding of what this decreasing of empty bits would implicates, it could be asked what is the number of samples that will be received by central device at the end of a test. By taking into account an offline test, the total number of BLE packets shared during the whole communication should firstly be computed by diving the size of the communication by the size of each packet, resulting in 133 packets exchanged, where the last one would not be full filled.
+
+\[
+\text{number of BLE packets} = \frac{\text{number of bytes received}}{\text{maximum BLE packet size}} \tag{Equation 1}
+\]
+
+The size of last packet can be computed by subtracting to the 32400 bytes which form the whole offline test, the number of bytes received through all of the BLE packets except for the last one. Specifically, this would result in 192 bytes.
+
+\[
+\text{last packet size} = \text{number of bytes received} - \text{number of BLE packets} \times \text{maximum BLE packet size}
+\]
+
+Again, since 192 is not a multiple of five, this means that not the whole last packet would be subject to shift algorithm, but just the first 190 bytes will be. As a consequence, the number of samples contained in the last packet of the offline test can be computed by multiplying the first 190 bytes times 4/5 and summing them to the last 2 bytes divided by 2. This would result in 153 samples for this packet.
+
+By summing the number of samples sent through the first 132 packets, and the number of samples sent through the last one, the total number of samples sent during an offline test when the shift algorithm is implemented is 25761.
+
+By making a comparison between the final number of samples received in both cases, the shift implementation guarantees an increase in received samples of 37.11%. However, the shift algorithm is not limited to compression. Original samples need to be reconstructed once the central device has received all of the data in order to have full access to the information which comes from the ADC. To do that, a decompression algorithm has been implemented as well. The scheme, as before, is shown below:
+
+Differently from the peripheral side, the central device will receive data which are in byte, and needs to be decompressed. The procedure is composed of the following steps:
+Firstly, the whole first byte is put together with the 2 most relevant bits of the second byte in order to reconstruct the first sample. Then, the second sample is formed by the 6 less relevant bits of the second byte, put together with the 4 most relevant bits of the third byte. The third sample is composed of the four most rightly positioned bits of the third byte together with the 6 most relevant bits of the fourth byte. The remaining bits of the fourth byte together with the whole fifth byte would constitute the fourth sample. As before, the whole procedure is periodic. In case of a full-sized BLE packet, this is repeated until 240 bytes have been processed. The last 4 bytes are simply coupled as it happened in the previous version of the firmware.
+
+An example of the whole procedures of compression and decompression is shown below: 
+
+In the purposed example, vector elements act as the ring buffer which should contain the ADC samples. All of the fourth samples generated have the same value in this case which is 1022. This number has not been chosen randomly, but it is the maximum number that can be represented in binary using 10 bits, exception made for 1023 which is representable as a sequence of 10 bits 1. 1022 can instead be represented in binary language as 1111111110. The presence of the last zero is useful to understand whether or not the shift algorithm is operating correctly. Firstly, data are compressed, and bytes generated are saved into the \texttt{nusTx} vector, which is the one which simulates the storage of bytes. The values inside \texttt{nusTx} are then printed. To verify that these values are the ones expected, the whole steps previously explained are performed:
+The first \texttt{nusTx} value should take the 8 most relevant bits of \texttt{element[0]}. In this case, all of the numbers inside elements are 1022, so the first 8 bits are 8 bits 1, which can be written in decimal as 255.
+Then, the last two bits inside \texttt{element[0]} are put together with the 6 most relevant bits of \texttt{element[1]}, which implies that the second byte represents the number 10111111, which corresponds to 191.
+The third step is made by combining the 4 less relevant bits of \texttt{element[1]} and the 4 most relevant bits of \texttt{element[2]}. This would result in 11101111, 239 in decimal.
+The fourth step needs to put together the 6 less relevant bits of \texttt{element[3]} and the 2 most relevant bits of \texttt{element[3]}. The result is 11111011, which is 251.
+The last step is done by simply taking the 8 less relevant bits of \texttt{element[3]}, which are 11111110, which corresponds to 254.
+With this example, it has been shown that the firmware implementation of the algorithm works as expected. Finally, the inverse operation is performed as well, and values are printed. These values are correct for sure because the values of the generated samples were originally known, they correspond to 1022. In order to provide an example also of the decompression, however, all of the steps are explained anyway.
+The first sample is reconstructed by putting together the whole first byte, 11111111, with the first two bits of the second one 10111111. This results in 1111111110, which is 1022.
+The second one is composed of the 6 less relevant bits of the second byte, 10111111, and the 4 most relevant bits of the third byte 11101111. The result is again 1111111110.
+The third sample is made by putting together the 2 most right positioned bits of the third byte, 11101111, and the 6 left positioned bits of the fourth byte, which is 11111011, resulting again in 1022.
+Lastly, the fourth sample is composed of the 2 remaining bits inside the fourth byte and the whole fifth byte. The result is again 11111110 or 1022.
+
+\section{Firmware Implementation: Offline Transmitter}
+
+For what regards the firmware implementation, two functions are principally implied by the shift operations: \texttt{timer1\_handler} and \texttt{Spibuffprocess}. The first one is the function which is responsible for data generation, while the second one re-organizes the samples generated into bytes in order to make them ready to be sent.
+The \texttt{timer1\_handler} function is quite similar to the previous version of the firmware, just a few changes became necessary. Firstly, the number of samples generated in order to reach a communication of 32400 bytes size should be incremented, according to the increase previously explained. To do that, the number of samples generated before putting the last value 65535 is no more given by $(\text{DATA TO SEND}-2) \cdot 2-1$, which would result in 16198, but this limit is instead substituted by:
+\[
+\text{n°samples for each packet} \times \text{n°full filled BLE packets} + \text{n°samples last packet}
+\]
+Which would result in 194*132+152=25760 samples. 
+Because of this limit incrementation, a further modification of the \texttt{timer1\_handler} function became necessary. Because of the limit imposed by the RAM of the peripheral device, the ring buffer which contains all of the samples has a size of 16384. It can easily possible to see that the previous number of samples never exceeded the maximum number that the buffer could contain, causing no problems in the data generation process. 
+With the shift algorithm, instead, due to the increased number of samples generated, this limit is reached and the behaviour that could happen is that some samples are lost because they have not been sent to the central device fast enough. In order to do that, a further condition has been added. In particular, the generation of new data and the consequent storage inside the ring buffer is allowed only if the data already in the buffer are less than 16200, which represents the 97.88% of the buffer. This condition guarantees that the buffer has enough free memory before being filled, and no wasting of information is implied. Ultimately, a further condition is added. In order to generate data which are as much as possible similar to the actual samples coming from the ADC, \texttt{CNT} maximum value has been posed to 1022, which is the maximum value that can be represented with 10 bits, exception made for 1023, where \texttt{CNT} is the variable which simulates the arrival of the samples.
+As previously said, also the \texttt{Spibuffprocess} function has been modified. In detail, the function counts the number of samples actually inside the ring buffer. In the previous implementation, the data packing into bytes operation was performed if they were at least \texttt{senseback\_MTU/2}, which corresponds to 122 samples. With the shift implementation, however, the number of samples that can be packed in 244 bytes is no more 122, but it is 194. This value is stored in the variable \texttt{ELEMENTS\_IN\_A\_CYCLE}, which represents the new lower limit of samples. If there are at least 194 samples in the buffer, the generation of a full-sized BLE packet of 244 bytes can be performed. This is done as shown before, by performing shift operations until the bytes generated are 240. Each time a cycle is completed, four new samples are taken from the ring buffer. The last four bytes are generated as done in the previous firmware version. Ultimately, the last packet should be processed. This process is done when the ring buffer contains at least one element and the total number of bytes that need to be sent to guarantee a communication of 32400 bytes is less than 244. Then, a fictitious variable is used as a counter to represent the number of samples taken and processed from the ring buffer. Until this counter has not reached the last 4 samples inside the buffer, the shifting process is performed. The last values would not be shifted. This last choice has been made in order to assure that the last value 65535 would not be shifted, where this value is used to signal that the end of the communication is reached. 
+
+\section{Firmware Implementation: Offline Receiver}
+
+In order to avoid a possible impact on the speed of the receiving packets process, in the receiver code data are unpacked when communication ends. To do that, the new function \texttt{process\_senseback\_data} has been implemented. This function is called when the central device has received the last bytes 255 and 255. To this function, the whole buffer which contains the bytes received is passed. The function would then decompress the data. For the purpose of an offline test, since the number of bytes and samples that would be received is known, the vector which would contain the unpacked data has a fixed size, which is 25761, as the number of samples. Then, the process of decompression is done as many times as the number of BLE packets received, exception made for the last one. For the last packet, the process is the same, the only difference resides in the last two bytes, which are the only ones that would be put together without the decompression algorithm.
+
+\section{Firmware Implementation: Online Transmitter}
+
+For what regards the function \texttt{timer1\_handler}, the only modification done for the online case is the maximum value of the \texttt{CNT} variable, which has been posed to 1022 as for the offline case. The \texttt{Spibuff} function is also quite equivalent to the one implemented for the offline case, the only differences are the ones relative to the fact that the communication has not a fixed size, and so they have already been explained for the previous version of the firmware. In order to show the difference in terms of informative throughput when the shift algorithm is adopted, a further variable \texttt{count\_zeros} has been used. This acts as a counter to count how many empty bits are present when the shift algorithm is adopted and when it is not.
+
+\section{Firmware Implementation: Online Receiver}
+
+Compared to the offline receiver case, the online one implicates a small further challenge, which is due to the fact that the number of packets is not known a priori. To compute it and consequently know how many packets need to be shifted and how, the idea is to use the following equation:
 \[
 \text{n° BLE packets} \approx \frac{\text{n° bytes received}}{\text{maximum BLE packet size}}
 \]
-
-The size of the last packet can be computed by subtracting from the 32400 bytes which form the whole offline test, the number of bytes received through all of the BLE packets except for the last one. Specifically, this would mean that the whole offline test of 32400 bytes is composed of 133 BLE packets, but 32400 minus 324 * 132, resulting in the last BLE packet size being equal to 168 bytes. By taking these pieces of information, the number of samples that would be received through the whole communication with the shifting procedure can be computed. To be precise, the whole offline test would then be composed of 132 BLE packets whose size is 244 bytes and 1 packet of 168 bytes, so the number of samples received could be computed by taking the sum of the product between 192 samples and 132 and the product between 4 and 32.
-
-\[
-\text{n° samples received} = (\text{n° samples in 244 bytes packet} \times \text{n° full-sized BLE packets}) + (\text{remaining bytes} \times \frac{4}{5})
-\]
-
-By performing this operation, it would result in the whole communication that the central device would receive in 25472 samples. By comparing this with the previous implementation, the number of samples that would be received should be computed in the same way. Specifically, in order to understand the real advantage obtained with this new shifting algorithm, the number of samples in a full-sized packet of 244 bytes should be computed as done previously, by considering that in the previous implementation 2 bytes contained a single sample, resulting in 122 samples in a single packet. As done previously, the last packet whose size is 168 bytes should be considered as well, and the number of samples would be then given by the integer part of 168 divided by 2, which would result in 84 samples in the last packet. This means that the total number of samples that are received in the previous implementation is given by 132 multiplied by 122 plus 84, and this would result in a total number of 16248 samples received, which is lower than the one obtained with the new shift algorithm. The improvement can then be computed by taking the ratio between 16248 and 25472, resulting in a percentage which would equal approximately 35%.
+to compute the number of BLE packets and using the rest given by this operation to know the size of the last BLE packet. Once these values are known, the whole procedure of unpacking can be performed.
+A limit that this approach presents is due to the size of the RAM, which is not enough to actually perform the unpacking process. Future implications of this process should imply a study on how it could be possible to save some memory in the microcontroller, and how fast the packing and the unpacking processes are.
 
 
-\section{Firmware Security Implementation}
+\subsection{Firmware Security Implementation}
 As explained in previous sections, security implementation is fundamental both from the normative point of view and for guaranteeing privacy and safety of the patient, especially for those communications which are wireless, and can then easily be sniffed. In order to have a chance for the device to be approved, the highest level of security that a device supports should be implemented. Considering that the communication is point to point, because just two devices are involved, and that the devices support the most updated Bluetooth low energy versions, this level corresponds to mode 1 level 4, which implies the involvement of Bluetooth Low Energy Secure Connection.
 
 To implement this, the steps are similar in both the central and peripheral devices. Specifically, \textit{Peer Manager} \footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fsdk_nrf5_v17.1.0\%2Flib_peer_manager.html}} is involved. Peer manager is used in the context of BLE in order to manage all tasks related to security, such as encryption, pairing, or bonding. When a bonding procedure is required, the peer manager stores the Long-Term Keys into the flash memory and the same is for GATT data. Some of the advantages in the peer manager implementation are the following:
@@ -1839,7 +1964,7 @@ The Peer Manager architecture is shown below:
 
 % \begin{figure}[h]
 %     \centering
-%     \includegraphics[width=\textwidth]{peer_manager_architecture.png}
+%     \includegraphics[scale=0.3]{peer_manager_architecture.png}
 %     \caption{Peer Manager architecture\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fsdk_nrf5_v17.1.0\%2Flib_peer_manager.html}}}
 %     \label{fig:peer_manager_architecture}
 % \end{figure}
@@ -2005,10 +2130,10 @@ Finally, the theoretical throughput is equal to 663.68 Mbps.
 \section{Test Procedures}
 For each implementation, offline and online tests were performed. The purpose of the offline tests is to understand how the chosen parameters impact the codes. This allows for the selection of the best parameters for use in the online tests. Specifically, the parameters studied for each implementation are the connection interval (CI) and the connection supervision timeout (ST).
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/1.png}
-    \caption{Connection interval and connection supervision timeout\footnote{\url{https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-connections/multi-peripheral-topology}}}
+    \includegraphics[scale=0.3]{Test_Procedure/1.png}
+    % \caption{Connection interval and connection supervision timeout\footnote{\url{https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-connections/multi-peripheral-topology}}}
     \label{fig:connection_interval_timeout}
 \end{figure}
 
@@ -2027,19 +2152,19 @@ The connection supervision timeout is defined as the time that can pass after re
 
 To vary these parameters in the firmware, changes on the peripheral side are sufficient. Since the boards are of the same type, they would always reach an agreement about the parameters. However, a further check can be done using a sniffer. An example of this is shown below.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/2.png}
-    \caption{Sniffed connection parameter update}
+    \includegraphics[scale=0.3]{Test_Procedure/2.png}
+    % \caption{Sniffed connection parameter update}
     \label{fig:sniffed_connection_parameter_update}
 \end{figure}
 
 By clicking on the connection update, it is possible to see the chosen parameters set.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/3.png}
-    \caption{Connection parameters in Wireshark}
+    \includegraphics{Test_Procedure/3.png}
+    % \caption{Connection parameters in Wireshark}
     \label{fig:connection_parameters_wireshark}
 \end{figure}
 
@@ -2051,29 +2176,29 @@ For both the online and offline tests, a sniffer was used to count the retransmi
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/4.png}
-    \caption{Ideal tests without security}
+    \includegraphics[scale=0.3]{Test_Procedure/4.png}
+    % \caption{Ideal tests without security}
     \label{fig:ideal_tests_without_security}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/5.png}
-    \caption{Ideal tests with security}
+    \includegraphics[scale=0.3]{Test_Procedure/5.png}
+    % \caption{Ideal tests with security}
     \label{fig:ideal_tests_with_security}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/6.png}
-    \caption{Multicentral implementation}
+    \includegraphics[scale=0.3]{Test_Procedure/6.png}
+    % \caption{Multicentral implementation}
     \label{fig:multicentral_implementation}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/7.png}
-    \caption{Direct communication board-PC}
+    \includegraphics[scale=0.3]{Test_Procedure/7.png}
+    % \caption{Direct communication board-PC}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2084,8 +2209,8 @@ Power profiler tests were performed using the PPK2, which offers two different m
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/8.png}
-    \caption{PPK2 in source and ammeter mode}
+    \includegraphics[scale=0.3]{Test_Procedure/8.png}
+    % \caption{PPK2 in source and ammeter mode}
     \label{fig:ppk2_source_amperemeter_mode}
 \end{figure}
 
@@ -2093,15 +2218,15 @@ To use the PPK2 in source and ammeter mode, the links to be established are the 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/9.png}
-    \caption{Pin connections in Source Meter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
+    \includegraphics[scale=0.3]{Test_Procedure/9.png}
+    % \caption{Pin connections in Source Meter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
     \label{fig:pin_connections_source_meter}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/10.png}
-    \caption{Pin connections in Ammeter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
+    \includegraphics[scale=0.3]{Test_Procedure/10.png}
+    % \caption{Pin connections in Ammeter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
     \label{fig:pin_connections_amperemeter}
 \end{figure}
 
@@ -2109,8 +2234,8 @@ For the firmware side, a specific app has been developed for the Nordic PPK2. Wh
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/11.png}
-    \caption{Power profiler kit app}
+    \includegraphics[scale=0.3]{Test_Procedure/11.png}
+    % \caption{Power profiler kit app}
     \label{fig:power_profiler_kit_app}
 \end{figure}
 
@@ -2118,8 +2243,8 @@ Once the PPK is selected, the modality can be chosen between source meter and am
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/12.png}
-    \caption{Power profiler app source meter mode}
+    \includegraphics[scale=0.3]{Test_Procedure/12.png}
+    % \caption{Power profiler app source meter mode}
     \label{fig:power_profiler_app_source_meter_mode}
 \end{figure}
 
@@ -2127,8 +2252,8 @@ Through this, it is possible to set the voltage to supply the board and the numb
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/13.png}
-    \caption{Power profiler app ammeter mode}
+    \includegraphics[scale=0.3]{Test_Procedure/13.png}
+    % \caption{Power profiler app ammeter mode}
     \label{fig:power_profiler_app_amperemeter_mode}
 \end{figure}
 
@@ -2136,8 +2261,8 @@ In this case, since the board is not supplied by the PPK2, it is not possible to
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/14.png}
-    \caption{Example of measurement done with PPK2}
+    \includegraphics[scale=0.3]{Test_Procedure/14.png}
+    % \caption{Example of measurement done with PPK2}
     \label{fig:example_measurement_ppk2}
 \end{figure}
 
@@ -2145,8 +2270,8 @@ In order to have a proper current measurement, the board under test should be pr
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/15.png}
-    \caption{SB9 solder bridge}
+    \includegraphics[scale=0.3]{Test_Procedure/15.png}
+    % \caption{SB9 solder bridge}
     \label{fig:SB9_solder_bridge}
 \end{figure}
 
@@ -2154,8 +2279,8 @@ Occasionally, in cases where the board should be supplied by an external power s
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/16.png}
-    \caption{SB12 solder bridge}
+    \includegraphics[scale=0.3]{Test_Procedure/16.png}
+    % \caption{SB12 solder bridge}
     \label{fig:SB12_solder_bridge}
 \end{figure}
 
@@ -2163,8 +2288,8 @@ Once current measurements have been performed, to restore the previous functions
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/17.png}
-    \caption{Cutting process of SB9}
+    \includegraphics[scale=0.3]{Test_Procedure/17.png}
+    % \caption{Cutting process of SB9}
     \label{fig:cutting_process_SB9}
 \end{figure}
 
@@ -2172,8 +2297,8 @@ For the purpose of current measurement, as in this master thesis, only SB9 needs
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/18.png}
-    \caption{Current measurement during a BLE communication}
+    \includegraphics[scale=0.3]{Test_Procedure/18.png}
+    % \caption{Current measurement during a BLE communication}
     \label{fig:current_measurement_BLE_communication}
 \end{figure}
 
@@ -2181,8 +2306,8 @@ Through the power profiler, it is possible to zoom into the communication to see
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/19.png}
-    \caption{Current consumption connection interval}
+    \includegraphics[scale=0.3]{Test_Procedure/19.png}
+    % \caption{Current consumption connection interval}
     \label{fig:current_consumption_connection_interval}
 \end{figure}
 
@@ -2190,15 +2315,15 @@ Figure~\ref{fig:current_consumption_connection_interval} is obtained by zooming 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/20.png}
-    \caption{Boards at a distance of 10cm}
+    \includegraphics[scale=0.3]{Test_Procedure/20.png}
+    % \caption{Boards at a distance of 10cm}
     \label{fig:boards_distance_10cm}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Test_Procedure/21.png}
-    \caption{Boards at a distance of 50cm}
+    \includegraphics[scale=0.3]{Test_Procedure/21.png}
+    % \caption{Boards at a distance of 50cm}
     \label{fig:boards_distance_50cm}
 \end{figure}
 
@@ -2214,19 +2339,20 @@ Figure~\ref{fig:current_consumption_connection_interval} is obtained by zooming 
 \section{Multicentral Implementation}
 As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure \ref{fig:user_command_sending_procedure}.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/1.png}
-    \caption{User command sending procedure in previous implementation}
+    \includegraphics[scale=0.3]{Multicentral/1.png}
+    % \caption{User command sending procedure in previous implementation}
     \label{fig:user_command_sending_procedure}
 \end{figure}
 
 In the current Senseback device, the wires used in the previous implementation to send commands are not present. This makes it impossible to control the communication as in the previous version of the firmware. To solve this problem, a new way to send commands to control the communication has been devised. The proposed idea is shown in Figure \ref{fig:multicentral_implementation}.
 
-\begin{figure}[h]
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/2.png}
-    \caption{Multicentral implementation}
+    \includegraphics[scale=0.3]{Multicentral/2.png}
+    % \caption{Multicentral implementation}
     \label{fig:multicentral_implementation}
 \end{figure}
 
@@ -2239,19 +2365,19 @@ Before explaining how the final communication works when the multicentral setup 
 \section{Receiver Firmware Multicentral}
 Specifically, in the receiver code of the firmware, only a few differences are present. The first one relates to the configuration file. In particular, the \texttt{NRF\_SDH\_BLE\_CENTRAL\_LINK\_COUNT} and \texttt{NRF\_SDH\_BLE\_TOTAL\_LINK\_COUNT} values have been changed from 1 to 2. These define the number of central devices present in the application and the total number of simultaneous connections, which are both two in this case. Due to these changes, more RAM memory needs to be allocated compared to the previous implementation. Segger provides an easy way to change the settings of the project the developer is working on. The procedure is shown in Figure \ref{fig:memory_allocation_seggar}.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/3.png}
-    \caption{Procedure to allocate memory in Segger}
+    \includegraphics[scale=0.3]{Multicentral/3.png}
+    % \caption{Procedure to allocate memory in Segger}
     \label{fig:memory_allocation_seggar}
 \end{figure}
 
 Specifically, in the Section Placement Macros, it was required to change the RAM START and RAM SIZE values. The minimum values required are directly shown to the user when the application is debugged. An example of this is shown in Figure \ref{fig:memory_allocation_error}.
 
-\begin{figure}[h]
+\begin{figure}H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/4.png}
-    \caption{Memory allocation error in Segger}
+    \includegraphics[scale=0.3]{Multicentral/4.png}
+    % \caption{Memory allocation error in Segger}
     \label{fig:memory_allocation_error}
 \end{figure}
 
@@ -2262,10 +2388,10 @@ For the transmitter code, the steps previously explained have already been perfo
 
 Firstly, NUS and QWR module definitions should account for the two simultaneous connections. Once these are defined, the \texttt{notification\_send} function, which sends data to the central device, should indicate to which device data should be sent. The connection handle is no longer singular but two, distinguished using the QWR module syntax \texttt{m\_qwr[0].conn\_handle} for the first and \texttt{m\_qwr[1].conn\_handle} for the second one. The best choice is to use the second board as the first central device and the smartphone as the second one, ensuring that the smartphone can reconnect if a disconnection event occurs. If the smartphone is treated as the first central device and a disconnection occurs, the board identified as the second central device becomes the first one, causing the peripheral to send data to the wrong device. For the multicentral and security features code, the smartphone is used as the first central device because it connects faster. This prevents simultaneous board-smartphone and board-board connections, which could cause the central board to enter a faulty error state.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/5.png}
-    \caption{Faulty error state central board}
+    \includegraphics[scale=0.3]{Multicentral/5.png}
+    % \caption{Faulty error state central board}
     \label{fig:faulty_error_state_central_board}
 \end{figure}
 
@@ -2280,46 +2406,46 @@ Finally, the \texttt{gatt\_evt\_handler} function, responsible for managing GATT
 \section{Command Sending Process}
 The procedure to send data through the smartphone is shown below. Firstly, the user should enable Bluetooth on the smartphone and open the nRF Connect app for mobile. The app will start scanning for nearby advertising Bluetooth devices.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/6.png}
-    \caption{nRF Connect scanning for devices}
+    \includegraphics[scale=0.3]{Multicentral/6.png}
+    % \caption{nRF Connect scanning for devices}
     \label{fig:nrf_connect_scanning}
 \end{figure}
 
 The app offers various features, including a peripheral mode, which is not used in this case. Default settings are sufficient for this purpose. The app shows the names of advertising devices and their power in dBm, allowing the user to connect with them. When the user clicks “Connect,” the app shows the following state:
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/7.png}
-    \caption{nRF Connect connected state}
+    \includegraphics[scale=0.3]{Multicentral/7.png}
+    % \caption{nRF Connect connected state}
     \label{fig:nrf_connect_connected}
 \end{figure}
 
 By clicking on “Senseback” after connecting, the app shows different menus. The first menu relates to advertisements, showing a chart of the advertising power, the device name and features, and packet reception details.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/8.png}
-    \caption{nRF Connect advertisements menu}
+    \includegraphics[scale=0.3]{Multicentral/8.png}
+    % \caption{nRF Connect advertisements menu}
     \label{fig:nrf_connect_advertisements}
 \end{figure}
 
 The second menu is of interest for sending commands to the board. The interface is shown below:
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/9.png}
-    \caption{nRF Connect commands menu}
+    \includegraphics[scale=0.3]{Multicentral/9.png}
+    % \caption{nRF Connect commands menu}
     \label{fig:nrf_connect_commands}
 \end{figure}
 
 The interface shows all attributes and characteristics of the connected device. The characteristic used to send commands is the RX one. By clicking the indicator at the bottom right, the user can send data.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/10.png}
-    \caption{nRF Connect send data}
+    \includegraphics[scale=0.3]{Multicentral/10.png}
+    % \caption{nRF Connect send data}
     \label{fig:nrf_connect_send_data}
 \end{figure}
 
@@ -2327,141 +2453,167 @@ The user is prompted to choose the type of data to send, ranging from byte array
 
 The third menu, “Services,” and the “DFU” menu are empty for this application.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/11.png}
-    \caption{nRF Connect services menu}
+    \includegraphics[scale=0.3]{Multicentral/11.png}
+    % \caption{nRF Connect services menu}
     \label{fig:nrf_connect_services}
 \end{figure}
 
 The fourth menu, the “Log menu,” logs all processes in real-time, similar to the debug menu in Segger.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Multicentral/12.png}
-    \caption{nRF Connect log menu}
+    \includegraphics[scale=0.3]{Multicentral/12.png}
+    % \caption{nRF Connect log menu}
     \label{fig:nrf_connect_log}
 \end{figure}
 
-\section{Direct Communication between Board and Windows PC}
-An alternative approach to the previous method involving two boards and UART communication is to have the peripheral board directly communicate with the external unit through the PC's Bluetooth.
+\subsection{Direct Communication between Board and Windows PC}
 
-In this alternative, the peripheral board acts as a transmitter, while the PC serves as the central device that receives data. Tools such as Sniffer and Wireshark are used to monitor the data exchange and connection process, although they cannot scan retransmissions. The Matlab BLE library \cite{matlab_ble} is employed for this purpose. This library enables developers to connect to a BLE device, subscribe and unsubscribe to specific characteristics, and view nearby BLE devices that are advertising. Despite not being optimized for Nordic boards, this library allows for communication in which the PC receives data. The code used by the board to act as a peripheral device remains the same as in the security implementation. It was noted that the previous firmware implementation did not work with the Matlab BLE library. Therefore, only the central device code will be illustrated in this section.
+An alternative approach from the one constituted by the two-board system and the exchange of data to the external unit through UART communication has been studied. In this alternative, the peripheral board directly communicates with the external unit through the Bluetooth of the PC.
+
+The idea is to use the peripheral board as a transmitter and the PC as the central device which would receive data from it. Sniffer and Wireshark are maintained just to verify what is happening during the exchange and the connection process, even if they would not be able to scan retransmissions. To do that, the Matlab library BLE\footnote{\url{https://it.mathworks.com/help/matlab/ref/ble.html}} has been used. This library gives developers the chance to connect to a BLE device, subscribe and unsubscribe to a specific characteristic, and show the nearby BLE devices which are advertising. Even if this library is not optimized to work with a Nordic board, meaning that some parameters such as Connection Interval, PHY, or Supervision Timeout cannot be set, this provides the opportunity for the PC to receive data. The code used by the board to act as a peripheral device is the same used in the case of security implementation. It has been noted during development that the previous implementation firmware is not working with the Matlab BLE library. As a consequence, only the code of the central device will be illustrated in this section.
 
 \subsection{Offline Receiver Code}
-The central device code is written in Matlab and is simpler compared to the board-to-board approach. Matlab provides a list of nearby Bluetooth devices through the function \texttt{blelist}. When this function is executed, the user can view something similar to Figure \ref{fig:matlab_blelist} in the command window.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Multicentral/13.png}
-    \caption{Matlab \texttt{blelist}}
-    \label{fig:matlab_blelist}
+The code of the central device is written in Matlab language and is much easier compared to the one developed for the board-to-board approach. Firstly, Matlab provides a list of all the nearby Bluetooth devices through the function \texttt{blelist}. Once this function is triggered, the user would see something like Figure~\ref{fig:blelist} in the command window.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/1.png}
+% \caption{Matlab blelist}
+\label{fig:blelist}
 \end{figure}
 
-The \texttt{blelist} function displays the number of devices advertising via BLE, their names (if known), addresses, advertising power in dB, and the "Advertisement" field, which contains information about the advertising device, as shown in Figure \ref{fig:matlab_advertisement}.
+Specifically, through this function, Matlab would show the user the number of devices which are advertising through BLE, the name of each device when it is known, the address of each one, the power of advertising levels in dB, and the last field “Advertisement” which is a struct type. This last field contains some information about the advertising device, as shown in Figure~\ref{fig:advertisement}.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Multicentral/14.png}
-    \caption{Advertisement field in Matlab}
-    \label{fig:matlab_advertisement}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/2.png}
+% \caption{Advertisement field in Matlab}
+\label{fig:advertisement}
 \end{figure}
 
-The next step in the Matlab code involves creating a connection between the board and PC using the \texttt{ble} function. Once the connection is established, a new object is created, containing the following fields, as shown in Figure \ref{fig:matlab_ble_object}:
+The following step of Matlab code involves the effective creation of the connection between the board and the PC, which is done through the function \texttt{ble}. Once the connection has been established, a new object would be created, which would contain the following fields (Figure~\ref{fig:ble_object}):
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Multicentral/15.png}
-    \caption{BLE object in Matlab}
-    \label{fig:matlab_ble_object}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/3.png}
+% \caption{BLE object in Matlab}
+\label{fig:ble_object}
 \end{figure}
 
-This object includes the device name, address, a Boolean variable indicating whether the device is connected to the PC, and the device's services and characteristics. These characteristics are crucial because the developer needs to subscribe to them to receive and transmit data. The relevant characteristic fields are illustrated in Figure \ref{fig:matlab_characteristics}.
+In particular, it would contain the name of the device, the address, a Boolean variable indicating whether or not the device is connected to the PC, and the services and characteristics of the device. These last ones are particularly important, because the developer needs to subscribe to them in order to be able to receive and transmit data to the board; establishing a connection itself is not enough to do this. The characteristic field is shown below (Figure~\ref{fig:characteristics}).
 
-The last two characteristics shown in Figure \ref{fig:matlab_characteristics} are of particular interest. The first allows the developer to write data to the board, essential for sending commands, while the second is used to receive data from the board, necessary for receiving BLE packets from the peripheral. The \texttt{subscribe} function is used to subscribe to a specific characteristic, which, in this application, is required only for the last characteristic.
-
-Once the device is connected and Matlab has subscribed to the characteristic, global variables are defined. Unlike C language, Matlab requires global variables to be defined each time a new function is entered. The user then inserts the command, which, in the offline case, is done only once. Before sending, each character in the string is converted to 8-bit values and will be converted back to a string once received by the peripheral. Commands are sent in write without response mode.
-
-The final step in the main code is calling the function that receives the data, done through a callback function, which is a function automatically executed in response to a specific event \cite{matlab_callbacks}. In this application, the callback is triggered each time a new BLE packet is received from the peripheral. This is particularly useful for online code because the function continuously works while the command window waits for the STOP command.
-
-The callback function is dedicated to receiving data. It first re-defines all global variables used in the main code. It checks if the function is triggered for the first time. If so, a timer is triggered through the \texttt{tic} function to count the elapsed time for the communication. The Boolean variable is set to false to prevent multiple timer starts. The first packet is read using the \texttt{read} function, which reads data from a characteristic. The last two bytes of each received BLE packet are stored, and a byte counter is incremented. A matrix with 244 columns and rows equal to the number of received BLE packets is created. Each new packet creates a new row, with the last packet's columns filled with zeros to reach 244 values if needed. After the online test, the vector looks like Figure \ref{fig:matlab_received_data}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Multicentral/15.png}
-    \caption{Received data from board in Matlab}
-    \label{fig:matlab_received_data}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/4.png}
+% \caption{Characteristics of Senseback BLE object in Matlab}
+\label{fig:characteristics}
 \end{figure}
 
-As shown, bytes received from the board without shift are gradually increased. If the size of the last received packet is at least two bytes and both are equal to 255, the data receiving process ends. The central device then unsubscribes from the characteristic using the \texttt{unsubscribe} function, stops the timer, and computes the throughput by dividing the total number of bits by the elapsed time. Unlike C, Matlab timers use seconds as units, so the result must be multiplied by 1000 to convert to milliseconds.
+In particular, the last two characteristics shown in Figure~\ref{fig:characteristics} are the ones of interest. The first one is the characteristic which allows the developer to write data to the board, essential for sending commands, for example. The second one is the characteristic used to receive data from the board, essential for receiving BLE packets from the peripheral. To subscribe to a specific characteristic, the \texttt{subscribe} function has been used. Specifically, in this application, the subscription is required only for the last characteristic.
+
+Once the device is connected and Matlab has subscribed to the characteristic, the global variables are defined. In Matlab language, global variables are treated differently compared to C language because they need to be defined each time a new function is entered.
+
+Next, the user is required to insert the command. Since the analyzed code is the offline one, this process is performed just once. Before sending them, each of the characters composing the string is converted into 8-bit values. They will be converted back into a string once the peripheral receives them. The command is sent in write without response mode.
+
+The last step in the main code is calling the function which will effectively receive the data. This is done using a callback, which in Matlab language is a function automatically executed in response to a specific event\footnote{\url{https://it.mathworks.com/help/matlab/creating_plots/create-callbacks-for-graphics-objects.html}}. In this specific application, the callback is triggered each time a new BLE packet is received from the peripheral device. This is particularly useful in the online code, as the function continuously works while the command window waits for the command STOP to be entered.
+
+The callback function is the only one present in the code and is dedicated to receiving data. Firstly, all global variables used in the main code are re-defined. Then, it is checked whether the function has been triggered for the first time. If this is the case, a timer dedicated to counting the elapsed time for the intended communication is triggered through the function \texttt{tic}, and the Boolean variable is set to false to avoid starting the timer again. Then, the first packet is read through the \texttt{read} function, used in the BLE context to read data from a characteristic. In the next step, the last two bytes of the received BLE packets are stored, and a counter of bytes is increased by the size of the received BLE packet. A matrix with 244 columns and as many rows as the number of BLE packets received is created. Each time a new packet is received, a new row is created. To do this in Matlab language, all BLE packet sizes should be the same length, otherwise, an error occurs. So, since the last packet does not have the same dimension as the previous ones, the last columns are filled with zeros until 244 values are reached. Looking at the vector when the whole online test is over, it would look like Figure~\ref{fig:received_data}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/5.png}
+% \caption{Received data from board in Matlab}
+\label{fig:received_data}
+\end{figure}
+
+As can be seen, the bytes received from the board when the shift is not implemented gradually increase.
+
+Ultimately, if the size of the last packet received is composed of at least two bytes, and the last two bytes are both equal to 255, the data receiving process ends. Then, the central device will unsubscribe from the characteristic through the \texttt{unsubscribe} function, the timer is stopped, and the throughput is computed by dividing the total number of bits by the elapsed time. Unlike the timer in C, timers in Matlab use seconds as the unit, meaning that the result should be multiplied by 1000 to convert to milliseconds.
 
 \subsection{Online Receiver Code}
-The online receiver code is the same as the offline case, with the only difference being the number of commands required, which is two in this case instead of one. This is possible due to the callback function. Without it, Matlab executes commands sequentially, blocking the receiving process until both commands are entered, which is not the desired behavior.
+
+The online receiver code is exactly the same as the offline case. The only difference resides in the number of commands required to be entered by the user, which in this case is two instead of one. This can be done since the callback function has been invoked, otherwise Matlab executes the commands from beginning to end, blocking the whole receiving process until the user has entered both commands, which is not the intended behavior.
 
 \subsection{Receiver Code with Shift}
-The process of receiving data with and without shift is similar; the difference lies in how the data is handled after receipt. When shift is not involved, data are immediately readable. When the peripheral has shifted data, it needs to be decompressed to be readable. Figure \ref{fig:matlab_shifted_bytes} shows how shifted data looks before decompression, compared to Figure \ref{fig:matlab_characteristics}.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{matlab_shifted_bytes.png}
-    \caption{Shifted bytes received from Bluetooth PC}
-    \label{fig:matlab_shifted_bytes}
+The process of receiving data with and without shift is equivalent; the only difference lies in how data are treated after they have all been received. When the shift has not been involved, data are already readable once they are received by the central device. In the case where the peripheral has shifted data, they need to be decompressed to be readable. Figure~\ref{fig:shifted_bytes} shows how data once shifted looks before being decompressed. Compared to Figure~\ref{fig:characteristics}, they are significantly different.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/6.png}
+% \caption{Shifted bytes received from Bluetooth PC}
+\label{fig:shifted_bytes}
 \end{figure}
 
-Data shifting is performed similarly to the receiver code of the shift algorithm, with the difference being the programming language. In Matlab, bit-shifting operations are performed using \texttt{bitor} and \texttt{bitshift} functions \cite{matlab_bitor, matlab_bitshift}, which perform bitwise operations and bit shifting, respectively. Once decompressed, the data are saved in a one-dimensional vector, as shown in Figure \ref{fig:matlab_shifted_data}.
+The data shifting process is performed in the exact same way as explained for the receiver code of the shift algorithm; the only difference concerns the coding language. In Matlab, the bit-shifting operations can be performed through the functions \texttt{bitor} and \texttt{bitshift}\footnote{\url{https://it.mathworks.com/help/matlab/ref/bitor.html}}\footnote{\url{https://it.mathworks.com/help/matlab/ref/bitshift.html}}, which respectively perform a bitwise operation and shift the bits. Once data are decompressed, they are saved into a one-dimensional vector. The picture below shows how the vector looks (Figure~\ref{fig:shifted_data}).
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{matlab_shifted_data.png}
-    \caption{Shifted data received by PC}
-    \label{fig:matlab_shifted_data}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{Board_Windows_PC/7.png}
+% \caption{Shifted data received by PC}
+\label{fig:shifted_data}
 \end{figure}
 
-A major advantage of this approach is that data decompression can be performed without RAM limitations. Since the operation occurs after all data have been received, it does not affect the speed. Future developments could include measuring the time required to pack and unpack the data for both board-to-board and board-to-PC cases.
+One of the best advantages of this approach is that data decompression can be performed without any limitation due to RAM. Moreover, since the operation is performed once all the data have been received, this process does not impact the speed. One possible future development could be to measure the time required to pack and unpack the data, in both board-to-board and board-to-PC cases.
 
 \subsection{Reverse Transmission}
-Previous setups involved a peripheral board sending data to a central device, which could be a PC, another board, or a smartphone. However, in the current Senseback project, data should be transmitted both outside the body and to stimulate nerves, requiring bi-directional communication.
 
-Initially, the idea is to have the two devices exchange roles every 32,400 bytes, as in an offline test, until the user enters the STOP command. Each exchange computes a throughput. Modifications were made to both the board and external unit codes.
+Until now, different setups have been studied. However, all of these have in common that a peripheral board is sending data to a central device, which can be a PC, another board, or even a smartphone. In the actual Senseback project, however, data should not only be transmitted outside the body, but the nerve should also be stimulated, implying that the communication should be bi-directional.
+
+As a first approach to achieve this, the idea is to make the two devices exchange their roles every 32400 bytes exchanged, as it happens in an offline test, until the user inputs the command STOP. Each time these exchanges are performed, a throughput is computed. To do this, some modifications have been made in both the board and external unit codes.
 
 \subsubsection{Board Side}
-The process starts when the user enters the START command. The board sends 32,400 bytes to the PC and then prepares to receive data from the PC. The \texttt{nus\_data\_handler} function, previously used only for receiving commands from the central device, now handles data reception. A new timer, \texttt{timer3}, is added to compute the elapsed time for each data receiving session. To enable this timer, \texttt{NRFX\_TIMER3\_ENABLED} and \texttt{TIMER3\_ENABLED} in the configuration file must be set to true. The functioning of the three timers is summarized below.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{timer_summary.png}
-    \caption{Timers summary for reverse transmission}
-    \label{fig:timer_summary}
+The whole process, as it happened in the previous offline test implementation, starts when the user inputs the command START. Then, the board sends 32400 bytes to the PC and ends the communication. Once this is over, the board prepares itself to receive data from the PC. The function dedicated to receiving data from BLE is again the \texttt{nus\_data\_handler} function, which was previously used only to receive commands from the central device. In order to compute a throughput of the data receiving process, an additional timer, named \texttt{timer3}, has been added. The purpose of this timer is to compute the elapsed time during each data receiving session. To enable this additional timer, \texttt{NRFX\_TIMER3\_ENABLED} and \texttt{TIMER3\_ENABLED} in the configuration file should be set to true. The functioning of the three timers can be summarized in Figure~\ref{fig:timers}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/9.png}
+% \caption{Timers functioning overview}
+\label{fig:timers}
 \end{figure}
 
-An example of reverse transmission communication is as follows:
+An example of communication through reverse transmission can be summarized as follows:
+
 \begin{enumerate}
     \item Command START is received from the central device.
-    \item Data generation starts, and timer2 is enabled to count elapsed time during data sending.
-    \item All 32,400 bytes are sent.
-    \item Timers timer1 and timer2 are disabled.
+    \item Data generation process starts, and \texttt{timer2} is enabled to count the elapsed time in the data sending process.
+    \item All of the 32400 bytes are sent.
+    \item \texttt{timer1} and \texttt{timer2} are disabled.
     \item The central device starts sending data.
-    \item Upon receiving the first data, timer3 is enabled.
-    \item After all data are received, timer3 is disabled, and timer1 is enabled.
-    \item This process continues until the STOP command is received. If the command is received while the board is sending data, timer1 is disabled to stop data generation, and the last values (255) are inserted into the ring buffer to stop communication. If received during the PC's data sending session, the remaining data will be received.
+    \item Once the first data is received, \texttt{timer3} is enabled.
+    \item Once all data have been received, \texttt{timer3} is disabled and \texttt{timer1} is enabled.
 \end{enumerate}
 
+The whole procedure continues until the user sends the ending command STOP. If this is received while the board is sending data, then \texttt{timer1} is disabled to stop the data generation process, and the last values 255 are inserted into the ring buffer to stop the communication. If this happens during the session where the PC is sending data, the remaining data will be received.
+
 \subsubsection{PC Side}
-The data receiving process on the PC side mirrors the offline test with shift. After the shift procedure completes, the process continues with reverse transmission.
 
-Initially, after the board's data is generated and shifted, data generation occurs to create data for the PC to send. This process, done as in the \texttt{timer1\_handler} function, involves generating each byte as the previous one plus one, with a maximum value of 253 to ensure 8-bit size. Once 244 bytes or 32,400 bytes are reached, a new BLE packet is sent to the board via Matlab BLE function \texttt{write} in write without response mode. After sending the first data, a timer starts to compute elapsed time during data sending. After all data are sent, it is checked whether the STOP command has been entered. If yes, the program unsubscribes from the characteristic and deletes the callback function. If no, all variables are reset, and the callback function is called to restart the process. This can be summarized by the following state machine:
+The whole data receiving process is equivalent to the case of the offline test with the shift. Once the shift procedure ends, however, the process does not end as before but continues to generate the reverse transmission.
 
-\begin{itemize}
-    \item Device waits for the first byte.
-    \item Once received, timer1 is enabled.
-    \item After all data are received, timer1 is disabled, throughput is computed, data are shifted, and data generation begins.
-    \item When data generation starts, timer2 is enabled, and data are sent to the board.
-    \item After completion, timer2 is disabled, and it is checked for the STOP command.
-    \item If STOP is received, the process ends; otherwise, it repeats from the beginning.
-\end{itemize}
+Firstly, once data coming from the board have been generated and shifted, the generation process occurs to generate the data that need to be sent from the PC. This process is done as in the \texttt{timer1\_handler} function. Specifically, data generation is performed step-by-step, where each byte is equal to the previous one plus one. The maximum threshold imposed for data generation is 253, in order to have data that are at most 8 bits in size. Once 244 bytes have been generated, or the 32400 bytes threshold has been reached, a new BLE packet is sent to the board through the Matlab BLE function \texttt{write}, in write without response mode. Once the first data is sent, a timer starts counting to compute the elapsed time in the data sending process. Once all data have been sent, it is checked whether or not the command STOP has been entered by the user. If the answer is positive, then the program unsubscribes from the characteristic and deletes the callback function. If the answer is negative, all variable values are reset, and the callback function is called to start the whole process from the beginning.
 
+The whole process can be summarized by the state machine below (Figure~\ref{fig:state_machine}). Specifically, in a communication, the steps performed by the PC are the following:
 
+\begin{enumerate}
+    \item The device is waiting to receive the first byte.
+    \item Once the first byte is received, \texttt{timer1} is enabled.
+    \item Once all data are received, \texttt{timer1} is disabled, throughput is computed, data are shifted, and the data generation process starts.
+    \item When the first data is generated, \texttt{timer2} is enabled, and data are sent to the board.
+    \item Once the process is over, \texttt{timer2} is disabled, and it is checked whether or not the command STOP has been received.
+    \item If the command STOP has been received, the process ends; otherwise, the process is repeated from the beginning.
+\end{enumerate}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Board_Windows_PC/10.png}
+% \caption{State machine for PC process}
+\label{fig:state_machine}
+\end{figure}
 
 \subsection{Linux testing environment}
 
@@ -2471,24 +2623,42 @@ We still needed the SEGGER development, but we decided to not use MATLAB and opt
 We downloaded the same version of the SEGGER tools to avoid compatibility issues and keep the conditions as constant as possible and used exactly the same code.
 Alongside SEGGER, we installed the bluez-utils package which contained the bluetoothctl tool and that was the most suggested bluetooth package on the Arch Wiki.
 
-For the actual tests, we launched SEGGER in the usual way and ran the code just the same, but instead of having MATLAB open and issuing commands from its interface, we opened two instances of the terminal (Foot): one for the write of the commands, one for the notify.
+For the actual tests, we launched SEGGER in the usual way and ran the code just the same, but instead of having MATLAB open and issuing commands from its interface, we opened two instances of the terminal (Foot): one for the write operation of the commands, one for the notify.
 
-[picture]
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Board_Windows_PC/11.png}
+    % \caption{State machine for PC process}
+    \label{fig:state_machine_2}
+\end{figure}
 
 The sequence of commands is very similar but they subscribe to a different characteristic and acquire different permissions.
 
 \begin{itemize}
-	\item bluetoothctl (ran with sudo)\
+	\item bluetoothctl (run with sudo)\
 	\item scan on
 	\item connect <MAC Address>
 	\item menu gatt
 	\item select-attributes <Write Characteristic> (Findable with list-attributes)
-	\item acquire-write or acquire-notify
+	\item acquire-write
 	\item write <packet> (max 244 bytes)
+\end{itemize}
+
+\begin{itemize}
+	\item bluetoothctl (run with sudo)\
+	\item scan on
+	\item connect <MAC Address>
+	\item menu gatt
+	\item select-attributes <Notify Characteristic> (Findable with list-attributes)
+	\item acquire-notify
 \end{itemize}
 
 Given the code and the SEGGER set up is the same we can still use the same timer code and verify the results with this modifications.
 We will comment the results in the next chapter.
+
+In particular, we will not re-implement all the tests but will limit ourselves to only considering a few in order to benchmark the performances of a different OS system.
+
+
 
 \section{Channel selection}
 
@@ -2647,24 +2817,6 @@ Something the paper only cited in the future developments part is the fine-tunin
 We performed many iterations of the algorithm and registered different results based on different values of the parameter.
 We will make conclusions on this too in the next chapter.
 
-\subsubsection{Our approach to XCDC}
-
-Taking into consideration the fact that XCDC evaluates channels based on same-channel correlation, we wanted to add our own approach that would be able to evaluate also different-channels corrrelation; the intuation behind it being that we also wanted to assess how much channels carry the same information and therefore both reliable and redundant.
-Because of this we took the same basic correlation implementation but decided to apply it to different channels.
-We hereby list the steps in a more thorough way, we still use "traditional" XCDC for in order to discard poorly evaluated channels.
-
-\begin{itemize}
-	\item XCDC between same-channel signals
-	\item Score for same-class correlation
-	\item Score for different-class correlation
-	\item Discard low-score channels
-	\item Cross-correlation between different-channel signals
-	\item Score for same-class correlation
-	\item Score for different-class correlation
-	\item Final score
-\end{itemize}
- 
-
 
 \subsubsection{Testing correlation algorithms results}
 
@@ -2679,11 +2831,41 @@ More in detail, as shown in the figure, taken from [] we add two layers:
 	\item 1D-Conv Layer
 \end{itemize}
 
-\textbf{GAP} \quad The GAP Layer is used to
+\textbf{GAP} \quad The GAP Layer is used to aggregate the features
+
 \textbf{1D-Conv} \quad The 1D-Conv Layer which coincides with a Fully Connected Layer of the same length is used to ..., we also use Sigmoid for the activation function as shown in the original paper []
 
 These two layers are sequentially connected but are in parallel with a different structure that, instead, has no layers between the input and the output to the rest of the network.
 To combine the two we use an Element-wise product as implemented in the Tensorflow library.
+
+The idea behind this approach is that we do not alterate the rest of the model's behaviour but add a structure on top of it in order to try and gather information about the training process.
+
+With the layers mentioned above we assign to each channel a weight in the added layers.
+Therefore we have 16 layers that thorugh backpropagation get tuned during the training procedure and their weight will carry some information about how they influence the model behavior.
+
+By training the model multiple times, we want to try to extract information from these features and try to understand their relevance for the classification of the signals.
+
+By recording the values of the weights of the channels we can obatin information on how that channel behaves.
+We will inspect the values closely in Chapter 5.
+But in general for the channel ranking score we just sorted the channels according to their weight.
+Therefore higher weights corresponded to a channel that mattered more for the classifcation, while a lower weight corresponds to a channel that is less relevant for the classifcation.
+
+Taking in consideration also the great results of the base model in classifying the different kinds of movements we can have a good degree of reliability on the results of the training procedure.
+
+This structure, by highlighting relevant features and suppressing irrelevant ones [the og paper] should also increase the performance of the base model, but we did not notice major improvements, althought this could also be explained by the already great performances of the model in this scenario.
+
+Given our scenario and our test conditions, we needed a method that would be quick to give us a good results for a given future patient and that didn't take too much time in the set-up phase: this method, does not address this problems, for those we have presented the previous method based on correlation.
+
+This one on the other hand serves as a verification and an ulterior source of information that comes for free when training the model.
+
+In order to be used, the model will need to be trained on a custom dataset recorded for the specific patient, or at least fine-tuned for it.
+
+It is obvious that if we train the model on dataset recorded on a patient the structure we added on top will evaluate the channels based on how good they were for the given patient.
+
+So, for example, if channel 14 of the given patient will carry little to no information when compared to the other channels, it will have a low weight on our added layer.
+But when we will use our model with a different patient, if we don't re-train on corrisponding data or fine-tune, we will assume in the inference that channel 14 still carries little to no information, even if for this patient it may be the best channel for the amount of information it carries.
+
+
 
 
 
