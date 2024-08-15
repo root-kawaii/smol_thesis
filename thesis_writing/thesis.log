@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.7.14)  14 AUG 2024 22:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.7.14)  15 AUG 2024 23:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1127,11 +1127,11 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 254.
+(epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 254.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 250.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [4
 
@@ -1141,1136 +1141,1200 @@ Chapter 2.
 
 ] [6{/opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-Package natbib Warning: Citation `healthClassifyYourMedical2023' on page 7 undefined on input line 299.
+Package natbib Warning: Citation `healthClassifyYourMedical2023' on page 7 undefined on input line 295.
 
 
-Package natbib Warning: Citation `healthDeviceClassificationPanels2023' on page 7 undefined on input line 310.
+Package natbib Warning: Citation `healthDeviceClassificationPanels2023' on page 7 undefined on input line 306.
 
 
-Package natbib Warning: Citation `CFRCodeFederal' on page 7 undefined on input line 310.
+Package natbib Warning: Citation `CFRCodeFederal' on page 7 undefined on input line 306.
 
 
-Package natbib Warning: Citation `14:00-17:00ISO1099312018a' on page 7 undefined on input line 311.
+Package natbib Warning: Citation `14:00-17:00ISO1099312018a' on page 7 undefined on input line 307.
 
 
-Package natbib Warning: Citation `healthUseInternationalStandard2023' on page 7 undefined on input line 311.
+Package natbib Warning: Citation `healthUseInternationalStandard2023' on page 7 undefined on input line 307.
 
 
-Package natbib Warning: Citation `ISOInternationalOrganization' on page 7 undefined on input line 313.
+Package natbib Warning: Citation `ISOInternationalOrganization' on page 7 undefined on input line 309.
 
-<./Images/figure1_fda.png, id=106, 921.4425pt x 918.43124pt>
+<./Images/figure1_fda.png, id=105, 921.4425pt x 918.43124pt>
 File: ./Images/figure1_fda.png Graphic file (type png)
 <use ./Images/figure1_fda.png>
-Package pdftex.def Info: ./Images/figure1_fda.png  used on input line 318.
+Package pdftex.def Info: ./Images/figure1_fda.png  used on input line 314.
 (pdftex.def)             Requested size: 368.57048pt x 367.36598pt.
 [7]
-<./Images/figure2_fda.png, id=113, 921.4425pt x 1165.35374pt>
+<./Images/figure2_fda.png, id=112, 921.4425pt x 1165.35374pt>
 File: ./Images/figure2_fda.png Graphic file (type png)
 <use ./Images/figure2_fda.png>
-Package pdftex.def Info: ./Images/figure2_fda.png  used on input line 323.
+Package pdftex.def Info: ./Images/figure2_fda.png  used on input line 319.
 (pdftex.def)             Requested size: 276.43488pt x 349.60883pt.
  [8 <./Images/figure1_fda.png>]
-<./Images/tab1_fda.png, id=120, 1057.9525pt x 807.015pt>
+<./Images/tab1_fda.png, id=119, 1057.9525pt x 807.015pt>
 File: ./Images/tab1_fda.png Graphic file (type png)
 <use ./Images/tab1_fda.png>
-Package pdftex.def Info: ./Images/tab1_fda.png  used on input line 336.
+Package pdftex.def Info: ./Images/tab1_fda.png  used on input line 332.
 (pdftex.def)             Requested size: 317.3882pt x 242.10637pt.
  [9 <./Images/figure2_fda.png>]
 
-Package natbib Warning: Citation `healthUseInternationalStandard2023' on page 10 undefined on input line 340.
+Package natbib Warning: Citation `healthUseInternationalStandard2023' on page 10 undefined on input line 336.
 
-<./Images/tab2_fda.png, id=127, 1059.96pt x 562.1pt>
+<./Images/tab2_fda.png, id=126, 1059.96pt x 562.1pt>
 File: ./Images/tab2_fda.png Graphic file (type png)
 <use ./Images/tab2_fda.png>
-Package pdftex.def Info: ./Images/tab2_fda.png  used on input line 344.
+Package pdftex.def Info: ./Images/tab2_fda.png  used on input line 340.
 (pdftex.def)             Requested size: 317.99045pt x 168.6313pt.
 
-Package natbib Warning: Citation `healthUseInternationalStandard2023' on page 10 undefined on input line 348.
+Package natbib Warning: Citation `healthUseInternationalStandard2023' on page 10 undefined on input line 344.
 
 
-Package natbib Warning: Citation `14:00-17:00ISO1099352009a' on page 10 undefined on input line 353.
+Package natbib Warning: Citation `14:00-17:00ISO1099352009a' on page 10 undefined on input line 349.
 
 
-Package natbib Warning: Citation `gruberToxicNotToxic2023' on page 10 undefined on input line 353.
+Package natbib Warning: Citation `gruberToxicNotToxic2023' on page 10 undefined on input line 349.
 
 
-Package natbib Warning: Citation `RegolamentoUE20172017' on page 10 undefined on input line 355.
+Package natbib Warning: Citation `RegolamentoUE20172017' on page 10 undefined on input line 351.
 
 
-Package natbib Warning: Citation `RegolamentoUE20172017a' on page 10 undefined on input line 355.
+Package natbib Warning: Citation `RegolamentoUE20172017a' on page 10 undefined on input line 351.
 
 
-Package natbib Warning: Citation `MedicalDevicesEuropean' on page 10 undefined on input line 355.
+Package natbib Warning: Citation `MedicalDevicesEuropean' on page 10 undefined on input line 351.
 
 
-Package natbib Warning: Citation `RegolamentoUE20232023' on page 10 undefined on input line 358.
+Package natbib Warning: Citation `RegolamentoUE20232023' on page 10 undefined on input line 354.
 
 [10 <./Images/tab1_fda.png> <./Images/tab2_fda.png>]
-
-Package natbib Warning: Citation `NewRevisedResource' on page 11 undefined on input line 361.
-
-
-Package natbib Warning: Citation `RegolamentoUE20172017' on page 11 undefined on input line 365.
-
-
-Package natbib Warning: Citation `RegolamentoUE20172017a' on page 11 undefined on input line 365.
-
-[11]
-
-Package natbib Warning: Citation `massimopANNEXVIII2019' on page 12 undefined on input line 373.
+<./Images/Ethics/Screenshot 2024-08-15 at 10.54.56.png, id=135, 867.24pt x 479.7925pt>
+File: ./Images/Ethics/Screenshot 2024-08-15 at 10.54.56.png Graphic file (type png)
+<use ./Images/Ethics/Screenshot 2024-08-15 at 10.54.56.png>
+Package pdftex.def Info: ./Images/Ethics/Screenshot 2024-08-15 at 10.54.56.png  used on input line 357.
+(pdftex.def)             Requested size: 260.17401pt x 143.93884pt.
 
 
-Package natbib Warning: Citation `RegolamentoUE20172017' on page 12 undefined on input line 379.
+Package natbib Warning: Citation `NewRevisedResource' on page 11 undefined on input line 362.
 
 
-Package natbib Warning: Citation `healthWirelessMedicalDevices2023' on page 12 undefined on input line 380.
-
-[12]
-
-Package natbib Warning: Citation `RecognizedConsensusStandards' on page 13 undefined on input line 391.
+Package natbib Warning: Citation `RegolamentoUE20172017' on page 11 undefined on input line 366.
 
 
-Package natbib Warning: Citation `IEEEANSIC63' on page 13 undefined on input line 391.
+Package natbib Warning: Citation `RegolamentoUE20172017a' on page 11 undefined on input line 366.
+
+[11 <./Images/Ethics/Screenshot 2024-08-15 at 10.54.56.png>]
+<./Images/Ethics/Screenshot 2024-08-15 at 10.55.04.png, id=144, 940.51375pt x 269.005pt>
+File: ./Images/Ethics/Screenshot 2024-08-15 at 10.55.04.png Graphic file (type png)
+<use ./Images/Ethics/Screenshot 2024-08-15 at 10.55.04.png>
+Package pdftex.def Info: ./Images/Ethics/Screenshot 2024-08-15 at 10.55.04.png  used on input line 371.
+(pdftex.def)             Requested size: 282.1563pt x 80.70212pt.
 
 
-Package natbib Warning: Citation `IEC60601122014' on page 13 undefined on input line 391.
+Package natbib Warning: Citation `massimopANNEXVIII2019' on page 12 undefined on input line 380.
+
+[12 <./Images/Ethics/Screenshot 2024-08-15 at 10.55.04.png>]
+
+Package natbib Warning: Citation `RegolamentoUE20172017' on page 13 undefined on input line 386.
 
 
-Package natbib Warning: Citation `healthCybersecurityMedicalDevices2023' on page 13 undefined on input line 392.
+Package natbib Warning: Citation `healthWirelessMedicalDevices2023' on page 13 undefined on input line 387.
 
 
-Package natbib Warning: Citation `ContentPremarketSubmissions' on page 13 undefined on input line 392.
+Package natbib Warning: Citation `RecognizedConsensusStandards' on page 13 undefined on input line 398.
 
 
-Package natbib Warning: Citation `healthCybersecurityMedicalDevices2023' on page 13 undefined on input line 398.
-
-[13] [14] [15]
-
-Package natbib Warning: Citation `DirectiveEU20222022' on page 16 undefined on input line 457.
+Package natbib Warning: Citation `IEEEANSIC63' on page 13 undefined on input line 398.
 
 
-Package natbib Warning: Citation `ContentPremarketSubmissions' on page 16 undefined on input line 458.
-
-[16] [17]
-
-Package natbib Warning: Citation `Chapter' on page 18 undefined on input line 487.
+Package natbib Warning: Citation `IEC60601122014' on page 13 undefined on input line 398.
 
 
-Package natbib Warning: Citation `AnimalWelfareEU' on page 18 undefined on input line 490.
+Package natbib Warning: Citation `healthCybersecurityMedicalDevices2023' on page 13 undefined on input line 399.
 
 
-Package natbib Warning: Citation `Direttiva201063' on page 18 undefined on input line 490.
-
-[18] [19] [20]
-
-Package natbib Warning: Citation `nagaokaDevelopmentRealisticHighresolution2004' on page 21 undefined on input line 529.
-
-[21]
-
-Package natbib Warning: Citation `L_2016119EN01000101Xml' on page 22 undefined on input line 553.
+Package natbib Warning: Citation `ContentPremarketSubmissions' on page 13 undefined on input line 399.
 
 
-Package natbib Warning: Citation `CodeVirginiaCode' on page 22 undefined on input line 553.
+Package natbib Warning: Citation `healthCybersecurityMedicalDevices2023' on page 13 undefined on input line 405.
 
-[22] [23]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 562.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 562.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [24
+[13] [14] [15] [16]
 
-]
+Package natbib Warning: Citation `DirectiveEU20222022' on page 17 undefined on input line 464.
+
+
+Package natbib Warning: Citation `ContentPremarketSubmissions' on page 17 undefined on input line 465.
+
+[17] [18]
+
+Package natbib Warning: Citation `Chapter' on page 19 undefined on input line 494.
+
+
+Package natbib Warning: Citation `AnimalWelfareEU' on page 19 undefined on input line 497.
+
+
+Package natbib Warning: Citation `Direttiva201063' on page 19 undefined on input line 497.
+
+[19] [20]
+
+Package natbib Warning: Citation `nagaokaDevelopmentRealisticHighresolution2004' on page 21 undefined on input line 536.
+
+[21] [22]
+
+Package natbib Warning: Citation `L_2016119EN01000101Xml' on page 23 undefined on input line 560.
+
+
+Package natbib Warning: Citation `CodeVirginiaCode' on page 23 undefined on input line 560.
+
+[23] [24]
 Chapter 3.
 
-Package natbib Warning: Citation `heydonBluetoothLowEnergy2015' on page 25 undefined on input line 572.
+Package natbib Warning: Citation `nordic1' on page 25 undefined on input line 573.
+
+
+LaTeX Warning: Reference `fig:ble_char' on page 25 undefined on input line 573.
+
+<./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png, id=220, 831.105pt x 402.50375pt>
+File: ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png Graphic file (type png)
+<use ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png>
+Package pdftex.def Info: ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png  used on input line 577.
+(pdftex.def)             Requested size: 455.24411pt x 220.47491pt.
+
+Package natbib Warning: Citation `nordic1' on page 25 undefined on input line 578.
+
+
+Package natbib Warning: Citation `nordic1' on page 25 undefined on input line 578.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:ble_stack' on page 25 undefined on input line 582.
+
+<./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.52.png, id=221, 618.31pt x 530.98375pt>
+File: ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.52.png Graphic file (type png)
+<use ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.52.png>
+Package pdftex.def Info: ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.52.png  used on input line 586.
+(pdftex.def)             Requested size: 455.24411pt x 390.96109pt.
+
+Package natbib Warning: Citation `nordic_stack' on page 25 undefined on input line 587.
+
+
+Package natbib Warning: Citation `nordic_stack' on page 25 undefined on input line 587.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25
 
-]
-<./Images/prev1.png, id=225, 530.98375pt x 401.5pt>
+
+] [26 <./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png>] [27 <./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.52.png>]
+
+LaTeX Warning: Reference `fig:gatt_model' on page 28 undefined on input line 613.
+
+<./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png, id=245, 514.92375pt x 371.3875pt>
+File: ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png Graphic file (type png)
+<use ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png>
+Package pdftex.def Info: ./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png  used on input line 617.
+(pdftex.def)             Requested size: 455.24411pt x 328.35207pt.
+
+Package natbib Warning: Citation `nordic_gatt' on page 28 undefined on input line 618.
+
+
+Package natbib Warning: Citation `nordic_gatt' on page 28 undefined on input line 618.
+
+[28 <./Images/Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png>]
+<./Images/prev1.png, id=255, 530.98375pt x 401.5pt>
 File: ./Images/prev1.png Graphic file (type png)
 <use ./Images/prev1.png>
-Package pdftex.def Info: ./Images/prev1.png  used on input line 598.
+Package pdftex.def Info: ./Images/prev1.png  used on input line 643.
 (pdftex.def)             Requested size: 159.29634pt x 120.45091pt.
-<./Images/prev2.png, id=226, 495.8525pt x 229.85875pt>
+ [29]
+<./Images/prev2.png, id=264, 495.8525pt x 229.85875pt>
 File: ./Images/prev2.png Graphic file (type png)
 <use ./Images/prev2.png>
-Package pdftex.def Info: ./Images/prev2.png  used on input line 606.
+Package pdftex.def Info: ./Images/prev2.png  used on input line 651.
 (pdftex.def)             Requested size: 148.7569pt x 68.95815pt.
 
 
-Package natbib Warning: Citation `NRF52DKDevelopment' on page 26 undefined on input line 613.
+Package natbib Warning: Citation `NRF52DKDevelopment' on page 30 undefined on input line 658.
 
 
-Package natbib Warning: Citation `LessonSerialCommunication' on page 26 undefined on input line 614.
+Package natbib Warning: Citation `LessonSerialCommunication' on page 30 undefined on input line 659.
 
-[26 <./Images/prev1.png> <./Images/prev2.png>] [27]
+[30 <./Images/prev1.png> <./Images/prev2.png>] [31]
+<./Images/Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png, id=278, 1051.93pt x 388.45125pt>
+File: ./Images/Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png Graphic file (type png)
+<use ./Images/Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png>
+Package pdftex.def Info: ./Images/Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png  used on input line 676.
+(pdftex.def)             Requested size: 315.58144pt x 116.53627pt.
 
-Package natbib Warning: Citation `NordicSemiconductorInfocentera' on page 28 undefined on input line 632.
+
+Package natbib Warning: Citation `NordicSemiconductorInfocentera' on page 32 undefined on input line 685.
 
 
-Overfull \hbox (34.22678pt too wide) in paragraph at lines 635--636
+Overfull \hbox (34.22678pt too wide) in paragraph at lines 689--690
 []\T1/cmr/m/n/12 The main dif-fer-ence be-tween these two timers is given by the func-tions \T1/cmtt/m/n/12 nrfx_timer_us_to_ticks
  []
 
-[28]
+[32 <./Images/Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png>] [33]
 
-Package natbib Warning: Citation `NordicSemiconductorInfocenterb' on page 29 undefined on input line 651.
-
-
-Package natbib Warning: Citation `NordicSemiconductorInfocenterc' on page 29 undefined on input line 652.
-
-[29]
-
-Package natbib Warning: Citation `BluetoothLowEnergy2016' on page 30 undefined on input line 657.
+Package natbib Warning: Citation `NordicSemiconductorInfocenterb' on page 34 undefined on input line 704.
 
 
-Package natbib Warning: Citation `NordicSemiconductorInfocenterd' on page 30 undefined on input line 657.
+Package natbib Warning: Citation `NordicSemiconductorInfocenterc' on page 34 undefined on input line 706.
 
 
-Package natbib Warning: Citation `NordicSemiconductorInfocenterf' on page 30 undefined on input line 665.
+Package natbib Warning: Citation `BluetoothLowEnergy2016' on page 34 undefined on input line 711.
 
 
-Overfull \hbox (38.21948pt too wide) in paragraph at lines 669--670
+Package natbib Warning: Citation `NordicSemiconductorInfocenterd' on page 34 undefined on input line 711.
+
+
+Package natbib Warning: Citation `NordicSemiconductorInfocenterf' on page 34 undefined on input line 719.
+
+
+Overfull \hbox (38.21948pt too wide) in paragraph at lines 723--724
 []\T1/cmr/bx/n/12 Last case: \T1/cmr/m/n/12 trans-mis-sion has been com-pleted. If this hap-pens, the func-tion \T1/cmtt/m/n/12 on_tx_complete
  []
 
-[30] [31] [32] [33]
-
-Package natbib Warning: Citation `nordic_semi' on page 34 undefined on input line 738.
-
-[34]
-Overfull \hbox (6.75787pt too wide) in paragraph at lines 762--763
-[]\T1/cmr/m/n/12 This func-tion han-dles the idle state of the em-bed-ded sys-tem. It first calls \T1/cmtt/m/n/12 spiBuff_process\T1/cmr/m/n/12 ,
+[34] [35]
+Overfull \hbox (57.31409pt too wide) in paragraph at lines 745--746
+\T1/cmr/m/n/12 tion, since se-cu-rity fea-tures have not been im-ple-mented, func-tion \T1/cmtt/m/n/12 BLE_GAP_CONN_SEC_MODE_SET_OPEN
  []
 
+<./Images/Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png, id=308, 951.555pt x 158.5925pt>
+File: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png Graphic file (type png)
+<use ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png>
+Package pdftex.def Info: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png  used on input line 752.
+(pdftex.def)             Requested size: 285.4687pt x 47.57811pt.
+[36 <./Images/Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png>] [37]
 
-Overfull \hbox (8.93933pt too wide) in paragraph at lines 762--763
-\T1/cmr/m/n/12 the \T1/cmtt/m/n/12 UNUSED_RETURN_VALUE \T1/cmr/m/n/12 to ig-nore its re-turn value. Fi-nally, it calls the \T1/cmtt/m/n/12 nrf_pwr_mgmt_run
+Package natbib Warning: Citation `nordic_semi' on page 38 undefined on input line 784.
+
+
+Overfull \hbox (21.0766pt too wide) in paragraph at lines 784--785
+\T1/cmr/m/n/12 Specif-i-cally, for the idle case, all LEDs are turned off. The \T1/cmtt/m/n/12 bsp_btn_ble_sleep_mode_prepare
  []
 
-[35] [36]
-Overfull \hbox (110.93199pt too wide) in paragraph at lines 772--773
+[38]
+Overfull \hbox (60.45209pt too wide) in paragraph at lines 797--798
+[]\T1/cmr/bx/n/12 Advertising Start\T1/cmr/m/n/12 : this func-tion starts the ad-ver-tis-ing pro-cess through the \T1/cmtt/m/n/12 ble_advertising_start
+ []
+
+[39]
+<./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png, id=329, 1019.81pt x 362.35374pt>
+File: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png Graphic file (type png)
+<use ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png>
+Package pdftex.def Info: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png  used on input line 806.
+(pdftex.def)             Requested size: 305.94536pt x 108.70695pt.
+ [40 <./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png>]
+Overfull \hbox (110.93199pt too wide) in paragraph at lines 814--815
 []\T1/cmr/bx/n/12 GATT Init: \T1/cmtt/m/n/12 nrf_ble_gatt_att_mtu_periph_set \T1/cmr/m/n/12 is re-placed by \T1/cmtt/m/n/12 nrf_ble_gatt_att_mtu_central_set\T1/cmr/m/n/12 . 
  []
 
-[37]
-Overfull \hbox (44.89027pt too wide) in paragraph at lines 788--789
-\T1/cmr/m/n/12 ment. The sleep event calls \T1/cmtt/m/n/12 nrf_pwr_mgmt_shutdown \T1/cmr/m/n/12 with \T1/cmtt/m/n/12 NRF_PWR_MGMT_SHUTDOWN_GOTO_SYSOFF
+[41]
+Overfull \hbox (10.44873pt too wide) in paragraph at lines 827--828
+\T1/cmr/m/n/12 (BSP) mod-ule us-ing a switch-case state-ment. The sleep event calls \T1/cmtt/m/n/12 nrf_pwr_mgmt_shutdown
  []
 
 
-Overfull \hbox (70.23405pt too wide) in paragraph at lines 788--789
-\T1/cmr/m/n/12 to put the sys-tem into a low-power system-off state. The dis-con-nect event calls \T1/cmtt/m/n/12 sd_ble_gap_disconnect
+Overfull \hbox (9.57013pt too wide) in paragraph at lines 833--834
+\T1/cmr/m/n/12 GAP op-er-a-tion time-outs and BLE_GAP_EVT_CONN_PARAM_UPDATE_REQUEST
  []
 
+[42] [43]
+<./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png, id=350, 972.63374pt x 346.29375pt>
+File: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png Graphic file (type png)
+<use ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png>
+Package pdftex.def Info: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png  used on input line 873.
+(pdftex.def)             Requested size: 291.79237pt x 103.88892pt.
+ [44 <./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png>]
+File: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png Graphic file (type png)
+<use ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png>
+Package pdftex.def Info: ./Images/Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png  used on input line 900.
+(pdftex.def)             Requested size: 305.94536pt x 108.70695pt.
+ [45]
 
-Overfull \hbox (51.85225pt too wide) in paragraph at lines 797--798
-\T1/cmr/m/n/12 events, changes LED be-hav-ior and as-signs the con-nec-tion han-dle us-ing \T1/cmtt/m/n/12 ble_nus_c_handles_assign\T1/cmr/m/n/12 .
- []
-
-
-Overfull \hbox (37.51717pt too wide) in paragraph at lines 797--798
-\T1/cmr/m/n/12 GATTC/GATTS event time-outs. Unique cases not present in the trans-mit-ter's \T1/cmtt/m/n/12 ble_evt_handler
- []
-
-
-Overfull \hbox (207.3594pt too wide) in paragraph at lines 797--798
-\T1/cmr/m/n/12 are BLE_GAP_EVT_TIMEOUT for GAP op-er-a-tion time-outs and BLE_GAP_EVT_CONN_PARAM_UPDATE_REQUEST
- []
-
-[38] [39] [40] [41]
-
-LaTeX Warning: Reference `legal-section' on page 42 undefined on input line 880.
+LaTeX Warning: Reference `legal-section' on page 46 undefined on input line 922.
 
 
-Package natbib Warning: Citation `caesar2022survey' on page 42 undefined on input line 882.
+Package natbib Warning: Citation `caesar2022survey' on page 46 undefined on input line 924.
 
 
-LaTeX Warning: Reference `table:ble-security' on page 42 undefined on input line 882.
+LaTeX Warning: Reference `table:ble-security' on page 46 undefined on input line 924.
 
-<./Images/Bluetooth_Security/1.png, id=313, 581.17125pt x 461.725pt>
+<./Images/Bluetooth_Security/1.png, id=363, 581.17125pt x 461.725pt>
 File: ./Images/Bluetooth_Security/1.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/1.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/1.png  used on input line 886.
+Package pdftex.def Info: ./Images/Bluetooth_Security/1.png  used on input line 928.
 (pdftex.def)             Requested size: 406.8171pt x 323.20529pt.
-[42]
+[46]
 
-LaTeX Warning: Reference `table:ble-security' on page 43 undefined on input line 891.
-
-
-Package natbib Warning: Citation `circuits2021' on page 43 undefined on input line 891.
+LaTeX Warning: Reference `table:ble-security' on page 47 undefined on input line 933.
 
 
-LaTeX Warning: Reference `tab:security_modes' on page 43 undefined on input line 895.
+Package natbib Warning: Citation `circuits2021' on page 47 undefined on input line 933.
 
 
-LaTeX Warning: Reference `fig:pairing_procedure' on page 43 undefined on input line 895.
+LaTeX Warning: Reference `tab:security_modes' on page 47 undefined on input line 937.
 
-<./Images/Bluetooth_Security/2.png, id=319, 355.3275pt x 384.43625pt>
+
+LaTeX Warning: Reference `fig:pairing_procedure' on page 47 undefined on input line 937.
+
+<./Images/Bluetooth_Security/2.png, id=369, 355.3275pt x 384.43625pt>
 File: ./Images/Bluetooth_Security/2.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/2.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/2.png  used on input line 899.
+Package pdftex.def Info: ./Images/Bluetooth_Security/2.png  used on input line 941.
 (pdftex.def)             Requested size: 248.72754pt x 269.10353pt.
-[43 <./Images/Bluetooth_Security/1.png>]
+[47 <./Images/Bluetooth_Security/1.png>]
 
-LaTeX Warning: Reference `fig:pairing_procedure' on page 44 undefined on input line 906.
-
-
-Package natbib Warning: Citation `nordic_academy' on page 44 undefined on input line 906.
+LaTeX Warning: Reference `fig:pairing_procedure' on page 48 undefined on input line 948.
 
 
-LaTeX Warning: Reference `fig:authentication_methods' on page 44 undefined on input line 906.
+Package natbib Warning: Citation `nordic_academy' on page 48 undefined on input line 948.
 
-[44 <./Images/Bluetooth_Security/2.png>]
-<./Images/Bluetooth_Security/3.png, id=333, 521.95pt x 417.56pt>
+
+LaTeX Warning: Reference `fig:authentication_methods' on page 48 undefined on input line 948.
+
+[48 <./Images/Bluetooth_Security/2.png>]
+<./Images/Bluetooth_Security/3.png, id=384, 521.95pt x 417.56pt>
 File: ./Images/Bluetooth_Security/3.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/3.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/3.png  used on input line 910.
+Package pdftex.def Info: ./Images/Bluetooth_Security/3.png  used on input line 952.
 (pdftex.def)             Requested size: 365.3625pt x 292.29pt.
 
 
-LaTeX Warning: Reference `fig:pairing_procedure' on page 45 undefined on input line 915.
+LaTeX Warning: Reference `fig:pairing_procedure' on page 49 undefined on input line 957.
 
-[45 <./Images/Bluetooth_Security/3.png>]
+[49 <./Images/Bluetooth_Security/3.png>]
 File: ./Images/Bluetooth_Security/3.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/3.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/3.png  used on input line 923.
+Package pdftex.def Info: ./Images/Bluetooth_Security/3.png  used on input line 965.
 (pdftex.def)             Requested size: 365.3625pt x 292.29pt.
- [46]
-<./Images/Bluetooth_Security/4.png, id=347, 618.31pt x 410.53375pt>
+ [50]
+<./Images/Bluetooth_Security/4.png, id=398, 618.31pt x 410.53375pt>
 File: ./Images/Bluetooth_Security/4.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/4.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/4.png  used on input line 936.
+Package pdftex.def Info: ./Images/Bluetooth_Security/4.png  used on input line 978.
 (pdftex.def)             Requested size: 432.81404pt x 287.37166pt.
 
 
-LaTeX Warning: Reference `fig:LE-SC_pairing' on page 47 undefined on input line 941.
+LaTeX Warning: Reference `fig:LE-SC_pairing' on page 51 undefined on input line 983.
 
-[47 <./Images/Bluetooth_Security/4.png>]
+[51 <./Images/Bluetooth_Security/4.png>]
 
-LaTeX Warning: Reference `fig:JustWorks_NumericComparison' on page 48 undefined on input line 947.
+LaTeX Warning: Reference `fig:JustWorks_NumericComparison' on page 52 undefined on input line 989.
 
-<./Images/Bluetooth_Security/5.png, id=355, 413.545pt x 551.05875pt>
+<./Images/Bluetooth_Security/5.png, id=405, 413.545pt x 551.05875pt>
 File: ./Images/Bluetooth_Security/5.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/5.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/5.png  used on input line 951.
+Package pdftex.def Info: ./Images/Bluetooth_Security/5.png  used on input line 993.
 (pdftex.def)             Requested size: 289.4795pt x 385.73848pt.
-[48 <./Images/Bluetooth_Security/5.png>]
+[52 <./Images/Bluetooth_Security/5.png>]
 
-LaTeX Warning: Reference `fig:PasskeyEntry' on page 49 undefined on input line 958.
+LaTeX Warning: Reference `fig:PasskeyEntry' on page 53 undefined on input line 1000.
 
-<./Images/Bluetooth_Security/6.png, id=363, 371.3875pt x 453.695pt>
+<./Images/Bluetooth_Security/6.png, id=413, 371.3875pt x 453.695pt>
 File: ./Images/Bluetooth_Security/6.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/6.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/6.png  used on input line 962.
+Package pdftex.def Info: ./Images/Bluetooth_Security/6.png  used on input line 1004.
 (pdftex.def)             Requested size: 259.96947pt x 317.58434pt.
-[49 <./Images/Bluetooth_Security/6.png>]
+[53 <./Images/Bluetooth_Security/6.png>]
 
-LaTeX Warning: Reference `fig:OutOfBand' on page 50 undefined on input line 969.
+LaTeX Warning: Reference `fig:OutOfBand' on page 54 undefined on input line 1011.
 
-<./Images/Bluetooth_Security/7.png, id=370, 404.51125pt x 475.7775pt>
+<./Images/Bluetooth_Security/7.png, id=421, 404.51125pt x 475.7775pt>
 File: ./Images/Bluetooth_Security/7.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/7.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/7.png  used on input line 973.
+Package pdftex.def Info: ./Images/Bluetooth_Security/7.png  used on input line 1015.
 (pdftex.def)             Requested size: 283.15593pt x 333.04196pt.
-[50 <./Images/Bluetooth_Security/7.png>]
+[54 <./Images/Bluetooth_Security/7.png>]
 
-LaTeX Warning: Reference `fig:OOB_association' on page 51 undefined on input line 985.
+LaTeX Warning: Reference `fig:OOB_association' on page 55 undefined on input line 1027.
 
-<./Images/Bluetooth_Security/8.png, id=377, 242.9075pt x 510.90875pt>
+<./Images/Bluetooth_Security/8.png, id=428, 242.9075pt x 510.90875pt>
 File: ./Images/Bluetooth_Security/8.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/8.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/8.png  used on input line 989.
+Package pdftex.def Info: ./Images/Bluetooth_Security/8.png  used on input line 1031.
 (pdftex.def)             Requested size: 170.03407pt x 357.63368pt.
-[51] [52 <./Images/Bluetooth_Security/8.png>]
+[55] [56 <./Images/Bluetooth_Security/8.png>]
 
-LaTeX Warning: Reference `fig:encryption_procedure' on page 53 undefined on input line 1004.
+LaTeX Warning: Reference `fig:encryption_procedure' on page 57 undefined on input line 1046.
 
-<./Images/Bluetooth_Security/9.png, id=390, 477.785pt x 508.90125pt>
+<./Images/Bluetooth_Security/9.png, id=441, 477.785pt x 508.90125pt>
 File: ./Images/Bluetooth_Security/9.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/9.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/9.png  used on input line 1008.
+Package pdftex.def Info: ./Images/Bluetooth_Security/9.png  used on input line 1050.
 (pdftex.def)             Requested size: 334.44722pt x 356.22844pt.
-[53]
-<./Images/Bluetooth_Security/10.png, id=398, 870.25125pt x 141.52875pt>
+[57]
+<./Images/Bluetooth_Security/10.png, id=448, 870.25125pt x 141.52875pt>
 File: ./Images/Bluetooth_Security/10.png Graphic file (type png)
 <use ./Images/Bluetooth_Security/10.png>
-Package pdftex.def Info: ./Images/Bluetooth_Security/10.png  used on input line 1020.
+Package pdftex.def Info: ./Images/Bluetooth_Security/10.png  used on input line 1062.
 (pdftex.def)             Requested size: 609.17172pt x 99.06944pt.
 
-Overfull \hbox (153.92761pt too wide) in paragraph at lines 1020--1023
+Overfull \hbox (153.92761pt too wide) in paragraph at lines 1062--1065
  [][] 
  []
 
 
-LaTeX Warning: Reference `fig:MIC_field' on page 54 undefined on input line 1025.
+LaTeX Warning: Reference `fig:MIC_field' on page 58 undefined on input line 1067.
 
 
-LaTeX Warning: Reference `fig:MIC_field' on page 54 undefined on input line 1025.
+LaTeX Warning: Reference `fig:MIC_field' on page 58 undefined on input line 1067.
 
-[54 <./Images/Bluetooth_Security/9.png> <./Images/Bluetooth_Security/10.png>]
+[58 <./Images/Bluetooth_Security/9.png> <./Images/Bluetooth_Security/10.png>]
 
-LaTeX Warning: Reference `tab:security_modes' on page 55 undefined on input line 1033.
+LaTeX Warning: Reference `tab:security_modes' on page 59 undefined on input line 1075.
 
-[55]
+[59]
 
-Package natbib Warning: Citation `lawhernEEGNetCompactConvolutional2018' on page 56 undefined on input line 1064.
+Package natbib Warning: Citation `lawhernEEGNetCompactConvolutional2018' on page 60 undefined on input line 1106.
 
-[56]
-<./Images/engNet_params.png, id=423, 1245.65375pt x 698.61pt>
+[60]
+<./Images/engNet_params.png, id=475, 1245.65375pt x 698.61pt>
 File: ./Images/engNet_params.png Graphic file (type png)
 <use ./Images/engNet_params.png>
-Package pdftex.def Info: ./Images/engNet_params.png  used on input line 1083.
+Package pdftex.def Info: ./Images/engNet_params.png  used on input line 1125.
 (pdftex.def)             Requested size: 373.699pt x 209.58461pt.
- [57] [58 <./Images/engNet_params.png>]
-<./Images/engNet_arch.png, id=435, 1001.7425pt x 274.02374pt>
+ [61] [62 <./Images/engNet_params.png>]
+<./Images/engNet_arch.png, id=487, 1001.7425pt x 274.02374pt>
 File: ./Images/engNet_arch.png Graphic file (type png)
 <use ./Images/engNet_arch.png>
-Package pdftex.def Info: ./Images/engNet_arch.png  used on input line 1109.
+Package pdftex.def Info: ./Images/engNet_arch.png  used on input line 1151.
 (pdftex.def)             Requested size: 400.6899pt x 109.60754pt.
-<./Images/engNet_layers.png, id=436, 1754.555pt x 734.745pt>
+<./Images/engNet_layers.png, id=488, 1754.555pt x 734.745pt>
 File: ./Images/engNet_layers.png Graphic file (type png)
 <use ./Images/engNet_layers.png>
-Package pdftex.def Info: ./Images/engNet_layers.png  used on input line 1121.
+Package pdftex.def Info: ./Images/engNet_layers.png  used on input line 1163.
 (pdftex.def)             Requested size: 438.63768pt x 183.68579pt.
- [59 <./Images/engNet_arch.png> <./Images/engNet_layers.png>]
+ [63 <./Images/engNet_arch.png> <./Images/engNet_layers.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[60]
-<./Images/trainingAccuracyDavide.png, id=461, 826.08624pt x 320.19624pt>
+[64]
+<./Images/trainingAccuracyDavide.png, id=511, 826.08624pt x 320.19624pt>
 File: ./Images/trainingAccuracyDavide.png Graphic file (type png)
 <use ./Images/trainingAccuracyDavide.png>
-Package pdftex.def Info: ./Images/trainingAccuracyDavide.png  used on input line 1197.
+Package pdftex.def Info: ./Images/trainingAccuracyDavide.png  used on input line 1239.
 (pdftex.def)             Requested size: 206.52104pt x 80.04886pt.
-<./Images/engNet_accuracy.png, id=462, 784.9325pt x 445.665pt>
+<./Images/engNet_accuracy.png, id=512, 784.9325pt x 445.665pt>
 File: ./Images/engNet_accuracy.png Graphic file (type png)
 <use ./Images/engNet_accuracy.png>
-Package pdftex.def Info: ./Images/engNet_accuracy.png  used on input line 1205.
+Package pdftex.def Info: ./Images/engNet_accuracy.png  used on input line 1247.
 (pdftex.def)             Requested size: 196.23264pt x 111.41597pt.
- [61 <./Images/trainingAccuracyDavide.png>]
-<./Images/engNet_f1score.png, id=477, 784.9325pt x 445.665pt>
+ [65 <./Images/trainingAccuracyDavide.png>]
+<./Images/engNet_f1score.png, id=528, 784.9325pt x 445.665pt>
 File: ./Images/engNet_f1score.png Graphic file (type png)
 <use ./Images/engNet_f1score.png>
-Package pdftex.def Info: ./Images/engNet_f1score.png  used on input line 1210.
+Package pdftex.def Info: ./Images/engNet_f1score.png  used on input line 1252.
 (pdftex.def)             Requested size: 235.48155pt x 133.70053pt.
 
-Overfull \hbox (3.41188pt too wide) in paragraph at lines 1229--1233
+Overfull \hbox (3.41188pt too wide) in paragraph at lines 1271--1275
 \T1/cmr/m/n/12 Cortex-M4 ar-chi-tec-ture, which is a highly ef-fi-cient pro-ces-sor de-signed for high-performance,
  []
 
-[62 <./Images/engNet_accuracy.png> <./Images/engNet_f1score.png>] [63] [64] [65] [66] [67] [68]
-Overfull \hbox (14.85849pt too wide) in paragraph at lines 1437--1438
+[66 <./Images/engNet_accuracy.png> <./Images/engNet_f1score.png>] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (14.85849pt too wide) in paragraph at lines 1479--1480
 \T1/cmr/m/n/12 be used for both code and data stor-age. [https://infocenter.nordicsemi.com/index.jsp?topic= 
  []
 
-<./Images/memNRF.png, id=540, 1420.8282pt x 1033.461pt>
+<./Images/memNRF.png, id=592, 1420.8282pt x 1033.461pt>
 File: ./Images/memNRF.png Graphic file (type png)
 <use ./Images/memNRF.png>
-Package pdftex.def Info: ./Images/memNRF.png  used on input line 1439.
+Package pdftex.def Info: ./Images/memNRF.png  used on input line 1481.
 (pdftex.def)             Requested size: 426.25175pt x 310.0407pt.
-<./Images/memory2.png, id=541, 648.824pt x 766.865pt>
+<./Images/memory2.png, id=593, 648.824pt x 766.865pt>
 File: ./Images/memory2.png Graphic file (type png)
 <use ./Images/memory2.png>
-Package pdftex.def Info: ./Images/memory2.png  used on input line 1441.
+Package pdftex.def Info: ./Images/memory2.png  used on input line 1483.
 (pdftex.def)             Requested size: 259.525pt x 306.74057pt.
-[69] [70 <./Images/memNRF.png> <./Images/memory2.png>]
+[73] [74 <./Images/memNRF.png> <./Images/memory2.png>]
 
-Package natbib Warning: Citation `alotaibyReviewChannelSelection2015' on page 71 undefined on input line 1467.
-
-
-Package natbib Warning: Citation `ramoserOptimalSpatialFiltering2000' on page 71 undefined on input line 1474.
+Package natbib Warning: Citation `alotaibyReviewChannelSelection2015' on page 75 undefined on input line 1509.
 
 
-Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 71 undefined on input line 1474.
-
-[71]
-
-Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 72 undefined on input line 1483.
+Package natbib Warning: Citation `ramoserOptimalSpatialFiltering2000' on page 75 undefined on input line 1516.
 
 
-Package natbib Warning: Citation `yangEEGChannelSelection2018b' on page 72 undefined on input line 1527.
+Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 75 undefined on input line 1516.
 
-[72]
+[75]
 
-Package natbib Warning: Citation `schalkBCI2000GeneralpurposeBraincomputer2004' on page 73 undefined on input line 1533.
+Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 76 undefined on input line 1525.
 
 
-Package natbib Warning: Citation `thibeaultUsingHybridNeuron2013' on page 73 undefined on input line 1554.
+Package natbib Warning: Citation `yangEEGChannelSelection2018b' on page 76 undefined on input line 1569.
 
-[73] [74]
-Underfull \hbox (badness 10000) in paragraph at lines 1624--1624
+[76]
+
+Package natbib Warning: Citation `schalkBCI2000GeneralpurposeBraincomputer2004' on page 77 undefined on input line 1575.
+
+
+Package natbib Warning: Citation `thibeaultUsingHybridNeuron2013' on page 77 undefined on input line 1596.
+
+[77] [78]
+Underfull \hbox (badness 10000) in paragraph at lines 1666--1666
 []|\T1/cmr/m/n/12 Methods'
  []
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 1624--1624
+Underfull \hbox (badness 7047) in paragraph at lines 1666--1666
 []|\T1/cmr/m/n/12 No. of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1624--1624
+Underfull \hbox (badness 10000) in paragraph at lines 1666--1666
 \T1/cmr/m/n/12 Se-lected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1624--1624
+Underfull \hbox (badness 10000) in paragraph at lines 1666--1666
 \T1/cmr/m/n/12 Chan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1624--1624
+Underfull \hbox (badness 10000) in paragraph at lines 1666--1666
 \T1/cmr/m/n/12 nels/Total
  []
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 1624--1624
+Underfull \hbox (badness 7047) in paragraph at lines 1666--1666
 \T1/cmr/m/n/12 No. of
  []
 
 
-Overfull \hbox (5.15431pt too wide) in paragraph at lines 1626--1626
+Overfull \hbox (5.15431pt too wide) in paragraph at lines 1668--1668
 []|\T1/cmr/m/n/12 Afghanistan| 
  []
 
 
-Overfull \hbox (5.15431pt too wide) in paragraph at lines 1627--1627
+Overfull \hbox (5.15431pt too wide) in paragraph at lines 1669--1669
 []|\T1/cmr/m/n/12 Afghanistan| 
  []
 
 
-Package natbib Warning: Citation `reunanenOverfittingMakingComparisons' on page 75 undefined on input line 1637.
+Package natbib Warning: Citation `reunanenOverfittingMakingComparisons' on page 79 undefined on input line 1679.
 
 
-Package natbib Warning: Citation `pudilFloatingSearchMethods1994' on page 75 undefined on input line 1638.
+Package natbib Warning: Citation `pudilFloatingSearchMethods1994' on page 79 undefined on input line 1680.
 
 
-Package natbib Warning: Citation `kudoComparisonAlgorithmsThat2000' on page 75 undefined on input line 1639.
+Package natbib Warning: Citation `kudoComparisonAlgorithmsThat2000' on page 79 undefined on input line 1681.
 
-[75]
+[79]
 
-Package natbib Warning: Citation `reunanenOverfittingMakingComparisons' on page 76 undefined on input line 1643.
-
-
-Package natbib Warning: Citation `zongkerAlgorithmsFeatureSelection1996' on page 76 undefined on input line 1643.
+Package natbib Warning: Citation `reunanenOverfittingMakingComparisons' on page 80 undefined on input line 1685.
 
 
-Package natbib Warning: Citation `kudoComparisonAlgorithmsThat2000' on page 76 undefined on input line 1645.
+Package natbib Warning: Citation `zongkerAlgorithmsFeatureSelection1996' on page 80 undefined on input line 1685.
 
 
-Package natbib Warning: Citation `reunanenOverfittingMakingComparisons' on page 76 undefined on input line 1646.
+Package natbib Warning: Citation `kudoComparisonAlgorithmsThat2000' on page 80 undefined on input line 1687.
 
 
-Package natbib Warning: Citation `pudilFloatingSearchMethods1994' on page 76 undefined on input line 1646.
+Package natbib Warning: Citation `reunanenOverfittingMakingComparisons' on page 80 undefined on input line 1688.
 
 
-Package natbib Warning: Citation `radmanGeneralizedSequentialForward2019' on page 76 undefined on input line 1656.
-
-[76]
-
-Package natbib Warning: Citation `okwuMetaheuristicOptimizationNatureInspired2020' on page 77 undefined on input line 1662.
+Package natbib Warning: Citation `pudilFloatingSearchMethods1994' on page 80 undefined on input line 1688.
 
 
-Package natbib Warning: Citation `vanneschiParticleSwarmOptimization2023' on page 77 undefined on input line 1663.
+Package natbib Warning: Citation `radmanGeneralizedSequentialForward2019' on page 80 undefined on input line 1698.
+
+[80]
+
+Package natbib Warning: Citation `okwuMetaheuristicOptimizationNatureInspired2020' on page 81 undefined on input line 1704.
 
 
-Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 77 undefined on input line 1668.
+Package natbib Warning: Citation `vanneschiParticleSwarmOptimization2023' on page 81 undefined on input line 1705.
 
-<./Images/pso.png, id=624, 1405.25pt x 702.625pt>
+
+Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 81 undefined on input line 1710.
+
+<./Images/pso.png, id=675, 1405.25pt x 702.625pt>
 File: ./Images/pso.png Graphic file (type png)
 <use ./Images/pso.png>
-Package pdftex.def Info: ./Images/pso.png  used on input line 1683.
+Package pdftex.def Info: ./Images/pso.png  used on input line 1725.
 (pdftex.def)             Requested size: 491.84488pt x 245.92242pt.
 
-Overfull \hbox (36.60077pt too wide) in paragraph at lines 1683--1684
+Overfull \hbox (36.60077pt too wide) in paragraph at lines 1725--1726
 [][] 
  []
 
-[77]
+[81]
 
-Package natbib Warning: Citation `kennedyDiscreteBinaryVersion1997' on page 78 undefined on input line 1688.
+Package natbib Warning: Citation `kennedyDiscreteBinaryVersion1997' on page 82 undefined on input line 1730.
 
 
-Overfull \hbox (3.50215pt too wide) in paragraph at lines 1687--1689
+Overfull \hbox (3.50215pt too wide) in paragraph at lines 1729--1731
 []\T1/cmr/m/n/12 PSO has also a bi-nary im-ple-men-ta-tion called Bi-nary Par-ti-cle Swarm Op-ti-miza-tion (BPSO).
  []
 
 
-Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 78 undefined on input line 1692.
+Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 82 undefined on input line 1734.
 
 
-Package natbib Warning: Citation `coellocoelloMOPSOProposalMultiple2002' on page 78 undefined on input line 1703.
+Package natbib Warning: Citation `coellocoelloMOPSOProposalMultiple2002' on page 82 undefined on input line 1745.
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 1709--1709
+Underfull \hbox (badness 7047) in paragraph at lines 1751--1751
 []|\T1/cmr/m/n/12 No. of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1709--1709
+Underfull \hbox (badness 10000) in paragraph at lines 1751--1751
 \T1/cmr/m/n/12 Se-lected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1709--1709
+Underfull \hbox (badness 10000) in paragraph at lines 1751--1751
 \T1/cmr/m/n/12 Chan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1709--1709
+Underfull \hbox (badness 10000) in paragraph at lines 1751--1751
 \T1/cmr/m/n/12 nels/Total
  []
 
 
-Underfull \hbox (badness 7047) in paragraph at lines 1709--1709
+Underfull \hbox (badness 7047) in paragraph at lines 1751--1751
 \T1/cmr/m/n/12 No. of
  []
 
-[78 <./Images/pso.png>] [79]
+[82 <./Images/pso.png>] [83]
 
-Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 80 undefined on input line 1791.
+Package natbib Warning: Citation `abdullahEEGChannelSelection2022' on page 84 undefined on input line 1833.
 
-[80]
+[84]
 Chapter 4.
-[81
+[85
 
 
-] [82] [83]
-Overfull \hbox (28.17603pt too wide) detected at line 1879
+] [86] [87]
+Overfull \hbox (28.17603pt too wide) detected at line 1921
 [] \OT1/cmr/m/n/12 = [] + []
  []
 
-[84]
-Overfull \hbox (43.55327pt too wide) detected at line 1893
+[88]
+Overfull \hbox (43.55327pt too wide) detected at line 1935
 [] \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 ^^@ [] ^^B []
  []
 
-[85] [86] [87] [88]
-Underfull \hbox (badness 10000) in paragraph at lines 1951--1951
+[89] [90] [91] [92]
+Underfull \hbox (badness 10000) in paragraph at lines 1993--1993
 [][][][][]$\T1/cmtt/m/n/10 https : / / infocenter . nordicsemi . com / index . jsp ? topic = %2Fsdk _ nrf5 _ v17 . 1 . 0 % 2Flib _ peer _
  []
 
-[89]
+[93]
 
-LaTeX Warning: Reference `fig:peer_manager_architecture' on page 90 undefined on input line 1972.
+LaTeX Warning: Reference `fig:peer_manager_architecture' on page 94 undefined on input line 2014.
 
-[90] [91]
-Overfull \hbox (0.34999pt too wide) in paragraph at lines 1991--1992
+[94] [95]
+Overfull \hbox (0.34999pt too wide) in paragraph at lines 2033--2034
 []\T1/cmr/bx/n/12 Security pa-ram-e-ters min/max key size\T1/cmr/m/n/12 : these pa-ram-e-ters es-tab-lish what should
  []
 
 
-Overfull \hbox (48.63359pt too wide) in paragraph at lines 1998--1998
+Overfull \hbox (48.63359pt too wide) in paragraph at lines 2040--2040
 [][][][][]$\T1/cmtt/m/n/10 https : / / devzone . nordicsemi . com / f / nordic-[]q-[]a / 95369 / nrf52840-[]cannot-[]sniff-[]encrypted-[]connection$[][]| 
  []
 
-[92] [93]
-Overfull \hbox (36.92995pt too wide) in paragraph at lines 2014--2015
+[96] [97]
+Overfull \hbox (36.92995pt too wide) in paragraph at lines 2056--2057
 []\T1/cmr/bx/n/12 PM_LESC_ENABLED\T1/cmr/m/n/12 : it al-lows the func-tion call \T1/cmtt/m/n/12 nrf_ble_lesc_request_handler()
  []
 
 
-Overfull \hbox (12.66771pt too wide) in paragraph at lines 2015--2016
+Overfull \hbox (12.66771pt too wide) in paragraph at lines 2057--2058
 []\T1/cmr/bx/n/12 NRF_CRYPTO_BACKEND_NRF_HW_RNG_ENABLED\T1/cmr/m/n/12 : this is a con-
  []
 
 
-Overfull \hbox (11.1098pt too wide) in paragraph at lines 2016--2017
+Overfull \hbox (11.1098pt too wide) in paragraph at lines 2058--2059
 []\T1/cmr/bx/n/12 NRF_CRYPTO_BACKEND_OBERON_ENABLED\T1/cmr/m/n/12 : it en-ables the Oberon
  []
 
 
-Overfull \hbox (0.92891pt too wide) in paragraph at lines 2017--2018
+Overfull \hbox (0.92891pt too wide) in paragraph at lines 2059--2060
 []\T1/cmr/bx/n/12 NRF_CRYPTO_RNG_STATIC_MEMORY_BUFFERS_ENABLED\T1/cmr/m/n/12 :
  []
 
 
-Overfull \hbox (1.26495pt too wide) in paragraph at lines 2018--2019
+Overfull \hbox (1.26495pt too wide) in paragraph at lines 2060--2061
 []\T1/cmr/bx/n/12 NRF_CRYPTO_RNG_AUTO_INIT_ENABLED\T1/cmr/m/n/12 : it al-lows the au-to-matic
  []
 
 
-Overfull \hbox (10.71709pt too wide) in paragraph at lines 2019--2020
+Overfull \hbox (10.71709pt too wide) in paragraph at lines 2061--2062
 []\T1/cmr/bx/n/12 NRFX_RNG_ENABLED\T1/cmr/m/n/12 : used to en-able the Ran-dom Num-ber Gen-er-a-tor (RNG)
  []
 
-[94]
+[98]
 
-LaTeX Warning: Reference `eq:packet_exchange' on page 95 undefined on input line 2040.
+LaTeX Warning: Reference `eq:packet_exchange' on page 99 undefined on input line 2082.
 
-[95]
+[99]
 
-LaTeX Warning: Reference `eq:packet_exchange' on page 96 undefined on input line 2074.
+LaTeX Warning: Reference `eq:packet_exchange' on page 100 undefined on input line 2116.
 
-[96]
+[100]
 
-LaTeX Warning: Reference `eq:t_empty_packet' on page 97 undefined on input line 2104.
-
-
-LaTeX Warning: Reference `eq:t_full_size_packet' on page 97 undefined on input line 2104.
+LaTeX Warning: Reference `eq:t_empty_packet' on page 101 undefined on input line 2146.
 
 
-Overfull \hbox (17.87077pt too wide) in paragraph at lines 2104--2105
+LaTeX Warning: Reference `eq:t_full_size_packet' on page 101 undefined on input line 2146.
+
+
+Overfull \hbox (17.87077pt too wide) in paragraph at lines 2146--2147
 []\T1/cmr/m/n/12 According to Equa-tion [] and Equa-tion [], the two time val-ues for this case are: $\OML/cmm/m/it/12 t[] \OT1/cmr/m/n/12 =
  []
 
 
-Overfull \hbox (0.19183pt too wide) in paragraph at lines 2106--2107
+Overfull \hbox (0.19183pt too wide) in paragraph at lines 2148--2149
 []\T1/cmr/m/n/12 By re-peat-ing the same pro-cess done in Case 1, the re-sults are the fol-low-ing: $\OML/cmm/m/it/12 t[] \OT1/cmr/m/n/12 =
  []
 
 
-LaTeX Warning: Reference `eq:size_empty_packet' on page 97 undefined on input line 2112.
+LaTeX Warning: Reference `eq:size_empty_packet' on page 101 undefined on input line 2154.
 
 
-LaTeX Warning: Reference `eq:size_full_size_packet' on page 97 undefined on input line 2112.
+LaTeX Warning: Reference `eq:size_full_size_packet' on page 101 undefined on input line 2154.
 
-<./Images/Test_Procedure/1.png, id=773, 530.98375pt x 227.85126pt>
+<./Images/Test_Procedure/1.png, id=823, 530.98375pt x 227.85126pt>
 File: ./Images/Test_Procedure/1.png Graphic file (type png)
 <use ./Images/Test_Procedure/1.png>
-Package pdftex.def Info: ./Images/Test_Procedure/1.png  used on input line 2135.
+Package pdftex.def Info: ./Images/Test_Procedure/1.png  used on input line 2177.
 (pdftex.def)             Requested size: 159.29634pt x 68.3559pt.
-[97]
-<./Images/Test_Procedure/2.png, id=785, 591.20876pt x 189.70876pt>
+[101]
+<./Images/Test_Procedure/2.png, id=837, 591.20876pt x 189.70876pt>
 File: ./Images/Test_Procedure/2.png Graphic file (type png)
 <use ./Images/Test_Procedure/2.png>
-Package pdftex.def Info: ./Images/Test_Procedure/2.png  used on input line 2157.
+Package pdftex.def Info: ./Images/Test_Procedure/2.png  used on input line 2199.
 (pdftex.def)             Requested size: 177.36398pt x 56.91306pt.
-<./Images/Test_Procedure/3.png, id=786, 602.25pt x 295.1025pt>
+<./Images/Test_Procedure/3.png, id=838, 602.25pt x 295.1025pt>
 File: ./Images/Test_Procedure/3.png Graphic file (type png)
 <use ./Images/Test_Procedure/3.png>
-Package pdftex.def Info: ./Images/Test_Procedure/3.png  used on input line 2166.
+Package pdftex.def Info: ./Images/Test_Procedure/3.png  used on input line 2208.
 (pdftex.def)             Requested size: 602.24852pt x 295.10176pt.
 
-Overfull \hbox (147.00441pt too wide) in paragraph at lines 2166--2169
+Overfull \hbox (147.00441pt too wide) in paragraph at lines 2208--2211
  [][] 
  []
 
-[98 <./Images/Test_Procedure/1.png> <./Images/Test_Procedure/2.png>] [99 <./Images/Test_Procedure/3.png>]
-<./Images/Test_Procedure/4.png, id=801, 414.54875pt x 255.95625pt>
+[102 <./Images/Test_Procedure/1.png> <./Images/Test_Procedure/2.png>] [103 <./Images/Test_Procedure/3.png>]
+<./Images/Test_Procedure/4.png, id=853, 414.54875pt x 255.95625pt>
 File: ./Images/Test_Procedure/4.png Graphic file (type png)
 <use ./Images/Test_Procedure/4.png>
-Package pdftex.def Info: ./Images/Test_Procedure/4.png  used on input line 2179.
+Package pdftex.def Info: ./Images/Test_Procedure/4.png  used on input line 2221.
 (pdftex.def)             Requested size: 124.36557pt x 76.78746pt.
-<./Images/Test_Procedure/5.png, id=802, 413.545pt x 264.99pt>
+<./Images/Test_Procedure/5.png, id=854, 413.545pt x 264.99pt>
 File: ./Images/Test_Procedure/5.png Graphic file (type png)
 <use ./Images/Test_Procedure/5.png>
-Package pdftex.def Info: ./Images/Test_Procedure/5.png  used on input line 2186.
+Package pdftex.def Info: ./Images/Test_Procedure/5.png  used on input line 2228.
 (pdftex.def)             Requested size: 124.06445pt x 79.4976pt.
-<./Images/Test_Procedure/6.png, id=803, 413.545pt x 350.30875pt>
+<./Images/Test_Procedure/6.png, id=855, 413.545pt x 350.30875pt>
 File: ./Images/Test_Procedure/6.png Graphic file (type png)
 <use ./Images/Test_Procedure/6.png>
-Package pdftex.def Info: ./Images/Test_Procedure/6.png  used on input line 2193.
+Package pdftex.def Info: ./Images/Test_Procedure/6.png  used on input line 2235.
 (pdftex.def)             Requested size: 124.06445pt x 105.09343pt.
-<./Images/Test_Procedure/7.png, id=804, 413.545pt x 224.84pt>
+<./Images/Test_Procedure/7.png, id=856, 413.545pt x 224.84pt>
 File: ./Images/Test_Procedure/7.png Graphic file (type png)
 <use ./Images/Test_Procedure/7.png>
-Package pdftex.def Info: ./Images/Test_Procedure/7.png  used on input line 2200.
+Package pdftex.def Info: ./Images/Test_Procedure/7.png  used on input line 2242.
 (pdftex.def)             Requested size: 124.06445pt x 67.45251pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/8.png, id=805, 574.145pt x 340.27126pt>
+<./Images/Test_Procedure/8.png, id=857, 574.145pt x 340.27126pt>
 File: ./Images/Test_Procedure/8.png Graphic file (type png)
 <use ./Images/Test_Procedure/8.png>
-Package pdftex.def Info: ./Images/Test_Procedure/8.png  used on input line 2212.
+Package pdftex.def Info: ./Images/Test_Procedure/8.png  used on input line 2254.
 (pdftex.def)             Requested size: 172.24483pt x 102.08215pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/9.png, id=806, 217.81375pt x 103.38625pt>
+<./Images/Test_Procedure/9.png, id=858, 217.81375pt x 103.38625pt>
 File: ./Images/Test_Procedure/9.png Graphic file (type png)
 <use ./Images/Test_Procedure/9.png>
-Package pdftex.def Info: ./Images/Test_Procedure/9.png  used on input line 2221.
+Package pdftex.def Info: ./Images/Test_Procedure/9.png  used on input line 2263.
 (pdftex.def)             Requested size: 65.34462pt x 31.0161pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/10.png, id=807, 217.81375pt x 137.51375pt>
+<./Images/Test_Procedure/10.png, id=859, 217.81375pt x 137.51375pt>
 File: ./Images/Test_Procedure/10.png Graphic file (type png)
 <use ./Images/Test_Procedure/10.png>
-Package pdftex.def Info: ./Images/Test_Procedure/10.png  used on input line 2228.
+Package pdftex.def Info: ./Images/Test_Procedure/10.png  used on input line 2270.
 (pdftex.def)             Requested size: 65.34462pt x 41.25444pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:power_profiler_kit_app' on page 100 undefined on input line 2233.
+LaTeX Warning: Reference `fig:power_profiler_kit_app' on page 104 undefined on input line 2275.
 
-<./Images/Test_Procedure/11.png, id=808, 282.05376pt x 245.91875pt>
+<./Images/Test_Procedure/11.png, id=860, 282.05376pt x 245.91875pt>
 File: ./Images/Test_Procedure/11.png Graphic file (type png)
 <use ./Images/Test_Procedure/11.png>
-Package pdftex.def Info: ./Images/Test_Procedure/11.png  used on input line 2237.
+Package pdftex.def Info: ./Images/Test_Procedure/11.png  used on input line 2279.
 (pdftex.def)             Requested size: 84.61678pt x 73.77618pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:power_profiler_app_source_meter_mode' on page 100 undefined on input line 2242.
+LaTeX Warning: Reference `fig:power_profiler_app_source_meter_mode' on page 104 undefined on input line 2284.
 
-<./Images/Test_Procedure/12.png, id=809, 581.17125pt x 310.15875pt>
+<./Images/Test_Procedure/12.png, id=861, 581.17125pt x 310.15875pt>
 File: ./Images/Test_Procedure/12.png Graphic file (type png)
 <use ./Images/Test_Procedure/12.png>
-Package pdftex.def Info: ./Images/Test_Procedure/12.png  used on input line 2246.
+Package pdftex.def Info: ./Images/Test_Procedure/12.png  used on input line 2288.
 (pdftex.def)             Requested size: 174.35272pt x 93.04834pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:power_profiler_app_amperemeter_mode' on page 100 undefined on input line 2251.
+LaTeX Warning: Reference `fig:power_profiler_app_amperemeter_mode' on page 104 undefined on input line 2293.
 
-[100 <./Images/Test_Procedure/4.png> <./Images/Test_Procedure/5.png> <./Images/Test_Procedure/6.png>]
-<./Images/Test_Procedure/13.png, id=821, 581.17125pt x 310.15875pt>
+[104 <./Images/Test_Procedure/4.png> <./Images/Test_Procedure/5.png> <./Images/Test_Procedure/6.png>]
+<./Images/Test_Procedure/13.png, id=873, 581.17125pt x 310.15875pt>
 File: ./Images/Test_Procedure/13.png Graphic file (type png)
 <use ./Images/Test_Procedure/13.png>
-Package pdftex.def Info: ./Images/Test_Procedure/13.png  used on input line 2255.
+Package pdftex.def Info: ./Images/Test_Procedure/13.png  used on input line 2297.
 (pdftex.def)             Requested size: 174.35272pt x 93.04834pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/14.png, id=822, 581.17125pt x 310.15875pt>
+<./Images/Test_Procedure/14.png, id=874, 581.17125pt x 310.15875pt>
 File: ./Images/Test_Procedure/14.png Graphic file (type png)
 <use ./Images/Test_Procedure/14.png>
-Package pdftex.def Info: ./Images/Test_Procedure/14.png  used on input line 2264.
+Package pdftex.def Info: ./Images/Test_Procedure/14.png  used on input line 2306.
 (pdftex.def)             Requested size: 174.35272pt x 93.04834pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/15.png, id=825, 231.86626pt x 255.95625pt>
+<./Images/Test_Procedure/15.png, id=877, 231.86626pt x 255.95625pt>
 File: ./Images/Test_Procedure/15.png Graphic file (type png)
 <use ./Images/Test_Procedure/15.png>
-Package pdftex.def Info: ./Images/Test_Procedure/15.png  used on input line 2273.
+Package pdftex.def Info: ./Images/Test_Procedure/15.png  used on input line 2315.
 (pdftex.def)             Requested size: 69.56041pt x 76.78746pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/16.png, id=826, 264.99pt x 204.765pt>
+<./Images/Test_Procedure/16.png, id=878, 264.99pt x 204.765pt>
 File: ./Images/Test_Procedure/16.png Graphic file (type png)
 <use ./Images/Test_Procedure/16.png>
-Package pdftex.def Info: ./Images/Test_Procedure/16.png  used on input line 2282.
+Package pdftex.def Info: ./Images/Test_Procedure/16.png  used on input line 2324.
 (pdftex.def)             Requested size: 79.4976pt x 61.42996pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/17.png, id=827, 270.00874pt x 362.35374pt>
+<./Images/Test_Procedure/17.png, id=879, 270.00874pt x 362.35374pt>
 File: ./Images/Test_Procedure/17.png Graphic file (type png)
 <use ./Images/Test_Procedure/17.png>
-Package pdftex.def Info: ./Images/Test_Procedure/17.png  used on input line 2291.
+Package pdftex.def Info: ./Images/Test_Procedure/17.png  used on input line 2333.
 (pdftex.def)             Requested size: 81.00323pt x 108.70695pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:cutting_process_SB9' on page 101 undefined on input line 2296.
+LaTeX Warning: Reference `fig:cutting_process_SB9' on page 105 undefined on input line 2338.
 
-<./Images/Test_Procedure/18.png, id=828, 583.17876pt x 312.16624pt>
+<./Images/Test_Procedure/18.png, id=880, 583.17876pt x 312.16624pt>
 File: ./Images/Test_Procedure/18.png Graphic file (type png)
 <use ./Images/Test_Procedure/18.png>
-Package pdftex.def Info: ./Images/Test_Procedure/18.png  used on input line 2300.
+Package pdftex.def Info: ./Images/Test_Procedure/18.png  used on input line 2342.
 (pdftex.def)             Requested size: 174.95497pt x 93.65059pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:current_measurement_BLE_communication' on page 101 undefined on input line 2305.
+LaTeX Warning: Reference `fig:current_measurement_BLE_communication' on page 105 undefined on input line 2347.
 
-[101 <./Images/Test_Procedure/7.png> <./Images/Test_Procedure/8.png>]
-<./Images/Test_Procedure/19.png, id=839, 583.17876pt x 312.16624pt>
+[105 <./Images/Test_Procedure/7.png> <./Images/Test_Procedure/8.png>]
+<./Images/Test_Procedure/19.png, id=890, 583.17876pt x 312.16624pt>
 File: ./Images/Test_Procedure/19.png Graphic file (type png)
 <use ./Images/Test_Procedure/19.png>
-Package pdftex.def Info: ./Images/Test_Procedure/19.png  used on input line 2309.
+Package pdftex.def Info: ./Images/Test_Procedure/19.png  used on input line 2351.
 (pdftex.def)             Requested size: 174.95497pt x 93.65059pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:current_consumption_connection_interval' on page 102 undefined on input line 2314.
+LaTeX Warning: Reference `fig:current_consumption_connection_interval' on page 106 undefined on input line 2356.
 
 
-LaTeX Warning: Reference `fig:current_measurement_BLE_communication' on page 102 undefined on input line 2314.
+LaTeX Warning: Reference `fig:current_measurement_BLE_communication' on page 106 undefined on input line 2356.
 
-<./Images/Test_Procedure/20.png, id=840, 558.085pt x 144.54pt>
+<./Images/Test_Procedure/20.png, id=891, 558.085pt x 144.54pt>
 File: ./Images/Test_Procedure/20.png Graphic file (type png)
 <use ./Images/Test_Procedure/20.png>
-Package pdftex.def Info: ./Images/Test_Procedure/20.png  used on input line 2318.
+Package pdftex.def Info: ./Images/Test_Procedure/20.png  used on input line 2360.
 (pdftex.def)             Requested size: 167.42679pt x 43.36232pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./Images/Test_Procedure/21.png, id=841, 475.7775pt x 287.0725pt>
+<./Images/Test_Procedure/21.png, id=892, 475.7775pt x 287.0725pt>
 File: ./Images/Test_Procedure/21.png Graphic file (type png)
 <use ./Images/Test_Procedure/21.png>
-Package pdftex.def Info: ./Images/Test_Procedure/21.png  used on input line 2325.
+Package pdftex.def Info: ./Images/Test_Procedure/21.png  used on input line 2367.
 (pdftex.def)             Requested size: 142.73434pt x 86.1224pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[102 <./Images/Test_Procedure/9.png> <./Images/Test_Procedure/10.png>]
+[106 <./Images/Test_Procedure/9.png> <./Images/Test_Procedure/10.png>]
 
-LaTeX Warning: Reference `fig:user_command_sending_procedure' on page 103 undefined on input line 2340.
+LaTeX Warning: Reference `fig:user_command_sending_procedure' on page 107 undefined on input line 2382.
 
-<./Images/Multicentral/1.png, id=855, 519.9425pt x 412.54124pt>
+<./Images/Multicentral/1.png, id=905, 519.9425pt x 412.54124pt>
 File: ./Images/Multicentral/1.png Graphic file (type png)
 <use ./Images/Multicentral/1.png>
-Package pdftex.def Info: ./Images/Multicentral/1.png  used on input line 2344.
+Package pdftex.def Info: ./Images/Multicentral/1.png  used on input line 2386.
 (pdftex.def)             Requested size: 155.98395pt x 123.76332pt.
 
-LaTeX Warning: Reference `fig:multicentral_implementation' on page 103 undefined on input line 2349.
+LaTeX Warning: Reference `fig:multicentral_implementation' on page 107 undefined on input line 2391.
 
-<./Images/Multicentral/2.png, id=856, 619.31375pt x 423.5825pt>
+<./Images/Multicentral/2.png, id=906, 619.31375pt x 423.5825pt>
 File: ./Images/Multicentral/2.png Graphic file (type png)
 <use ./Images/Multicentral/2.png>
-Package pdftex.def Info: ./Images/Multicentral/2.png  used on input line 2354.
+Package pdftex.def Info: ./Images/Multicentral/2.png  used on input line 2396.
 (pdftex.def)             Requested size: 185.79555pt x 127.07573pt.
-[103 <./Images/Test_Procedure/11.png> <./Images/Test_Procedure/12.png> <./Images/Multicentral/1.png>]
+[107 <./Images/Test_Procedure/11.png> <./Images/Test_Procedure/12.png> <./Images/Multicentral/1.png>]
 
-LaTeX Warning: Reference `fig:memory_allocation_seggar' on page 104 undefined on input line 2366.
+LaTeX Warning: Reference `fig:memory_allocation_seggar' on page 108 undefined on input line 2408.
 
 
-Overfull \hbox (22.61238pt too wide) in paragraph at lines 2366--2367
+Overfull \hbox (22.61238pt too wide) in paragraph at lines 2408--2409
 \T1/cmr/m/n/12 first one re-lates to the con-fig-u-ra-tion file. In par-tic-u-lar, the \T1/cmtt/m/n/12 NRF_SDH_BLE_CENTRAL_LINK_COUNT
  []
 
-[104 <./Images/Test_Procedure/13.png> <./Images/Test_Procedure/14.png> <./Images/Multicentral/2.png>]
-<./Images/Multicentral/3.png, id=882, 747.79375pt x 349.305pt>
+[108 <./Images/Test_Procedure/13.png> <./Images/Test_Procedure/14.png> <./Images/Multicentral/2.png>]
+<./Images/Multicentral/3.png, id=933, 747.79375pt x 349.305pt>
 File: ./Images/Multicentral/3.png Graphic file (type png)
 <use ./Images/Multicentral/3.png>
-Package pdftex.def Info: ./Images/Multicentral/3.png  used on input line 2370.
+Package pdftex.def Info: ./Images/Multicentral/3.png  used on input line 2412.
 (pdftex.def)             Requested size: 224.33984pt x 104.7923pt.
 
 
-LaTeX Warning: Reference `fig:memory_allocation_error' on page 105 undefined on input line 2375.
+LaTeX Warning: Reference `fig:memory_allocation_error' on page 109 undefined on input line 2417.
 
-<./Images/Multicentral/4.png, id=883, 765.86125pt x 259.97125pt>
+<./Images/Multicentral/4.png, id=934, 765.86125pt x 259.97125pt>
 File: ./Images/Multicentral/4.png Graphic file (type png)
 <use ./Images/Multicentral/4.png>
-Package pdftex.def Info: ./Images/Multicentral/4.png  used on input line 2379.
+Package pdftex.def Info: ./Images/Multicentral/4.png  used on input line 2421.
 (pdftex.def)             Requested size: 229.76015pt x 77.99197pt.
-[105 <./Images/Test_Procedure/15.png> <./Images/Test_Procedure/16.png> <./Images/Multicentral/3.png>] [106 <./Images/Test_Procedure/17.png> <./Images/Test_Procedure/18.png>]
-<./Images/Multicentral/5.png, id=903, 600.2425pt x 305.14pt>
+[109 <./Images/Test_Procedure/15.png> <./Images/Test_Procedure/16.png> <./Images/Multicentral/3.png>] [110 <./Images/Test_Procedure/17.png> <./Images/Test_Procedure/18.png>]
+<./Images/Multicentral/5.png, id=954, 600.2425pt x 305.14pt>
 File: ./Images/Multicentral/5.png Graphic file (type png)
 <use ./Images/Multicentral/5.png>
-Package pdftex.def Info: ./Images/Multicentral/5.png  used on input line 2393.
+Package pdftex.def Info: ./Images/Multicentral/5.png  used on input line 2435.
 (pdftex.def)             Requested size: 180.07413pt x 91.5427pt.
- [107 <./Images/Test_Procedure/19.png> <./Images/Test_Procedure/20.png> <./Images/Multicentral/5.png>]
-<./Images/Multicentral/6.png, id=915, 560.0925pt x 458.71375pt>
+ [111 <./Images/Test_Procedure/19.png> <./Images/Test_Procedure/20.png> <./Images/Multicentral/5.png>]
+<./Images/Multicentral/6.png, id=965, 560.0925pt x 458.71375pt>
 File: ./Images/Multicentral/6.png Graphic file (type png)
 <use ./Images/Multicentral/6.png>
-Package pdftex.def Info: ./Images/Multicentral/6.png  used on input line 2411.
+Package pdftex.def Info: ./Images/Multicentral/6.png  used on input line 2453.
 (pdftex.def)             Requested size: 168.02904pt x 137.61519pt.
-<./Images/Multicentral/7.png, id=916, 282.05376pt x 480.79625pt>
+<./Images/Multicentral/7.png, id=966, 282.05376pt x 480.79625pt>
 File: ./Images/Multicentral/7.png Graphic file (type png)
 <use ./Images/Multicentral/7.png>
-Package pdftex.def Info: ./Images/Multicentral/7.png  used on input line 2420.
+Package pdftex.def Info: ./Images/Multicentral/7.png  used on input line 2462.
 (pdftex.def)             Requested size: 84.61678pt x 144.23997pt.
- [108 <./Images/Test_Procedure/21.png> <./Images/Multicentral/4.png> <./Images/Multicentral/6.png>]
-<./Images/Multicentral/8.png, id=928, 393.47pt x 292.09125pt>
+ [112 <./Images/Test_Procedure/21.png> <./Images/Multicentral/4.png> <./Images/Multicentral/6.png>]
+<./Images/Multicentral/8.png, id=978, 393.47pt x 292.09125pt>
 File: ./Images/Multicentral/8.png Graphic file (type png)
 <use ./Images/Multicentral/8.png>
-Package pdftex.def Info: ./Images/Multicentral/8.png  used on input line 2429.
+Package pdftex.def Info: ./Images/Multicentral/8.png  used on input line 2471.
 (pdftex.def)             Requested size: 118.0419pt x 87.62804pt.
-<./Images/Multicentral/9.png, id=929, 389.455pt x 208.78pt>
+<./Images/Multicentral/9.png, id=979, 389.455pt x 208.78pt>
 File: ./Images/Multicentral/9.png Graphic file (type png)
 <use ./Images/Multicentral/9.png>
-Package pdftex.def Info: ./Images/Multicentral/9.png  used on input line 2438.
+Package pdftex.def Info: ./Images/Multicentral/9.png  used on input line 2480.
 (pdftex.def)             Requested size: 116.83739pt x 62.63448pt.
-<./Images/Multicentral/10.png, id=930, 325.215pt x 378.41376pt>
+<./Images/Multicentral/10.png, id=980, 325.215pt x 378.41376pt>
 File: ./Images/Multicentral/10.png Graphic file (type png)
 <use ./Images/Multicentral/10.png>
-Package pdftex.def Info: ./Images/Multicentral/10.png  used on input line 2447.
+Package pdftex.def Info: ./Images/Multicentral/10.png  used on input line 2489.
 (pdftex.def)             Requested size: 97.56525pt x 113.525pt.
- [109 <./Images/Multicentral/7.png> <./Images/Multicentral/8.png> <./Images/Multicentral/9.png> <./Images/Multicentral/10.png>]
-<./Images/Multicentral/11.png, id=943, 264.99pt x 457.71pt>
+ [113 <./Images/Multicentral/7.png> <./Images/Multicentral/8.png> <./Images/Multicentral/9.png> <./Images/Multicentral/10.png>]
+<./Images/Multicentral/11.png, id=994, 264.99pt x 457.71pt>
 File: ./Images/Multicentral/11.png Graphic file (type png)
 <use ./Images/Multicentral/11.png>
-Package pdftex.def Info: ./Images/Multicentral/11.png  used on input line 2458.
+Package pdftex.def Info: ./Images/Multicentral/11.png  used on input line 2500.
 (pdftex.def)             Requested size: 79.4976pt x 137.31406pt.
-<./Images/Multicentral/12.png, id=944, 264.99pt x 109.40875pt>
+<./Images/Multicentral/12.png, id=995, 264.99pt x 109.40875pt>
 File: ./Images/Multicentral/12.png Graphic file (type png)
 <use ./Images/Multicentral/12.png>
-Package pdftex.def Info: ./Images/Multicentral/12.png  used on input line 2467.
+Package pdftex.def Info: ./Images/Multicentral/12.png  used on input line 2509.
 (pdftex.def)             Requested size: 79.4976pt x 32.82286pt.
- [110 <./Images/Multicentral/11.png> <./Images/Multicentral/12.png>]
+ [114 <./Images/Multicentral/11.png> <./Images/Multicentral/12.png>]
 
-LaTeX Warning: Reference `fig:blelist' on page 111 undefined on input line 2480.
+LaTeX Warning: Reference `fig:blelist' on page 115 undefined on input line 2522.
 
-<./Images/Board_Windows_PC/1.png, id=957, 374.39874pt x 331.2375pt>
+<./Images/Board_Windows_PC/1.png, id=1008, 374.39874pt x 331.2375pt>
 File: ./Images/Board_Windows_PC/1.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/1.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/1.png  used on input line 2484.
+Package pdftex.def Info: ./Images/Board_Windows_PC/1.png  used on input line 2526.
 (pdftex.def)             Requested size: 262.07733pt x 231.86465pt.
 
-LaTeX Warning: Reference `fig:advertisement' on page 111 undefined on input line 2489.
+LaTeX Warning: Reference `fig:advertisement' on page 115 undefined on input line 2531.
 
-<./Images/Board_Windows_PC/2.png, id=958, 738.76pt x 211.79124pt>
+<./Images/Board_Windows_PC/2.png, id=1009, 738.76pt x 211.79124pt>
 File: ./Images/Board_Windows_PC/2.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/2.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/2.png  used on input line 2493.
+Package pdftex.def Info: ./Images/Board_Windows_PC/2.png  used on input line 2535.
 (pdftex.def)             Requested size: 517.12846pt x 148.25285pt.
 
-Overfull \hbox (61.88435pt too wide) in paragraph at lines 2493--2496
+Overfull \hbox (61.88435pt too wide) in paragraph at lines 2535--2538
  [][] 
  []
 
-[111 <./Images/Board_Windows_PC/1.png>]
+[115 <./Images/Board_Windows_PC/1.png>]
 
-LaTeX Warning: Reference `fig:ble_object' on page 112 undefined on input line 2498.
+LaTeX Warning: Reference `fig:ble_object' on page 116 undefined on input line 2540.
 
-<./Images/Board_Windows_PC/3.png, id=966, 745.78625pt x 291.0875pt>
+<./Images/Board_Windows_PC/3.png, id=1017, 745.78625pt x 291.0875pt>
 File: ./Images/Board_Windows_PC/3.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/3.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/3.png  used on input line 2502.
+Package pdftex.def Info: ./Images/Board_Windows_PC/3.png  used on input line 2544.
 (pdftex.def)             Requested size: 522.04683pt x 203.75984pt.
 
-Overfull \hbox (66.80272pt too wide) in paragraph at lines 2502--2505
+Overfull \hbox (66.80272pt too wide) in paragraph at lines 2544--2547
  [][] 
  []
 
 
-LaTeX Warning: Reference `fig:characteristics' on page 112 undefined on input line 2507.
+LaTeX Warning: Reference `fig:characteristics' on page 116 undefined on input line 2549.
 
-<./Images/Board_Windows_PC/4.png, id=967, 247.92625pt x 207.77625pt>
+<./Images/Board_Windows_PC/4.png, id=1018, 247.92625pt x 207.77625pt>
 File: ./Images/Board_Windows_PC/4.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/4.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/4.png  used on input line 2511.
+Package pdftex.def Info: ./Images/Board_Windows_PC/4.png  used on input line 2553.
 (pdftex.def)             Requested size: 173.54718pt x 145.44237pt.
-[112 <./Images/Board_Windows_PC/2.png> <./Images/Board_Windows_PC/3.png>]
+[116 <./Images/Board_Windows_PC/2.png> <./Images/Board_Windows_PC/3.png>]
 
-LaTeX Warning: Reference `fig:characteristics' on page 113 undefined on input line 2516.
+LaTeX Warning: Reference `fig:characteristics' on page 117 undefined on input line 2558.
 
 
-Overfull \hbox (37.13615pt too wide) in paragraph at lines 2522--2522
+Overfull \hbox (37.13615pt too wide) in paragraph at lines 2564--2564
 [][][][][]$\T1/cmtt/m/n/10 https : / / it . mathworks . com / help / matlab / creating _ plots / create-[]callbacks-[]for-[]graphics-[]objects .
  []
 
 
-LaTeX Warning: Reference `fig:received_data' on page 113 undefined on input line 2524.
+LaTeX Warning: Reference `fig:received_data' on page 117 undefined on input line 2566.
 
-[113 <./Images/Board_Windows_PC/4.png>]
-<./Images/Board_Windows_PC/5.png, id=987, 746.79pt x 300.12125pt>
+[117 <./Images/Board_Windows_PC/4.png>]
+<./Images/Board_Windows_PC/5.png, id=1038, 746.79pt x 300.12125pt>
 File: ./Images/Board_Windows_PC/5.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/5.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/5.png  used on input line 2528.
+Package pdftex.def Info: ./Images/Board_Windows_PC/5.png  used on input line 2570.
 (pdftex.def)             Requested size: 522.74942pt x 210.08344pt.
 
-Overfull \hbox (67.50531pt too wide) in paragraph at lines 2528--2531
+Overfull \hbox (67.50531pt too wide) in paragraph at lines 2570--2573
  [][] 
  []
 
-[114 <./Images/Board_Windows_PC/5.png>]
+[118 <./Images/Board_Windows_PC/5.png>]
 
-LaTeX Warning: Reference `fig:shifted_bytes' on page 115 undefined on input line 2543.
+LaTeX Warning: Reference `fig:shifted_bytes' on page 119 undefined on input line 2585.
 
 
-LaTeX Warning: Reference `fig:characteristics' on page 115 undefined on input line 2543.
+LaTeX Warning: Reference `fig:characteristics' on page 119 undefined on input line 2585.
 
-<./Images/Board_Windows_PC/6.png, id=995, 746.79pt x 308.15125pt>
+<./Images/Board_Windows_PC/6.png, id=1046, 746.79pt x 308.15125pt>
 File: ./Images/Board_Windows_PC/6.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/6.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/6.png  used on input line 2547.
+Package pdftex.def Info: ./Images/Board_Windows_PC/6.png  used on input line 2589.
 (pdftex.def)             Requested size: 522.74942pt x 215.70439pt.
 
-Overfull \hbox (67.50531pt too wide) in paragraph at lines 2547--2550
+Overfull \hbox (67.50531pt too wide) in paragraph at lines 2589--2592
  [][] 
  []
 
 
-LaTeX Warning: Reference `fig:shifted_data' on page 115 undefined on input line 2552.
+LaTeX Warning: Reference `fig:shifted_data' on page 119 undefined on input line 2594.
 
-[115 <./Images/Board_Windows_PC/6.png>]
-<./Images/Board_Windows_PC/7.png, id=1009, 746.79pt x 305.14pt>
+[119 <./Images/Board_Windows_PC/6.png>]
+<./Images/Board_Windows_PC/7.png, id=1061, 746.79pt x 305.14pt>
 File: ./Images/Board_Windows_PC/7.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/7.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/7.png  used on input line 2556.
+Package pdftex.def Info: ./Images/Board_Windows_PC/7.png  used on input line 2598.
 (pdftex.def)             Requested size: 318.66948pt x 130.20657pt.
 
 
-LaTeX Warning: Reference `fig:timers' on page 116 undefined on input line 2571.
+LaTeX Warning: Reference `fig:timers' on page 120 undefined on input line 2613.
 
-[116 <./Images/Board_Windows_PC/7.png>]
-<./Images/Board_Windows_PC/9.png, id=1019, 658.46pt x 257.96375pt>
+[120 <./Images/Board_Windows_PC/7.png>]
+<./Images/Board_Windows_PC/9.png, id=1070, 658.46pt x 257.96375pt>
 File: ./Images/Board_Windows_PC/9.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/9.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/9.png  used on input line 2575.
+Package pdftex.def Info: ./Images/Board_Windows_PC/9.png  used on input line 2617.
 (pdftex.def)             Requested size: 460.91887pt x 180.57338pt.
 
-Overfull \hbox (5.67476pt too wide) in paragraph at lines 2575--2578
+Overfull \hbox (5.67476pt too wide) in paragraph at lines 2617--2620
  [][] 
  []
 
-[117 <./Images/Board_Windows_PC/9.png>]
+[121 <./Images/Board_Windows_PC/9.png>]
 
-LaTeX Warning: Reference `fig:state_machine' on page 118 undefined on input line 2600.
+LaTeX Warning: Reference `fig:state_machine' on page 122 undefined on input line 2642.
 
-<./Images/Board_Windows_PC/10.png, id=1034, 793.96625pt x 454.69875pt>
+<./Images/Board_Windows_PC/10.png, id=1085, 793.96625pt x 454.69875pt>
 File: ./Images/Board_Windows_PC/10.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/10.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/10.png  used on input line 2613.
+Package pdftex.def Info: ./Images/Board_Windows_PC/10.png  used on input line 2655.
 (pdftex.def)             Requested size: 555.77258pt x 318.28694pt.
 
-Overfull \hbox (100.52847pt too wide) in paragraph at lines 2613--2616
+Overfull \hbox (100.52847pt too wide) in paragraph at lines 2655--2658
  [][] 
  []
 
-[118]
-<./Images/Board_Windows_PC/11.png, id=1045, 526.96875pt x 440.64626pt>
+[122]
+<./Images/Board_Windows_PC/11.png, id=1096, 526.96875pt x 440.64626pt>
 File: ./Images/Board_Windows_PC/11.png Graphic file (type png)
 <use ./Images/Board_Windows_PC/11.png>
-Package pdftex.def Info: ./Images/Board_Windows_PC/11.png  used on input line 2630.
+Package pdftex.def Info: ./Images/Board_Windows_PC/11.png  used on input line 2672.
 (pdftex.def)             Requested size: 368.8756pt x 308.45027pt.
- [119 <./Images/Board_Windows_PC/10.png>] [120 <./Images/Board_Windows_PC/11.png>] [121]
-<./Images/acquiredStimuli.png, id=1066, 596.2275pt x 737.75626pt>
+ [123 <./Images/Board_Windows_PC/10.png>] [124 <./Images/Board_Windows_PC/11.png>] [125]
+<./Images/acquiredStimuli.png, id=1117, 596.2275pt x 737.75626pt>
 File: ./Images/acquiredStimuli.png Graphic file (type png)
 <use ./Images/acquiredStimuli.png>
-Package pdftex.def Info: ./Images/acquiredStimuli.png  used on input line 2706.
+Package pdftex.def Info: ./Images/acquiredStimuli.png  used on input line 2748.
 (pdftex.def)             Requested size: 238.48677pt x 295.09727pt.
- [122]
-<./Images/balanceClass.png, id=1072, 709.65125pt x 283.0575pt>
+ [126]
+<./Images/balanceClass.png, id=1123, 709.65125pt x 283.0575pt>
 File: ./Images/balanceClass.png Graphic file (type png)
 <use ./Images/balanceClass.png>
-Package pdftex.def Info: ./Images/balanceClass.png  used on input line 2712.
+Package pdftex.def Info: ./Images/balanceClass.png  used on input line 2754.
 (pdftex.def)             Requested size: 283.85547pt x 113.22098pt.
- [123 <./Images/acquiredStimuli.png> <./Images/balanceClass.png>] [124] [125] [126]
-<./Images/channelLayer.png, id=1112, 1111.15125pt x 573.14125pt>
+ [127 <./Images/acquiredStimuli.png> <./Images/balanceClass.png>] [128] [129] [130]
+<./Images/channelLayer.png, id=1163, 1111.15125pt x 573.14125pt>
 File: ./Images/channelLayer.png Graphic file (type png)
 <use ./Images/channelLayer.png>
-Package pdftex.def Info: ./Images/channelLayer.png  used on input line 2873.
+Package pdftex.def Info: ./Images/channelLayer.png  used on input line 2915.
 (pdftex.def)             Requested size: 444.45262pt x 229.25243pt.
- [127]
-<./Images/dataSplit.png, id=1117, 1226.5825pt x 248.93pt>
+ [131]
+<./Images/dataSplit.png, id=1169, 1226.5825pt x 248.93pt>
 File: ./Images/dataSplit.png Graphic file (type png)
 <use ./Images/dataSplit.png>
-Package pdftex.def Info: ./Images/dataSplit.png  used on input line 2878.
+Package pdftex.def Info: ./Images/dataSplit.png  used on input line 2920.
 (pdftex.def)             Requested size: 490.62431pt x 99.57022pt.
 
-Overfull \hbox (35.3802pt too wide) in paragraph at lines 2878--2880
+Overfull \hbox (35.3802pt too wide) in paragraph at lines 2920--2922
  [][] 
  []
 
-<./Images/scoreDifferentClass.png, id=1118, 1606.0pt x 422.57875pt>
+<./Images/scoreDifferentClass.png, id=1170, 1606.0pt x 422.57875pt>
 File: ./Images/scoreDifferentClass.png Graphic file (type png)
 <use ./Images/scoreDifferentClass.png>
-Package pdftex.def Info: ./Images/scoreDifferentClass.png  used on input line 2885.
+Package pdftex.def Info: ./Images/scoreDifferentClass.png  used on input line 2927.
 (pdftex.def)             Requested size: 642.38864pt x 169.0285pt.
 
-Overfull \hbox (187.14453pt too wide) in paragraph at lines 2885--2887
+Overfull \hbox (187.14453pt too wide) in paragraph at lines 2927--2929
  [][] 
  []
 
-[128 <./Images/channelLayer.png> <./Images/dataSplit.png> <./Images/scoreDifferentClass.png>] [129]
+[132 <./Images/channelLayer.png> <./Images/dataSplit.png> <./Images/scoreDifferentClass.png>] [133]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:34
 (epstopdf)                    size: 1813066 bytes
@@ -2278,17 +2342,17 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2909.
+(epstopdf)             \includegraphics on input line 2951.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2909.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2951.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [130
+ [134
 
 ]
 Chapter 5.
-(./thesis.bbl [131
+(./thesis.bbl [135
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -2304,7 +2368,7 @@ File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
 Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 1.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [132
+ [136
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
@@ -2351,7 +2415,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--60
 []\T1/cmr/m/n/12 New: Re-vised Q&A Re-source on Reg-u-la-tion (EU) 2023/607.
  []
 
-[133
+[137
 
 ]
 Overfull \hbox (321.11195pt too wide) in paragraph at lines 62--64
@@ -2393,7 +2457,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 86--88
 \T1/cmr/m/n/12 range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial,
  []
 
-[134]
+[138]
 Underfull \hbox (badness 1776) in paragraph at lines 144--147
 \T1/cmr/m/n/12 man-age-ment pro-cess".  https://www.fda.gov/regulatory-information/search-fda-
  []
@@ -2413,7 +2477,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--162
 \T1/cmr/m/n/12 system-considerations-and-content-premarket-submissions, Tue, 09/26/2023 -
  []
 
-[135] [136]) [137]
+[139] [140]) [141]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:34
 (epstopdf)                    size: 1813066 bytes
@@ -2421,61 +2485,18 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2924.
+(epstopdf)             \includegraphics on input line 2966.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2924.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [138
-
-]
-Appendix A.
-[139
-
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2932.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2932.
-(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
- [140
-
-]
-Appendix B.
-[141
-
-]
-Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
-(epstopdf)                    date: 2024-01-31 18:38:34
-(epstopdf)                    size: 1813066 bytes
-(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-01-31 18:38:40
-(epstopdf)                    size: 40456 bytes
-(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2937.
-Package epstopdf Info: Output file is already uptodate.
-File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
-<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2937.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2966.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [142
 
 ]
-No file thesis.lof.
-\tf@lof=\write6
-\openout6 = `thesis.lof'.
-
+Appendix A.
 [143
+
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -2485,19 +2506,16 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2940.
+(epstopdf)             \includegraphics on input line 2974.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2940.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2974.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [144
 
 ]
-No file thesis.lot.
-\tf@lot=\write7
-\openout7 = `thesis.lot'.
-
+Appendix B.
 [145
 
 ]
@@ -2508,15 +2526,20 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2944.
+(epstopdf)             \includegraphics on input line 2979.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2944.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2979.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [146
 
-] [147
+]
+No file thesis.lof.
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+[147
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -2526,15 +2549,20 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2955.
+(epstopdf)             \includegraphics on input line 2982.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2955.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2982.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [148
 
-] [149
+]
+No file thesis.lot.
+\tf@lot=\write7
+\openout7 = `thesis.lot'.
+
+[149
 
 ]
 Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
@@ -2544,13 +2572,49 @@ Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
 (epstopdf)                    date: 2024-01-31 18:38:40
 (epstopdf)                    size: 40456 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
-(epstopdf)             \includegraphics on input line 2959.
+(epstopdf)             \includegraphics on input line 2986.
 Package epstopdf Info: Output file is already uptodate.
 File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Images/./raggiera_polimi-eps-converted-to.pdf>
-Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2959.
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2986.
 (pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
  [150
+
+] [151
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 2997.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 2997.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [152
+
+] [153
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3001.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3001.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [154
 
 ]
 
@@ -2587,21 +2651,21 @@ Package rerunfilecheck Warning: File `thesis.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `thesis.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  37AACE0E443D7929BA155F0CC0B62429;21789.
+(rerunfilecheck)             After:  27493CEEDFA0201706E0D6D4D6A2B20B;21664.
  ) 
 Here is how much of TeX's memory you used:
- 32048 strings out of 474116
- 619473 string characters out of 5732613
- 1948187 words of memory out of 5000000
- 53263 multiletter control sequences out of 15000+600000
+ 32155 strings out of 474116
+ 625565 string characters out of 5732613
+ 1947187 words of memory out of 5000000
+ 53350 multiletter control sequences out of 15000+600000
  584347 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,93p,2170b,754s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,93p,2199b,754s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on thesis.pdf (158 pages, 22687571 bytes).
+Output written on thesis.pdf (162 pages, 25360829 bytes).
 PDF statistics:
- 1510 PDF objects out of 1728 (max. 8388607)
- 1142 compressed objects within 12 object streams
- 572 named destinations out of 1000 (max. 500000)
- 394 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1564 PDF objects out of 1728 (max. 8388607)
+ 1174 compressed objects within 12 object streams
+ 592 named destinations out of 1000 (max. 500000)
+ 439 words of extra memory for PDF output out of 10000 (max. 10000000)
 

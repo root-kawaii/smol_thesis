@@ -232,10 +232,6 @@ Extra-neural cuff electrodes, positioned externally on the nerve’s surface, ar
 
 \subsection{PNRelay functionality (chiara objectives)}
 
-
-
-\subsection{Ethical concerns}
-
 \subsection{Thesis outline}
 
 
@@ -357,6 +353,11 @@ In these regulations, as before, devices are divided into classes of risks from 
 As reported in the regulations, all implanted medical devices and long-term surgically invasive devices are classified as class IIb \cite{}mcdg . However, since Senseback is an active device, which means that needs a source of energy which is different from the body itself, it could fall into class III, the highest one.
 With the new normative UE 2023/607 \cite{RegolamentoUE20232023} the deadline for the manufacturers to adequate to 2017/745/UE and 2017/746/UE has been postponed based on the class of risk of the devices as shown in Figure 5
 
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{Ethics/Screenshot 2024-08-15 at 10.54.56.png}
+	\centering
+\end{figure}
+
 
 Figure 5: new date of application of normative (EU) 2017/745 and (EU) 2017/746 according to (EU) 2023/607 \cite{NewRevisedResource}
 
@@ -364,6 +365,12 @@ Figure 5: new date of application of normative (EU) 2017/745 and (EU) 2017/746 a
 
 According to the regulations EU 2017/745 \cite{RegolamentoUE20172017} and EU 2017/746 \cite{RegolamentoUE20172017a}, a medical software that is intended to be used alone or in combination with a hardware which fall under the definition of medical device should be considered as a medical device software (MDSW). 
 In order to understand whether or not the software could be considered as a MDWS, the steps are reported in.
+
+\begin{figure}[H]
+
+	\includegraphics[scale=0.3]{Ethics/Screenshot 2024-08-15 at 10.55.04.png}
+	\centering
+\end{figure}
 
 Figure 6: steps to verify whether or not the software falls into the MDSW definition according to European Commission \cite{} b865
 
@@ -555,42 +562,80 @@ To sum up, the concepts of surveillance and privacy regard the responsible manag
 
 
 
-\section{Signal Acquisition}
-
-
 
 \chapter{State of the Art}
 
+\section{Bluetooth Low Energy}
 
+\section{Introduction}
+Bluetooth is one of the main widely used wireless systems of communication. It is especially used in devices, such as headphones, which can easily be recharged without complications. However, this is not the case for applications such as microcontrollers, where the recharging process is not so immediate and high-speed communication is unnecessary. 
 
-\section{Introduction to Bluetooth Low Energy}
+Because of this, since Bluetooth version 4.0, Bluetooth Low Energy (BLE) has been introduced \cite{nordic1}. Using Bluetooth Low Energy instead of Bluetooth means sacrificing some amount of communication speed to save power consumption. The data rate reduction is achieved through two modifications: firstly, the payload in each packet is reduced from 1021 bytes in standard Bluetooth to 255 bytes in BLE. Secondly, data is sent as infrequently as possible to minimize the connection time, which significantly impacts power consumption. The main characteristics of BLE are shown in Figure~\ref{fig:ble_char}.
 
-Firstly, we need to define that "Bluetooth low energy is a brand new technology that has been designed as both a complementary
-technology to classic Bluetooth as well as the lowest possible power wireless technology that can be
-designed and built. Although it uses the Bluetooth brand and borrows a lot of technology from its
-parent, Bluetooth low energy should be considered a different technology, addressing different design
-goals". \cite{heydonBluetoothLowEnergy2015}
-""chiara""
-The main advantage of the BLE over the
-standard Bluetooth is that it keeps the radio off as much as possible when no data has
-to be sent [47]. It is optimized for low power consumption and short-range
-communication; thus, it enables devices to operate on a small energy budget, making
-Bluetooth technology is based on a master-slave concept, where one device acts as the
-master and controls one or more slave devices. The master initiates and maintains the
-communication, while the slave devices respond to the master's commands. For this
-there are four roles that a BLE device can implement. A device can be a peripheral
-(slave), it advertises their presence and respond to central devices' requests. A central
-(master), instead, scans for these advertising packets and it could, if the advertisement
-packet allows it, connect to that device. Moreover, there are other two roles possible:
-the broadcaster and the observer. A broadcaster sends out advertising packets without
-allowing any connections, while an observer discovers peripherals and broadcasters,
-but without the capability of accepting connections from a central.
-""chiara""
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png}
+    \caption{BLE main characteristics \cite{nordic1}.}
+    \label{fig:ble_char}
+\end{figure}
+
+Some advantages of BLE include its lower cost compared to standard Bluetooth and the fact that most modern smartphones support it, making the development of applications easier and more cost-effective. To analyze the structure of BLE, the stack is explained, as shown in Figure~\ref{fig:ble_stack}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.52.png}
+    \caption{BLE stack \cite{nordic_stack}.}
+    \label{fig:ble_stack}
+\end{figure}
+
+The BLE stack is composed of two main sections: the controller and the host. The controller handles low-level tasks where timing is critical, while the host manages higher-level, more complex tasks. Specifically, the host establishes communication protocols and data exchange, while the controller generates radio waves and encodes data. These sections communicate via the Host Controller Interface (HCI). The uppermost layer is the application layer, which interfaces directly with the user and contains profiles, services, and characteristics.
+
+\subsubsection{Physical Layer (PHY)}
+The Physical Layer (PHY) is the lowest level of the BLE stack and defines the capabilities of Bluetooth radio waves, including modulation and coding schemes. It operates in the ISM band (2.402 GHz to 2.480 GHz), the same frequency band used by standard Bluetooth and Wi-Fi. The PHY is divided into 40 channels, each 2 MHz wide. Three of these channels are designated for advertising, while the remaining channels are used for communication. These channels frequently switch during a connection to avoid potential interference, and the advertising channels are evenly distributed across the ISM band to ensure continuous advertising without interruptions.
+
+There are three PHY modes in BLE since version 5.0: 1 PHY, 2 PHY, and Coded PHY. 1 PHY provides a data rate of 1 Mbps and is supported by the oldest devices. 2 PHY doubles the maximum speed, reducing connection time and power consumption. Coded PHY extends the communication range by using error-correcting codes but sacrifices speed. In Coded PHY, each bit requires 2 or 8 characters, reducing the maximum throughput to 500 kbps or 125 kbps, respectively.
+
+\subsubsection{Link Layer (LL)}
+The Link Layer (LL) is responsible for data reception and processing, radio management, state control (advertising, scanning, connection maintenance), and time-critical tasks such as security functions (encryption and MIC computation). Since BLE version 5.0, the Link Layer supports seven different machine states: standby, advertising, scanning, initiating connection, connection, synchronization, and isochronous synchronization.
+
+In standby mode, a device cannot send or receive data. In advertising mode, a peripheral device sends advertising packets and listens for connection requests. Scanning is the opposite, where a central device listens for advertising packets and then initiates a connection. In broadcast communication, the peripheral sends non-connectable or non-scannable advertising packets, and the central device only listens without establishing a connection.
+
+\subsubsection{Host Controller Interface (HCI)}
+The Host Controller Interface (HCI) manages communication between the host and controller sections. In microcontroller applications, both sections are integrated into a system on chip (SoC).
+
+\subsubsection{Logical Link Control and Adaptation Layer Protocol (L2CAP)}
+The Logical Link Control and Adaptation Layer Protocol (L2CAP) multiplexes data from multiple higher layers using channel identifiers. It also encapsulates data and ensures data integrity or triggers retransmissions if necessary.
+
+\subsubsection{Security Manager (SM)}
+The Security Manager (SM) is responsible for security-related functions such as encryption, pairing, and key exchange after a connection has been established.
+
+\subsection{ATT and GATT}
+The Attribute Protocol (ATT) defines the structure and exchange of BLE packets. It serves as an interface between peripheral and central devices, allowing them to share necessary characteristics. The Generic Attribute Profile (GATT) organizes this structure as shown in Figure~\ref{fig:gatt_model}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png}
+    \caption{GATT abstraction model \cite{nordic_gatt}.}
+    \label{fig:gatt_model}
+\end{figure}
+
+A profile consists of services, which are collections of characteristics. Characteristics contain attributes. Six specific operations can be performed on characteristics:
+\begin{itemize}
+    \item \textbf{Write without response:} The client sends a command and does not require a response.
+    \item \textbf{Write with response:} The client sends a command and expects a response.
+    \item \textbf{Server response to client request:} The server responds to a client request.
+    \item \textbf{Server notification:} The server notifies the client if a characteristic changes.
+    \item \textbf{Indication:} Similar to a notification, but requires a client response.
+    \item \textbf{Confirmation:} An acknowledgment packet sent by the client to the server.
+\end{itemize}
+
+\subsubsection{Generic Access Profile (GAP)}
+The Generic Access Profile (GAP) defines the roles of each device and manages advertisement, security, and connection establishment. Roles depend on the specific application. For connection-oriented communication, the roles are central (scanning and initiating the connection) and peripheral (advertising and accepting the connection). For broadcast communication, the roles are broadcaster (sending advertising packets) and observer (listening to packets). Some devices may operate in multiple roles simultaneously, known as multi-role, for example, receiving data from a sensor while also sending data.
+
 
 \section{Communication system}
+
 \subsection{Previous code implementation}
-
-
 
 As show in the introduction, Senseback is an implanted device which communicates with an external unit through Bluetooth Low Energy. The starting point for the firmware code of this communication was previously developed [Chiara Master Thesis]. This master thesis purposes improvement and additional features on the previous code, which presents some limitations.
 
@@ -627,14 +672,23 @@ Data Reception: The online script does not include any data reception functional
 The online test script is simpler, focusing on generating the data and ensuring the serial port is set up properly. There is no data reception because of the limitations mentioned earlier.
 The offline test script uses a callback function to handle data reception. It uses the MATLAB configureCallback function to call the readData function each time new data is received from the selected serial port. The purpose of this function is to store the incoming data in a vector and keep track of the total data received. The callback function is turned off when the last two values are both 255 (indicating the end of a data sequence). Once all data is received, it can be converted back to uint16 using typecast and organized into a matrix for plotting and further analysis. The offline test script can then compare the received data with the data originally generated in MATLAB to ensure its accuracy and reliability.
 
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png}
+	\centering
+\end{figure}
+
+
 \subsection{Offline transmitter code}
 Figure 3 illustrates a flow chart of the offline code for the transmitter. Each block represents a distinct function. Below is a brief explanation of each one.
-Log init: This function initializes the log module. This module provides logging capabilities for the intended embedded application \cite{NordicSemiconductorInfocentera}. It has different usages such as debugging, which means to provide diagnosis for possible issues, info, which implies to check whether or not the application works as expected, warning, so indications about something unexpected which is happened, and error in those cases in which the software is not able to execute one of the functions.
-This function initializes the timers. For the offline code of the transmitter, two timers have been used. The first one is the timer responsible for data generation, and the second one is responsible for monitoring the total time required for data generation, data pre-processing, and sending to the central device. The two timers are both equally initialized, with the frequency set to 2 MHz for both.
+
+
+\textbf{Log init}: \quad This function initializes the log module. This module provides logging capabilities for the intended embedded application \cite{NordicSemiconductorInfocentera}. It has different usages such as debugging, which means to provide diagnosis for possible issues, info, which implies to check whether or not the application works as expected, warning, so indications about something unexpected which is happened, and error in those cases in which the software is not able to execute one of the functions.
+
+\textbf{Timers init}: \quad This function initializes the timers. For the offline code of the transmitter, two timers have been used. The first one is the timer responsible for data generation, and the second one is responsible for monitoring the total time required for data generation, data pre-processing, and sending to the central device. The two timers are both equally initialized, with the frequency set to 2 MHz for both.
 
 The main difference between these two timers is given by the functions \texttt{nrfx\_timer\_us\_to\_ticks} and \texttt{nrfx\_timer\_ms\_to\_ticks} for the first and the second timer, respectively. These functions create an interrupt each time the timer reaches the specified value, which is 12.5 $\mu$s for the first one and 1 ms for the second. The value of 12.5 $\mu$s has been chosen to simulate the arrival of samples coming from the ADC in the actual application; in fact, 12.5 $\mu$s represents a frequency of data generation of 80 kHz.
 
-This function is responsible for data generation. Firstly, it checks whether the transmission is active, i.e., whether the command \texttt{START} has been received from the central device. If it is active, a new data \texttt{CNT} is generated. Data generation is done as a step, so each new value is equal to the previous one plus one. \texttt{CNT} is a \texttt{uint16\_t} variable. This choice is made because the ADC samples have 10 bits size, and the \texttt{uint16\_t} variables are the smallest ones which guarantee that the samples are saved without wasting information, which would occur if a \texttt{uint8\_t} variable were chosen.
+\textbf{Timer 1 handler}: \quad This function is responsible for data generation. Firstly, it checks whether the transmission is active, i.e., whether the command \texttt{START} has been received from the central device. If it is active, a new data \texttt{CNT} is generated. Data generation is done as a step, so each new value is equal to the previous one plus one. \texttt{CNT} is a \texttt{uint16\_t} variable. This choice is made because the ADC samples have 10 bits size, and the \texttt{uint16\_t} variables are the smallest ones which guarantee that the samples are saved without wasting information, which would occur if a \texttt{uint8\_t} variable were chosen.
 
 Once the new \texttt{uint16\_t} data is generated, it is put into the ring buffer \texttt{uartRx}. \texttt{Ringbuf} is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end. This structure is useful for buffering data streams, where data needs to be overwritten as new data comes in, particularly when the buffer is full. It's commonly used in scenarios where the producer and consumer operate at different rates, as in this case. The size of \texttt{uartRx} has been set to 16384 \texttt{uint16\_t} variables, representing the maximum size imposed by the RAM storage limits.
 
@@ -644,14 +698,14 @@ The last step for this function is to check whether the data generation process 
 
 Once the condition is triggered, the \texttt{data\_arrived}, \texttt{first}, and \texttt{CNT} values are reset, and the last 16-bit value is put into the ring buffer: 65535. This value represents the highest value in binary that can be represented using 16 bits. It is, in fact, a sequence of 16 bits all set to 1. Then, the boolean variable \texttt{transmission} is set to \texttt{false}, indicating that data generation is finished.
 
-Timer2 handler:
-\texttt{Timer2} is the timer responsible for the computation of the total time elapsed during the data generation, data preprocessing, and data sending processes. This function increments the variable \texttt{total\_time\_elapsed\_ms} by one each time the interrupt is triggered, so each millisecond. In this way, \texttt{total\_time\_elapsed\_ms} provides a timestamp of the current total time elapsed in milliseconds.
+\textbf{Timer 2 handler}: \quad is the timer responsible for the computation of the total time elapsed during the data generation, data preprocessing, and data sending processes. This function increments the variable \texttt{total\_time\_elapsed\_ms} by one each time the interrupt is triggered, so each millisecond. In this way, \texttt{total\_time\_elapsed\_ms} provides a timestamp of the current total time elapsed in milliseconds.
 
 
-Power management init: this function initializes the power management module, which handles power management features. \cite{NordicSemiconductorInfocenterb}
-Ble stack init: This function is responsible for the initialization of the SoftDevice and BLE event interrupts. A SoftDevice is a precompiled and linked binary software implementing a wireless protocol developed by Nordic Semiconductor. \cite{NordicSemiconductorInfocenterc} In this function, it is first requested to enable the SoftDevice using the \texttt{Nrf\_sdh\_enable\_request} function. Once the SoftDevice has been enabled, it is configured through the function \texttt{Nrf\_sdh\_ble\_default\_cfg\_set} by using the default settings specified in the SoftDevice handler BLE configuration. Finally, the functions \texttt{Nrf\_sdh\_ble\_enable} and \texttt{Nrf\_sdh\_ble\_observer} respectively enable the BLE stack and register a handler for BLE events.
+\textbf{Power management init}: \quad this function initializes the power management module, which handles power management features. \cite{NordicSemiconductorInfocenterb}
 
-Ble evt handler: This function manages the different BLE events. It first creates a pointer to the specific GAP events, then a switch gives the instructions for each different event.
+\textbf{Ble stack init}: \quad this function is responsible for the initialization of the SoftDevice and BLE event interrupts. A SoftDevice is a precompiled and linked binary software implementing a wireless protocol developed by Nordic Semiconductor. \cite{NordicSemiconductorInfocenterc} In this function, it is first requested to enable the SoftDevice using the \texttt{Nrf\_sdh\_enable\_request} function. Once the SoftDevice has been enabled, it is configured through the function \texttt{Nrf\_sdh\_ble\_default\_cfg\_set} by using the default settings specified in the SoftDevice handler BLE configuration. Finally, the functions \texttt{Nrf\_sdh\_ble\_enable} and \texttt{Nrf\_sdh\_ble\_observer} respectively enable the BLE stack and register a handler for BLE events.
+
+\textbf{Ble evt handler}: This function manages the different BLE events. It first creates a pointer to the specific GAP events, then a switch gives the instructions for each different event.
 
 \begin{itemize}
     \item \textbf{First case:} the device is connected. If this case is triggered, a log and the usage of LEDs, enabled through the function \texttt{bsp\_indication\_set}, indicate to the user that the connection has been correctly performed. The connection handle is then stored in the variable \texttt{m\_conn\_handle}. The connection handle is a value provided by the BLE stack that uniquely identifies a connection with another BLE device \cite{BluetoothLowEnergy2016}. Then, the function \texttt{nrf\_ble\_qwr\_conn\_handle\_assign} assigns a connection handle to the given instance of the Queued Writes module \cite{NordicSemiconductorInfocenterd}. Ultimately, the data rate (PHY) is set to 2 Mbps for both the TX and RX BLE characteristics.
@@ -670,9 +724,9 @@ Ble evt handler: This function manages the different BLE events. It first create
 \end{itemize}
 
 
-On Tx complete: This function manages the packet transmission queue mechanism. If the \texttt{BleTxBusy} variable is true, indicating that a packet has not been sent due to the transmission channel being busy, the variable is reset to false. Then, the \texttt{notification\_send} function is called to attempt retransmission. This ensures that no packets are lost, as transmission attempts continue until successful completion.
+\textbf{On Tx complete}: This function manages the packet transmission queue mechanism. If the \texttt{BleTxBusy} variable is true, indicating that a packet has not been sent due to the transmission channel being busy, the variable is reset to false. Then, the \texttt{notification\_send} function is called to attempt retransmission. This ensures that no packets are lost, as transmission attempts continue until successful completion.
 
-\subsection*{Notification Send}
+\textbf{Notification send}:
 This function oversees the data transmission process and calculates the transmitter's throughput. Initially, a \texttt{uint32\_t} variable \texttt{err\_code} is set to \texttt{NRF\_SUCCESS}, indicating no errors. Before sending data to the receiver, the function checks two conditions:
 
 \begin{itemize}
@@ -687,34 +741,28 @@ Next, the function checks if the transmission has reached the end by verifying i
 \text{throughput} = \frac{\text{data\_sent} \times 8}{\text{total\_elapsed\_time}}
 \]
 All relevant values, including the number of waits, are logged. If \texttt{ble\_nus\_data\_send} function returns an error, indicating an unsuccessful transmission, \texttt{bleTxBusy} is set to true, and the wait counter is incremented. Finally, if \texttt{txRdPtr} is greater than or equal to \texttt{txSize}, the \texttt{txActive} variable is set to false, indicating that another packet can be pre-processed.
-% Gap params init: this function sets the necessary Generic Access Profile (GAP) parameters of the device, such as security level and the name of the device. In this implementation, since security features have not been implemented, function BLE_GAP_CONN_SEC_MODE_SET_OPEN sets the level of security at the minimum, meaning that the board is totally open. The other parameters that are set in this function are the ones related to the packet exchanges such as minimum and maximum connection interval (CI), the slave latency and the connection superior timeout. These parameters have a great impact on the overall throughput that would be reached in the end.
-Gatt init: This function initializes the Generic Attribute Profile (GATT) library. It also sets the Attribute Protocol (ATT) Maximum Transmission Unit (MTU). This parameter defines the maximum amount of data that can be exchanged by a single BLE packet, specifically for the peripheral side. For this application, the MTU has been set to \texttt{NRF\_SDH\_BLE\_GATT\_MAX\_MTU\_SIZE}, which corresponds to a value of 247 bytes, the maximum achievable with BLE version 5.2. A high value for \texttt{GATT\_MTU} generally implies higher efficiency for data exchange and consequently, a higher throughput. In fact, with a single exchange, it is possible to send a larger amount of data, minimizing the wasted time due to latency.
 
-\subsection*{GATT Event Handler}
+\textbf{Gap params init}: this function sets the necessary Generic Access Profile (GAP) parameters of the device, such as security level and the name of the device. In this implementation, since security features have not been implemented, function \texttt{BLE\_GAP\_CONN\_SEC\_MODE\_SET\_OPEN} sets the level of security at the minimum, meaning that the board is totally open. The other parameters that are set in this function are the ones related to the packet exchanges such as minimum and maximum connection interval (CI), the slave latency and the connection superior timeout. These parameters have a great impact on the overall throughput that would be reached in the end.
 
-This function handles events coming from the GATT library. It first checks whether the event triggering is caused by the current connection by looking at the connection handle stored in the variable \texttt{m\_conn\_handle}. In this implementation, the condition will always be triggered since there is only one connection, which is point-to-point. It also checks, together with the previous condition, whether the event that occurred is an update of the GATT ATT MTU. If both these conditions are satisfied, then the \texttt{m\_ble\_nus\_max\_data\_len} variable is updated to the effective ATT Payload for the connection, which is equal to ATT Data minus the two headers shown in Figure 4, specifically, the Op Code and the Attribute Handle.
+\textbf{Gatt init}: This function initializes the Generic Attribute Profile (GATT) library. It also sets the Attribute Protocol (ATT) Maximum Transmission Unit (MTU). This parameter defines the maximum amount of data that can be exchanged by a single BLE packet, specifically for the peripheral side. For this application, the MTU has been set to \texttt{NRF\_SDH\_BLE\_GATT\_MAX\_MTU\_SIZE}, which corresponds to a value of 247 bytes, the maximum achievable with BLE version 5.2. A high value for \texttt{GATT\_MTU} generally implies higher efficiency for data exchange and consequently, a higher throughput. In fact, with a single exchange, it is possible to send a larger amount of data, minimizing the wasted time due to latency.
 
-% \begin{figure}[h]
-%     \centering
-%     % \includegraphics[scale=0.3]{ble_packet_format.png}
-%     \caption{BLE packet format (\href{https://novelbits.io/bluetooth-5-speed-maximum-throughput/}{link})}
-% \end{figure}
+\textbf{GATT Event Handler}: this function handles events coming from the GATT library. It first checks whether the event triggering is caused by the current connection by looking at the connection handle stored in the variable \texttt{m\_conn\_handle}. In this implementation, the condition will always be triggered since there is only one connection, which is point-to-point. It also checks, together with the previous condition, whether the event that occurred is an update of the GATT ATT MTU. If both these conditions are satisfied, then the \texttt{m\_ble\_nus\_max\_data\_len} variable is updated to the effective ATT Payload for the connection, which is equal to ATT Data minus the two headers shown in Figure 4, specifically, the Op Code and the Attribute Handle.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png}
+	\centering
+\end{figure}
 
 Once this value is updated, the desired values for ATT MTU of the central and peripheral devices are logged to allow the user to check whether they are the same, ensuring that both devices agree on the maximum achievable value.
 
-\subsection*{Services Initialization}
+\textbf{Services Init}: this function is used to initialize all the services which will be used in the application. For the intended purposes, the services that are initialized are two: Queued Write Module (qwr) and NUS module. The qwr module handles prepare write, execute write, and cancel write commands. It also manages memory requests related to these operations (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__nrf__ble__qwr.html}{link}). The NUS module is a custom Bluetooth Low Energy (BLE) service designed to emulate a UART (Universal Asynchronous Receiver/Transmitter) over BLE. This allows devices to communicate wirelessly in a manner similar to serial communication over a wired connection (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__ble__nus__c.html}{link}).
 
-This function is used to initialize all the services which will be used in the application. For the intended purposes, the services that are initialized are two: Queued Write Module (qwr) and NUS module. The qwr module handles prepare write, execute write, and cancel write commands. It also manages memory requests related to these operations (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__nrf__ble__qwr.html}{link}). The NUS module is a custom Bluetooth Low Energy (BLE) service designed to emulate a UART (Universal Asynchronous Receiver/Transmitter) over BLE. This allows devices to communicate wirelessly in a manner similar to serial communication over a wired connection (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__ble__nus__c.html}{link}).
+\textbf{NUS Data Handler}: this function manages the start, stop, and reset occurrences of the BLE communication by checking the command received from the central device. The function starts with an \texttt{if} condition, which checks whether a command is received by the peripheral device via NUS. If this is the case, the value of the received string is saved into the variable \texttt{dongle\_command}. Then, the actual value of the string is checked. If the received string through \texttt{ble\_nus} is equal to START, this means that the user has sent the command to begin communication. Consequently, the boolean variable \texttt{transmission} is set to \texttt{true}, indicating that transmission should start, \texttt{timer1} is enabled, and \texttt{timer2} is reset. In this way, data generation starts, and it is ensured that the total time elapsed counter starts from 0. If instead, the command received is equal to RESET, then the \texttt{CNT} variable is set to 0, meaning that data generation is reset to the beginning. Finally, if the received command is equal to STOP, then \texttt{timer1} is disabled. By stopping the data generation, no more data will be available for transmission, and the whole process of data sending will stop.
 
-\subsection*{NUS Data Handler}
 
-This function manages the start, stop, and reset occurrences of the BLE communication by checking the command received from the central device. The function starts with an \texttt{if} condition, which checks whether a command is received by the peripheral device via NUS. If this is the case, the value of the received string is saved into the variable \texttt{dongle\_command}. Then, the actual value of the string is checked. If the received string through \texttt{ble\_nus} is equal to START, this means that the user has sent the command to begin communication. Consequently, the boolean variable \texttt{transmission} is set to \texttt{true}, indicating that transmission should start, \texttt{timer1} is enabled, and \texttt{timer2} is reset. In this way, data generation starts, and it is ensured that the total time elapsed counter starts from 0. If instead, the command received is equal to RESET, then the \texttt{CNT} variable is set to 0, meaning that data generation is reset to the beginning. Finally, if the received command is equal to STOP, then \texttt{timer1} is disabled. By stopping the data generation, no more data will be available for transmission, and the whole process of data sending will stop.
+\textbf{NRF QWR Error Handler}: this function handles Queued Write Module (qwr) errors. A pointer to this function will be passed to each service which may need to inform the application about an error.
 
-\subsection*{NRF QWR Error Handler}
-
-This function handles Queued Write Module (qwr) errors. A pointer to this function will be passed to each service which may need to inform the application about an error.
-
-Advertising init: This function is used to initialize the advertising functionality of the peripheral device. When a BLE device broadcasts its presence, it sends out advertising packets that can include various types of information, such as device name, service UUIDs, manufacturer-specific data, and appearance. For the current application, the advertising packets include the device’s full name but not the appearance data. Appearance data is a predefined value that indicates the type or category of the device. This value is used to give a general idea of the device's functionality without requiring a full connection. It helps other BLE devices and applications quickly identify what kind of device they are encountering. The choice of not including the appearance value in the advertising packets could be made both for privacy reasons and for saving space for other information. Another included parameter in the advertising packets is the advertising flag field, which in this case is set to \texttt{BLE\_GAP\_ADV\_FLAGS\_LE\_ONLY\_LIMITED\_DISC\_MODE}, meaning that the device only supports BLE and not classic Bluetooth, and that the device will be in a discoverable state for a limited time. 
+\textbf{Advertising init}: This function is used to initialize the advertising functionality of the peripheral device. When a BLE device broadcasts its presence, it sends out advertising packets that can include various types of information, such as device name, service UUIDs, manufacturer-specific data, and appearance. For the current application, the advertising packets include the device’s full name but not the appearance data. Appearance data is a predefined value that indicates the type or category of the device. This value is used to give a general idea of the device's functionality without requiring a full connection. It helps other BLE devices and applications quickly identify what kind of device they are encountering. The choice of not including the appearance value in the advertising packets could be made both for privacy reasons and for saving space for other information. Another included parameter in the advertising packets is the advertising flag field, which in this case is set to \texttt{BLE\_GAP\_ADV\_FLAGS\_LE\_ONLY\_LIMITED\_DISC\_MODE}, meaning that the device only supports BLE and not classic Bluetooth, and that the device will be in a discoverable state for a limited time. 
 
 Furthermore, UUIDs should be defined. A UUID is a unique identifier for services offered by the BLE device. The function \texttt{advertising\_init} first computes the number of UUIDs that are present in the \texttt{m\_adv\_uuids} array, then it sets \texttt{uuid\_cnt} to that value. Then, \texttt{init.srdata.uuids\_complete.p\_uuids} sets the pointer to the array of UUIDs, which tells the program where to find the list of UUIDs that describe the services the BLE device offers. Finally, the advertising settings are set. In particular, fast advertising mode is enabled, meaning that the device will advertise itself frequently, making it quicker to be discovered. 
 
@@ -727,43 +775,37 @@ The last two parameters for advertising are set as follows:
 Ultimately, the event handler function for advertising events is set, which will handle various events related to advertising, such as starting, stopping, or timing out. Once this configuration has been completed, the advertising module is initialized using the function \texttt{ble\_advertising\_init}, and \texttt{ble\_advertising\_conn\_cfg\_tag\_set} sets the connection configuration settings tag for the advertising instance.
 
 
-On adv evt: This function is responsible for handling the advertising events. Two possible cases are considered:
+\textbf{On adv evt}: this function is responsible for handling the advertising events. Two possible cases are considered:
 \begin{itemize}
     \item \textbf{Fast Advertising Event:} If this event occurs, LED1 starts blinking to signal that the device is in the advertising phase.
     \item \textbf{Advertising Idle Event:} If this event occurs, the \texttt{sleep\_mode\_enter} function is called.
 \end{itemize}
 
-\subsection*{Sleep Mode Enter}
+\textbf{Sleep Mode Enter}: this function puts the chip into sleep mode to save battery when the device is not in use. To signal the state of the board, the behavior of the LEDs is changed. Specifically, for the idle case, all LEDs are turned off. The \texttt{bsp\_btn\_ble\_sleep\_mode\_prepare} function is used to prepare the wakeup buttons before going into sleep mode \cite{nordic_semi}. Lastly, the system is put into sleep mode using the \texttt{sd\_power\_system\_off} function.
 
-This function puts the chip into sleep mode to save battery when the device is not in use. To signal the state of the board, the behavior of the LEDs is changed. Specifically, for the idle case, all LEDs are turned off. The \texttt{bsp\_btn\_ble\_sleep\_mode\_prepare} function is used to prepare the wakeup buttons before going into sleep mode \cite{nordic_semi}. Lastly, the system is put into sleep mode using the \texttt{sd\_power\_system\_off} function.
 
-\subsection*{Connection Parameters Initialization}
+\textbf{Connection Parameters Initialization}: this function initializes the connection parameters module that will be used when establishing and maintaining a connection with a central device. The pointer to the initial connection parameters is set to NULL, meaning no initial parameters are provided. The delay before the first update of the connection parameters and the following parameters update delay are set to 5000 ms and 30000 ms respectively. These parameters describe the delay before the first update of the connection parameters is attempted and the delay between subsequent attempts if the first attempt fails. The maximum number of attempts to update the connection parameters before giving up the connection parameter negotiation is set to three. If the connection parameter update procedure fails, disconnection does not happen since \texttt{cp\_init.disconnect\_on\_fail} is set to false. The \texttt{cp\_init.start\_on\_notify\_cccd\_handle} sets the handle of the Client Characteristic Configuration Descriptor (CCCD), which triggers the connection parameter update procedure. \texttt{BLE\_GATT\_HANDLE\_INVALID} indicates that the connection parameter update procedure is not started by any specific CCCD. The functions \texttt{on\_conn\_params\_evt} and \texttt{conn\_params\_error\_handle} are assigned to manage possible changes or updates to connection parameters and handle errors during the connection parameters update process. All the settings chosen inside the \texttt{conn\_params\_init} function become effective through the \texttt{ble\_conn\_params\_init} function.
 
-This function initializes the connection parameters module that will be used when establishing and maintaining a connection with a central device. The pointer to the initial connection parameters is set to NULL, meaning no initial parameters are provided. The delay before the first update of the connection parameters and the following parameters update delay are set to 5000 ms and 30000 ms respectively. These parameters describe the delay before the first update of the connection parameters is attempted and the delay between subsequent attempts if the first attempt fails. The maximum number of attempts to update the connection parameters before giving up the connection parameter negotiation is set to three. If the connection parameter update procedure fails, disconnection does not happen since \texttt{cp\_init.disconnect\_on\_fail} is set to false. The \texttt{cp\_init.start\_on\_notify\_cccd\_handle} sets the handle of the Client Characteristic Configuration Descriptor (CCCD), which triggers the connection parameter update procedure. \texttt{BLE\_GATT\_HANDLE\_INVALID} indicates that the connection parameter update procedure is not started by any specific CCCD. The functions \texttt{on\_conn\_params\_evt} and \texttt{conn\_params\_error\_handle} are assigned to manage possible changes or updates to connection parameters and handle errors during the connection parameters update process. All the settings chosen inside the \texttt{conn\_params\_init} function become effective through the \texttt{ble\_conn\_params\_init} function.
 
-\subsection*{On Connection Parameters Event}
+\textbf{On Connection Parameters Event}: this function manages possible changes or updates to connection parameters. If a connection parameters event fails, the devices are disconnected.
 
-This function manages possible changes or updates to connection parameters. If a connection parameters event fails, the devices are disconnected.
+\textbf{Connection Parameters Error Handler}: this function handles possible errors coming from the Connection Parameters module. The \texttt{uint32\_t} variable \texttt{nrf\_error} contains information about what went wrong.
 
-\subsection*{Connection Parameters Error Handler}
+\textbf{TX Power Set}: this function sets the transmission power level for a Bluetooth Low Energy (BLE) advertising role. Specifically, \texttt{BLE\_GAP\_TX\_POWER\_ROLE\_ADV} specifies the role for which the transmission power is being set, in this case, the role is advertising. The variables used to set transmission power are \texttt{m\_advertising.adv\_handle}, which holds the handle of the advertising set, and \texttt{TX\_POWER\_LEVEL}, a predefined constant or variable representing the transmission power level in dBm. For this implementation, this value is set to 0.
 
-This function handles possible errors coming from the Connection Parameters module. The \texttt{uint32\_t} variable \texttt{nrf\_error} contains information about what went wrong.
 
-\subsection*{TX Power Set}
+\textbf{Advertising Start}: this function starts the advertising process through the \texttt{ble\_advertising\_start} function, setting the advertising mode to fast.
 
-This function sets the transmission power level for a Bluetooth Low Energy (BLE) advertising role. Specifically, \texttt{BLE\_GAP\_TX\_POWER\_ROLE\_ADV} specifies the role for which the transmission power is being set, in this case, the role is advertising. The variables used to set transmission power are \texttt{m\_advertising.adv\_handle}, which holds the handle of the advertising set, and \texttt{TX\_POWER\_LEVEL}, a predefined constant or variable representing the transmission power level in dBm. For this implementation, this value is set to 0.
 
-\subsection*{Advertising Start}
+\textbf{Idle State Handle}: this function handles the idle state of the embedded system. It first calls \texttt{spiBuff\_process}, responsible for data preprocessing. Then, it calls the \texttt{NRF\_LOG\_PROCESS} macro and uses the \texttt{UNUSED\_RETURN\_VALUE} to ignore its return value. Finally, it calls the \texttt{nrf\_pwr\_mgmt\_run} function, which handles power management tasks, such as putting the microcontroller into a low-power state if there is nothing else to do, ensuring the system conserves power when idle.
 
-This function starts the advertising process through the \texttt{ble\_advertising\_start} function, setting the advertising mode to fast.
 
-\subsection*{Idle State Handle}
+\textbf{SPI Buffer Process}: this function preprocesses data coming from the \texttt{timer1\_handler} function. It checks that transmission is not active through the boolean \texttt{txActive}. If transmission is not active, it starts the process. The \texttt{ringbuf\_elements} function returns the number of \texttt{uint16\_t} data still present in the \texttt{uartRx} ring buffer, stored in the \texttt{queueLength} variable. If \texttt{queueLength} is at least half of the \texttt{SENSEBACK\_MTU} divided by two (at least 122 bytes), a full-size BLE packet can be prepared since there are enough data to fill it. Data from the Senseback ADC are 10 bits in size and are stored in \texttt{uint16\_t} variables. Each value from the ring buffer is converted into bytes for sending. A cycle executed 122 times prepares each BLE packet. Each cycle iteration gets a new value from the ring buffer using \texttt{ringbuf\_get}, saved into a temporary \texttt{uint16\_t} variable \texttt{element}. Two positions in the \texttt{nusTx} array, which will contain the final data sent to the central device, are filled. Specifically, position \texttt{i*2} (where \texttt{i} is the cycle index) is filled with the 8 most significant bits of \texttt{element}, while position \texttt{i*2+1} is filled with the 8 least significant bits of \texttt{element}. This ensures no information is wasted, but the inefficiency and memory waste are generated since 6 bits of each 16-bit variable are empty. Once a packet is fully prepared, \texttt{txActive} is set to true, enabling data sending to the central device. The \texttt{txSize} value is set to \texttt{SENSEBACK\_MTU}, representing the prepared packet size, and \texttt{txRdPtr} is reset to 0. Once this process is completed, the \texttt{notification\_send} function can be called to send processed data. If there are elements in the ring buffer but not enough to fill a BLE packet, the last packet of the communication is reached. Data are preprocessed as before, but the cycle completes \texttt{queueLength} times, and \texttt{txSize} is set to \texttt{queueLength*2}.
 
-This function handles the idle state of the embedded system. It first calls \texttt{spiBuff\_process}, responsible for data preprocessing. Then, it calls the \texttt{NRF\_LOG\_PROCESS} macro and uses the \texttt{UNUSED\_RETURN\_VALUE} to ignore its return value. Finally, it calls the \texttt{nrf\_pwr\_mgmt\_run} function, which handles power management tasks, such as putting the microcontroller into a low-power state if there is nothing else to do, ensuring the system conserves power when idle.
-
-\subsection*{SPI Buffer Process}
-
-This function preprocesses data coming from the \texttt{timer1\_handler} function. It checks that transmission is not active through the boolean \texttt{txActive}. If transmission is not active, it starts the process. The \texttt{ringbuf\_elements} function returns the number of \texttt{uint16\_t} data still present in the \texttt{uartRx} ring buffer, stored in the \texttt{queueLength} variable. If \texttt{queueLength} is at least half of the \texttt{SENSEBACK\_MTU} divided by two (at least 122 bytes), a full-size BLE packet can be prepared since there are enough data to fill it. Data from the Senseback ADC are 10 bits in size and are stored in \texttt{uint16\_t} variables. Each value from the ring buffer is converted into bytes for sending. A cycle executed 122 times prepares each BLE packet. Each cycle iteration gets a new value from the ring buffer using \texttt{ringbuf\_get}, saved into a temporary \texttt{uint16\_t} variable \texttt{element}. Two positions in the \texttt{nusTx} array, which will contain the final data sent to the central device, are filled. Specifically, position \texttt{i*2} (where \texttt{i} is the cycle index) is filled with the 8 most significant bits of \texttt{element}, while position \texttt{i*2+1} is filled with the 8 least significant bits of \texttt{element}. This ensures no information is wasted, but the inefficiency and memory waste are generated since 6 bits of each 16-bit variable are empty. Once a packet is fully prepared, \texttt{txActive} is set to true, enabling data sending to the central device. The \texttt{txSize} value is set to \texttt{SENSEBACK\_MTU}, representing the prepared packet size, and \texttt{txRdPtr} is reset to 0. Once this process is completed, the \texttt{notification\_send} function can be called to send processed data. If there are elements in the ring buffer but not enough to fill a BLE packet, the last packet of the communication is reached. Data are preprocessed as before, but the cycle completes \texttt{queueLength} times, and \texttt{txSize} is set to \texttt{queueLength*2}.
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png}
+	\centering
+\end{figure}
 
 \subsection*{Offline Receiver Code}
 
@@ -775,32 +817,24 @@ Some functions in the receiver code are common with those in the transmitter, su
 
 Other functions are different or not present in the transmitter code and are explained below.
 
-\subsection*{UART Initialization}
+\textbf{UART Initialization}: this function initializes the UART, which lets the central device communicate with the external unit. First, the communication parameters are defined, setting the pin number for the UART receive (RX), UART transmit (TX), UART Ready To Send (RTS), and UART Clear To Send (CTS) lines. In this case, they are 8 and 6 for RX and TX, and 5 and 7 for RTS and CTS, respectively. Hardware flow control is disabled through the \texttt{APP\_UART\_FLOW\_CONTROL\_DISABLED} macro, and parity checking is disabled, meaning no parity bit will be used for error checking. The baud rate is set to 115200 bits per second. Finally, the \texttt{APP\_UART\_FIFO\_INIT} function makes the parameters effective. This setup ensures the UART is correctly configured and ready to handle data transmission and reception with FIFO buffers and appropriate event handling.
 
-This function initializes the UART, which lets the central device communicate with the external unit. First, the communication parameters are defined, setting the pin number for the UART receive (RX), UART transmit (TX), UART Ready To Send (RTS), and UART Clear To Send (CTS) lines. In this case, they are 8 and 6 for RX and TX, and 5 and 7 for RTS and CTS, respectively. Hardware flow control is disabled through the \texttt{APP\_UART\_FLOW\_CONTROL\_DISABLED} macro, and parity checking is disabled, meaning no parity bit will be used for error checking. The baud rate is set to 115200 bits per second. Finally, the \texttt{APP\_UART\_FIFO\_INIT} function makes the parameters effective. This setup ensures the UART is correctly configured and ready to handle data transmission and reception with FIFO buffers and appropriate event handling.
+\textbf{UART event handler}: this function is responsible for receiving commands from the external unit. Within this function, a switch statement manages different cases. The first case handles the reception of new data through UART. Commands from the external unit are received as sequences of characters in the UART\_event\_handler function. Upon receiving a new character via \texttt{app\_uart\_get}, it is stored in \texttt{data\_array} at position \texttt{index}, which is then incremented. Once a character is saved, it checks if the character is equal to '\textbackslash n' and if \texttt{index} exceeds \texttt{m\_ble\_nus\_max\_data\_len}. If true, it indicates the command is fully received, and the string is sent to the peripheral device via the function \texttt{ble\_nus\_c\_string\_send}. \texttt{m\_ble\_nus\_max\_data\_len} represents the maximum data length in bytes that can be transmitted by the Nordic UART service module, specifically BLE\_GATT\_ATT\_MTU\_DEFAULT minus the two headers OP Code and Handle Length, which is 23 minus 3 bytes. After sending the string, \texttt{index} is reset to zero. The other cases handled in this function are \texttt{APP\_UART\_COMMUNICATION\_ERROR} and \texttt{APP\_UART\_FIFO\_ERROR}, which report communication and FIFO module errors to the user through log messages.
 
-UART event handler: This function is responsible for receiving commands from the external unit. Within this function, a switch statement manages different cases. The first case handles the reception of new data through UART. Commands from the external unit are received as sequences of characters in the UART\_event\_handler function. Upon receiving a new character via \texttt{app\_uart\_get}, it is stored in \texttt{data\_array} at position \texttt{index}, which is then incremented. Once a character is saved, it checks if the character is equal to '\textbackslash n' and if \texttt{index} exceeds \texttt{m\_ble\_nus\_max\_data\_len}. If true, it indicates the command is fully received, and the string is sent to the peripheral device via the function \texttt{ble\_nus\_c\_string\_send}. \texttt{m\_ble\_nus\_max\_data\_len} represents the maximum data length in bytes that can be transmitted by the Nordic UART service module, specifically BLE\_GATT\_ATT\_MTU\_DEFAULT minus the two headers OP Code and Handle Length, which is 23 minus 3 bytes. After sending the string, \texttt{index} is reset to zero. The other cases handled in this function are \texttt{APP\_UART\_COMMUNICATION\_ERROR} and \texttt{APP\_UART\_FIFO\_ERROR}, which report communication and FIFO module errors to the user through log messages.
+\textbf{Buttons LEDs Initialization}: this function initializes buttons and LEDs using two functions: \texttt{bsp\_init} for LEDs and \texttt{bsp\_btn\_ble\_init} for buttons.
 
-\subsection*{Buttons LEDs Initialization}
-This function initializes buttons and LEDs using two functions: \texttt{bsp\_init} for LEDs and \texttt{bsp\_btn\_ble\_init} for buttons.
 
-\subsection*{BSP Event Handler}
-Handles events from the Board Support Package (BSP) module using a switch-case statement. The sleep event calls \texttt{nrf\_pwr\_mgmt\_shutdown} with \texttt{NRF\_PWR\_MGMT\_SHUTDOWN\_GOTO\_SYSOFF} to put the system into a low-power system-off state. The disconnect event calls \texttt{sd\_ble\_gap\_disconnect} to terminate the Bluetooth connection, providing the connection handle and reason for disconnection.
+\textbf{BSP Event Handler}: this function handles events from the Board Support Package (BSP) module using a switch-case statement. The sleep event calls \texttt{nrf\_pwr\_mgmt\_shutdown} with \texttt{NRF\_PWR\_MGMT\_SHUTDOWN\_GOTO\_SYSOFF} to put the system into a low-power system-off state. The disconnect event calls \texttt{sd\_ble\_gap\_disconnect} to terminate the Bluetooth connection, providing the connection handle and reason for disconnection.
 
-\subsection*{Database Discovery Initialization}
-Initializes the Database Discovery (DB) module using \texttt{ble\_db\_discovery\_init}, which handles service discovery on GATT servers.
+\textbf{Database Discovery Initialization}: this function initializes the Database Discovery (DB) module using \texttt{ble\_db\_discovery\_init}, which handles service discovery on GATT servers.
 
-\subsection*{DB Discovery Handler}
-A callback function to handle events from the database discovery module, forwarding events to respective services based on discovered UUIDs.
+\textbf{DB Discovery Handler}: this function is a callback function to handle events from the database discovery module, forwarding events to respective services based on discovered UUIDs.
 
-\subsection*{BLE Event Handler}
-Handles BLE events with differences between transmitter and central code. For connection events, changes LED behavior and assigns the connection handle using \texttt{ble\_nus\_c\_handles\_assign}. Additional tasks include starting service discovery with \texttt{ble\_db\_discovery\_start}. PHY settings are not set in central code as it responds to PHY update requests from the peripheral. Disconnect events log disconnection without changing the connection handle. Common cases include security parameter requests, PHY update requests, and GATTC/GATTS event timeouts. Unique cases not present in the transmitter's \texttt{ble\_evt\_handler} are BLE\_GAP\_EVT\_TIMEOUT for GAP operation timeouts and BLE\_GAP\_EVT\_CONN\_PARAM\_UPDATE\_REQUEST for peripheral-initiated connection parameter updates.
+\textbf{BLE Event Handler}: this function handles BLE events with differences between transmitter and central code. For connection events, changes LED behavior and assigns the connection handle using \texttt{ble\_nus\_c\_handles\_assign}. Additional tasks include starting service discovery with \texttt{ble\_db\_discovery\_start}. PHY settings are not set in central code as it responds to PHY update requests from the peripheral. Disconnect events log disconnection without changing the connection handle. Common cases include security parameter requests, PHY update requests, and GATTC/GATTS event timeouts. Unique cases not present in the transmitter's \texttt{ble\_evt\_handler} are BLE\_GAP\_EVT\_TIMEOUT for GAP operation timeouts and BLE\_GAP\_EVT\_CONN\_PARAM\_UPDATE\_REQUEST for peripheral-initiated connection parameter updates.
 
-\subsection*{NUS Central Initialization}
-Initializes the Nordic UART Service (NUS) for the central role using specific functions.
+\textbf{NUS Central Initialization}: this function initializes the Nordic UART Service (NUS) for the central role using specific functions.
 
-\subsection*{BLE NUS Central Event Handler}
-Handles data reception from the peripheral through NUS. Uses a switch statement to manage cases:
+\textbf{BLE NUS Central Event Handler}: this function handles data reception from the peripheral through NUS. Uses a switch statement to manage cases:
 \begin{itemize}
     \item Completes NUS discovery, assigns connection handle, and enables notifications for data reception.
     \item Manages arrival of data packets from peripheral. Increments \texttt{received\_bytes} and computes throughput based on the time elapsed since the first packet.
@@ -812,35 +846,38 @@ Throughput is computed using the formula: \(\text{throughput} = \frac{\text{numb
 
 
 
+\textbf{Scan start}: this function initiates the scan process by performing two actions. Firstly, it starts the board scanning using \texttt{nrf\_ble\_scan\_start}. Secondly, it sets the LEDs to indicate that the board is in the scanning phase, with \texttt{LED1} specifically configured to start blinking.
 
-
-Scan start: This function initiates the scan process by performing two actions. Firstly, it starts the board scanning using \texttt{nrf\_ble\_scan\_start}. Secondly, it sets the LEDs to indicate that the board is in the scanning phase, with \texttt{LED1} specifically configured to start blinking.
-
-\subsection*{Scan Init}
-This function serves two main purposes: setting scanning parameters and enabling scan filters. It sets two scanning parameters:
+\textbf{Scan init}: this function serves two main purposes: setting scanning parameters and enabling scan filters. It sets two scanning parameters:
 \begin{itemize}
     \item \texttt{connect\_if\_match} is set to \texttt{true}, allowing the scanning process to automatically attempt to establish a connection.
     \item \texttt{conn\_cfg\_tag} is set to \texttt{APP\_BLE\_CONN\_CFG\_TAG}, which refers to the BLE stack configuration tag. In this case, the value is set to 1, indicating the configuration with handle one.
 \end{itemize}
 After initializing BLE scanning, filters are configured and enabled. The scanning module filter type is \texttt{SCAN\_UUID\_FILTER}, ensuring that only advertisements from devices offering the NUS service are reported.
 
-\subsection*{Scan Event Handler}
-This function handles events from the Scanning Module, addressing three specific events:
+
+\textbf{Scan event handler}: this function handles events from the Scanning Module, addressing three specific events:
 \begin{itemize}
     \item An error occurring during the connection process retrieves the error code from the event parameters.
     \item Successful establishment of a connection retrieves the connected event parameters and logs the address of the connected peer.
     \item Timeout event during the scan process logs a message indicating the scan has timed out and calls \texttt{scan\_start} to restart the scanning process.
 \end{itemize}
 
-\subsection*{BLE NUS Chars Received Parameters Print}
-This function is continuously called in the main program until there is no data overwrite in the circular buffer \texttt{senseback\_buff}. It handles sending data to the external unit via UART. It takes as inputs each newly stored row in \texttt{senseback\_buff} and the length of the new packet. Data are sent via UART using \texttt{app\_uart\_put} until all data are sent or a memory resource error occurs. Error checking mechanisms are implemented to notify the user of the position in the packet where an error occurred. Additionally, the function allows for flagging \texttt{ECHOBACK\_BLE\_UART\_DATA}. In this case, data sent via UART to the external unit are also sent back to the peripheral, providing an additional transmission verification.
+\textbf{BLE NUS Chars Received Parameters Print}: this function is continuously called in the main program until there is no data overwrite in the circular buffer \texttt{senseback\_buff}. It handles sending data to the external unit via UART. It takes as inputs each newly stored row in \texttt{senseback\_buff} and the length of the new packet. Data are sent via UART using \texttt{app\_uart\_put} until all data are sent or a memory resource error occurs. Error checking mechanisms are implemented to notify the user of the position in the packet where an error occurred. Additionally, the function allows for flagging \texttt{ECHOBACK\_BLE\_UART\_DATA}. In this case, data sent via UART to the external unit are also sent back to the peripheral, providing an additional transmission verification.
 
-\subsection*{Idle State Handle}
-This function
+
+\textbf{Idle State Handle}: this function
+
+
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png}
+	\centering
+\end{figure}
+
+Figure 6: flow chart implant code online - previous implementation
 
 \subsection{Online transmitter code}
 
-Figure 6: flow chart implant code online - previous implementation
 The online transmitter code is quite similar to the offline one, it just presents some small differences to guarantee the previously described different intended behaviour. The flow chart of this code is shown in Figure 6. The differences between the two codes inside the functions will be underlined below. 
 Timer1 handler: This function remains responsible for data generation but differs from the offline case in several aspects. Firstly, although the generated \texttt{uint16\_t} value \texttt{CNT} still increments step-wise, an upper limit of 65530 is set. Upon reaching this value, \texttt{CNT} resets and data generation resumes from zero. In offline tests, \texttt{CNT} would not exceed 16198 to communicate 32400 bytes, whereas online tests allow \texttt{CNT} to potentially grow endlessly. Secondly, in the online code, \texttt{timer1\_handler} is not responsible for ending communication; instead, transmission concludes upon receiving the STOP command from the user.
 
@@ -858,6 +895,11 @@ Two functions added to the online receiver code that are not in the offline vers
 \begin{itemize}
     \item \texttt{buttons\_leds\_init} and \texttt{uart\_init}, previously explained in the offline receiver code section. These are not strictly necessary for the online transmitter code's purposes.
 \end{itemize}
+
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png}
+	\centering
+\end{figure}
 
 \subsection*{Online Receiver Code}
 For the online receiver code, the flow chart mirrors Figure 5. However, some functions have minor differences to accommodate the online test's different behavior:
