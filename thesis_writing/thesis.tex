@@ -1176,7 +1176,7 @@ Moreover, when dealing with imbalanced class distributions, where some classes h
 
 \textbf{Confusion Matrix} \quad This matrix visualizes a model’s performance by showing the number of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). A general construction of confusion matrix is given in Table 3.1. It is particularly helpful for understanding the model’s ability to correctly classify each class and to investigate the errors in predict phase.
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption*{Table 3.1: Confusion Matrix for two classes (Positive and Negative) or outcomes to evaluate. The word "Predicted" refers to the output label from the classifier, while the "Actual" label is the one associated to the data.}
 \begin{tabular}{|c|c|c|}
@@ -1244,7 +1244,7 @@ Comparison between validation and test re- sults showed that ENGNet can generali
 
 For what regards the experimental setup, some specific components are chosen. Firstly, the two boards which communicate through Bluetooth Low Energy are two nrf52dk boards. These are equipped with a nRF52832 chip, which is part of the Nordic Semiconductor’s nRF52® Series of System-on-Chip (SoC) devices \footnote{https://infocenter.nordicsemi.com/index.jsp?topic=/struct\_nrf52/struct/nrf52.html}. This series is the one taken into consideration due to its versatility, giving the user the ability to choose which components are the best fit for the intended usage, its documentation, and its support features during the development phase of the project. The main features of this chip are reported in Table 1 below:
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Materials/figure1}
     \caption{Power Profiler Kit II}
@@ -1252,7 +1252,7 @@ For what regards the experimental setup, some specific components are chosen. Fi
 
 The memory sizes are equivalent to the ones of the actual Senseback device, making the development of the firmware reliable. A picture of a nrf52dk board is shown in Figure 1.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Materials/figure2}
     \caption{Power Profiler Kit II}
@@ -1260,7 +1260,7 @@ The memory sizes are equivalent to the ones of the actual Senseback device, maki
 
 Instead, for what regards the sniffer, a nRF52840 MDK USB Dongle \footnote{https://wiki.makerdiary.com/nrf52840-mdk-usb-dongle/} has been chosen.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Materials/figure3}
     \caption{Power Profiler Kit II}
@@ -1270,7 +1270,7 @@ This dongle supports Bluetooth Low Energy version 5, is equipped with a 32-bit A
 
 Finally, the last component is the one used to measure charge and current consumption absorbed by the device during the communication. For this purpose, the Power Profiler Kit II (PPK2) \footnote{https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2} has been chosen.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Materials/figure4}
     \caption{Power Profiler Kit II}
@@ -1278,7 +1278,7 @@ Finally, the last component is the one used to measure charge and current consum
 
 This tool can both measure instantaneous current consumption and supply the device under test. It is designed by Nordic Semiconductor®, but it can also be useful when used with third-party tools. It presents two different modalities: ampere meter mode and source meter mode. For the first mode, the board should be supplied by further external alimentation, which is not required when using the source meter mode, where the board could be powered through the PPK2 itself. The hardware is managed by one of the specific apps in nRF Connect for Desktop: the Power Profiler app \footnote{https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop}, which allows the user to set the intended voltage used to supply the board and to monitor the current consumption in real-time. The table reported below illustrates the main characteristics of the Power Profiler Kit II.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Materials/figure5}
     \caption{Power Profiler Kit II}
@@ -3059,7 +3059,7 @@ All other tests are online and have a duration of five minutes. In these tests, 
 
 \subsubsection*{Offline Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure1}
     \label{fig:figure1}
@@ -3073,7 +3073,7 @@ For all of the offline tests, the number of retransmissions is not significant. 
 
 \subsubsection*{Ideal Case}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure2}
     \caption{Number of retransmissions vs. captured packets in the ideal case.}
@@ -3096,7 +3096,7 @@ The plot below shows the number of retransmissions that occurred during the test
 \]
 For the ideal case, this number is very low, but a comparison will be made under different conditions.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure3}
     \caption{Number of retransmissions vs. captured packets in the ideal case.}
@@ -3105,7 +3105,7 @@ For the ideal case, this number is very low, but a comparison will be made under
 
 \subsubsection*{Distance}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure4}
     \caption{Number of retransmissions vs. captured packets in the ideal case.}
@@ -3120,7 +3120,7 @@ The implementation with 50 cm of distance follows the same speed reached by the 
 
 Since some disconnections could occur due to the longer transmission times, the connection supervision timeout chosen for these tests is the maximum one: 32000 ms. As shown in the ideal online tests, this does not impact the overall speed.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure5}
     \caption{Number of retransmissions vs. captured packets in the ideal case.}
@@ -3129,7 +3129,7 @@ Since some disconnections could occur due to the longer transmission times, the 
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure6}
     \caption{Number of retransmissions vs. captured packets in the ideal case.}
@@ -3142,7 +3142,7 @@ From the plot, it is possible to observe the current consumption based on the co
 
 \subsubsection*{Medium Dependency}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure7}
     \label{fig:figure1}
@@ -3154,7 +3154,7 @@ It is evident from the plots that the different mediums affect throughput only f
 
 The plot below shows how PER is affected by different mediums. Comparing the different conditions, it is noticeable that both lean and fatty meat almost double the number of retransmissions during communication, especially in the case of fatty meat. Although retransmissions affect speed and the amount of current absorbed, the increase in absorbed current is negligible due to the consistently low PER across all cases and has not been studied further.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure8}
     \label{fig:figure1}
@@ -3166,7 +3166,7 @@ As explained for the theoretical throughput computation, the implementation of s
 
 \subsubsection*{Offline Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure9}
     \label{fig:figure1}
@@ -3174,13 +3174,13 @@ As explained for the theoretical throughput computation, the implementation of s
 
 For the offline tests, both connection interval and connection supervision timeout have been evaluated as in the previous implementation. The results, visible in the plot, show that both parameters greatly impact throughput. For low connection intervals, the communication speed is significantly lower compared to the previous firmware version. However, for connection intervals higher than or equal to 50 ms, the speed is the same, considering that the supervision timeout (ST) is set to 2 times the selected connection interval. This behavior is due to the limits imposed by the connection supervision timeout, which must have a minimum value of 100 ms. For connection intervals lower than 50 ms, the minimum ST remains 100 ms, and it cannot be set to 2 times the CI. Thus, the results suggest that the closer the ST is to the CI, the higher the obtained throughput.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure10}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure11}
     \label{fig:figure1}
@@ -3194,7 +3194,7 @@ All online tests have been performed as before, with the only exception being th
 
 \subsubsection*{Ideal Case}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure12}
     \label{fig:figure1}
@@ -3204,7 +3204,7 @@ The results obtained through online tests with the code implementing security ar
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure13}
     \label{fig:figure1}
@@ -3216,7 +3216,7 @@ Current consumption again follows the same behavior shown by the throughput. Thi
 
 \subsubsection*{Offline Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure14}
     \label{fig:figure1}
@@ -3228,7 +3228,7 @@ For the offline tests performed with the shift algorithm, the connection supervi
 \subsubsection*{Online Tests}
 \subsubsection*{Ideal Case}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure15}
     \label{fig:figure1}
@@ -3238,7 +3238,7 @@ The online tests performed when the shift algorithm is implemented reveal a trad
 
 This algorithm serves as a starting point for future implementations where data packing is optimized. Some suggestions for improvement include performing the same operations for more than one sample at a time instead of one by one, which could reduce the overall number of operations and decrease the time needed to pack data. Another suggestion is to decrease the length of the BLE packet to 240 bytes, which could minimize discrepancies between samples packed with the shift algorithm and those packed with the previous method.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure16}
     \label{fig:figure1}
@@ -3248,7 +3248,7 @@ The number of retransmissions does not increase with the shift algorithm impleme
 
 \subsubsection*{Distance}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure17}
     \label{fig:figure1}
@@ -3260,7 +3260,7 @@ It should also be noted that, for the shift algorithm, the speed even in the ide
 
 To address this, a semaphore has been implemented in the shift code, which waits for the buffer to empty before generating new data. This process affects the data generation speed, which is no longer precisely 80 kHz due to the waiting time. In future implementations, this semaphore process should be eliminated by either increasing the speed of the shift code or decreasing the data generation speed from the ADC.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure18}
     \label{fig:figure1}
@@ -3268,7 +3268,7 @@ To address this, a semaphore has been implemented in the shift code, which waits
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure19}
     \label{fig:figure1}
@@ -3278,7 +3278,7 @@ As with the previous cases, current consumption in the shift algorithm implement
 
 \subsubsection*{Medium Dependency}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure20}
     \label{fig:figure1}
@@ -3286,7 +3286,7 @@ As with the previous cases, current consumption in the shift algorithm implement
 
 As in the case of the firmware implementation without the shift algorithm, different mediums have been studied. In the previous implementation, the impact on throughput was minimal, and the same is true for the shift algorithm, where the range of values is around 20 kbps. The most significant difference appears in terms of PER, as shown in the figure below, where the number of retransmissions in mediums like fatty meat is 7 or 8 times that in air. This could result in a slight increase in absorbed current during the tests.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure21}
     \label{fig:figure1}
@@ -3295,7 +3295,7 @@ As in the case of the firmware implementation without the shift algorithm, diffe
 \subsubsection*{Shift + Security}
 \subsubsection*{Offline Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure22}
     \label{fig:figure1}
@@ -3308,7 +3308,7 @@ The most effective connection supervision timeout is still 2 times the CI, but t
 \subsubsection*{Online Tests}
 \subsubsection*{Ideal Case}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure23}
     \label{fig:figure1}
@@ -3318,7 +3318,7 @@ The results obtained from the online tests for the shift algorithm with security
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure24}
     \label{fig:figure1}
@@ -3330,7 +3330,7 @@ As with the throughput, the absorbed current is also the minimum of the values d
 \subsubsection*{Offline Tests}
 \paragraph{iOS}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure25}
     \label{fig:figure1}
@@ -3338,7 +3338,7 @@ As with the throughput, the absorbed current is also the minimum of the values d
 
 \paragraph{Android}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure26}
     \label{fig:figure1}
@@ -3350,7 +3350,7 @@ From the Android results, it is clear that the connection supervision timeout af
 
 \subsubsection*{Online Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure27}
     \label{fig:figure1}
@@ -3360,7 +3360,7 @@ The online test results demonstrate that the multicentral feature has the most s
 
 The PER level remains consistent with previous tests, staying stable at around 0.025%.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure28}
     \label{fig:figure1}
@@ -3368,7 +3368,7 @@ The PER level remains consistent with previous tests, staying stable at around 0
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure29}
     \label{fig:figure1}
@@ -3384,7 +3384,7 @@ The final implementation involves combining all the features discussed so far: s
 
 \subsubsection*{Offline Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure30}
     \label{fig:figure1}
@@ -3394,7 +3394,7 @@ As seen in the section on security and shift, the combination of different featu
 
 \subsubsection*{Online Tests}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure31}
     \label{fig:figure1}
@@ -3404,7 +3404,7 @@ The combination of all the implemented features results in a notably low overall
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure32}
     \label{fig:figure1}
@@ -3420,7 +3420,7 @@ Another approach tested involved connecting one board to the Bluetooth of a PC, 
 
 \paragraph{Without Shift}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure33}
     \label{fig:figure1}
@@ -3430,7 +3430,7 @@ In contrast to the board-to-board approach, the board-to-PC connection on Window
 
 \paragraph{With Shift}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure34}
     \label{fig:figure1}
@@ -3442,7 +3442,7 @@ The offline test with the shift algorithm does not differ significantly from the
 
 \paragraph{Without Shift}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure35}
     \label{fig:figure1}
@@ -3450,7 +3450,7 @@ The offline test with the shift algorithm does not differ significantly from the
 
 The online tests for the board-to-PC approach were conducted aiming for a duration of 5 minutes, as with the other approaches. However, unlike the board-to-board setup where the STOP command is immediately received, the board-to-PC connection uses BLE, leading to delays. Consequently, the STOP command was sent after approximately 3 minutes and 45 seconds, but with a high standard deviation, the total experiment duration always exceeded 5 minutes. The speed remains relatively constant until the connection interval reaches 200ms, after which it decreases, similar to the behavior observed in the offline tests.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure36}
     \label{fig:figure1}
@@ -3460,7 +3460,7 @@ Compared to the board-to-board approach, the board-to-PC connection has a substa
 
 \paragraph{With Shift}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure37}
     \label{fig:figure1}
@@ -3468,7 +3468,7 @@ Compared to the board-to-board approach, the board-to-PC connection has a substa
 
 The implementation of the shift algorithm during the online tests did not have any impact on the measured speed, mirroring the results observed in the offline tests. Consequently, this algorithm can be implemented without any trade-offs in this approach, as the amount of information received is higher compared to the approach without the shift, while the speed remains unchanged.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure38}
     \label{fig:figure1}
@@ -3478,7 +3478,7 @@ The current consumption in the board-to-PC approach with the shift algorithm is 
 
 \subsubsection*{Reverse Transmission}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure39}
     \label{fig:figure1}
@@ -3490,7 +3490,7 @@ For neurostimulation needs, the transmission of BLE packets is sporadic, meaning
 
 \subsubsection*{Average Current}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Manuel/figure40}
     \label{fig:figure1}
@@ -3500,104 +3500,165 @@ The average current measured during the reverse transmission process accounts fo
 
 \section{Channel selection results}
 
+To begin let us reconsider the formula for the channel scoring.
+\begin{align}
+	D = \lambda R_w + (1-\lambda)R_b
+   \label{eq:XCDC6}
+\end{align}
 
-\begin{figure}[h!]
+As previously said, the formula presented in the paper []
+didn't receive accurate validation for the hyperparameter lambda.
+Because of this we wanted to be sure that we were using the right values.
+From an intuition standpoint, we can notice that the higher the value of the lambda the more we are considering the same-class similarity to be important, while lower values of lamba imply the opposite.
+We took the scores for the channels for one of the animals (Animal 3), and displayed the channel scores when varying the lambda.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure1}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+The values vary linearly with the lamba values, and we can notice that between 0.5 and 1.0 the ranking of the channels is approxiamtely the same.
+And the same can be said for the lamba values between 0 and 0.5.
+
+Taking these results in mind and experimenting with the values, we decided to run all the remaining tests with a lamba value of 0.8, since gave us better results than other values and since we wanted highlight same-class performance.
+
+We ran the algorithm explained in the previous chapters, with the lamba value we just specified and obtained a certain ranking of the channels.
+
+In particular for the three different animals we obtained the following rankings:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/Screenshot 2024-08-18 at 18.54.22.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/Screenshot 2024-08-18 at 18.54.28.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/Screenshot 2024-08-18 at 18.54.30.png}
+\end{figure}
+
+Since for our needs we are considering the 6 worst feature, it is evident, the paper approach and our approach produced very similar result.
+In particular for Animal 1 the result is identical and for Animal 3 is identical if not considering two couple of channels swapped in order.
+This also gives us a positive feedback about our approach.
+
+\subsection{Testing channels rankings}
+
+Having the rankings of the channels, we now proceed with an ablation study, meaning we remove the worst feature one at the time and measure the loss in accuracy of the model we have.
+
+This involves re-training the model every time with a different subset of channels.
+
+We used the ENGNet presented in previous chapters, run with 120 epochs and a 5-fold crossed validation.
+
+The results are then averaged and for each one we computed the standard deviation.
+In the results graphs, we show both the Accuracy and the F1-Score.
+
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure2}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure3}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure4}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Results Matteo/figure5}
-    \label{fig:figure1}
-\end{figure}
+It is evident that the performance on the different animals vary pretty drastically, but it was expected given the ENGNet results on the various animals.
 
-\begin{figure}[h!]
+Having shown the different results with the different metrics, we now plot how much of the Accuracy and F1-Score we lose by removing each channel.
+Keeping in mind that our threshold in order to accept the channel selection is a loss of less than 5%
+
+\[
+y_x = \text{Acc}(16 \, \text{ch}) + \sigma''(16 \, \text{ch}) - \text{Acc}(x) - \sigma''(x)
+\]
+
+Where $\text{Acc}(16 \, \text{ch})$ indicates the Accuracy with all 16 channels and $\sigma''(16 \, \text{ch})$ the standard deviation with all 16 channels.
+While $\text{Acc}(x)$ and $\sigma''(x)$ indicate the metric computed with $x$ decreasing number of channels.
+
+The red line on the graphs represents the 5 percent loss cutoff.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure6}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure7}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure8}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+We now display graphically where the worst channels are located along the cuff electrode in order to have an idea of where the channels are and to exclude some form of region bias in the procedure, where the worst channels are all in the same place on the nerve.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure9}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure10}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure11}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure12}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure13}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure14}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure15}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure16}
     \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure17}
     \label{fig:figure1}
