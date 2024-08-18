@@ -865,9 +865,7 @@ After initializing BLE scanning, filters are configured and enabled. The scannin
 
 \textbf{BLE NUS Chars Received Parameters Print}: this function is continuously called in the main program until there is no data overwrite in the circular buffer \texttt{senseback\_buff}. It handles sending data to the external unit via UART. It takes as inputs each newly stored row in \texttt{senseback\_buff} and the length of the new packet. Data are sent via UART using \texttt{app\_uart\_put} until all data are sent or a memory resource error occurs. Error checking mechanisms are implemented to notify the user of the position in the packet where an error occurred. Additionally, the function allows for flagging \texttt{ECHOBACK\_BLE\_UART\_DATA}. In this case, data sent via UART to the external unit are also sent back to the peripheral, providing an additional transmission verification.
 
-
-\textbf{Idle State Handle}: this function
-
+\textbf{Idle State Handle}: this function is also present in the transmitter code, but for what regards the receiver it is much simpler. This is called each time code is in idle state. What is does it to handle any pending log operations, then it come back to sleep until next event occurs.
 
 \begin{figure}[H]
 	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png}
@@ -904,7 +902,8 @@ Two functions added to the online receiver code that are not in the offline vers
 \subsection*{Online Receiver Code}
 For the online receiver code, the flow chart mirrors Figure 5. However, some functions have minor differences to accommodate the online test's different behavior:
 \begin{itemize}
-    % \item \texttt{Uart event handle}: Similar to the offline receiver case, but the received UART command is stored and checked locally. If it matches "STOP\n", \texttt{end\_transmission} is set to true, signaling the receiver to end communication.
+    \item \texttt{Uart event handle}: Similar to the offline receiver case, but the received UART command is stored and checked locally. If it matches \texttt{"STOP\textbackslash n"}
+    , \texttt{end\_transmission} is set to true, signaling the receiver to end communication.
     \item \texttt{Ble nus c evt handler}: Similar to the offline case, with an additional condition to check the end of transmission. Besides checking the last two values being 255, it verifies \texttt{end\_transmission} is true. This ensures the receiver recognizes the last two 255 values after the user enters the STOP command, concluding data reception.
 \end{itemize}
 
@@ -962,8 +961,7 @@ The pairing procedure may involve an additional phase, referred to as Phase 3, i
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.7]{Bluetooth_Security/3.png}
-% \caption{Summary of the pairing procedure, including Phase 3. Source: \url{https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/lessons/lesson-5-bluetooth-le-security-fundamentals/topic/pairing-process/}}
+\includegraphics[scale=0.7]{Bluetooth_Security/4.png}
 \label{fig:pairing_summary}
 \end{figure}
 
@@ -975,7 +973,7 @@ For these reasons, legacy pairing has become obsolete, and LE-SC should be prefe
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/4.png}
+    \includegraphics[scale=0.7]{Bluetooth_Security/5.png}
     % \caption{Pairing procedure \cite{cesar2022survey}}
     \label{fig:pairing_procedure}
 \end{figure}
@@ -984,13 +982,11 @@ Figure \ref{fig:LE-SC_pairing} shows the pairing procedure for a Low Energy Secu
 
 Phase 2 is divided into two stages. The first stage begins when both devices generate a random private key (Ska or Skb) and a public key (Pka and Pkb). The public keys are exchanged, and a common key (DHKEY) is computed from these values. The subsequent steps depend on the chosen association mode. Specifically, LE-SC supports three different association modes: Just Works, Numeric Comparison, Passkey Entry, and Out of Band.
 
-\subsection{Association Modes}
-
 \textbf{Just Works} is the association mode that offers the lowest level of security, as no authentication is required, even though LE-SC makes this mode more secure. This mode does not protect against man-in-the-middle (MITM) attacks. Both Just Works and Numeric Comparison association modes are depicted in Figure \ref{fig:JustWorks_NumericComparison}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/5.png}
+    \includegraphics[scale=0.7]{Bluetooth_Security/6.png}
     % \caption{Pairing procedure \cite{cesar2022survey}}
     \label{fig:pairing_procedure}
 \end{figure}
@@ -1001,7 +997,7 @@ Another association mode supported by LE-SC is the Passkey Entry, detailed in Fi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/6.png}
+    \includegraphics[scale=0.7]{Bluetooth_Security/7.png}
     % \caption{Pairing procedure \cite{cesar2022survey}}
     \label{fig:pairing_procedure}
 \end{figure}
@@ -1012,7 +1008,7 @@ The final association mode supported by LE-SC is Out of Band (OOB), as shown in 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/7.png}
+    \includegraphics[scale=0.7]{Bluetooth_Security/8.png}
     % \caption{Pairing procedure \cite{cesar2022survey}}
     \label{fig:pairing_procedure}
 \end{figure}
@@ -1021,25 +1017,6 @@ To indicate that OOB association mode is required, the OOB data flag must be set
 
 All association modes result in the generation of two random values Na and Nb. Phase 2, Stage 2 then begins, where LTK and MACkey are generated using Na, Nb, device addresses, and public and private keys from the chosen association mode. This final value links all previous procedures and prevents attacks. Confirmation values Ea and Eb are computed using Mackey, Na, Nb, ra, rb, device BLE addresses, and keyboard/display capabilities. These values are shared and checked without directly exchanging the DHkey. If no errors occur, LTK is generated, and the pairing procedure is completed. Unlike legacy pairing, LTK generation is not an optional consequence of STK but is automatically generated after the process. LTK can be discarded if bonding is not required, or stored for future use. In LE-SC, if bonding is requested, IRK and CSRK values may also be used.
 When switching roles, if a mismatch occurs, the procedure is immediately aborted. If no errors are found during each iteration, the Long-Term Key (LTK) and the Media Access Control key (MACkey) are generated. The MACkey is used for media access control. To prevent a potential man-in-the-middle (MITM) attacker from exploiting the password, each bit of the password must be changed in every iteration. This high complexity prevents such attacks, as the length of Na and Nb values is significant. According to Bluetooth SIG requirements, each password must be used only once, which prevents an attacker from gaining information from an aborted procedure. Additionally, to prevent an attacker from performing independent ECDH exchanges and password entries, the values Pkax and Pkbx are included in the commitment value.
-
-\subsection{Out of Band Association Mode}
-
-The final association method supported by LE-SC is the Out of Band (OOB) association mode, as illustrated in Figure \ref{fig:OOB_association}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/8.png}
-    % \caption{Pairing procedure \cite{cesar2022survey}}
-    \label{fig:pairing_procedure}
-\end{figure}
-
-To signal that the OOB association mode is required, the OOB data flag must be set to true for each device. This flag is set when the devices start the pairing procedure, and the OOB connection must be established beforehand. The OOB procedure may vary; for instance, it could trigger the pairing process. Both devices generate public and private ECDH keys and select random values \( r_a \) and \( r_b \). Commitment values \( C_a \) and \( C_b \) are computed as in the previously explained association modes. 
-
-Next, the OOB connection is established, which can differ based on the devices' capabilities. If both devices can transmit and receive data, they exchange \( 1_a \) and \( 1_b \) values. If only one device can handle data exchange, only one set of values is transferred. Once the OOB data exchange is complete, BLE communication is established, and the pairing procedure proceeds as in previous cases, with flags set to indicate if authentication is required. If OOB data exchange occurs, the commitment value is verified. If mismatches are detected, the pairing procedure is aborted. The flag indicating OOB data exchange is called the "OOB data flag". If this flag is true, the device can be assured that the data has been received. OOB is considered secure enough for legacy pairing and is recommended for LE-SC, provided that the OOB channel is secure.
-
-\subsection{Generation of LTK and MACkey}
-
-All previously discussed association modes result in the generation of two random values, \( N_a \) and \( N_b \). In Phase 2, Stage 2, the LTK and MACkey are generated using these random values, device addresses, and the public and private keys obtained from the chosen association mode. This process links all previously performed procedures and mitigates possible attacks. Confirmation values \( E_a \) and \( E_b \) are computed using the MACkey, random values \( N_a \) and \( N_b \), \( r_a \) and \( r_b \) (depending on the chosen association modes), device BLE addresses, and input/output capabilities. These values are shared and checked, without directly sending the DHkey. If no errors occur, the LTK is generated, and the pairing procedure is completed. Unlike legacy pairing, LTK generation is not optional but automatically generated at the end of the process. However, the LTK may not always be used for future connections; it may be discarded if bonding is not required. If bonding is required, the LTK is stored for future use. In LE-SC, if bonding is requested, IRK and CSRK values can also be utilized.
 
 \subsection{Encryption}
 
@@ -1054,8 +1031,8 @@ Once the pairing procedure concludes, the devices have generated the LTK or STK,
 
 If a long-term key (LTK) has been generated, the values EDIV and RAND are shared between the devices to reconstruct the LTK. These values act as identifiers to recover the LTK. Specifically, the central device shares its EDIV and RAND values with the peripheral device, which can retrieve its values from its database. If only the pairing procedure is performed and STK and LTK are not present, these fields are set to zero. 
 
-MISSING PART HERE
-% Both devices then generate and share two random numbers, each 128 bits long: \( \text{SKD}_C \), \( \text{IV}_C \) for the central device and \( \text{SKD}_P \), \( \text{IV}_P \) for the peripheral device. These represent the session key diversifiers and initialization vectors. The values for central and peripheral devices are concatenated through a link layer encryption request (LL_ENC_REQ). After concatenation, the session key is computed using the AES-128 algorithm, incorporating the newly generated SKD values and the previously generated STK/LTK. This session key is then used for encryption.
+Both devices then generate and share two random numbers, each 128 bits long: \( \text{SKD}_C \), \( \text{IV}_C \) for the central device and \( \text{SKD}_P \), \( \text{IV}_P \) for the peripheral device. These represent the session key diversifiers and initialization vectors. The values for central and peripheral devices are concatenated through a link layer encryption request (LL\_ENC\_REQ). After concatenation, the session key is computed using the AES-128 algorithm, incorporating the newly generated SKD values and the previously generated STK/LTK. This session key is then used for encryption.
+
 
 \begin{figure}[H]
     \centering
@@ -1262,8 +1239,52 @@ Comparison between validation and test re- sults showed that ENGNet can generali
 
 
 
-\section{nrf5280 Board pros and cons}
-\section{Power Supplier}
+
+\subsubsection*{Hardware}
+
+For what regards the experimental setup, some specific components are chosen. Firstly, the two boards which communicate through Bluetooth Low Energy are two nrf52dk boards. These are equipped with a nRF52832 chip, which is part of the Nordic Semiconductor’s nRF52® Series of System-on-Chip (SoC) devices \footnote{https://infocenter.nordicsemi.com/index.jsp?topic=/struct\_nrf52/struct/nrf52.html}. This series is the one taken into consideration due to its versatility, giving the user the ability to choose which components are the best fit for the intended usage, its documentation, and its support features during the development phase of the project. The main features of this chip are reported in Table 1 below:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Materials/figure1}
+    \caption{Power Profiler Kit II}
+\end{figure}
+
+The memory sizes are equivalent to the ones of the actual Senseback device, making the development of the firmware reliable. A picture of a nrf52dk board is shown in Figure 1.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Materials/figure2}
+    \caption{Power Profiler Kit II}
+\end{figure}
+
+Instead, for what regards the sniffer, a nRF52840 MDK USB Dongle \footnote{https://wiki.makerdiary.com/nrf52840-mdk-usb-dongle/} has been chosen.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Materials/figure3}
+    \caption{Power Profiler Kit II}
+\end{figure}
+
+This dongle supports Bluetooth Low Energy version 5, is equipped with a 32-bit ARM Cortex-M4 CPU with FPU, and provides robust processing power for handling complex tasks and algorithms. It also features 256 KB of RAM and 1 MB of Flash memory, which are ample for most applications and development needs.
+
+Finally, the last component is the one used to measure charge and current consumption absorbed by the device during the communication. For this purpose, the Power Profiler Kit II (PPK2) \footnote{https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2} has been chosen.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Materials/figure4}
+    \caption{Power Profiler Kit II}
+\end{figure}
+
+This tool can both measure instantaneous current consumption and supply the device under test. It is designed by Nordic Semiconductor®, but it can also be useful when used with third-party tools. It presents two different modalities: ampere meter mode and source meter mode. For the first mode, the board should be supplied by further external alimentation, which is not required when using the source meter mode, where the board could be powered through the PPK2 itself. The hardware is managed by one of the specific apps in nRF Connect for Desktop: the Power Profiler app \footnote{https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop}, which allows the user to set the intended voltage used to supply the board and to monitor the current consumption in real-time. The table reported below illustrates the main characteristics of the Power Profiler Kit II.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Materials/figure5}
+    \caption{Power Profiler Kit II}
+\end{figure}
+
+
 \section{Memory management}
 
 The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. Below is a detailed explanation of each component illustrated in the provided diagram:
@@ -1494,11 +1515,6 @@ We could include metrics later if we have time, like space occupied and shit and
 
 
 
-
-
-
-
-\section{Radiation absorbtion}
 \section{Channel selection}
 
 We have already described in previous sections the project at hand and why every possible improvement can ease the development of a functional implementation.
@@ -1858,19 +1874,20 @@ In particular:
 We will divide this chapter into two main parts: one that is related to the firmware and the hardware aspects, one that is related to the channel selection algorithms.
 These two parts have been carried on for the majority of our work indipendently and despite the common goal share little to no similarities as far as materials and methods go.
 
-\section{Firmware}
+\section{Firmware: Shift}
 
 \subsection{Shift Algorithm}
 
 Even if in previous firmware implementation the data that were exchanged from one board to the other one were directly generated from the peripheral itself, this would not be the case in the actual implementation, in which data would directly come from the ADC, whose samples will contain information which are relative to neural system. This sampling procedure is done at a frequency of 80 kHz. Each sample will then be provided to the peripheral board, which is the one responsible to send them to central device and then to external unit. All of these data which come from the ADC have as a size 10 bits, which is quite uncomfortable to be threated. The microcontroller, in fact, needs to store the samples, but store them into a \texttt{uint8\_t} variable would implicate a waste of information, variables of 16 bits size would instead guarantee a waste of memory. In the previous implementation, the second approach is adopted, as shown below:
 
-\begin{center}
-16 bits variable
-\end{center}
 
-\begin{verbatim}
-Empty (6 bits)                 ADC sample (10 bits)
-\end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.12.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
 
 As mentioned above, this approach is responsible for a great waste of memory. In fact, every time a 10 bits new sample is generated from the ADC, this is saved into 16 bits variables, guaranteeing for each sample a waste of 6 bits. This approach should be improved, because memory in microcontrollers is very limited, and 6 bits out of 16 wasted for each samples means that 6/16 of the throughput obtained is not informative. In all of the online tests two different throughputs are computed as explained below:
 
@@ -1884,17 +1901,31 @@ As mentioned above, this approach is responsible for a great waste of memory. In
 
 Where the first one represents the effective speed of the BLE communication, while the second one takes into account just the number of bits which contains information, which would result more or less in 10/16 of the first one. In order to have a better understanding of what was happening with previous version of the firmware, the pre-processing operations done for each single BLE packet could be analysed. The function responsible for doing this is the \texttt{Spibuff} function. As previously said, data were generated at a constant frequency of 80 kHz. Once there are enough samples inside the ring buffer to full fill a BLE packet (which means at least 244 bytes), data preprocessing operations were performed. Since each sample has a size which cannot be contained into a single byte, this means 2 bytes are dedicate to each one, and then data preprocessing operation is performed each time 122 samples have been generated from ADC. Once they are, each sample is taken from the ring-buffer. Then, the 8 most informative bits of the \texttt{uint16\_t} variable which temporarily contains it would form the first byte, and the 8 less informative bits would form the second one. This operation is performed 122 times for each BLE packet, in order to full fill them. By making this, the final number of samples reived from central device is a half of the received bytes. The figure below represents this concept in case of an offline test.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.21.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
 Bytes generation procedure done in previous implementation is schematized below, where the parentheses represent the bytes that would be contained in BLE packet and sent to central device:
 
-\begin{center}
-16 bits variable
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.29.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
-\begin{verbatim}
-                              1st byte                         2nd byte
-\end{verbatim}
 
 Each couple of bytes would then be packed into the original 16 bits variable in central device, in order to reconstruct the ADC samples. To improve this operation, a shifting algorithm has been implemented. The idea is to perform some bit-masking operations in order to use also those bits which previously were empty. As a consequence, data need to be compressed in the peripheral and then decompressed in central device. A scheme of the compression operation is shown below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.36.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
 To be precise the ADC samples are saved into \texttt{uint16\_t} variables, but since they have a size of 10 bits just the 10 less significant bits out of this 16 are considered. The shifting procedure performed by peripheral can be summarized in the following steps:
 
@@ -1938,12 +1969,33 @@ Again, since 192 is not a multiple of five, this means that not the whole last p
 
 By summing the number of samples sent through the first 132 packets, and the number of samples sent through the last one, the total number of samples sent during an offline test when the shift algorithm is implemented is 25761.
 
-By making a comparison between the final number of samples received in both cases, the shift implementation guarantees an increase in received samples of 37.11%. However, the shift algorithm is not limited to compression. Original samples need to be reconstructed once the central device has received all of the data in order to have full access to the information which comes from the ADC. To do that, a decompression algorithm has been implemented as well. The scheme, as before, is shown below:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.45.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
+
+By making a comparison between the final number of samples received in both cases, the shift implementation guarantees an increase in received samples of 37.11. However, the shift algorithm is not limited to compression. Original samples need to be reconstructed once the central device has received all of the data in order to have full access to the information which comes from the ADC. To do that, a decompression algorithm has been implemented as well. The scheme, as before, is shown below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.56.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
 Differently from the peripheral side, the central device will receive data which are in byte, and needs to be decompressed. The procedure is composed of the following steps:
 Firstly, the whole first byte is put together with the 2 most relevant bits of the second byte in order to reconstruct the first sample. Then, the second sample is formed by the 6 less relevant bits of the second byte, put together with the 4 most relevant bits of the third byte. The third sample is composed of the four most rightly positioned bits of the third byte together with the 6 most relevant bits of the fourth byte. The remaining bits of the fourth byte together with the whole fifth byte would constitute the fourth sample. As before, the whole procedure is periodic. In case of a full-sized BLE packet, this is repeated until 240 bytes have been processed. The last 4 bytes are simply coupled as it happened in the previous version of the firmware.
 
 An example of the whole procedures of compression and decompression is shown below: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.32.05.png}
+    % \caption{Pairing procedure \cite{cesar2022survey}}
+    \label{fig:pairing_procedure}
+\end{figure}
 
 In the purposed example, vector elements act as the ring buffer which should contain the ADC samples. All of the fourth samples generated have the same value in this case which is 1022. This number has not been chosen randomly, but it is the maximum number that can be represented in binary using 10 bits, exception made for 1023 which is representable as a sequence of 10 bits 1. 1022 can instead be represented in binary language as 1111111110. The presence of the last zero is useful to understand whether or not the shift algorithm is operating correctly. Firstly, data are compressed, and bytes generated are saved into the \texttt{nusTx} vector, which is the one which simulates the storage of bytes. The values inside \texttt{nusTx} are then printed. To verify that these values are the ones expected, the whole steps previously explained are performed:
 The first \texttt{nusTx} value should take the 8 most relevant bits of \texttt{element[0]}. In this case, all of the numbers inside elements are 1022, so the first 8 bits are 8 bits 1, which can be written in decimal as 255.
@@ -1957,7 +2009,7 @@ The second one is composed of the 6 less relevant bits of the second byte, 10111
 The third sample is made by putting together the 2 most right positioned bits of the third byte, 11101111, and the 6 left positioned bits of the fourth byte, which is 11111011, resulting again in 1022.
 Lastly, the fourth sample is composed of the 2 remaining bits inside the fourth byte and the whole fifth byte. The result is again 11111110 or 1022.
 
-\section{Firmware Implementation: Offline Transmitter}
+\subsection{Firmware Implementation: Offline Transmitter}
 
 For what regards the firmware implementation, two functions are principally implied by the shift operations: \texttt{timer1\_handler} and \texttt{Spibuffprocess}. The first one is the function which is responsible for data generation, while the second one re-organizes the samples generated into bytes in order to make them ready to be sent.
 The \texttt{timer1\_handler} function is quite similar to the previous version of the firmware, just a few changes became necessary. Firstly, the number of samples generated in order to reach a communication of 32400 bytes size should be incremented, according to the increase previously explained. To do that, the number of samples generated before putting the last value 65535 is no more given by $(\text{DATA TO SEND}-2) \cdot 2-1$, which would result in 16198, but this limit is instead substituted by:
@@ -1966,18 +2018,18 @@ The \texttt{timer1\_handler} function is quite similar to the previous version o
 \]
 Which would result in 194*132+152=25760 samples. 
 Because of this limit incrementation, a further modification of the \texttt{timer1\_handler} function became necessary. Because of the limit imposed by the RAM of the peripheral device, the ring buffer which contains all of the samples has a size of 16384. It can easily possible to see that the previous number of samples never exceeded the maximum number that the buffer could contain, causing no problems in the data generation process. 
-With the shift algorithm, instead, due to the increased number of samples generated, this limit is reached and the behaviour that could happen is that some samples are lost because they have not been sent to the central device fast enough. In order to do that, a further condition has been added. In particular, the generation of new data and the consequent storage inside the ring buffer is allowed only if the data already in the buffer are less than 16200, which represents the 97.88% of the buffer. This condition guarantees that the buffer has enough free memory before being filled, and no wasting of information is implied. Ultimately, a further condition is added. In order to generate data which are as much as possible similar to the actual samples coming from the ADC, \texttt{CNT} maximum value has been posed to 1022, which is the maximum value that can be represented with 10 bits, exception made for 1023, where \texttt{CNT} is the variable which simulates the arrival of the samples.
+With the shift algorithm, instead, due to the increased number of samples generated, this limit is reached and the behaviour that could happen is that some samples are lost because they have not been sent to the central device fast enough. In order to do that, a further condition has been added. In particular, the generation of new data and the consequent storage inside the ring buffer is allowed only if the data already in the buffer are less than 16200, which represents the 97.88 percent of the buffer. This condition guarantees that the buffer has enough free memory before being filled, and no wasting of information is implied. Ultimately, a further condition is added. In order to generate data which are as much as possible similar to the actual samples coming from the ADC, \texttt{CNT} maximum value has been posed to 1022, which is the maximum value that can be represented with 10 bits, exception made for 1023, where \texttt{CNT} is the variable which simulates the arrival of the samples.
 As previously said, also the \texttt{Spibuffprocess} function has been modified. In detail, the function counts the number of samples actually inside the ring buffer. In the previous implementation, the data packing into bytes operation was performed if they were at least \texttt{senseback\_MTU/2}, which corresponds to 122 samples. With the shift implementation, however, the number of samples that can be packed in 244 bytes is no more 122, but it is 194. This value is stored in the variable \texttt{ELEMENTS\_IN\_A\_CYCLE}, which represents the new lower limit of samples. If there are at least 194 samples in the buffer, the generation of a full-sized BLE packet of 244 bytes can be performed. This is done as shown before, by performing shift operations until the bytes generated are 240. Each time a cycle is completed, four new samples are taken from the ring buffer. The last four bytes are generated as done in the previous firmware version. Ultimately, the last packet should be processed. This process is done when the ring buffer contains at least one element and the total number of bytes that need to be sent to guarantee a communication of 32400 bytes is less than 244. Then, a fictitious variable is used as a counter to represent the number of samples taken and processed from the ring buffer. Until this counter has not reached the last 4 samples inside the buffer, the shifting process is performed. The last values would not be shifted. This last choice has been made in order to assure that the last value 65535 would not be shifted, where this value is used to signal that the end of the communication is reached. 
 
-\section{Firmware Implementation: Offline Receiver}
+\subsection{Firmware Implementation: Offline Receiver}
 
 In order to avoid a possible impact on the speed of the receiving packets process, in the receiver code data are unpacked when communication ends. To do that, the new function \texttt{process\_senseback\_data} has been implemented. This function is called when the central device has received the last bytes 255 and 255. To this function, the whole buffer which contains the bytes received is passed. The function would then decompress the data. For the purpose of an offline test, since the number of bytes and samples that would be received is known, the vector which would contain the unpacked data has a fixed size, which is 25761, as the number of samples. Then, the process of decompression is done as many times as the number of BLE packets received, exception made for the last one. For the last packet, the process is the same, the only difference resides in the last two bytes, which are the only ones that would be put together without the decompression algorithm.
 
-\section{Firmware Implementation: Online Transmitter}
+\subsection{Firmware Implementation: Online Transmitter}
 
 For what regards the function \texttt{timer1\_handler}, the only modification done for the online case is the maximum value of the \texttt{CNT} variable, which has been posed to 1022 as for the offline case. The \texttt{Spibuff} function is also quite equivalent to the one implemented for the offline case, the only differences are the ones relative to the fact that the communication has not a fixed size, and so they have already been explained for the previous version of the firmware. In order to show the difference in terms of informative throughput when the shift algorithm is adopted, a further variable \texttt{count\_zeros} has been used. This acts as a counter to count how many empty bits are present when the shift algorithm is adopted and when it is not.
 
-\section{Firmware Implementation: Online Receiver}
+\subsection{Firmware Implementation: Online Receiver}
 
 Compared to the offline receiver case, the online one implicates a small further challenge, which is due to the fact that the number of packets is not known a priori. To compute it and consequently know how many packets need to be shifted and how, the idea is to use the following equation:
 \[
@@ -1987,7 +2039,7 @@ to compute the number of BLE packets and using the rest given by this operation 
 A limit that this approach presents is due to the size of the RAM, which is not enough to actually perform the unpacking process. Future implications of this process should imply a study on how it could be possible to save some memory in the microcontroller, and how fast the packing and the unpacking processes are.
 
 
-\subsection{Firmware Security Implementation}
+\section{Firmware Security Implementation}
 As explained in previous sections, security implementation is fundamental both from the normative point of view and for guaranteeing privacy and safety of the patient, especially for those communications which are wireless, and can then easily be sniffed. In order to have a chance for the device to be approved, the highest level of security that a device supports should be implemented. Considering that the communication is point to point, because just two devices are involved, and that the devices support the most updated Bluetooth low energy versions, this level corresponds to mode 1 level 4, which implies the involvement of Bluetooth Low Energy Secure Connection.
 
 To implement this, the steps are similar in both the central and peripheral devices. Specifically, \textit{Peer Manager} \footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fsdk_nrf5_v17.1.0\%2Flib_peer_manager.html}} is involved. Peer manager is used in the context of BLE in order to manage all tasks related to security, such as encryption, pairing, or bonding. When a bonding procedure is required, the peer manager stores the Long-Term Keys into the flash memory and the same is for GATT data. Some of the advantages in the peer manager implementation are the following:
@@ -2004,12 +2056,10 @@ To implement this, the steps are similar in both the central and peripheral devi
 
 The Peer Manager architecture is shown below:
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[scale=0.3]{peer_manager_architecture.png}
-%     \caption{Peer Manager architecture\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fsdk_nrf5_v17.1.0\%2Flib_peer_manager.html}}}
-%     \label{fig:peer_manager_architecture}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.12.png}
+\end{figure}
 
 All the parts which compose the peer manager are shown in Figure~\ref{fig:peer_manager_architecture}. Specifically, the first section regards the security manager and dispatcher. This is responsible for managing all the steps in the security process, based on the requirements of the involved applications. These steps include the creation of a secure connection by communicating with the SoftDevice, saving and deleting the proper keys, and performing the pairing procedure. The module is divided into two components: the Security Manager and the Security Dispatcher. The first one is responsible for storing security parameters, monitoring the current state, and managing the pairing process. The Security Dispatcher connects with the SoftDevice and the flash to perform the actual pairing procedure.
 
@@ -2066,8 +2116,28 @@ These are the only changes done in the main code necessary to implement LESC in 
 
 The following pictures illustrate the difference in terms of logs after the connection is performed when security is implemented and when it is not, for both central and peripheral device roles. It is possible to see, thanks to the logs, all of the steps related to security implementation which have been explained above, and when they are exactly performed in the pairing and bonding procedures.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.24.png}
+\end{figure}
 
-\subsection{Theoretical throughput computation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.31.png}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.37.png}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.43.png}
+\end{figure}
+
+
+\section{Theoretical throughput computation}
 
 Theoretical throughput computation provides an idea on which is the maximum speed than the BLE communication can reach, taking into account some factors, such as latency, which is not considered in the ideal PHY, whose values could be 1 Mbps or 2 Mbps. In order to make a correct calculation, different parameters should be considered basing on different condition in the experimental setups, such as whether or not encryption is enabled, or which is the chosen PHY. As a consequence, all the possible cases are considered for the different intended usages.
 
@@ -2090,6 +2160,11 @@ In order to compute the time needed to send an empty and a full-size packet, dif
 \subsection*{Case 1: No Security Features, PHY = 2 Mbps}
 
 First case refers to those cases in which security features such as encryption are not implemented and PHY is set to 2 Mbps, such as the previous implementation or the case with shift algorithm, but without security.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{theoretical_throughput.png}
+\end{figure}
 
 Since encryption is not enabled, then the MIC field is not present. Moreover, since PHY is equal to 2 Mbps, preamble would be 2 bytes size. Considering this, it is now possible to compute the sizes of empty packets as follows:
 \begin{equation}
@@ -2169,215 +2244,6 @@ The number of packet changes accordingly:
 
 Finally, the theoretical throughput is equal to 663.68 Mbps.
 
-\section{Test Procedures}
-For each implementation, offline and online tests were performed. The purpose of the offline tests is to understand how the chosen parameters impact the codes. This allows for the selection of the best parameters for use in the online tests. Specifically, the parameters studied for each implementation are the connection interval (CI) and the connection supervision timeout (ST).
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/1.png}
-    % \caption{Connection interval and connection supervision timeout\footnote{\url{https://docs.silabs.com/bluetooth/latest/bluetooth-fundamentals-connections/multi-peripheral-topology}}}
-    \label{fig:connection_interval_timeout}
-\end{figure}
-
-The connection interval is defined as the elapsed time between two consecutive connection events, i.e., the time between the reception of the last packet and the reception of the new one. In the context of BLE, it has minimum and maximum thresholds, ranging from 7.5ms to 32000ms:
-\[
-7.5\,\text{ms} \leq \text{CI} \leq 4000\,\text{ms}
-\]
-
-The connection supervision timeout is defined as the time that can pass after receiving the last packet before considering the connection lost. It has limits relative to the connection interval and ST thresholds themselves. Specifically, the connection supervision timeout varies from a minimum time of 100ms to a maximum of 32 seconds, and it should be at least 2 times larger than the set connection interval:
-\[
-100\,\text{ms} \leq \text{ST} \leq 32000\,\text{ms}
-\]
-\[
-\text{ST} \geq 2 \times \text{CI}
-\]
-
-To vary these parameters in the firmware, changes on the peripheral side are sufficient. Since the boards are of the same type, they would always reach an agreement about the parameters. However, a further check can be done using a sniffer. An example of this is shown below.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/2.png}
-    % \caption{Sniffed connection parameter update}
-    \label{fig:sniffed_connection_parameter_update}
-\end{figure}
-
-By clicking on the connection update, it is possible to see the chosen parameters set.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{Test_Procedure/3.png}
-    % \caption{Connection parameters in Wireshark}
-    \label{fig:connection_parameters_wireshark}
-\end{figure}
-
-In the purposed example, the parameters were 50ms for the CI and 110ms for the ST. For the offline tests, the connection intervals studied are 7.5ms, 12.5ms, 20ms, 50ms, 100ms, 200ms, 500ms, and 1000ms. After these, the trend was already reached, and further results would not be so significant. The connection supervision timeouts chosen for the offline tests were 2, 4, 8, 16, and 32 times the connection interval selected. Due to the lower limit imposed by the connection supervision timeout threshold, when the connection interval value is 7.5ms, 12.5ms, or 20ms, the ST cannot be 2 times the connection interval because this would conflict with the previous condition. In these cases, the minimum admissible connection supervision timeout was set, which is 100ms.
-
-The online tests were performed when the best supervision timeout was chosen based on the results of the offline tests. Then, different connection intervals were evaluated but with the same ratio with the ST. The chosen values for the connection interval studied were 7.5ms, 20ms, 50ms, 100ms, 200ms, 300ms, and 500ms. Each online test had a duration of at least 5 minutes.
-
-For both the online and offline tests, a sniffer was used to count the retransmissions in cases where this process could be performed, i.e., when security is not involved. The experimental setup for the different cases is shown below. They respectively represent the tests without security, tests with security, multicentral tests, and tests with board-PC communication.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/4.png}
-    % \caption{Ideal tests without security}
-    \label{fig:ideal_tests_without_security}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/5.png}
-    % \caption{Ideal tests with security}
-    \label{fig:ideal_tests_with_security}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/6.png}
-    % \caption{Multicentral implementation}
-    \label{fig:multicentral_implementation}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/7.png}
-    % \caption{Direct communication board-PC}
-    \label{fig:direct_communication_board_PC}
-\end{figure}
-
-All tests were performed in the ideal case, with the boards attached and air as the transmission medium.
-
-\section{Power Profiler Tests}
-Power profiler tests were performed using the PPK2, which offers two different modalities: source meter and ammeter. In the first one, the board under test is directly supplied by the power profiler itself, with no need for external supply such as USB. In the second one, current is measured, but the USB wire is needed. The figures below show how the PPK2 and the board should be connected in both cases.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/8.png}
-    % \caption{PPK2 in source and ammeter mode}
-    \label{fig:ppk2_source_amperemeter_mode}
-\end{figure}
-
-To use the PPK2 in source and ammeter mode, the links to be established are the following ones:
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/9.png}
-    % \caption{Pin connections in Source Meter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
-    \label{fig:pin_connections_source_meter}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/10.png}
-    % \caption{Pin connections in Ammeter mode\footnote{\url{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fug_ppk2%2FUG%2Fppk%2Fsetting_up.html}}}
-    \label{fig:pin_connections_amperemeter}
-\end{figure}
-
-For the firmware side, a specific app has been developed for the Nordic PPK2. When opened, the PPK2 can be selected, as shown in Figure~\ref{fig:power_profiler_kit_app}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/11.png}
-    % \caption{Power profiler kit app}
-    \label{fig:power_profiler_kit_app}
-\end{figure}
-
-Once the PPK is selected, the modality can be chosen between source meter and ammeter mode. When the source meter mode is chosen, the screen would look like Figure~\ref{fig:power_profiler_app_source_meter_mode}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/12.png}
-    % \caption{Power profiler app source meter mode}
-    \label{fig:power_profiler_app_source_meter_mode}
-\end{figure}
-
-Through this, it is possible to set the voltage to supply the board and the number of samplings per second. To see the effective absorbed current, the power output should be enabled. The results would be displayed on the right, where the average current, the maximum current reached, the time of the measurement, and the required charge are displayed. The screen for ammeter mode is similar, as shown in Figure~\ref{fig:power_profiler_app_amperemeter_mode}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/13.png}
-    % \caption{Power profiler app ammeter mode}
-    \label{fig:power_profiler_app_amperemeter_mode}
-\end{figure}
-
-In this case, since the board is not supplied by the PPK2, it is not possible to set the voltage, but only the number of samples per second. An example of measurement is shown below. For this example, just noise was measured, and the current measured should be 0A.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/14.png}
-    % \caption{Example of measurement done with PPK2}
-    \label{fig:example_measurement_ppk2}
-\end{figure}
-
-In order to have a proper current measurement, the board under test should be prepared, as explained in the guide\footnote{\url{https://docs.nordicsemi.com/bundle/ug_nrf52832_dk/page/UG/dk/prepare_board.html}}. To do this, SB9 should be cut.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/15.png}
-    % \caption{SB9 solder bridge}
-    \label{fig:SB9_solder_bridge}
-\end{figure}
-
-Occasionally, in cases where the board should be supplied by an external power source other than USB, SB12 should also be cut to bypass the protection diode.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/16.png}
-    % \caption{SB12 solder bridge}
-    \label{fig:SB12_solder_bridge}
-\end{figure}
-
-Once current measurements have been performed, to restore the previous functions of the board, SB9 should be soldered or a jumper on P22 should be put in place. Then, SB12 should be cut or desoldered to reconnect the protection diode. The SOC can then be reprogrammed by removing the PPK2, applying a jumper on P22, and connecting the board to the PC through a USB.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/17.png}
-    % \caption{Cutting process of SB9}
-    \label{fig:cutting_process_SB9}
-\end{figure}
-
-For the purpose of current measurement, as in this master thesis, only SB9 needs to be cut. This process is shown in Figure~\ref{fig:cutting_process_SB9}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/18.png}
-    % \caption{Current measurement during a BLE communication}
-    \label{fig:current_measurement_BLE_communication}
-\end{figure}
-
-Through the power profiler, it is possible to zoom into the communication to see how much each packet consumes in terms of current consumption. Figure~\ref{fig:current_measurement_BLE_communication} shows a series of packet exchanges. The larger spikes represent the current consumption of a full-sized BLE packet, while the smaller ones represent acknowledgment packets.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/19.png}
-    % \caption{Current consumption connection interval}
-    \label{fig:current_consumption_connection_interval}
-\end{figure}
-
-Figure~\ref{fig:current_consumption_connection_interval} is obtained by zooming out the previous exchange shown in Figure~\ref{fig:current_measurement_BLE_communication}. It represents a connection event, including its respective time of latency and active communication time. Moreover, the effect of different environments, such as distance, has been evaluated. The boards have been evaluated at distances of 0cm, 10cm, and 50cm to see how these impact the throughput and the PER of each application.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/20.png}
-    % \caption{Boards at a distance of 10cm}
-    \label{fig:boards_distance_10cm}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.3]{Test_Procedure/21.png}
-    % \caption{Boards at a distance of 50cm}
-    \label{fig:boards_distance_50cm}
-\end{figure}
-
-\section*{Summary}
-\begin{enumerate}
-    \item Multicentral implementation \dotfill 2
-    \item Receiver firmware multicentral \dotfill 3
-    \item Transmitter firmware multicentral \dotfill 5
-    \item Command sending process \dotfill 6
-\end{enumerate}
-
-\newpage
 \section{Multicentral Implementation}
 As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure \ref{fig:user_command_sending_procedure}.
 
@@ -2404,7 +2270,7 @@ The second central device chosen is a smartphone. This choice allows the user to
 
 Before explaining how the final communication works when the multicentral setup is completed, the following section will explain how this has been implemented in the firmware.
 
-\section{Receiver Firmware Multicentral}
+\subsubsection{Receiver Firmware Multicentral}
 Specifically, in the receiver code of the firmware, only a few differences are present. The first one relates to the configuration file. In particular, the \texttt{NRF\_SDH\_BLE\_CENTRAL\_LINK\_COUNT} and \texttt{NRF\_SDH\_BLE\_TOTAL\_LINK\_COUNT} values have been changed from 1 to 2. These define the number of central devices present in the application and the total number of simultaneous connections, which are both two in this case. Due to these changes, more RAM memory needs to be allocated compared to the previous implementation. Segger provides an easy way to change the settings of the project the developer is working on. The procedure is shown in Figure \ref{fig:memory_allocation_seggar}.
 
 \begin{figure}[H]
@@ -2425,7 +2291,7 @@ Specifically, in the Section Placement Macros, it was required to change the RAM
 
 The other difference regards the main file. It is related to when the end of the communication should occur. In the previous implementation, this happened when both the last two bytes received were 255 and the \texttt{end\_transmission} variable was set to true, which means the STOP command was received. In the multicentral case, this last condition could not be verified since the STOP command is directly sent to the peripheral device. For implementations without shift, the last condition can simply be deleted, as the only bytes with a value of 255 would be the last ones, making the first condition sufficient. When shift is implemented, some bytes might have a value of 255 even if they are not the last ones, which could prematurely end the byte receiving process. To avoid this, a further value of 15 has been added. The receiving process correctly ends when the last three bytes are 255, 255, and 15. This further condition ensures that the last three values in the buffer are the expected ones. The value 15 was chosen randomly and can be substituted with any value except 255.
 
-\section{Transmitter Firmware Multicentral}
+\subsubsection{Transmitter Firmware Multicentral}
 For the transmitter code, the steps previously explained have already been performed, except the value to be changed is \texttt{NRF\_SDH\_BLE\_PERIPHERAL\_LINK\_COUNT} due to the different role. Further modifications regard the main file, which needs to manage two simultaneous connections instead of just one. The specific modifications are briefly explained below.
 
 Firstly, NUS and QWR module definitions should account for the two simultaneous connections. Once these are defined, the \texttt{notification\_send} function, which sends data to the central device, should indicate to which device data should be sent. The connection handle is no longer singular but two, distinguished using the QWR module syntax \texttt{m\_qwr[0].conn\_handle} for the first and \texttt{m\_qwr[1].conn\_handle} for the second one. The best choice is to use the second board as the first central device and the smartphone as the second one, ensuring that the smartphone can reconnect if a disconnection event occurs. If the smartphone is treated as the first central device and a disconnection occurs, the board identified as the second central device becomes the first one, causing the peripheral to send data to the wrong device. For the multicentral and security features code, the smartphone is used as the first central device because it connects faster. This prevents simultaneous board-smartphone and board-board connections, which could cause the central board to enter a faulty error state.
@@ -2445,7 +2311,7 @@ The \texttt{on\_disconnected} function works similarly by counting the establish
 
 Finally, the \texttt{gatt\_evt\_handler} function, responsible for managing GATT events, updates the MTU if the event is an MTU update request from the device receiving data.
 
-\section{Command Sending Process}
+\subsubsection{Command Sending Process}
 The procedure to send data through the smartphone is shown below. Firstly, the user should enable Bluetooth on the smartphone and open the nRF Connect app for mobile. The app will start scanning for nearby advertising Bluetooth devices.
 
 \begin{figure}[H]
@@ -2473,11 +2339,32 @@ By clicking on “Senseback” after connecting, the app shows different menus. 
     \label{fig:nrf_connect_advertisements}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Multicentral/9.png}
+    % \caption{Multicentral implementation}
+    \label{fig:multicentral_implementation}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Multicentral/10.png}
+    % \caption{Multicentral implementation}
+    \label{fig:multicentral_implementation}
+\end{figure}
+
 The second menu is of interest for sending commands to the board. The interface is shown below:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Multicentral/9.png}
+    \includegraphics[scale=0.3]{Multicentral/11.png}
+    % \caption{nRF Connect commands menu}
+    \label{fig:nrf_connect_commands}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Multicentral/12.png}
     % \caption{nRF Connect commands menu}
     \label{fig:nrf_connect_commands}
 \end{figure}
@@ -2486,9 +2373,16 @@ The interface shows all attributes and characteristics of the connected device. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Multicentral/10.png}
+    \includegraphics[scale=0.3]{Multicentral/13.png}
     % \caption{nRF Connect send data}
     \label{fig:nrf_connect_send_data}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Multicentral/14.png}
+    % \caption{nRF Connect commands menu}
+    \label{fig:nrf_connect_commands}
 \end{figure}
 
 The user is prompted to choose the type of data to send, ranging from byte arrays to unsigned values to Boolean and 8-bit values. UTF8 is chosen for this purpose, and the choice between Request and Command is not influential as the command will be received either way.
@@ -2497,16 +2391,7 @@ The third menu, “Services,” and the “DFU” menu are empty for this applic
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Multicentral/11.png}
-    % \caption{nRF Connect services menu}
-    \label{fig:nrf_connect_services}
-\end{figure}
-
-The fourth menu, the “Log menu,” logs all processes in real-time, similar to the debug menu in Segger.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{Multicentral/12.png}
+    \includegraphics[scale=0.3]{Multicentral/15.png}
     % \caption{nRF Connect log menu}
     \label{fig:nrf_connect_log}
 \end{figure}
@@ -2515,44 +2400,51 @@ The fourth menu, the “Log menu,” logs all processes in real-time, similar to
 
 An alternative approach from the one constituted by the two-board system and the exchange of data to the external unit through UART communication has been studied. In this alternative, the peripheral board directly communicates with the external unit through the Bluetooth of the PC.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/1.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
+\end{figure}
+
 The idea is to use the peripheral board as a transmitter and the PC as the central device which would receive data from it. Sniffer and Wireshark are maintained just to verify what is happening during the exchange and the connection process, even if they would not be able to scan retransmissions. To do that, the Matlab library BLE\footnote{\url{https://it.mathworks.com/help/matlab/ref/ble.html}} has been used. This library gives developers the chance to connect to a BLE device, subscribe and unsubscribe to a specific characteristic, and show the nearby BLE devices which are advertising. Even if this library is not optimized to work with a Nordic board, meaning that some parameters such as Connection Interval, PHY, or Supervision Timeout cannot be set, this provides the opportunity for the PC to receive data. The code used by the board to act as a peripheral device is the same used in the case of security implementation. It has been noted during development that the previous implementation firmware is not working with the Matlab BLE library. As a consequence, only the code of the central device will be illustrated in this section.
 
-\subsection{Offline Receiver Code}
+\subsubsection{Offline Receiver Code}
 
 The code of the central device is written in Matlab language and is much easier compared to the one developed for the board-to-board approach. Firstly, Matlab provides a list of all the nearby Bluetooth devices through the function \texttt{blelist}. Once this function is triggered, the user would see something like Figure~\ref{fig:blelist} in the command window.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/1.png}
-% \caption{Matlab blelist}
-\label{fig:blelist}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/2.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 Specifically, through this function, Matlab would show the user the number of devices which are advertising through BLE, the name of each device when it is known, the address of each one, the power of advertising levels in dB, and the last field “Advertisement” which is a struct type. This last field contains some information about the advertising device, as shown in Figure~\ref{fig:advertisement}.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/2.png}
-% \caption{Advertisement field in Matlab}
-\label{fig:advertisement}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/3.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 The following step of Matlab code involves the effective creation of the connection between the board and the PC, which is done through the function \texttt{ble}. Once the connection has been established, a new object would be created, which would contain the following fields (Figure~\ref{fig:ble_object}):
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/3.png}
-% \caption{BLE object in Matlab}
-\label{fig:ble_object}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/4.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 In particular, it would contain the name of the device, the address, a Boolean variable indicating whether or not the device is connected to the PC, and the services and characteristics of the device. These last ones are particularly important, because the developer needs to subscribe to them in order to be able to receive and transmit data to the board; establishing a connection itself is not enough to do this. The characteristic field is shown below (Figure~\ref{fig:characteristics}).
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/4.png}
-% \caption{Characteristics of Senseback BLE object in Matlab}
-\label{fig:characteristics}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/5.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 In particular, the last two characteristics shown in Figure~\ref{fig:characteristics} are the ones of interest. The first one is the characteristic which allows the developer to write data to the board, essential for sending commands, for example. The second one is the characteristic used to receive data from the board, essential for receiving BLE packets from the peripheral. To subscribe to a specific characteristic, the \texttt{subscribe} function has been used. Specifically, in this application, the subscription is required only for the last characteristic.
@@ -2566,45 +2458,52 @@ The last step in the main code is calling the function which will effectively re
 The callback function is the only one present in the code and is dedicated to receiving data. Firstly, all global variables used in the main code are re-defined. Then, it is checked whether the function has been triggered for the first time. If this is the case, a timer dedicated to counting the elapsed time for the intended communication is triggered through the function \texttt{tic}, and the Boolean variable is set to false to avoid starting the timer again. Then, the first packet is read through the \texttt{read} function, used in the BLE context to read data from a characteristic. In the next step, the last two bytes of the received BLE packets are stored, and a counter of bytes is increased by the size of the received BLE packet. A matrix with 244 columns and as many rows as the number of BLE packets received is created. Each time a new packet is received, a new row is created. To do this in Matlab language, all BLE packet sizes should be the same length, otherwise, an error occurs. So, since the last packet does not have the same dimension as the previous ones, the last columns are filled with zeros until 244 values are reached. Looking at the vector when the whole online test is over, it would look like Figure~\ref{fig:received_data}.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/5.png}
-% \caption{Received data from board in Matlab}
-\label{fig:received_data}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/5.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 As can be seen, the bytes received from the board when the shift is not implemented gradually increase.
 
 Ultimately, if the size of the last packet received is composed of at least two bytes, and the last two bytes are both equal to 255, the data receiving process ends. Then, the central device will unsubscribe from the characteristic through the \texttt{unsubscribe} function, the timer is stopped, and the throughput is computed by dividing the total number of bits by the elapsed time. Unlike the timer in C, timers in Matlab use seconds as the unit, meaning that the result should be multiplied by 1000 to convert to milliseconds.
 
-\subsection{Online Receiver Code}
+\subsubsection{Online Receiver Code}
 
 The online receiver code is exactly the same as the offline case. The only difference resides in the number of commands required to be entered by the user, which in this case is two instead of one. This can be done since the callback function has been invoked, otherwise Matlab executes the commands from beginning to end, blocking the whole receiving process until the user has entered both commands, which is not the intended behavior.
 
-\subsection{Receiver Code with Shift}
+\subsubsection{Receiver Code with Shift}
 
 The process of receiving data with and without shift is equivalent; the only difference lies in how data are treated after they have all been received. When the shift has not been involved, data are already readable once they are received by the central device. In the case where the peripheral has shifted data, they need to be decompressed to be readable. Figure~\ref{fig:shifted_bytes} shows how data once shifted looks before being decompressed. Compared to Figure~\ref{fig:characteristics}, they are significantly different.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/6.png}
-% \caption{Shifted bytes received from Bluetooth PC}
-\label{fig:shifted_bytes}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/6.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 The data shifting process is performed in the exact same way as explained for the receiver code of the shift algorithm; the only difference concerns the coding language. In Matlab, the bit-shifting operations can be performed through the functions \texttt{bitor} and \texttt{bitshift}\footnote{\url{https://it.mathworks.com/help/matlab/ref/bitor.html}}\footnote{\url{https://it.mathworks.com/help/matlab/ref/bitshift.html}}, which respectively perform a bitwise operation and shift the bits. Once data are decompressed, they are saved into a one-dimensional vector. The picture below shows how the vector looks (Figure~\ref{fig:shifted_data}).
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{Board_Windows_PC/7.png}
-% \caption{Shifted data received by PC}
-\label{fig:shifted_data}
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/7.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 One of the best advantages of this approach is that data decompression can be performed without any limitation due to RAM. Moreover, since the operation is performed once all the data have been received, this process does not impact the speed. One possible future development could be to measure the time required to pack and unpack the data, in both board-to-board and board-to-PC cases.
 
-\subsection{Reverse Transmission}
+\subsubsection{Reverse Transmission}
 
 Until now, different setups have been studied. However, all of these have in common that a peripheral board is sending data to a central device, which can be a PC, another board, or even a smartphone. In the actual Senseback project, however, data should not only be transmitted outside the body, but the nerve should also be stimulated, implying that the communication should be bi-directional.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Board Windows PC/9.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
+\end{figure}
 
 As a first approach to achieve this, the idea is to make the two devices exchange their roles every 32400 bytes exchanged, as it happens in an offline test, until the user inputs the command STOP. Each time these exchanges are performed, a throughput is computed. To do this, some modifications have been made in both the board and external unit codes.
 
@@ -2613,10 +2512,10 @@ As a first approach to achieve this, the idea is to make the two devices exchang
 The whole process, as it happened in the previous offline test implementation, starts when the user inputs the command START. Then, the board sends 32400 bytes to the PC and ends the communication. Once this is over, the board prepares itself to receive data from the PC. The function dedicated to receiving data from BLE is again the \texttt{nus\_data\_handler} function, which was previously used only to receive commands from the central device. In order to compute a throughput of the data receiving process, an additional timer, named \texttt{timer3}, has been added. The purpose of this timer is to compute the elapsed time during each data receiving session. To enable this additional timer, \texttt{NRFX\_TIMER3\_ENABLED} and \texttt{TIMER3\_ENABLED} in the configuration file should be set to true. The functioning of the three timers can be summarized in Figure~\ref{fig:timers}.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/9.png}
-% \caption{Timers functioning overview}
-\label{fig:timers}
+    \centering
+    \includegraphics[scale=0.2]{Board Windows PC/10.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
 An example of communication through reverse transmission can be summarized as follows:
@@ -2651,13 +2550,13 @@ The whole process can be summarized by the state machine below (Figure~\ref{fig:
 \end{enumerate}
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Board_Windows_PC/10.png}
-% \caption{State machine for PC process}
-\label{fig:state_machine}
+    \centering
+    \includegraphics[scale=0.2]{Board Windows PC/11.png}
+    % \caption{nRF Connect log menu}
+    \label{fig:nrf_connect_log}
 \end{figure}
 
-\subsection{Linux testing environment}
+\subsubsection{Linux testing environment}
 
 In order to generalize our testing conditions for the firmware we decided to try different conditions by setting up a similar enviornment in Linux.
 We installed Manjaro Linux on one of our laptops with Kernel version 5.25.
@@ -2666,13 +2565,6 @@ We downloaded the same version of the SEGGER tools to avoid compatibility issues
 Alongside SEGGER, we installed the bluez-utils package which contained the bluetoothctl tool and that was the most suggested bluetooth package on the Arch Wiki.
 
 For the actual tests, we launched SEGGER in the usual way and ran the code just the same, but instead of having MATLAB open and issuing commands from its interface, we opened two instances of the terminal (Foot): one for the write operation of the commands, one for the notify.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{Board_Windows_PC/11.png}
-    % \caption{State machine for PC process}
-    \label{fig:state_machine_2}
-\end{figure}
 
 The sequence of commands is very similar but they subscribe to a different characteristic and acquire different permissions.
 
@@ -2948,10 +2840,770 @@ So the first few steps are the same since our objective is still to discard any 
 After that we don't correlate a channel with itself as we just did but we correlate each channel with each of the other 15 channels.
 We now have 15 times the amount of data we had with the first iteration.
 
+\section{Test Procedures}
+
+For each implementation, offline and online tests were performed. The purpose of the offline tests is to understand how the chosen parameters impact the codes. This allows for the selection of the best parameters for use in the online tests. Specifically, the parameters studied for each implementation are the connection interval (CI) and the connection supervision timeout (ST).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/1.png}
+    \label{fig:connection_interval_timeout}
+\end{figure}
+
+The connection interval is defined as the elapsed time between two consecutive connection events, i.e., the time between the reception of the last packet and the reception of the new one. In the context of BLE, it has minimum and maximum thresholds, ranging from 7.5ms to 32000ms:
+\[
+7.5\,\text{ms} \leq \text{CI} \leq 4000\,\text{ms}
+\]
+
+The connection supervision timeout is defined as the time that can pass after receiving the last packet before considering the connection lost. It has limits relative to the connection interval and ST thresholds themselves. Specifically, the connection supervision timeout varies from a minimum time of 100ms to a maximum of 32 seconds, and it should be at least 2 times larger than the set connection interval:
+\[
+100\,\text{ms} \leq \text{ST} \leq 32000\,\text{ms}
+\]
+\[
+\text{ST} \geq 2 \times \text{CI}
+\]
+
+To vary these parameters in the firmware, changes on the peripheral side are sufficient. Since the boards are of the same type, they would always reach an agreement about the parameters. However, a further check can be done using a sniffer. An example of this is shown below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/2.png}
+    % \caption{Sniffed connection parameter update}
+    \label{fig:sniffed_connection_parameter_update}
+\end{figure}
+
+By clicking on the connection update, it is possible to see the chosen parameters set.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{Test_Procedure/3.png}
+    \label{fig:connection_parameters_wireshark}
+\end{figure}
+
+In the purposed example, the parameters were 50ms for the CI and 110ms for the ST. For the offline tests, the connection intervals studied are 7.5ms, 12.5ms, 20ms, 50ms, 100ms, 200ms, 500ms, and 1000ms. After these, the trend was already reached, and further results would not be so significant. The connection supervision timeouts chosen for the offline tests were 2, 4, 8, 16, and 32 times the connection interval selected. Due to the lower limit imposed by the connection supervision timeout threshold, when the connection interval value is 7.5ms, 12.5ms, or 20ms, the ST cannot be 2 times the connection interval because this would conflict with the previous condition. In these cases, the minimum admissible connection supervision timeout was set, which is 100ms.
+
+The online tests were performed when the best supervision timeout was chosen based on the results of the offline tests. Then, different connection intervals were evaluated but with the same ratio with the ST. The chosen values for the connection interval studied were 7.5ms, 20ms, 50ms, 100ms, 200ms, 300ms, and 500ms. Each online test had a duration of at least 5 minutes.
+
+For both the online and offline tests, a sniffer was used to count the retransmissions in cases where this process could be performed, i.e., when security is not involved. The experimental setup for the different cases is shown below. They respectively represent the tests without security, tests with security, multicentral tests, and tests with board-PC communication.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/4.png}
+    % \caption{Ideal tests without security}
+    \label{fig:ideal_tests_without_security}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/5.png}
+    % \caption{Ideal tests with security}
+    \label{fig:ideal_tests_with_security}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/6.png}
+    \label{fig:multicentral_implementation}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/7.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+
+All tests were performed in the ideal case, with the boards attached and air as the transmission medium.
+
+Ultimately, power profiler tests were performed. Ppk2 offers two different modalities to conduct the tests: source meter and ampere meter. In the first one, the board under test is directly supplied by power profiler itself, with no need for external supply such as USB. In the second one, current is measured, but the USB wire is needed.
+Figures below show how the ppk2 and the board should be connected in both of the cases.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/8.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+To use the ppk2 in source and amperemeter mode, the links to be established are the following ones:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/9.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/10.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+For what regards the firmware side, for the Nordic ppk2 a specific app has been developed. When opened, the ppk2 could be selected, as shown in Figure 11.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/11.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Then, once the ppk has been selected, the modality can be chosen between source meter and amperemeter mode. 
+When the source meter once is chosen, the screen would be something as 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/12.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Through this, it is possible to set the voltage which should supply the board, and the number of samplings per seconds. To see the effective absorbed current, the power output should be enabled. The results would be displayed on the right, where also the average current, the maximum current reached, the time of the measurement and the charge required would be displayed.
+The screen once ampere meter mode is selected is similar to previous one, and it is shown below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/13.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+In this case, since the board would not be supplied by the ppk2, it is not possible to set the voltage, but only the number of samples for seconds.
+An example of measurement is shown below. For this example, just a noise has been measured, current measured should be 0A. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/14.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+In order to have a proper current measurement, the board under test should be prepared for this, as explained in the guide.
+To do this, SB9 should be cut.
+
+%[https://docs.nordicsemi.com/bundle/ug_nrf52832_dk/page/UG/dk/prepare_board.html]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/15.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Occasionally, in those cases in which the board should be supplied by an external power source other than USB, also SB12 should be cut. This would bypass the protection diode.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/16.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Once current measurements have been performed, to restore the previous functions of the board SB9 should be solder or jumper on P22 should be put. Then, SB12 should be Cut or desolder SB12 to reconnect the protection diode.
+Then, the SOC could be reprogrammed by taking away the ppk2, apply a jumper on P22 and connect the board to the PC through a USB.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/17.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+For the purpose of current measuring, as the one of this master thesis, just SB9 is needed to be cut. This process is shown in Figure 17.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/18.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Through the power profiler it is possible to zoom into the communication to see how much each packet consumes in terms of current consumption, as shown in Figure 18, which shows a series of packet exchanges. The bigger spikes represent the current consumption of a full sized BLE packet, while the smallest ones represent the acknowledgment packets.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/19.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Figure 19 is obtained by zooming out the previous exchange shown in Figure 18. It represents a connection event, including its respective time of latency and time of active communication.
+Moreover, the effect of some different environments has be evaluated, such as distance. The board have evaluated at a distance of 0cm, 10cm and 50cm, to see how much these impact the throughput and the PER of each application.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/20.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/21.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+Ultimately, also the effect of different mediums has been evaluated. Specifically, the boards were posed once again at a distance of 50 cm, while the chosen medium were air, lean meat and fatty meat, in order to recreate the variability of the meat that would impact the implanted device.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/22.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{Test_Procedure/23.png}
+    \label{fig:direct_communication_board_PC}
+\end{figure}
+
 \chapter{Results}
 
 In this chapter we will be illustrating the results we obtained from the Materials and
 Methods chapter.
+
+\subsubsection*{Previous Implementation}
+
+This section explains the results obtained with the previous version of the code as a point of reference. Different cases have been studied for this purpose, such as offline tests, online tests, current consumption, and distance dependency. For all the different conditions, the number of retransmissions has also been measured.
+
+The purpose of the offline tests is to find the best parameters that fit the intended application. For this reason, both the connection supervision timeout and the connection interval have been studied.
+
+All other tests are online and have a duration of five minutes. In these tests, the best parameters that fit the application, studied during the offline tests, have been chosen. Therefore, only the connection interval parameter varies during the tests.
+
+\subsubsection*{Offline Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure1}
+    \label{fig:figure1}
+\end{figure}
+
+Regarding the offline tests, the results show that the connection supervision timeout does not have a great impact on the throughput. However, the connection interval is more relevant. Specifically, for higher connection intervals, higher throughput values can be reached, starting from a minimum value of approximately 1000 kbps to reach 1400 kbps, which is the maximum value achievable with a PHY of 2 Mbps.
+
+For all of the offline tests, the number of retransmissions is not significant. This result is expected since the number of packets exchanged during the offline tests is really low.
+
+\subsubsection*{Online Tests}
+
+\subsubsection*{Ideal Case}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure2}
+    \caption{Number of retransmissions vs. captured packets in the ideal case.}
+    \label{fig:figure1}
+\end{figure}
+
+For the online tests in the ideal case, two different throughputs have been evaluated. The first one is relative to the effective number of bits received by the central device, and the second one is relative just to the bits that contain information.
+
+The results show that compared to the offline tests, there is a decrease in the speed of about 300 kbps, and the real throughput is quite stable, with its value being approximately 675 kbps.
+
+The causes for the decrease in speed during the online tests compared to the offline ones can be summarized as follows:
+\begin{itemize}
+    \item Firstly, since the maximum BLE packet length has been chosen, there is some latency needed to create a full-sized packet before sending it.
+    \item Moreover, the data generation process is slower compared to the data-sending one. Specifically, the data generation rate is set at 1.28 Mbps. As a consequence, the actual throughput could not reach the maximum theoretical throughput.
+\end{itemize}
+
+The plot below shows the number of retransmissions that occurred during the tests, compared to the total number of packets received by the central device. Specifically:
+\[
+\text{PER} = \frac{\text{Number of Retransmissions}}{\text{Number of Captured Packets}}
+\]
+For the ideal case, this number is very low, but a comparison will be made under different conditions.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure3}
+    \caption{Number of retransmissions vs. captured packets in the ideal case.}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Distance}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure4}
+    \caption{Number of retransmissions vs. captured packets in the ideal case.}
+    \label{fig:figure1}
+\end{figure}
+
+The two plots in this section show how speed and PER parameters are affected by the distance. Specifically, the distances of 0 cm, 10 cm, and 50 cm have been analyzed. For these tests, the range of connection intervals goes from 20 ms to 300 ms. This is because for higher CIs, the communication may become too slow, causing the buffer to become full and needing to be overwritten before data are sent, leading to information loss.
+
+The results show that both PER and throughput are affected by the distance. In particular, the implementations where the boards are placed at a distance of at most 10 cm proved to be the fastest. Specifically, even though the implementation with 10 cm of distance is slightly faster than the other, it has a higher average PER. This parameter has a direct dependency on the connection interval: it decreases with the increasing of the CI.
+
+The implementation with 50 cm of distance follows the same speed reached by the previous ones until a CI of 50 ms is reached. After this point, there is a rapid decrease, probably due to the longer time required for transmission, which increases the latency. This implementation also has the highest PER. In those connection intervals where the speed is higher, a higher PER has been recorded.
+
+Since some disconnections could occur due to the longer transmission times, the connection supervision timeout chosen for these tests is the maximum one: 32000 ms. As shown in the ideal online tests, this does not impact the overall speed.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure5}
+    \caption{Number of retransmissions vs. captured packets in the ideal case.}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure6}
+    \caption{Number of retransmissions vs. captured packets in the ideal case.}
+    \label{fig:figure1}
+\end{figure}
+
+By using the power profiler in amperemeter mode, it is possible to measure the average current consumed during the transmission. This parameter can be used to compute the amount of charge consumed in Coulombs by multiplying the average current by the duration of the experiment in seconds.
+
+From the plot, it is possible to observe the current consumption based on the connection interval parameter in the previous version of the code. As expected, the connection interval also influences current consumption. In fact, for higher connection intervals, latency increases, which means that throughput decreases, but power consumption also decreases, creating a trade-off. Specifically, the drop in current occurs when the connection interval is at least 500 ms. The amount of absorbed current seems to have a direct correlation with the throughput: the higher the throughput, the higher the absorbed current. Thus, since the previous implementation has higher speeds, it also requires more current.
+
+\subsubsection*{Medium Dependency}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure7}
+    \label{fig:figure1}
+\end{figure}
+
+For the online tests, not only the effect of distance has been studied, but also the effect that different mediums have on transmission. Specifically, fatty meat, lean meat, and air have been studied to replicate the possible behavior of the implanted device. The distance between the two boards is set to 50 cm, and the range of acceptable connection intervals goes from 20 ms to 100 ms, for the same reasons explained in the distance tests section.
+
+It is evident from the plots that the different mediums affect throughput only for a connection interval of 100 ms, but the impact is not significant. The difference between the ideal case and the worst case, which is air, is only about 50 kbps.
+
+The plot below shows how PER is affected by different mediums. Comparing the different conditions, it is noticeable that both lean and fatty meat almost double the number of retransmissions during communication, especially in the case of fatty meat. Although retransmissions affect speed and the amount of current absorbed, the increase in absorbed current is negligible due to the consistently low PER across all cases and has not been studied further.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure8}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Security}
+
+As explained for the theoretical throughput computation, the implementation of security should not impact the throughput of the communication. This is because the only header added to each packet is the MIC, responsible for encryption, and it is only 4 bytes, which would not significantly affect the communication speed. However, to verify the expected results, both offline and online tests have been performed, including current consumption measurements.
+
+\subsubsection*{Offline Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure9}
+    \label{fig:figure1}
+\end{figure}
+
+For the offline tests, both connection interval and connection supervision timeout have been evaluated as in the previous implementation. The results, visible in the plot, show that both parameters greatly impact throughput. For low connection intervals, the communication speed is significantly lower compared to the previous firmware version. However, for connection intervals higher than or equal to 50 ms, the speed is the same, considering that the supervision timeout (ST) is set to 2 times the selected connection interval. This behavior is due to the limits imposed by the connection supervision timeout, which must have a minimum value of 100 ms. For connection intervals lower than 50 ms, the minimum ST remains 100 ms, and it cannot be set to 2 times the CI. Thus, the results suggest that the closer the ST is to the CI, the higher the obtained throughput.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure10}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure11}
+    \label{fig:figure1}
+\end{figure}
+
+In the code with security, the variable "more data" is often set to false, which would never happen in the previous firmware version. This behavior can be explained as follows: since encryption increases the time required to create a BLE packet, sometimes a new packet is sent, but there is no subsequent packet ready to be sent yet. This behavior causes the connection event to end prematurely. By setting a lower connection supervision timeout parameter, this behavior is avoided. Therefore, for all subsequent tests, the ST will always be set to 2 times the CI when security is involved.
+
+\subsubsection*{Online Tests}
+
+All online tests have been performed as before, with the only exception being the sniffer. When BLE LESC is implemented, it is no longer possible to count the number of retransmissions, as this would protect the device from possible sniffing attacks.
+
+\subsubsection*{Ideal Case}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure12}
+    \label{fig:figure1}
+\end{figure}
+
+The results obtained through online tests with the code implementing security are consistent with those expected from the offline tests. In fact, only connection intervals lower than 50 ms negatively affect throughput, as anticipated. For CIs of 50 ms or more, both the throughput and real throughput are not influenced by security, and the results are similar to the ideal case of the previous implementation. Future work should focus on the relationship between security and connection supervision timeout as a parameter. Since the throughput of this implementation is highly dependent on it, the security implementation may also be greatly affected by the distance between the boards. If distance tests are conducted with minimal STs, this could lead to connection termination during communication, creating a trade-off between setting a minimum supervision timeout that guarantees acceptable throughput and an ST that ensures a stable connection.
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure13}
+    \label{fig:figure1}
+\end{figure}
+
+Current consumption again follows the same behavior shown by the throughput. This means that the amount of absorbed current during the previous implementation tests is also reached in tests with security, but only for connection intervals equal to or greater than 50 ms. Lower connection intervals imply lower throughput and, consequently, lower average current absorbed.
+
+\subsubsection*{Shift}
+
+\subsubsection*{Offline Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure14}
+    \label{fig:figure1}
+\end{figure}
+
+
+For the offline tests performed with the shift algorithm, the connection supervision timeout parameter revealed to have no effect on the throughput, as was the case in the previous implementation. However, the throughput is significantly affected by the shift algorithm, especially for connection intervals lower than 200 ms. This is likely because the time needed to generate a full-size BLE packet is greater when shift is implemented, but there is always a new packet available each time a packet is sent. Therefore, the ST parameter does not influence the throughput even though the CI does. For these reasons, an ST equal to 2 times the CI has been chosen for the online tests, but this choice is arbitrary.
+
+\subsubsection*{Online Tests}
+\subsubsection*{Ideal Case}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure15}
+    \label{fig:figure1}
+\end{figure}
+
+The online tests performed when the shift algorithm is implemented reveal a trade-off. The additional time required to pack the data results in a decrease in speed in terms of throughput, as observed in the "throughput" behavior. However, the "real throughput" is not decreased compared to the previous implementation; instead, it is slightly increased. The loss in speed could be due to the fact that, with the shift algorithm, the data sending process may occasionally be slower than the data generation, leading to wasted time as the system waits for the ring buffer to empty. This implementation saves memory since all received bits are informative, but it sacrifices speed.
+
+This algorithm serves as a starting point for future implementations where data packing is optimized. Some suggestions for improvement include performing the same operations for more than one sample at a time instead of one by one, which could reduce the overall number of operations and decrease the time needed to pack data. Another suggestion is to decrease the length of the BLE packet to 240 bytes, which could minimize discrepancies between samples packed with the shift algorithm and those packed with the previous method.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure16}
+    \label{fig:figure1}
+\end{figure}
+
+The number of retransmissions does not increase with the shift algorithm implementation. In fact, it is either in line with or lower than the previous implementation, likely due to reduced traffic in the BLE communication.
+
+\subsubsection*{Distance}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure17}
+    \label{fig:figure1}
+\end{figure}
+
+Both the throughput and the PER appear to be unaffected by distance. This behavior might be explained by the fact that the impact of distance on the shift code is less significant than the impact of the shift algorithm itself on speed. Due to the low traffic, the number of retransmissions is also low.
+
+It should also be noted that, for the shift algorithm, the speed even in the ideal case would not be considered ideal based on the previous implementation, as it would lead to a waste of information. Specifically, in the previous implementation, the data generation speed was lower than the transmission speed, resulting in decreased throughput. In contrast, with the shift code, the data generation speed is higher than the data sending speed, possibly leading to information loss.
+
+To address this, a semaphore has been implemented in the shift code, which waits for the buffer to empty before generating new data. This process affects the data generation speed, which is no longer precisely 80 kHz due to the waiting time. In future implementations, this semaphore process should be eliminated by either increasing the speed of the shift code or decreasing the data generation speed from the ADC.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure18}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure19}
+    \label{fig:figure1}
+\end{figure}
+
+As with the previous cases, current consumption in the shift algorithm implementation is influenced by the achieved throughput. As a result, the current consumption remains relatively constant, as shown in the plot. It ranges from 11 mA to 11.2 mA, except for a connection interval of 500 ms. This is approximately 2 mA lower than the average current in the previous implementation, indicating a trade-off between lower current consumption and reduced communication speed.
+
+\subsubsection*{Medium Dependency}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure20}
+    \label{fig:figure1}
+\end{figure}
+
+As in the case of the firmware implementation without the shift algorithm, different mediums have been studied. In the previous implementation, the impact on throughput was minimal, and the same is true for the shift algorithm, where the range of values is around 20 kbps. The most significant difference appears in terms of PER, as shown in the figure below, where the number of retransmissions in mediums like fatty meat is 7 or 8 times that in air. This could result in a slight increase in absorbed current during the tests.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure21}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Shift + Security}
+\subsubsection*{Offline Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure22}
+    \label{fig:figure1}
+\end{figure}
+
+Similar to the security implementation without the shift algorithm, the throughput in the shift + security implementation is affected by both the connection interval (CI) and the supervision timeout (ST). However, setting the connection supervision timeout as before is not sufficient to achieve the same speed as the previous implementation. This is because the limitations imposed by the security implementation and the shift algorithm are compounded.
+
+The most effective connection supervision timeout is still 2 times the CI, but the maximum speed is only reached when the CI is at least 200 ms or greater.
+
+\subsubsection*{Online Tests}
+\subsubsection*{Ideal Case}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure23}
+    \label{fig:figure1}
+\end{figure}
+
+The results obtained from the online tests for the shift algorithm with security are similar to those for the shift without security. The limitations appear for connection intervals of 50ms or greater, while for lower connection intervals, the behavior is similar to the implementation with security but without shift. This implies that combining the shift and security implementations leads to the lowest maximum values observed in either method individually. The "real throughput" aligns with the "throughput," offering the same memory savings provided by the shift algorithm.
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure24}
+    \label{fig:figure1}
+\end{figure}
+
+As with the throughput, the absorbed current is also the minimum of the values derived from the combination of security and shift. This results in lower current consumption for low connection intervals and the same consumption as the shift implementation for intervals of 50ms or greater, averaging approximately 11.25mA.
+
+\subsubsection*{Multicentral}
+\subsubsection*{Offline Tests}
+\paragraph{iOS}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure25}
+    \label{fig:figure1}
+\end{figure}
+
+\paragraph{Android}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure26}
+    \label{fig:figure1}
+\end{figure}
+
+Offline multicentral tests were performed using both iOS and Android smartphones. The results differ due to the different BLE standards of the two devices. In particular, the iOS system tends to cause more frequent disconnections, which are reflected in the plot as 0 kbps throughput. Therefore, for all following tests involving multicentral implementations, only the Android smartphone was used.
+
+From the Android results, it is clear that the connection supervision timeout affects the stability rather than the throughput. When the connection supervision timeout is set to a value lower than 8 times the connection interval, the connection becomes unstable for higher intervals. Thus, all offline multicentral tests were performed with an ST value equal to 8*CI.
+
+\subsubsection*{Online Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure27}
+    \label{fig:figure1}
+\end{figure}
+
+The online test results demonstrate that the multicentral feature has the most significant impact on throughput. The final throughput value is less than half of what was achieved in the previous implementation. Consequently, the utility of this feature must be carefully considered. While it provides an emergency communication control option, it greatly reduces speed. A potential solution could be to only connect the second device when necessary for sending commands, then disconnect it to increase speed. However, it's important to note that managing the second connection also increases RAM consumption, which may contribute to the speed decrease.
+
+The PER level remains consistent with previous tests, staying stable at around 0.025%.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure28}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure29}
+    \label{fig:figure1}
+\end{figure}
+
+Having two simultaneous connections does not significantly impact the average current consumption, which is primarily determined by the amount of data transmitted. As a result, the overall current consumption in the multicentral implementation is lower compared to previous ones, peaking at 9.9mA—approximately 3.5mA lower than previous implementations.
+
+
+\subsubsection*{Multicentral + Security + Shift}
+
+The final implementation involves combining all the features discussed so far: security, the shift algorithm, and multicentral functionality. This implementation requires the most RAM, which necessitated reducing the ring buffer size to meet the minimum standards for enabling all features simultaneously. Despite the increased resource demands, the implementation demonstrates the viability of combining these functionalities, though it does lead to performance compromises in terms of speed and memory utilization.
+
+
+\subsubsection*{Offline Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure30}
+    \label{fig:figure1}
+\end{figure}
+
+As seen in the section on security and shift, the combination of different features affects the maximum values attainable for each connection interval. Similar to the multicentral implementation, the connection supervision timeout has a significant impact, particularly on disconnections. When the connection supervision timeout is less than 8 times the connection interval, the connection becomes unstable. Regarding the security feature, it continues to impact the lower connection intervals, while the shift algorithm does not significantly affect the upper limits during offline tests.
+
+\subsubsection*{Online Tests}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure31}
+    \label{fig:figure1}
+\end{figure}
+
+The combination of all the implemented features results in a notably low overall speed compared to previous implementations. This outcome can be explained by examining the impact of each feature. Firstly, the security and shift algorithms individually set upper limits for low and high connection intervals, respectively. By optimizing the speed of these features separately, it would be possible to improve the combined performance. Additionally, the multicentral implementation not only imposes a low upper limit on throughput but also requires a connection supervision timeout that is at least 8 times the connection interval. From the analysis of the code with security, it is evident that a higher connection supervision timeout leads to a lower throughput, creating a conflicting scenario between the two implementations. Lastly, reducing the ring buffer size due to RAM constraints also impacts speed, as the buffer fills quickly, increasing latency.
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure32}
+    \label{fig:figure1}
+\end{figure}
+
+This application has the lowest power consumption, as expected based on the throughput analysis. The current consumption ranges from 8.5mA to 7.2mA, with the latter value occurring when the throughput is close to zero. It is important to note that other board features, such as LED behavior, also influence the current consumption.
+
+\subsubsection*{PC Windows}
+
+Another approach tested involved connecting one board to the Bluetooth of a PC, and this was implemented for both Windows and Linux. Unlike the board-to-board approach, the maximum theoretical throughput for the board-to-PC connection is approximately 670 Kbps. Despite the lower speed, this approach is beneficial for several reasons, including the absence of RAM consumption limits and the ability to unpack data with the shift algorithm without constraints on processing speed.
+
+\subsubsection*{Offline Tests}
+
+\paragraph{Without Shift}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure33}
+    \label{fig:figure1}
+\end{figure}
+
+In contrast to the board-to-board approach, the board-to-PC connection on Windows exhibits a decreasing behavior, where throughput decreases as the connection interval increases. The connection supervision timeout does not significantly impact throughput. Moreover, the standard deviation is larger than in the board-to-board approach, resulting in some data points not aligning as precisely.
+
+\paragraph{With Shift}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure34}
+    \label{fig:figure1}
+\end{figure}
+
+The offline test with the shift algorithm does not differ significantly from the test without it. This is likely because the board-to-PC connection's effect on speed outweighs the shift algorithm's impact on performance.
+
+\subsubsection*{Online Tests}
+
+\paragraph{Without Shift}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure35}
+    \label{fig:figure1}
+\end{figure}
+
+The online tests for the board-to-PC approach were conducted aiming for a duration of 5 minutes, as with the other approaches. However, unlike the board-to-board setup where the STOP command is immediately received, the board-to-PC connection uses BLE, leading to delays. Consequently, the STOP command was sent after approximately 3 minutes and 45 seconds, but with a high standard deviation, the total experiment duration always exceeded 5 minutes. The speed remains relatively constant until the connection interval reaches 200ms, after which it decreases, similar to the behavior observed in the offline tests.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure36}
+    \label{fig:figure1}
+\end{figure}
+
+Compared to the board-to-board approach, the board-to-PC connection has a substantial impact on current consumption. Although the achievable speed is lower, the maximum current drawn is significantly higher relative to the throughput. This discrepancy can be explained by observing the transmission behavior during board-to-PC communication. There are periods of high traffic, during which throughput could potentially be high, and other periods with low traffic. This fluctuation does not occur in the board-to-board approach, where the data transmission rate is constant, resulting in more consistent current consumption. Naturally, as the throughput decreases, so does the current consumption for this implementation.
+
+\paragraph{With Shift}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure37}
+    \label{fig:figure1}
+\end{figure}
+
+The implementation of the shift algorithm during the online tests did not have any impact on the measured speed, mirroring the results observed in the offline tests. Consequently, this algorithm can be implemented without any trade-offs in this approach, as the amount of information received is higher compared to the approach without the shift, while the speed remains unchanged.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure38}
+    \label{fig:figure1}
+\end{figure}
+
+The current consumption in the board-to-PC approach with the shift algorithm is quite similar to that observed without it. The only notable difference is at the highest connection interval (500ms), where there are slight variations in speed. This discrepancy can be attributed to the higher standard deviation observed in the board-to-PC approach, especially during tests conducted with a connection interval of 500ms.
+
+\subsubsection*{Reverse Transmission}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure39}
+    \label{fig:figure1}
+\end{figure}
+
+The reverse transmission tests were performed by exchanging 32,400 bytes, with the role of peripheral alternated between the two devices for each test. The behavior observed in the PC-to-board exchange mirrored that of the board-to-PC exchange, featuring the same decreasing trend in speed as the connection interval increased. However, the speed loss was more pronounced during reverse transmission.
+
+For neurostimulation needs, the transmission of BLE packets is sporadic, meaning that high transmission speeds like those required for the implanted device are not necessary. A spike in speed was observed again at the 500ms connection interval. As all tests were performed 5 times, some exhibited similar behavior to the other connection intervals, while others showed an unexpected increase in speed, resulting in a higher average speed with a considerable standard deviation. This inconsistency might be attributed to a possible error in one of the timers, so the results for the 500ms interval should not be directly compared with those for 7.5ms and 20ms intervals.
+
+\subsubsection*{Average Current}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Manuel/figure40}
+    \label{fig:figure1}
+\end{figure}
+
+The average current measured during the reverse transmission process accounts for both the phase in which the board is sending data to the PC and the phase in which the PC is sending data to the board. The second phase, where the PC transmits data to the board, significantly reduces the overall averagecurrent. This is because the current consumed by the board during the receiving phase is comparable to the current drawn when the board is idle.
+
+\section{Channel selection results}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure1}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure2}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure3}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure4}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure5}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure6}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure7}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure8}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure9}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure10}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure11}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure12}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure13}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure14}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure15}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure16}
+    \label{fig:figure1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/figure17}
+    \label{fig:figure1}
+\end{figure}
+
+
 %-------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %-------------------------------------------------------------------------
