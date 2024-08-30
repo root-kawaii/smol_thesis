@@ -565,9 +565,8 @@ To sum up, the concepts of surveillance and privacy regard the responsible manag
 
 \chapter{State of the Art}
 
-\section{Bluetooth Low Energy}
+\section{Bluetooth Low Energy Introduction}
 
-\section{Introduction}
 Bluetooth is one of the main widely used wireless systems of communication. It is especially used in devices, such as headphones, which can easily be recharged without complications. However, this is not the case for applications such as microcontrollers, where the recharging process is not so immediate and high-speed communication is unnecessary. 
 
 Because of this, since Bluetooth version 4.0, Bluetooth Low Energy (BLE) has been introduced \cite{nordic1}. Using Bluetooth Low Energy instead of Bluetooth means sacrificing some amount of communication speed to save power consumption. The data rate reduction is achieved through two modifications: firstly, the payload in each packet is reduced from 1021 bytes in standard Bluetooth to 255 bytes in BLE. Secondly, data is sent as infrequently as possible to minimize the connection time, which significantly impacts power consumption. The main characteristics of BLE are shown in Figure~\ref{fig:ble_char}.
@@ -1036,7 +1035,7 @@ Both devices then generate and share two random numbers, each 128 bits long: \( 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/10.png}
+    \includegraphics[scale=0.5]{Bluetooth_Security/10.png}
     % \caption{Pairing procedure \cite{cesar2022survey}}
     \label{fig:pairing_procedure}
 \end{figure}
@@ -1072,9 +1071,7 @@ Mode 3 is used in broadcast connections requiring encryption and is divided into
 \end{itemize}
 
 
-\subsection{Communication speed}
-
-\subsection{ENGNet: advantages and shortcomings}
+\section{ENGNet: advantages and shortcomings}
 
 Given the structure of the project there is the need of a fast, computationally efficient model that can boast good performance on classification of ENG signals.
 In particular we need this model to classify the electroneurography signal sent from the board to the computer in different classes that correspond to different movements.
@@ -1105,8 +1102,8 @@ The architecture involves two convolutional steps, employing 2D convolutional fi
 
 The number of parameters in a neural network is strictly related to the performance metrics of the network.
 Given too many parameters a model will inevitably overfit to the training test and will therefore poorly generalize on the validation and test portion of the data. Conversely, too few parameters will make the model unable to learn effectively the classification required for the task at hand.
-There is plenty of tools to overcome these kind of issues when training model, given that is one of the most prominent issues when dealing with neural networks performances such as tweaking the learning rate or adding dropouts layers in the architecture of the model in order to discard some of the parameters.
-Clearly, reducing the number of parameters not only reduces the chances of overfitting but also decreases training and inference time.
+There is plenty of tools to overcome these kind of issues when training a model, given that is one of the most prominent issues when dealing with neural networks performances, such as tweaking the learning rate or adding dropouts layers in the architecture of the model in order to discard some of the parameters.
+Clearly, reducing the number of parameters, not only reduces the chances of overfitting but also decreases training and inference time.
 Let us now delve deeper into the actual architecture.
 The configuration for block 1 is as follows:
 \begin{itemize}
@@ -1122,18 +1119,14 @@ For block 2, the configuration is as follows:
 \item AveragePooling2D layer: AveragePooling2D((1, kernLength//25))
 \end{itemize}
 
-In block 2, the SeparableConv2D layer is used with a kernel size of (1, kernLength//4) and F2 = 32 to conduct depthwise separable convolution. This layer effectively reduces the number of parameters while preserving feature extraction capabilities. The parameters F1 and F2 are doubled compared to what was explained in chapter 3.5.1 and in [27] due to the larger frequency and consequently greater number of samples, while D remains equal to 2. This adjustment has been validated as a superior solution in preliminary tests.
+In block 2, the SeparableConv2D layer is used with a kernel size of (1, kernLength//4) and F2 = 32 to conduct depthwise separable convolution. This layer effectively reduces the number of parameters while preserving feature extraction capabilities.
 
 \begin{figure}[H]
 	\includegraphics[scale=0.4]{engNet_arch.png}
 	\centering
 \end{figure}
-	
 
-\subsubsection{ENGNet layers}
-
-We will now briefly explain the main layers present in the ENGNet model to outline what each layer does.
-
+Presented here are the layers present in the ENGNet model to outline what each layer does, where where KL = Kernel length, C = number of channels, T = number of time points, F1 = number of temporal filters, D = depth multiplier (number of spatial filters), F2 = number of pointwise filters, and N = number of classes, respectively.
 
 
 \begin{figure}[H]
@@ -1213,7 +1206,7 @@ By calculating these metrics for each class, one gains insights into the model�
 \subsection{ENGNet results}
 
 \begin{figure}[H]
-	\includegraphics[scale=0.25]{trainingAccuracyDavide.png}
+	\includegraphics[scale=0.5]{trainingAccuracyDavide.png}
 	\centering
 	\end{figure}
 
@@ -1221,12 +1214,12 @@ By calculating these metrics for each class, one gains insights into the model�
 Analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet,
 
 \begin{figure}[H]
-	\includegraphics[scale=0.25]{engNet_accuracy.png}
+	\includegraphics[scale=0.5]{engNet_accuracy.png}
 	\centering
 	\end{figure}
 	
 	\begin{figure}[H]
-		\includegraphics[scale=0.3]{engNet_f1score.png}
+		\includegraphics[scale=0.5]{engNet_f1score.png}
 		\centering
 		\end{figure}
 
@@ -1240,7 +1233,7 @@ Comparison between validation and test re- sults showed that ENGNet can generali
 
 
 
-\subsubsection*{Hardware}
+\section*{Hardware}
 
 For what regards the experimental setup, some specific components are chosen. Firstly, the two boards which communicate through Bluetooth Low Energy are two nrf52dk boards. These are equipped with a nRF52832 chip, which is part of the Nordic Semiconductor’s nRF52® Series of System-on-Chip (SoC) devices \footnote{https://infocenter.nordicsemi.com/index.jsp?topic=/struct\_nrf52/struct/nrf52.html}. This series is the one taken into consideration due to its versatility, giving the user the ability to choose which components are the best fit for the intended usage, its documentation, and its support features during the development phase of the project. The main features of this chip are reported in Table 1 below:
 
@@ -1287,10 +1280,9 @@ This tool can both measure instantaneous current consumption and supply the devi
 
 \section{Memory management}
 
-The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. Below is a detailed explanation of each component illustrated in the provided diagram:
+The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. Below is a detailed explanation of each component:
 
-1. Central Processing Unit (CPU)
-ARM Cortex-M4: The CPU is based on the ARM Cortex-M4 architecture, which is a highly efficient processor designed for high-performance, low-power applications. It includes a rich set of features such as floating-point unit (FPU), digital signal processing (DSP) extensions, and low-latency interrupt handling.
+Central Processing Unit (CPU) ARM Cortex-M4: The CPU is based on the ARM Cortex-M4 architecture, which is a highly efficient processor designed for high-performance, low-power applications. It includes a rich set of features such as floating-point unit (FPU), digital signal processing (DSP) extensions, and low-latency interrupt handling.
 2. Memory Organization
 The memory is divided into several sections, each serving a specific purpose and connected via different buses to optimize performance.
 
@@ -1301,22 +1293,29 @@ RAM0 to RAM8: These RAM sections are accessible via the System bus, DCODE, and I
 
 Memory Addresses: The RAM sections have designated address ranges:
 
-% Data RAM (System): Ranges from 0x2000_0000 to 0x2003_8000.
-% Code RAM (ICODE/DCODE): Corresponding code addresses range from 0x0080_0000 to 0x0083_8000.
+Data RAM (System): with range 
+\textbf{(0x2000_0000 - 0x2003_8000)}
+Code RAM (ICODE/DCODE): Corresponding code addresses range 
+\textbf{(0x0080_0000 - 0x0083_8000)}
 Flash Memory
 Flash memory is used for non-volatile storage, providing persistent data retention even when the system is powered down. The flash memory is divided into pages and accessed via the ICODE and DCODE buses.
-
-% Flash Pages: The flash memory is organized into pages, with the address range for flash starting at 0x0000_0000 and extending to 0x000F_F000.
+Flash Pages: The flash memory is organized into pages, with the address range for flash starting at 0x0000_0000 and extending to 0x000F_F000.
 Page Addresses: Specific addresses for pages include:
-% Page 0: 0x0000_0000
-% Page 1: 0x0000_1000
-% Page 2: 0x0000_2000
+Page 0: 0x0000_0000
+Page 1: 0x0000_1000
+Page 2: 0x0000_2000
 Subsequent pages follow this addressing pattern up to Page 255.
 3. Bus Architecture
 The system utilizes a multilayer AHB interconnect to manage data flow between different components efficiently.
 
 Advanced High-performance Bus (AHB)
 The AHB multilayer interconnect ensures high-speed data transfer between the CPU, RAM sections, flash memory, and peripherals. It allows multiple masters (such as the CPU and DMA controllers) to access shared resources without significant performance bottlenecks.
+
+The Non-Volatile Memory Controller (NVMC) handles writing and erasing tasks for internal flash memory and UICR, requiring specific conditions such as word-aligned addresses and halted CPU during operations. The flash memory is divided into pages, with restrictions on rewriting bits and a limitation on the number of writes before a page erase is necessary.
+
+The NVMC includes an instruction cache (I-Cache) for the ICODE bus, which significantly enhances CPU performance by reducing flash memory access times. A cache hit retrieves instructions from the cache with no delay, while a cache miss incurs a delay as the instruction is fetched from flash. This setup can lower power consumption, depending on the cache hit rate. Profiling tools within the NVMC allow for the analysis of cache efficiency, tracking hits and misses to optimize performance.
+
+Partial page erases are also supported to minimize CPU stalls in critical operations by dividing erase operations into shorter chunks, especially useful in time-sensitive applications. This feature does not apply to UICR.
 
 System Bus, DCODE, and ICODE
 These buses provide specific pathways for different types of data access:
@@ -1335,31 +1334,29 @@ The AHB multilayer interconnect/bus matrix allows concurrent access to different
 
 The Nordic board's memory architecture is a sophisticated system designed for efficient data handling and high performance. By leveraging multiple RAM sections, a well-organized flash memory layout, and an advanced bus interconnect system, the architecture supports the demanding requirements of modern embedded applications. The integration of DMA controllers further enhances data transfer efficiency, making the Nordic board suitable for a wide range of applications requiring reliable and high-speed memory access.
 
-\section{Introduction}
-The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. This document provides a detailed analysis suitable for a thesis.
-
-\section{Overview of the Address Map}
+\subsection{Overview of the Address Map}
+The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing.
 The address map is divided into two main sections: the System Address Map and the Address Map for peripherals. The System Address Map shows the hierarchical arrangement of different memory regions and device spaces, while the Address Map specifies the address ranges for peripherals and other key components.
 
-\section{System Address Map}
+\subsection{System Address Map}
 
-\subsection{Device Space (0xE0000000 - 0xFFFFFFFF)}
+\textbf{Device Space (0xE0000000 - 0xFFFFFFFF)}
 This region is reserved for device-specific addresses, typically used for system control and private peripheral bus (PPB) mappings. The PPB includes critical control registers for system-level operations such as interrupts and debugging.
 
-\subsection{RAM (0x80000000 - 0xBFFFFFFF)}
+\textbf{RAM (0x80000000 - 0xBFFFFFFF)}
 This region is designated for RAM, divided into two main blocks:
 \begin{itemize}
     \item \textbf{0x80000000 - 0x9FFFFFFF}: General RAM space.
     \item \textbf{0xA0000000 - 0xBFFFFFFF}: Additional RAM or special-purpose RAM.
 \end{itemize}
 
-\subsection{Peripheral Space (0x60000000 - 0x7FFFFFFF)}
+\textbf{Peripheral Space (0x60000000 - 0x7FFFFFFF)}
 This area is allocated for peripheral devices, allowing the CPU to interact with various hardware modules via memory-mapped I/O.
 
-\subsection{SRAM (0x40000000 - 0x5FFFFFFF)}
+\textbf{SRAM (0x40000000 - 0x5FFFFFFF)}
 This region is dedicated to SRAM, providing fast, volatile memory storage for critical data that requires quick access times.
 
-\subsection{Code Space (0x00000000 - 0x1FFFFFFF)}
+\textbf{Code Space (0x00000000 - 0x1FFFFFFF)}
 This segment includes different types of memory used for storing executable code:
 \begin{itemize}
     \item \textbf{0x00000000 - 0x007FFFFF}: Flash memory for non-volatile code storage.
@@ -1369,42 +1366,42 @@ This segment includes different types of memory used for storing executable code
     \item \textbf{0x19FFFFFF - 0x20000000}: XIP (Execute In Place) memory, allowing execution directly from external flash.
 \end{itemize}
 
-\section{Peripheral Address Map}
+\subsection{Peripheral Address Map}
 
-\subsection{Private Peripheral Bus (0xE0000000)}
+\textbf{Private Peripheral Bus (0xE0000000)}
 The PPB includes system control space (SCS), NVIC (Nested Vectored Interrupt Controller), and other essential control registers.
 
-\subsection{AHB Peripherals (0x50000000)}
+\textbf{AHB Peripherals (0x50000000)}
 This range is used for high-performance peripherals connected via the Advanced High-performance Bus (AHB), providing efficient data transfer capabilities.
 
-\subsection{APB Peripherals (0x40000000)}
+\textbf{APB Peripherals (0x40000000)}
 The Advanced Peripheral Bus (APB) space is designated for slower peripherals that do not require the high throughput provided by the AHB.
 
-\section{Detailed Address Ranges and Usage}
+\subsection{Detailed Address Ranges and Usage}
 
-\subsection{Flash Memory (0x00000000 - 0x007FFFFF)}
+\textbf{Flash Memory (0x00000000 - 0x007FFFFF)}
 Used for storing the firmware and application code. Flash memory is non-volatile, retaining data even when power is off.
 
-\subsection{Code RAM (0x00800000 - 0x00FFFFFF)}
+\textbf{Code RAM (0x00800000 - 0x00FFFFFF)}
 Provides a space for loading and executing code from RAM, useful for applications requiring high-speed code execution.
 
-\subsection{FICR (0x10000000 - 0x10000FFF)}
+\textbf{FICR (0x10000000 - 0x10000FFF)}
 Contains factory-programmed data specific to the device, such as calibration values and unique identifiers.
 
-\subsection{UICR (0x12000000 - 0x12000FFF)}
+\textbf{UICR (0x12000000 - 0x12000FFF)}
 Stores user-programmable configuration data, which can include bootloader settings and memory protection configurations.
 
-\subsection{XIP (0x19FFFFFF - 0x20000000)}
+\textbf{XIP (0x19FFFFFF - 0x20000000)}
 Allows the system to execute code directly from external flash memory, saving internal RAM for other uses.
 
-\section{Summary}
+\subsection{Summary}
 The Nordic board's memory architecture is designed to efficiently manage various types of memory and peripheral access. The system address map and peripheral address map clearly define regions for devices, RAM, peripherals, and code execution. This structured organization allows for optimized performance, flexibility in code execution, and efficient interaction with peripherals.
 
-By understanding this memory layout, developers can make informed decisions about memory usage, peripheral integration, and system optimization, ultimately enhancing the performance and functionality of applications running on the Nordic board.
+By understanding this memory layout, we, as developers, can make informed decisions about memory usage, peripheral integration, and system optimization, ultimately enhancing the performance and functionality of applications running on the Nordic board.
 
-Based on the detailed analysis of the Nordic board's memory architecture, several key observations can be made to optimize code and effectively manage memory. These recommendations will help developers enhance the performance and efficiency of their applications.
+Based on the detailed analysis of the Nordic board's memory architecture, several key observations can be made to optimize code and effectively manage memory. These recommendations will help enhance the performance and efficiency of their applications.
 
-\section{Observations and Recommendations}
+\subsection{Observations and Recommendations}
 
 \subsection{Utilizing Flash Memory for Code Storage}
 \textbf{Observation:}
@@ -1493,10 +1490,6 @@ Based on the detailed analysis of the Nordic board's memory architecture, severa
 \end{itemize}
 
 
-
-
-
-
 Our boards, the nRF52840 contain 1024 kB of flash memory and 256 kB of RAM, they can be used for both code and data storage. [https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf52840%2Fmemory.html]
 
 \includegraphics[scale=0.3]{memNRF.png}
@@ -1505,14 +1498,14 @@ Our boards, the nRF52840 contain 1024 kB of flash memory and 256 kB of RAM, they
 \centering
 \end{figure}
 
+\section{Memory allocation for our firmware code}
 
-Structure of the board memory, many images to describe ram.
-No cache
-Why no cache is a problem and why it is ok.
-What devices have caches maybe.
-Show a couple methods to avoid programmer control over memory managment from paper.
-We could include metrics later if we have time, like space occupied and shit and if we can reduce that.
+We will now present our memory allocation with images from the SEGGER program.
 
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{MemoryAllocation/memory_chiara.jpeg}
+    \centering
+\end{figure}
 
 
 \section{Channel selection}
@@ -2243,6 +2236,13 @@ The number of packet changes accordingly:
 \end{equation}
 
 Finally, the theoretical throughput is equal to 663.68 Mbps.
+
+
+\subsection{Memory allocation}
+
+\includegraphics{MemoryAllocation/memory_shift.jpeg}
+\includegraphics{MemoryAllocation/memory_sicurezza.jpeg}
+\includegraphics{MemoryAllocation/memory_sicurezzaAndShift.jpeg}
 
 \section{Multicentral Implementation}
 As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure \ref{fig:user_command_sending_procedure}.
@@ -3616,11 +3616,45 @@ We now display graphically where the worst channels are located along the cuff e
     \label{fig:figure1}
 \end{figure}
 
+Excluded the presence of issues with the location of the worst channels, we can comment on the previous graphs.
+In particular we can notice that, given our goal of reducing channels number without losing more than 5 percent of accuracy, Animal 1 and Animal 3 both lose less than 5 percet after removing 6 channels.
+In particular, for Animal 1 it would be reasonable to remove a 10th channel as well, while for Animal 3 we could have removed up to 8 channels withouth surpassing our imposed threshold.
+
+Different story for Animal 2, for which removing the 6th channel would have caused it to lose more than the 5 percent.
+
+\subsection*{Tests validation}
+
+In order to validate the results we decided to iteratively substitute one channel at the time to assess the difference in the ranking of the channels.
+
+We started by computing the average and the standard deviation over the signal samples and then generated a noise gaussian signal with that mean and standard deviation with the use of a numpy library.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/Screenshot 2024-08-19 at 08.02.37.png}
+    \label{fig:figure1}
+\end{figure}
+
+As shown in the figure just below, the iterative substitution led to the noise signals to be ranked below the actual signals every time, up untill the last channel.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Results Matteo/Screenshot 2024-08-19 at 08.09.29.png}
+    \label{fig:figure1}
+\end{figure}
+
+\subsubsection*{Channel attention layer}
+
+As previously explained, the Channel attention layer would be hard to apply in our possible test case scenarios withouth proper adjustments, but regardless of that, we can use it as a method to validate the results we have obtained already.
+In order to do that, we decided to train the model with the CAL on 120 epochs with 35 folds, and peform the average of the channels weights.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure10}
-    \label{fig:figure1}
 \end{figure}
+
+As evident from the figure above, we had different results when compared to the correlation algorithms.
+So we decided to inspect closely their performance by carrying out another ablation study with the ranking of the CAL method and comparing the results of the two methods.
+Below you can see the loss for each channel removed for this last method and then the respective comparison with the correlation method.
 
 \begin{figure}[H]
     \centering
@@ -3637,38 +3671,46 @@ We now display graphically where the worst channels are located along the cuff e
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure13}
-    \label{fig:figure1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure14}
-    \label{fig:figure1}
 \end{figure}
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure15}
-    \label{fig:figure1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Results Matteo/figure16}
-    \label{fig:figure1}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Results Matteo/figure17}
-    \label{fig:figure1}
-\end{figure}
+It is clear that although it gives very different results, the performance of the algorithm are also definitely worse than the correlation method.
+Therefore, it could be useful to use this method, if trained and set up properly, as an ulterior way to discern the best channel between two but the correlation methods appear to bring stronger results to the table.
 
+It is also interesting to notice that in some of the channels removals the loss trend was similar, while in others was quite different.
+Similarity in the trend could mean either that both algorithm made a good (or bad) choice, but also could imply that regardless of the removed channel the performance would get much worse due to the excessive removal of information.
+This is also something that we saw when removing more than 7 or 8 channels; performances would get much worse almost indipendently from the removed channel.
+
+\chapter{Conclusion and future development}
+
+For the optimization of the communication performances on the devices instead, our main goal was to reduce the amount of information that was needed to transmit in order to classify accurately the received stimuli.
+We achieved this by implementing a method called channel selection which comprehend many different techniques for many different approaches; once we studied the literature we proceded with the actual implementation of a correlation based method called Cross-Correlation Based Discriminant Criterion or XCDC.
+This method produced good results that satisfied the constraints posed by the PNRelay Project specifics and requirements.
+In particular, for our test conditions we were able to reduce the number of channels required from 16 to 11/10 (depending on the animal), while losing less than 5 percent on the performance metrics.
+We also tried implementing another method we refered to as Channel Attention Layer (or CAL), that although less applicable and with more of a performance loss, extended easily the ENG Model and provided an ulterior validation for the correlation method.
+That being said, as for the implementation of the firmware, there remain clear areas for possible improvements.
+First and foremost we believe that keeping an eye on the state-of-the-art developments for channel selection methods is fundamental for improving the performance of the communication system; so, despite the good performance, we believe in the near future there will be constant improvements to these algorithms for this kinds of applications, especially with methods based on Machine Learning and more specifically Neural networks, which have just emerged for channel selection purposes but will almost surely outperform current methods in a matter of time.
+Then, good performances could come from a more accurate and intentional setup for the tests: we implemented the conditions in order to test the communication on a Window machine and a Linux machine but we didn't tweak our hardware or tried with very different hardware.
+It could very well be the case that with more proper optimization on the computer performances side, the overall results could improve.
 
 %-------------------------------------------------------------------------
-%	BIBLIOGRAPHY
+%	7 BIBLIOGRAPHY
 %-------------------------------------------------------------------------
-
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \bibliography{Thesis_bibliography} % The references information are stored in the file named "Thesis_bibliography.bib"
 
