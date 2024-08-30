@@ -1293,17 +1293,15 @@ RAM0 to RAM8: These RAM sections are accessible via the System bus, DCODE, and I
 
 Memory Addresses: The RAM sections have designated address ranges:
 
-Data RAM (System): with range 
-\textbf{(0x2000_0000 - 0x2003_8000)}
-Code RAM (ICODE/DCODE): Corresponding code addresses range 
-\textbf{(0x0080_0000 - 0x0083_8000)}
+Data RAM (System): with range \textbf{0x2000\_0000 - 0x2003\_8000}.
+Code RAM (ICODE/DCODE): Corresponding code addresses range \textbf{0x0080\_0000 - 0x0083\_8000}.
 Flash Memory
 Flash memory is used for non-volatile storage, providing persistent data retention even when the system is powered down. The flash memory is divided into pages and accessed via the ICODE and DCODE buses.
-Flash Pages: The flash memory is organized into pages, with the address range for flash starting at 0x0000_0000 and extending to 0x000F_F000.
+Flash Pages: The flash memory is organized into pages, with the address range for flash starting at \textbf{0x0000\_0000} and extending to \textbf{0x000F\_F000}.
 Page Addresses: Specific addresses for pages include:
-Page 0: 0x0000_0000
-Page 1: 0x0000_1000
-Page 2: 0x0000_2000
+Page 0: \textbf{0x0000\_0000}
+Page 1: \textbf{0x0000\_1000}
+Page 2: \textbf{0x0000\_2000}
 Subsequent pages follow this addressing pattern up to Page 255.
 3. Bus Architecture
 The system utilizes a multilayer AHB interconnect to manage data flow between different components efficiently.
@@ -2846,7 +2844,7 @@ For each implementation, offline and online tests were performed. The purpose of
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/1.png}
+    \includegraphics[scale=0.6]{Test_Procedure/1.png}
     \label{fig:connection_interval_timeout}
 \end{figure}
 
@@ -2867,7 +2865,7 @@ To vary these parameters in the firmware, changes on the peripheral side are suf
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/2.png}
+    \includegraphics[scale=0.6]{Test_Procedure/2.png}
     % \caption{Sniffed connection parameter update}
     \label{fig:sniffed_connection_parameter_update}
 \end{figure}
@@ -2876,7 +2874,7 @@ By clicking on the connection update, it is possible to see the chosen parameter
 
 \begin{figure}[H]
     \centering
-    \includegraphics{Test_Procedure/3.png}
+    \includegraphics[scale=0.6]{Test_Procedure/3.png}
     \label{fig:connection_parameters_wireshark}
 \end{figure}
 
@@ -2888,27 +2886,27 @@ For both the online and offline tests, a sniffer was used to count the retransmi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/4.png}
+    \includegraphics[scale=0.6]{Test_Procedure/4.png}
     % \caption{Ideal tests without security}
     \label{fig:ideal_tests_without_security}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/5.png}
+    \includegraphics[scale=0.6]{Test_Procedure/5.png}
     % \caption{Ideal tests with security}
     \label{fig:ideal_tests_with_security}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/6.png}
+    \includegraphics[scale=0.6]{Test_Procedure/6.png}
     \label{fig:multicentral_implementation}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/7.png}
+    \includegraphics[scale=0.6]{Test_Procedure/7.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2920,7 +2918,7 @@ Figures below show how the ppk2 and the board should be connected in both of the
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/8.png}
+    \includegraphics[scale=0.6]{Test_Procedure/8.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2928,20 +2926,20 @@ To use the ppk2 in source and amperemeter mode, the links to be established are 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/9.png}
+    \includegraphics[scale=0.6]{Test_Procedure/9.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/10.png}
+    \includegraphics[scale=0.6]{Test_Procedure/10.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
 For what regards the firmware side, for the Nordic ppk2 a specific app has been developed. When opened, the ppk2 could be selected, as shown in Figure 11.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/11.png}
+    \includegraphics[scale=0.6]{Test_Procedure/11.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2949,7 +2947,7 @@ Then, once the ppk has been selected, the modality can be chosen between source 
 When the source meter once is chosen, the screen would be something as 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/12.png}
+    \includegraphics[scale=0.6]{Test_Procedure/12.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2958,7 +2956,7 @@ The screen once ampere meter mode is selected is similar to previous one, and it
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/13.png}
+    \includegraphics[scale=0.6]{Test_Procedure/13.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2967,7 +2965,7 @@ An example of measurement is shown below. For this example, just a noise has bee
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/14.png}
+    \includegraphics[scale=0.6]{Test_Procedure/14.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2978,7 +2976,7 @@ To do this, SB9 should be cut.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/15.png}
+    \includegraphics[scale=0.6]{Test_Procedure/15.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2986,7 +2984,7 @@ Occasionally, in those cases in which the board should be supplied by an externa
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/16.png}
+    \includegraphics[scale=0.6]{Test_Procedure/16.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -2995,7 +2993,7 @@ Then, the SOC could be reprogrammed by taking away the ppk2, apply a jumper on P
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/17.png}
+    \includegraphics[scale=0.6]{Test_Procedure/17.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -3003,7 +3001,7 @@ For the purpose of current measuring, as the one of this master thesis, just SB9
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/18.png}
+    \includegraphics[scale=0.7]{Test_Procedure/18.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -3011,7 +3009,7 @@ Through the power profiler it is possible to zoom into the communication to see 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/19.png}
+    \includegraphics[scale=0.7]{Test_Procedure/19.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -3020,13 +3018,13 @@ Moreover, the effect of some different environments has be evaluated, such as di
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/20.png}
+    \includegraphics[scale=0.6]{Test_Procedure/20.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/21.png}
+    \includegraphics[scale=0.6]{Test_Procedure/21.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
@@ -3034,13 +3032,13 @@ Ultimately, also the effect of different mediums has been evaluated. Specificall
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/22.png}
+    \includegraphics[scale=0.6]{Test_Procedure/22.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Test_Procedure/23.png}
+    \includegraphics[scale=0.6]{Test_Procedure/23.png}
     \label{fig:direct_communication_board_PC}
 \end{figure}
 
