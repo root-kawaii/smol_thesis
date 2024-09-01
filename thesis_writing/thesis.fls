@@ -337,9 +337,6 @@ INPUT ./Configuration_Files/config.tex
 INPUT ./Configuration_Files/config.tex
 INPUT ./Configuration_Files/config.tex
 INPUT Configuration_Files/config.tex
-INPUT ./thesis.aux
-INPUT ./thesis.aux
-INPUT thesis.aux
 OUTPUT thesis.aux
 INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/tex/latex/caption/ltcaption.sty
 INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/tex/latex/caption/ltcaption.sty
@@ -1112,3 +1109,184 @@ INPUT ./Images/Results Manuel/figure38.png
 INPUT ./Images/Results Manuel/figure38.png
 INPUT ./Images/Results Manuel/figure38.png
 INPUT ./Images/Results Manuel/figure38.png
+INPUT ./Images/Results Manuel/figure39.png
+INPUT ./Images/Results Manuel/figure39.png
+INPUT ./Images/Results Manuel/figure39.png
+INPUT ./Images/Results Manuel/figure39.png
+INPUT ./Images/Results Manuel/figure40.png
+INPUT ./Images/Results Manuel/figure40.png
+INPUT ./Images/Results Manuel/figure40.png
+INPUT ./Images/Results Manuel/figure40.png
+INPUT ./Images/Results Matteo/figure1.png
+INPUT ./Images/Results Matteo/figure1.png
+INPUT ./Images/Results Matteo/figure1.png
+INPUT ./Images/Results Matteo/figure1.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png
+INPUT ./Images/Results Matteo/figure2.png
+INPUT ./Images/Results Matteo/figure2.png
+INPUT ./Images/Results Matteo/figure2.png
+INPUT ./Images/Results Matteo/figure2.png
+INPUT ./Images/Results Matteo/figure3.png
+INPUT ./Images/Results Matteo/figure3.png
+INPUT ./Images/Results Matteo/figure3.png
+INPUT ./Images/Results Matteo/figure3.png
+INPUT ./Images/Results Matteo/figure4.png
+INPUT ./Images/Results Matteo/figure4.png
+INPUT ./Images/Results Matteo/figure4.png
+INPUT ./Images/Results Matteo/figure4.png
+INPUT ./Images/Results Matteo/figure6.png
+INPUT ./Images/Results Matteo/figure6.png
+INPUT ./Images/Results Matteo/figure6.png
+INPUT ./Images/Results Matteo/figure6.png
+INPUT ./Images/Results Matteo/figure7.png
+INPUT ./Images/Results Matteo/figure7.png
+INPUT ./Images/Results Matteo/figure7.png
+INPUT ./Images/Results Matteo/figure7.png
+INPUT ./Images/Results Matteo/figure8.png
+INPUT ./Images/Results Matteo/figure8.png
+INPUT ./Images/Results Matteo/figure8.png
+INPUT ./Images/Results Matteo/figure8.png
+INPUT ./Images/Results Matteo/figure9.png
+INPUT ./Images/Results Matteo/figure9.png
+INPUT ./Images/Results Matteo/figure9.png
+INPUT ./Images/Results Matteo/figure9.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png
+INPUT ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png
+INPUT ./Images/Results Matteo/figure10.png
+INPUT ./Images/Results Matteo/figure10.png
+INPUT ./Images/Results Matteo/figure10.png
+INPUT ./Images/Results Matteo/figure10.png
+INPUT ./Images/Results Matteo/figure11.png
+INPUT ./Images/Results Matteo/figure11.png
+INPUT ./Images/Results Matteo/figure11.png
+INPUT ./Images/Results Matteo/figure11.png
+INPUT ./Images/Results Matteo/figure12.png
+INPUT ./Images/Results Matteo/figure12.png
+INPUT ./Images/Results Matteo/figure12.png
+INPUT ./Images/Results Matteo/figure12.png
+INPUT ./Images/Results Matteo/figure13.png
+INPUT ./Images/Results Matteo/figure13.png
+INPUT ./Images/Results Matteo/figure13.png
+INPUT ./Images/Results Matteo/figure13.png
+INPUT ./Images/Results Matteo/figure14.png
+INPUT ./Images/Results Matteo/figure14.png
+INPUT ./Images/Results Matteo/figure14.png
+INPUT ./Images/Results Matteo/figure14.png
+INPUT ./Images/Results Matteo/figure15.png
+INPUT ./Images/Results Matteo/figure15.png
+INPUT ./Images/Results Matteo/figure15.png
+INPUT ./Images/Results Matteo/figure15.png
+INPUT ./Images/Results Matteo/figure16.png
+INPUT ./Images/Results Matteo/figure16.png
+INPUT ./Images/Results Matteo/figure16.png
+INPUT ./Images/Results Matteo/figure16.png
+INPUT ./thesis.bbl
+INPUT ./thesis.bbl
+INPUT thesis.bbl
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+OUTPUT thesis.lof
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+OUTPUT thesis.lot
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi.eps
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT ./Images/./raggiera_polimi-eps-converted-to.pdf
+INPUT thesis.aux
+INPUT ./thesis.out
+INPUT ./thesis.out
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb
+INPUT /opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb

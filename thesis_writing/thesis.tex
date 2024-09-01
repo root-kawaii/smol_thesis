@@ -1087,12 +1087,10 @@ In particular, at the beginning of our work of research, we spent some time sett
 
 The principal parameter to modify in EEGNet architecture to create an ENGNet is the kernel length, which plays a crucial role in shaping the network’s feature extraction capabilities. [Davide]
 A kernel length of 100 samples, which translates to a sequence of 20 ms at a 5 kHz sampling rate, could be a compromise between kernel length and the ability to capture ENG signal characteristics effectively. Hence, kernel lengths of 10, 20, and 30 ms are investigated in this study which correspond to different values for the kernel length (denoted as kernLength) which means 50, 100 and 150 samples [Davide].
-''re write ''
 All the layers after the first one are therefore scaled to maintain the proportions proposed in the EEGNet model. [Davide 27]
 
 
-
-The architecture involves two convolutional steps, employing 2D convolutional filters to capture EEG signals at different band-pass frequencies and depthwise convolutions to learn spatial filters for each temporal filter. The approach also utilizes separable con- volutions to reduce the number of parameters and efficiently combine feature maps. In the classification block, softmax classification is directly applied to the extracted features without a dense layer, reducing the number of parameters in the model.
+The architecture consists of two convolutional steps: first, 2D convolutional filters are used to capture EEG signals across different band-pass frequencies, followed by depthwise convolutions that learn spatial filters for each temporal filter. Additionally, separable convolutions are employed to minimize the number of parameters while effectively combining the feature maps. In the classification block, softmax classification is applied directly to the extracted features, bypassing the need for a dense layer, which further reduces the model's parameter count. [Davide]
 
 
 \begin{figure}[H]
@@ -1111,7 +1109,7 @@ The configuration for block 1 is as follows:
 \item AveragePooling2D layer: AveragePooling2D((1, kernLength//10))
 \end{itemize}
 
-Here, F1 represents the number of 2D convolutional filters (F1 = 16), Chans is the number of channels in the EEG signals (Chans = 16), and Samples is the length of the ENG samples. The Conv2D layer uses the kernel length to create a 2D convolutional filter with height 1 and width equal to kernLength. The AveragePooling2D layer reduces the spatial dimensions of the feature maps by performing average pooling with a pool size of (1, kernLength//10).
+Here, F1 represents the number of 2D convolutional filters (F1 = 16), Chans is the number of channels in the EEG signals (Chans = 16), and Samples is the length of the ENG samples. The Conv2D layer uses the kernel length to create a 2D convolutional filter with height 1 and width equal to kernLength. The AveragePooling2D layer reduces the spatial dimensions of the feature maps by performing average pooling with a pool size of (1, kernLength//10). [Davide]
 
 For block 2, the configuration is as follows:
 \begin{itemize}
@@ -1142,7 +1140,20 @@ Presented here are the layers present in the ENGNet model to outline what each l
 \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} \quad (3.21)
 \end{equation}
 
-\textbf{F1-Score} \quad It combines precision and recall to offer a balanced evaluation of a model’s performance. Precision (or Positive Predicted Value (PPV)) is the ratio of correctly predicted positive observations to the total predicted positive observations. Recall (or sensitivity, or True Positive Rate (TPR)), is the ratio of correctly predicted positive observations to the total actual positive observations. F1-Score is computed as:
+\textbf{F1-Score} \quad The F1 score is a widely used metric in machine learning and statistics for evaluating the performance of a classification model. It provides a single measure that balances both the precision and recall of the model, making it particularly useful when dealing with imbalanced datasets where one class may significantly outnumber the others.
+It combines precision and recall to offer a balanced evaluation of a model’s performance.
+The F1 score is the harmonic mean of precision and recall. Unlike the arithmetic mean, the harmonic mean tends to give more weight to lower values. As a result, the F1 score will only be high if both precision and recall are high, making it a balanced measure even in situations where the two metrics differ significantly.
+The use of F1-Score is relevant when:
+\begin{itemize}
+    \item Imbalanced Datasets: When dealing with datasets where one class is much more frequent than others, accuracy can be misleading because the model might simply predict the majority class all the time and still achieve high accuracy. The F1 score, by considering both precision and recall, provides a more informative metric that reflects how well the model is performing across all classes.
+    \item Trade-off Between Precision and Recall: In many applications, there's a need to balance precision and recall. For example, in medical diagnosis, you want to maximize recall to ensure all true cases are identified, but you also want to maintain high precision to avoid false positives. The F1 score helps in evaluating this trade-off.
+\end{itemize}
+While the negatives for its use are that:
+\begin{itemize}
+    \item No Consideration of True Negatives: The F1 score does not take true negatives into account, which can be a limitation in some contexts. For instance, in cases where the correct identification of negative cases is crucial, other metrics like the Matthews correlation coefficient (MCC) might be more appropriate.
+    \item Sensitivity to Class Distribution: The F1 score might not always give a full picture in cases where class distribution is extremely skewed, as it only focuses on the positive class.
+\end{itemize}
+F1-Score is computed as:
 
 \begin{equation}
 F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \quad (3.22)
@@ -1154,24 +1165,26 @@ where:
 \text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
 \end{equation}
 
+Precision being a measure of how accurate the positive predictions made by a model are. In other words, it tells us the proportion of correctly predicted positive instances out of all instances that were predicted as positive.
+
+Precision focuses on the quality of the positive predictions made by the model, asking, "Of all the instances predicted as positive, how many are actually positive?"
+
 \begin{equation}
 \text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
 \end{equation}
 
-F1-Score combines precision and recall exploiting the harmonic mean to penalize the extreme values. Both Accuracy and the F1-score are important for a classification task:
-\begin{itemize}
-    \item Accuracy is preferred when correctly identifying True Positives and True Negatives is the primary concern.
-    \item F1-score is favored when minimizing the impact of False Negatives and False Positives is crucial.
-\end{itemize}
+Recall (also known as sensitivity or true positive rate) measuring the model's ability to correctly identify all actual positive instances. It indicates the proportion of actual positives that were correctly classified by the model.
+Recall focuses on the completeness of the model's positive predictions, asking, "Of all the actual positive instances, how many did the model correctly identify?"
 
-Moreover, when dealing with imbalanced class distributions, where some classes have significantly fewer instances than others, the F1-score tends to be a more suitable metric for model evaluation.
+The two above metrics often have a trade-off relationship. For example, a model can achieve high recall by predicting more instances as positive, but this may reduce precision if many of these predictions are incorrect. Conversely, a model can achieve high precision by being very selective in its positive predictions, but this may reduce recall if it misses many actual positive instances.
+
+\textbf{Confusion Matrix} \quad A confusion matrix is a table used to evaluate the performance of a classification model, particularly in cases where there are two or more classes. It provides a detailed breakdown of the model’s predictions, comparing the actual (true) labels with the predicted labels. This matrix helps in understanding not only the accuracy of the model but also where it is making mistakes.
 
 
-\textbf{Confusion Matrix} \quad This matrix visualizes a model’s performance by showing the number of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). A general construction of confusion matrix is given in Table 3.1. It is particularly helpful for understanding the model’s ability to correctly classify each class and to investigate the errors in predict phase.
 
 \begin{table}[H]
 \centering
-\caption*{Table 3.1: Confusion Matrix for two classes (Positive and Negative) or outcomes to evaluate. The word "Predicted" refers to the output label from the classifier, while the "Actual" label is the one associated to the data.}
+\caption*{Table 3.1: Confusion Matrix for two classes (Positive and Negative). Predicted refers to the output label from the classifier, while the Actual label is the true label associated to the data.}
 \begin{tabular}{|c|c|c|}
 \hline
  & \textbf{Predicted Positive} & \textbf{Predicted Negative} \\
@@ -1183,7 +1196,7 @@ Moreover, when dealing with imbalanced class distributions, where some classes h
 \end{tabular}
 \end{table}
 
-In a confusion matrix with multiple classes, it is possible to compute precision, recall, and the F1-score for each individual class. Precision for a class is calculated as the ratio of true positives for that class to the total instances predicted as that class (both true positive and false positives). It is calculated as the ratio of true positives to the sum of true positives and false positives for that class.
+In a confusion matrix with multiple classes, precision, recall, and the F1-score can be computed for each individual class. Precision for a given class is determined by the ratio of true positives for that class to the total number of instances predicted as that class, including both true positives and false positives. In other words, it is calculated as the number of true positives divided by the sum of true positives and false positives for that specific class. [Davide]
 
 \begin{equation}
 	\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
@@ -1193,25 +1206,30 @@ In a confusion matrix with multiple classes, it is possible to compute precision
 	\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
 	\end{equation}
 
-The F1-score is the harmonic of precision and recall. It provides a balanced measure that considers both false positives and false negatives. It is calculated using the following formula:
-
-\begin{equation}
-	F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \quad (3.22)
-	\end{equation}
-
 By calculating these metrics for each class, one gains insights into the model’s performance for individual categories, allowing a more nuanced evaluation of classification effectiveness.
-
-
 
 \subsection{ENGNet results}
 
+The results of the ENGNet model are very important for the scope of our work which is channel selection.
+If the model performs very well it helps our task as a loss in the predicted labels will result in worse performances, but such performances will still be sufficient for the task at hand.
+On the other hand, if the model behaves poorly, it means it has a smaller margin and that even a small in signal quality could make the difference between a pipeline that delivers a functional project and one that can't suffice the requirements.
+Luckily for us, the work that has been carried previously by the lab is excellent and allows us to proceed with our channel selection goals in a more aggressive way, wanting to reduce the signal carried by the communication system drastically.
+Below we will present briefly the results obtained by Davide Gottardello's thesis and comment on them.
+It is to be noted that we only show the results relevant for our work, which are the best results coming from Davide's work.
+In this graph we can see the results of a EEG- Net with Kernel 100 model with four classes on animal 1 with a 100 ms window.
 \begin{figure}[H]
 	\includegraphics[scale=0.5]{trainingAccuracyDavide.png}
 	\centering
 	\end{figure}
 
 
-Analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet,
+In this graph we can see two main things:
+\begin{itemize}
+    \item The training and validation accuracy results are both very high, approaching 100 percent accuracy
+    \item The difference between the training accuracy and the validation accuracy is very low, the overfit is less than 1 percent.
+\end{itemize}
+
+The results confirm the quality of the model and the correctness of the choice for the parameters and hyperparameters.
 
 \begin{figure}[H]
 	\includegraphics[scale=0.5]{engNet_accuracy.png}
@@ -1223,14 +1241,15 @@ Analysis of weights in the first convolutional layer indicate the network’s ca
 		\centering
 		\end{figure}
 
-Talk about limitation
+These graphs show the results for all three animals for different time windows.
+We need to consider the 100ms for the purposes of our project, and although the difference in performance is present, the 100ms window still performs fairly well.
+The same observations can be made for the F1-score which, although with lower scores, has the same results.
+It is to be noted is that the difference in results between training set, validation set and test set is very little in percentage.
+This is another positive result of the ENGNet that shows that the model is powerful and that it can well generalize to data it has never seen.
 
-Comparison between validation and test re- sults showed that ENGNet can generalize well to new data. This can be further improved by increasing the dropout probability
 
-
-'foto dei results'
-
-
+Another thing we want to highlight, as explained by Davide in his conclusion, it is that the "analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet".
+Therefore, despite our effort to reduce the signal required to have good results, it is important to remember that more data almost always means better solutions, and in particular, data directly obtained from the subject matters a lot in obtaining quality results and good metrics.
 
 
 \section*{Hardware}
@@ -1611,53 +1630,31 @@ Pearson correlation coefficient is a statistical association or linear dependenc
 Considering the two variables, denoted as \( X \) and \( Y \), with \( n \) representing the number of observations, \( \bar{X} \) and \( \bar{Y} \) as their respective means, and \( \sigma_X \) and \( \sigma_Y \) as the default deviations between them, the correlation coefficient \( \rho(X,Y) \) ranges from 0 to 1. This range indicates the strength of the relationship, varying from low to high. In this context, the correlation coefficient is computed for each pair of EEG channels.
 
 \subsubsection{Cross-Correlation Based Discriminant Criterion (XCDC)}
+XCDC is a correlation method used to evaluate the informativeness of a channel for classification tasks by measuring its similarity to other channels. It calculates the cross-correlation between two EEG signals after z-score normalization to account for amplitude effects. The method then defines within-class similarity and between-class dissimilarity, which are combined into a discriminant score 
+𝐷. Channels are ranked based on this score, with higher scores indicating more informative channels. The score D is determined by a weighted combination of within-class and between-class measures, tuned via a hyperparameter λ.
+We will discuss it more in depth in Chapter 4, since this is the algorithm we chose for our channel selection.
+Here is a less precise overview of the algorithm's formulas.
 
-XCDC is another correlation method whose fundamental idea is that if a channel is informative and useful for the classification task at hand, then it should be highly correlated 
-
-
-Given two finite discrete time series $x(i)$ and $y(j)$
-(i $\epsilon$ $[0, 1, . . . , n - 1]$, j $\epsilon$ $[0, 1, . . . , m - 1]$, $m \geq n$),
-their cross-correlation series is given as follows:
-
-\begin{align}
-	 r_{xy}(k) = \sum_{i=0}^{n-1}x(i)y(i + k), k = 0,1,...,m-n+1
-	\label{eq:XCDC1}
-\end{align}
-
-where x and y are EEG signals of length T (m=n=T). \\ 
-Zero-padding is performed at both sides of y so that the length of the cross-correlation series is the same of the original signals. \\
-We apply the cross-correlation formula to the signals x and y, but we must firstly apply z-score normalization to account for the effect of signal amplitudes on cross-correlation.
-
-\begin{align}
-	\tilde{x_i} = \frac{x_i - \bar x_i}{\sigma_{x_i}}
-   \label{eq:XCDC3}
-\end{align}
-
-
-Then, the similarity between x and y is measured with the following formula:
-
+With S defined as the scoring function for the correlation between the signals.
 \begin{align}
 	S(x,y) = \max(r_{x\hat{y}(k)}), k=0,1,..., T - 1 
    \label{eq:XCDC2}
 \end{align}
 
-with $\hat{y}$ being y with zero-padding.
-where $x_i$ is the signal of the i-th trial collected from our channel of interest. $\bar{x_i}$ and $\sigma{x_i}$ are
-the mean and standard deviation of $x_i$ respectively.
-Having defined the function $S$ we now define the within-class similarity $R_w$ and betweenclass dissimilarity $R_b$ which are obtained as follows:
-
+Same class score defined as:
 \begin{align}
 	R_w = \mathbf{mean}(S(\tilde{x_i}\tilde{x_j}| c_i = c_j))
    \label{eq:XCDC4}
 \end{align}
 
+Different class score defined as:
 \begin{align}
 	R_b = -\mathbf{mean}(S(\tilde{x_i}\tilde{x_j}| c_i \neq  c_j))
    \label{eq:XCDC5}
 \end{align}
+where $c_i$ is the class label of the i-th trial.
 
-where $c_i$ is the class label of the i-th trial. The discriminant score D is then defined as follows:
-
+The discriminant score D is then defined as follows:
 \begin{align}
 	D = \lambda R_w + (1-\lambda)R_b
    \label{eq:XCDC6}
@@ -1666,17 +1663,7 @@ where $c_i$ is the class label of the i-th trial. The discriminant score D is th
 in which $\lambda$ is a weighting hyperparameter to be tuned empirically.
 Channels are ranked in a descending order according to their discriminant score D after obtaining D for every channel using.
 
-\begin{table}[H]
-	\caption{Accuracy for correlation based methods}
-	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
-	\hline
-	Methods & Methods' stategy & Classifier &Accuracy&No. of Selected Channels/Total No. of Channels&Dataset\\
-	\hline
-	Afghanistan   & AF    &AFG&   004&   004&   004\\
-	Afghanistan   & AF    &AFG&   004&   004&   004\\
-	\hline
-	\end{tabular}
-	\end{table}
+
 \subsection{Sequential Based methods}
 
 These methods implement a sequential approach where top features are identified iteratively.
@@ -1751,20 +1738,6 @@ With v defined as previously in PSO, and S being a logistic function that varies
 We decide if the position of the i-th particle is 1 or 0 depending on the $\tau$.
 There are also multi-objective versions for both PSO and BPSO called Multi-Objective Particle Swarm Optimization (MOPSO) and Binary Multi-Objective Particle Swarm Optimization respectively (BMOPSO). \cite{coellocoelloMOPSOProposalMultiple2002}
 
-\begin{table}[H]
-\caption{Accuracy for particle swarm optimization methods}
-\begin{tabular}{|c|c|c|c|p{2cm}|c|}
-\hline
-Methods & Methods' stategy & Classifier &Accuracy&No. of Selected Channels/Total No. of Channels&Dataset\\
-\hline
-Afghanistan   & AF    &AFG&   004&   004&   004\\
-Albania &AL & ALB&  008&   004&   004\\
-Algeria    &asdasdsssssssssssasd & DZA&  012&   004&   004\\
-Andorra& AD  & AND   &020&   004&   004\\
-Angola& AO  & AGO&024&   004&   004\\
-\hline
-\end{tabular}
-\end{table}
 
 
 \subsection{Other methods}
@@ -1825,26 +1798,24 @@ We will now present a few other methods that are relvant for the idea behind the
 \subsubsection{Dataset and results}
 
 
-We wanted to find algorithm that not only performed well on the usual Accuracy-F1Score metrics while reducing the numbers of channels, but also would fit well with our models.
-Given the architecture of our ENGNet model, we needed an algorithm to perform channel selectiom that would work with a Neural Network model.
-''' expand test case scenario and explain why '''
-In addition, given future test case scenarios we also needed an algorithm that could be performed in an "on-line" way, or as close to it as possible.
-To summarize we needed:
+We sought to identify an algorithm that not only excelled in standard performance metrics like Accuracy and F1 Score while minimizing the number of channels but also integrated seamlessly with our existing models. Given the architecture of our ENGNet model, it was crucial to find a channel selection algorithm that could operate effectively within a Neural Network framework.
+Moreover, considering future test scenarios, we required an algorithm capable of functioning in an "online" manner, or as close to real-time processing as possible. This need arose because of the potential application of our model in environments where rapid processing and adaptability are critical.
+
+\textfff{Requirements Summary}
 \begin{itemize}
-	\item-online
-	\item Cnn ready
-	\item good performance on f1-Accuracy
-	\item works well with few channels
+    \item Online or near-online operation
+    \item Compatibility with CNN-based models
+    \item Strong performance in F1 Score and Accuracy
+    \item Effective with a reduced number of channels
 \end{itemize}
 
-There are many algorithms that reduce noise...  \cite{abdullahEEGChannelSelection2022}
-but those are already inside the ENGNet since spatial features ...
-Talk about why ASR didn't improve, basically same reason.
-Ideally we would select channels, by iterating over all possible subsets of features but too much time.
-Particle swarm optimization no, beacuse too much time.
-Therefore correlation algorithms, promising and tested with CNN.
-Since we already had CNN why not implement a new algorithm that hasn't been well tested that requires to add one layer.
-Critical issue could be that generally black but we will discsuss it later.
+While many algorithms focus on noise reduction, these approaches are already integrated within ENGNet through spatial feature extraction. This was also why Adaptive Signal Reconstruction (ASR) did not show significant improvement; the spatial filtering capabilities already present in ENGNet addressed similar challenges.
+
+
+Ideally, we would have liked to perform channel selection by iterating over all possible subsets of features; however, this approach is computationally prohibitive due to the time required. Similarly, methods like Particle Swarm Optimization were dismissed for the same reason—they are too time-consuming.
+
+Instead, we turned to correlation-based algorithms, which have shown promise and been tested with CNNs. Since our model already utilizes CNNs, we explored the possibility of implementing a new algorithm that, while not extensively tested, would only require the addition of one layer to our existing structure. The main challenge with this approach is the typical black-box nature of Neural Networks, but we will address these issues in detail in a later section.
+In particular, we will explain in detail the models we chose in the next chapter.
 
 
 \chapter{Materials and Methods}

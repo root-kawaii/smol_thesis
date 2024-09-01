@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.7.14)  30 AUG 2024 09:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2024.7.14)  30 AUG 2024 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -871,7 +871,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-(./thesis.aux)
+No file thesis.aux.
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
@@ -892,7 +892,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -2617,4 +2616,333 @@ Package pdftex.def Info: ./Images/Results Manuel/figure35.png  used on input lin
 (pdftex.def)             Requested size: 364.19667pt x 293.33737pt.
  [171 <./Images/Results Manuel/figure34.png>]
 <./Images/Results Manuel/figure36.png, id=1508, 737.75626pt x 594.22pt>
-File: ./Images/Results Manuel/figure36.png Graphic file (ty
+File: ./Images/Results Manuel/figure36.png Graphic file (type png)
+<use ./Images/Results Manuel/figure36.png>
+Package pdftex.def Info: ./Images/Results Manuel/figure36.png  used on input line 3453.
+(pdftex.def)             Requested size: 364.19667pt x 293.33737pt.
+ [172 <./Images/Results Manuel/figure35.png>]
+<./Images/Results Manuel/figure37.png, id=1516, 737.75626pt x 594.22pt>
+File: ./Images/Results Manuel/figure37.png Graphic file (type png)
+<use ./Images/Results Manuel/figure37.png>
+Package pdftex.def Info: ./Images/Results Manuel/figure37.png  used on input line 3463.
+(pdftex.def)             Requested size: 364.19667pt x 293.33737pt.
+ [173 <./Images/Results Manuel/figure36.png>]
+<./Images/Results Manuel/figure38.png, id=1524, 737.75626pt x 594.22pt>
+File: ./Images/Results Manuel/figure38.png Graphic file (type png)
+<use ./Images/Results Manuel/figure38.png>
+Package pdftex.def Info: ./Images/Results Manuel/figure38.png  used on input line 3471.
+(pdftex.def)             Requested size: 364.19667pt x 293.33737pt.
+ [174 <./Images/Results Manuel/figure37.png>]
+<./Images/Results Manuel/figure39.png, id=1532, 737.75626pt x 594.22pt>
+File: ./Images/Results Manuel/figure39.png Graphic file (type png)
+<use ./Images/Results Manuel/figure39.png>
+Package pdftex.def Info: ./Images/Results Manuel/figure39.png  used on input line 3481.
+(pdftex.def)             Requested size: 364.19667pt x 293.33737pt.
+ [175 <./Images/Results Manuel/figure38.png>]
+<./Images/Results Manuel/figure40.png, id=1539, 737.75626pt x 594.22pt>
+File: ./Images/Results Manuel/figure40.png Graphic file (type png)
+<use ./Images/Results Manuel/figure40.png>
+Package pdftex.def Info: ./Images/Results Manuel/figure40.png  used on input line 3493.
+(pdftex.def)             Requested size: 364.19667pt x 293.33737pt.
+ [176 <./Images/Results Manuel/figure39.png>] [177 <./Images/Results Manuel/figure40.png>]
+<./Images/Results Matteo/figure1.png, id=1556, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure1.png Graphic file (type png)
+<use ./Images/Results Matteo/figure1.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure1.png  used on input line 3515.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+<./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png, id=1557, 651.43375pt x 317.185pt>
+File: ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png Graphic file (type png)
+<use ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png>
+Package pdftex.def Info: ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png  used on input line 3530.
+(pdftex.def)             Requested size: 364.19667pt x 177.33199pt.
+ [178 <./Images/Results Matteo/figure1.png>]
+<./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png, id=1564, 651.43375pt x 317.185pt>
+File: ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png Graphic file (type png)
+<use ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png>
+Package pdftex.def Info: ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png  used on input line 3535.
+(pdftex.def)             Requested size: 364.19667pt x 177.33199pt.
+<./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png, id=1565, 651.43375pt x 317.185pt>
+File: ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png Graphic file (type png)
+<use ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png>
+Package pdftex.def Info: ./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png  used on input line 3540.
+(pdftex.def)             Requested size: 364.19667pt x 177.33199pt.
+ [179 <./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.22.png> <./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.28.png> <./Images/Results Matteo/Screenshot 2024-08-18 at 18.54.30.png>]
+<./Images/Results Matteo/figure2.png, id=1577, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure2.png Graphic file (type png)
+<use ./Images/Results Matteo/figure2.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure2.png  used on input line 3561.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+<./Images/Results Matteo/figure3.png, id=1578, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure3.png Graphic file (type png)
+<use ./Images/Results Matteo/figure3.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure3.png  used on input line 3567.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+ [180 <./Images/Results Matteo/figure2.png>]
+<./Images/Results Matteo/figure4.png, id=1586, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure4.png Graphic file (type png)
+<use ./Images/Results Matteo/figure4.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure4.png  used on input line 3573.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+ [181 <./Images/Results Matteo/figure3.png> <./Images/Results Matteo/figure4.png>]
+<./Images/Results Matteo/figure6.png, id=1595, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure6.png Graphic file (type png)
+<use ./Images/Results Matteo/figure6.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure6.png  used on input line 3593.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+<./Images/Results Matteo/figure7.png, id=1596, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure7.png Graphic file (type png)
+<use ./Images/Results Matteo/figure7.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure7.png  used on input line 3599.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+<./Images/Results Matteo/figure8.png, id=1597, 698.61pt x 452.69125pt>
+File: ./Images/Results Matteo/figure8.png Graphic file (type png)
+<use ./Images/Results Matteo/figure8.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure8.png  used on input line 3605.
+(pdftex.def)             Requested size: 364.19667pt x 235.99484pt.
+ [182 <./Images/Results Matteo/figure6.png> <./Images/Results Matteo/figure7.png>]
+<./Images/Results Matteo/figure9.png, id=1606, 1003.75pt x 452.69125pt>
+File: ./Images/Results Matteo/figure9.png Graphic file (type png)
+<use ./Images/Results Matteo/figure9.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure9.png  used on input line 3613.
+(pdftex.def)             Requested size: 364.19667pt x 164.25351pt.
+ [183 <./Images/Results Matteo/figure8.png> <./Images/Results Matteo/figure9.png>]
+<./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png, id=1615, 762.85pt x 473.77pt>
+File: ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png Graphic file (type png)
+<use ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png>
+Package pdftex.def Info: ./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png  used on input line 3631.
+(pdftex.def)             Requested size: 364.19667pt x 226.18529pt.
+<./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png, id=1616, 845.1575pt x 375.4025pt>
+File: ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png Graphic file (type png)
+<use ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png>
+Package pdftex.def Info: ./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png  used on input line 3639.
+(pdftex.def)             Requested size: 364.19667pt x 161.76935pt.
+ [184 <./Images/Results Matteo/Screenshot 2024-08-19 at 08.02.37.png> <./Images/Results Matteo/Screenshot 2024-08-19 at 08.09.29.png>]
+<./Images/Results Matteo/figure10.png, id=1625, 1003.75pt x 452.69125pt>
+File: ./Images/Results Matteo/figure10.png Graphic file (type png)
+<use ./Images/Results Matteo/figure10.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure10.png  used on input line 3650.
+(pdftex.def)             Requested size: 364.19667pt x 164.25351pt.
+<./Images/Results Matteo/figure11.png, id=1626, 706.64pt x 452.69125pt>
+File: ./Images/Results Matteo/figure11.png Graphic file (type png)
+<use ./Images/Results Matteo/figure11.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure11.png  used on input line 3659.
+(pdftex.def)             Requested size: 364.19667pt x 233.31473pt.
+<./Images/Results Matteo/figure12.png, id=1627, 706.64pt x 422.57875pt>
+File: ./Images/Results Matteo/figure12.png Graphic file (type png)
+<use ./Images/Results Matteo/figure12.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure12.png  used on input line 3665.
+(pdftex.def)             Requested size: 364.19667pt x 217.7949pt.
+ [185 <./Images/Results Matteo/figure10.png> <./Images/Results Matteo/figure11.png>]
+<./Images/Results Matteo/figure13.png, id=1637, 706.64pt x 454.69875pt>
+File: ./Images/Results Matteo/figure13.png Graphic file (type png)
+<use ./Images/Results Matteo/figure13.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure13.png  used on input line 3671.
+(pdftex.def)             Requested size: 364.19667pt x 234.34938pt.
+<./Images/Results Matteo/figure14.png, id=1638, 706.64pt x 454.69875pt>
+File: ./Images/Results Matteo/figure14.png Graphic file (type png)
+<use ./Images/Results Matteo/figure14.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure14.png  used on input line 3676.
+(pdftex.def)             Requested size: 364.19667pt x 234.34938pt.
+ [186 <./Images/Results Matteo/figure12.png> <./Images/Results Matteo/figure13.png>]
+<./Images/Results Matteo/figure15.png, id=1647, 662.475pt x 454.69875pt>
+File: ./Images/Results Matteo/figure15.png Graphic file (type png)
+<use ./Images/Results Matteo/figure15.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure15.png  used on input line 3682.
+(pdftex.def)             Requested size: 364.19667pt x 249.96713pt.
+<./Images/Results Matteo/figure16.png, id=1648, 724.7075pt x 454.69875pt>
+File: ./Images/Results Matteo/figure16.png Graphic file (type png)
+<use ./Images/Results Matteo/figure16.png>
+Package pdftex.def Info: ./Images/Results Matteo/figure16.png  used on input line 3687.
+(pdftex.def)             Requested size: 364.19667pt x 228.50748pt.
+ [187 <./Images/Results Matteo/figure14.png> <./Images/Results Matteo/figure15.png>] [188 <./Images/Results Matteo/figure16.png>]
+Chapter 6.
+(./thesis.bbl) [189
+
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3719.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3719.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [190
+
+]
+Appendix A.
+[191
+
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3727.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3727.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [192
+
+]
+Appendix B.
+[193
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3732.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3732.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [194
+
+]
+No file thesis.lof.
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
+
+[195
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3735.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3735.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [196
+
+]
+No file thesis.lot.
+\tf@lot=\write7
+\openout7 = `thesis.lot'.
+
+[197
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3739.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3739.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [198
+
+] [199
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3750.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3750.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [200
+
+] [201
+
+]
+Package epstopdf Info: Source file: <./Images/./raggiera_polimi.eps>
+(epstopdf)                    date: 2024-01-31 18:38:34
+(epstopdf)                    size: 1813066 bytes
+(epstopdf)             Output file: <./Images/./raggiera_polimi-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-01-31 18:38:40
+(epstopdf)                    size: 40456 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Images/./raggiera_polimi-eps-converted-to.pdf ./Images/./raggiera_polimi.eps>
+(epstopdf)             \includegraphics on input line 3754.
+Package epstopdf Info: Output file is already uptodate.
+File: ./Images/./raggiera_polimi-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Images/./raggiera_polimi-eps-converted-to.pdf>
+Package pdftex.def Info: ./Images/./raggiera_polimi-eps-converted-to.pdf  used on input line 3754.
+(pdftex.def)             Requested size: 507.88533pt x 507.88051pt.
+ [202
+
+]
+
+Package caption Warning: Unused \captionsetup[algorithm] on input line 13.
+See the caption package documentation for explanation.
+
+
+Package transparent Warning: Rerun to get transparencies right.
+
+
+Package natbib Warning: There were undefined citations.
+
+(./thesis.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  6EF55F2AF1405817CD1785CA5733EFAA;16364.
+ ) 
+Here is how much of TeX's memory you used:
+ 32979 strings out of 474116
+ 659620 string characters out of 5732613
+ 1947187 words of memory out of 5000000
+ 54108 multiletter control sequences out of 15000+600000
+ 584347 words of font info for 103 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 84i,15n,93p,2199b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></opt/homebrew/Cellar/texlive/20240312_1/share/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
+Output written on thesis.pdf (210 pages, 52270157 bytes).
+PDF statistics:
+ 1976 PDF objects out of 2073 (max. 8388607)
+ 1364 compressed objects within 14 object streams
+ 658 named destinations out of 1000 (max. 500000)
+ 874 words of extra memory for PDF output out of 10000 (max. 10000000)
+
