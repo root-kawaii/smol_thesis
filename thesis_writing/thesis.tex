@@ -2209,9 +2209,9 @@ Finally, the theoretical throughput is equal to 663.68 Mbps.
 
 \subsection{Memory allocation}
 
-\includegraphics{MemoryAllocation/memory_shift.jpeg}
-\includegraphics{MemoryAllocation/memory_sicurezza.jpeg}
-\includegraphics{MemoryAllocation/memory_sicurezzaAndShift.jpeg}
+\includegraphics[size=0.8]{MemoryAllocation/memory_shift.jpeg}
+\includegraphics[size=0.8]{MemoryAllocation/memory_sicurezza.jpeg}
+\includegraphics[size=0.8]{MemoryAllocation/memory_sicurezzaAndShift.jpeg}
 
 \section{Multicentral Implementation}
 As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure \ref{fig:user_command_sending_procedure}.
@@ -3666,6 +3666,21 @@ Similarity in the trend could mean either that both algorithm made a good (or ba
 This is also something that we saw when removing more than 7 or 8 channels; performances would get much worse almost indipendently from the removed channel.
 
 \chapter{Conclusion and future development}
+
+This Master Thesis presents a range of features that can serve as a foundation for potential future improvements. The objective was to enhance the previous version of the firmware by incorporating additions beneficial in the biomedical context, while assessing their impact on throughput, current consumption, and memory usage. These enhancements can be considered as initial steps; further evaluation is needed to determine whether the overall speed of each implementation can be improved and whether memory consumption, particularly RAM usage, can be optimized.
+
+By analyzing each implementation individually, several suggestions for future improvements emerge. Firstly, the security feature appears to have no impact on speed for connection intervals of at least 50 ms. However, it is essential to understand why speed is significantly influenced by the connection supervision timeout. In real-world scenarios, where distance and tissue act as mediums, this parameter might need to be increased. Additionally, while security is implemented, no MITM protection is ensured. Implementing protection against such attacks should be considered, subject to the constraints of the Senseback platform, as MITM attacks are common in biomedical applications.
+
+Regarding the shift algorithm, speed is notably affected by the algorithm, even though the goal of optimizing data transmission is achieved. To potentially increase the algorithm's speed, several approaches could be explored. First, different BLE packet sizes should be evaluated to identify the optimal size, preferably multiples of 5. Additionally, performing operations on multiple samples simultaneously could reduce the total number of operations, thereby increasing speed. Further, alternative functions, particularly those in the CMSIS DSP software library \footnote{\url{https://www.keil.com/pack/doc/CMSIS_Dev/DSP/html/index.html}}, which is optimized for ARM processors, could be investigated.
+
+Multicentral applications significantly impact communication speed. If this feature is essential for the intended project, particularly in scenarios where user-controlled communication is required, it is worth exploring whether the device can be disconnected and reconnected to send commands and the impact of this on overall speed. Moreover, the security of the second connection, especially for Android devices, has not been addressed and requires further exploration. If this feature is not critical, it may be avoided due to its substantial impact on speed, leaving limited room for optimization. The only potential improvement could involve optimizing RAM memory, possibly affecting communication throughput.
+
+Lastly, direct communication between the board and PC was tested in both Windows and Linux environments, yielding results inferior to the board-to-board approach. Given that Nordic and Matlab provide limited support for direct board-to-PC communication, which is uncommon in BLE connections, a future development could involve communication between a transmitting board and a receiving dongle\footnote{\url{https://devzone.nordicsemi.com/guides/short-range-guides/b/getting-started/posts/nrf52840-dongle-programming-tutorial}}. This method would ensure the Nordic-required board-to-board approach without needing any wires, except for power. The dongle would then transmit the received data to the external unit via USB. Further suggestions for the Linux environment can be explored in \footnote{\url{https://www.jaredwolff.com/get-started-with-bluetooth-low-energy/}}.
+
+The suggestions above pertain to using Bluetooth Low Energy for communication. However, many contemporary biomedical applications consider using Ultra-Wideband (UWB) antennas due to their lower losses, smaller size, and more affordable costs. An example is discussed in \cite{patwary2020modeling}, where an antenna's performance was studied in the context of neural signal recording. UWB technology offers significantly higher data transmission speeds than BLE, reaching up to 1 Gbps \footnote{\url{https://www.encstore.com/blog/5524-ble-vs-uwb-what-are-the-differences}}.
+
+In conclusion, this Master Thesis examines various additional features to the previous version of the firmware, highlighting their impact on throughput, power consumption, and memory usage. The proposed optimizations offer valuable insights for future improvements, particularly concerning speed, RAM usage, and security, which require further investigation. Moreover, exploring alternative technologies like Ultra-Wideband (UWB) could lead to significant performance gains, especially in biomedical applications demanding higher data transmission speeds. This work serves as a crucial starting point for future developments in wireless communication systems for biomedical devices.
+
 
 For the optimization of the communication performances on the devices instead, our main goal was to reduce the amount of information that was needed to transmit in order to classify accurately the received stimuli.
 We achieved this by implementing a method called channel selection which comprehend many different techniques for many different approaches; once we studied the literature we proceded with the actual implementation of a correlation based method called Cross-Correlation Based Discriminant Criterion or XCDC.

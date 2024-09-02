@@ -57,41 +57,41 @@
 \contentsline {section}{\numberline {3.4}ENGNet: advantages and shortcomings}{58}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}ENGNet architecture}{59}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Classification performance metrics}{61}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}ENGNet results}{63}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Memory management}{68}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Overview of the Address Map}{70}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}System Address Map}{70}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Peripheral Address Map}{71}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Detailed Address Ranges and Usage}{71}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Summary}{71}{subsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.5.6}Observations and Recommendations}{72}{subsection.3.5.6}%
-\contentsline {subsection}{\numberline {3.5.7}Utilizing Flash Memory for Code Storage}{72}{subsection.3.5.7}%
-\contentsline {subsection}{\numberline {3.5.8}Efficient Use of Code RAM}{72}{subsection.3.5.8}%
-\contentsline {subsection}{\numberline {3.5.9}Managing Volatile Data with SRAM}{73}{subsection.3.5.9}%
-\contentsline {subsection}{\numberline {3.5.10}Leveraging XIP for External Code Execution}{73}{subsection.3.5.10}%
-\contentsline {subsection}{\numberline {3.5.11}Using FICR and UICR for Configuration Data}{73}{subsection.3.5.11}%
-\contentsline {subsection}{\numberline {3.5.12}Optimizing Peripheral Access}{74}{subsection.3.5.12}%
-\contentsline {subsection}{\numberline {3.5.13}Balancing RAM and Peripheral Usage}{74}{subsection.3.5.13}%
-\contentsline {section}{\numberline {3.6}Memory allocation for our firmware code}{76}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Channel selection}{76}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Common spatial patterns methods}{76}{subsection.3.7.1}%
-\contentsline {subsubsection}{Sparse CSP}{77}{subsubsection*.73}%
-\contentsline {subsubsection}{Regularized CSP}{77}{subsubsection*.74}%
-\contentsline {subsection}{\numberline {3.7.2}Correlation-based methods}{77}{subsection.3.7.2}%
-\contentsline {subsubsection}{Spectral entropy dunno first citation}{78}{subsubsection*.78}%
-\contentsline {subsubsection}{Pearson’s Correlation Coefficient }{78}{subsubsection*.82}%
-\contentsline {subsubsection}{Cross-Correlation Based Discriminant Criterion (XCDC)}{79}{subsubsection*.84}%
-\contentsline {subsection}{\numberline {3.7.3}Sequential Based methods}{80}{subsection.3.7.3}%
-\contentsline {subsubsection}{Sequential Floating Forward Selection (SFFS)}{81}{subsubsection*.92}%
-\contentsline {subsubsection}{Generalized Sequential Forward Selection (GSFS) }{81}{subsubsection*.93}%
-\contentsline {subsection}{\numberline {3.7.4}Binary Particle Swarm Optimization Based methods}{82}{subsection.3.7.4}%
-\contentsline {subsection}{\numberline {3.7.5}Other methods}{84}{subsection.3.7.5}%
-\contentsline {subsubsection}{Min. Redundancy Max. Relevancy (mRMR)}{84}{subsubsection*.99}%
-\contentsline {subsubsection}{Rayleigh coefficient maximization Based Genetic Algorithm}{84}{subsubsection*.100}%
-\contentsline {subsubsection}{Fisher's criterion}{84}{subsubsection*.101}%
-\contentsline {subsubsection}{Automatic Channel Selection with Sparse Squeeze and Excitation Blocks (ACS-SE)}{84}{subsubsection*.102}%
-\contentsline {subsubsection}{Auto-encoder}{84}{subsubsection*.103}%
-\contentsline {subsubsection}{Dataset and results}{84}{subsubsection*.104}%
+\contentsline {subsection}{\numberline {3.4.3}ENGNet results}{64}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Memory management}{69}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Overview of the Address Map}{71}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}System Address Map}{72}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Peripheral Address Map}{72}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Detailed Address Ranges and Usage}{73}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Summary}{73}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}Observations and Recommendations}{73}{subsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.5.7}Utilizing Flash Memory for Code Storage}{73}{subsection.3.5.7}%
+\contentsline {subsection}{\numberline {3.5.8}Efficient Use of Code RAM}{74}{subsection.3.5.8}%
+\contentsline {subsection}{\numberline {3.5.9}Managing Volatile Data with SRAM}{74}{subsection.3.5.9}%
+\contentsline {subsection}{\numberline {3.5.10}Leveraging XIP for External Code Execution}{74}{subsection.3.5.10}%
+\contentsline {subsection}{\numberline {3.5.11}Using FICR and UICR for Configuration Data}{75}{subsection.3.5.11}%
+\contentsline {subsection}{\numberline {3.5.12}Optimizing Peripheral Access}{75}{subsection.3.5.12}%
+\contentsline {subsection}{\numberline {3.5.13}Balancing RAM and Peripheral Usage}{75}{subsection.3.5.13}%
+\contentsline {section}{\numberline {3.6}Memory allocation for our firmware code}{77}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Channel selection}{77}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Common spatial patterns methods}{78}{subsection.3.7.1}%
+\contentsline {subsubsection}{Sparse CSP}{78}{subsubsection*.72}%
+\contentsline {subsubsection}{Regularized CSP}{79}{subsubsection*.73}%
+\contentsline {subsection}{\numberline {3.7.2}Correlation-based methods}{79}{subsection.3.7.2}%
+\contentsline {subsubsection}{Spectral entropy dunno first citation}{79}{subsubsection*.77}%
+\contentsline {subsubsection}{Pearson’s Correlation Coefficient }{80}{subsubsection*.81}%
+\contentsline {subsubsection}{Cross-Correlation Based Discriminant Criterion (XCDC)}{80}{subsubsection*.83}%
+\contentsline {subsection}{\numberline {3.7.3}Sequential Based methods}{81}{subsection.3.7.3}%
+\contentsline {subsubsection}{Sequential Floating Forward Selection (SFFS)}{82}{subsubsection*.88}%
+\contentsline {subsubsection}{Generalized Sequential Forward Selection (GSFS) }{82}{subsubsection*.89}%
+\contentsline {subsection}{\numberline {3.7.4}Binary Particle Swarm Optimization Based methods}{83}{subsection.3.7.4}%
+\contentsline {subsection}{\numberline {3.7.5}Other methods}{85}{subsection.3.7.5}%
+\contentsline {subsubsection}{Min. Redundancy Max. Relevancy (mRMR)}{85}{subsubsection*.94}%
+\contentsline {subsubsection}{Rayleigh coefficient maximization Based Genetic Algorithm}{85}{subsubsection*.95}%
+\contentsline {subsubsection}{Fisher's criterion}{85}{subsubsection*.96}%
+\contentsline {subsubsection}{Automatic Channel Selection with Sparse Squeeze and Excitation Blocks (ACS-SE)}{85}{subsubsection*.97}%
+\contentsline {subsubsection}{Auto-encoder}{85}{subsubsection*.98}%
+\contentsline {subsubsection}{Dataset and results}{85}{subsubsection*.99}%
 \contentsline {chapter}{\numberline {4}Materials and Methods}{87}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Firmware: Shift}{87}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Shift Algorithm}{87}{subsection.4.1.1}%
@@ -103,43 +103,43 @@
 \contentsline {section}{\numberline {4.3}Theoretical throughput computation}{103}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Memory allocation}{107}{subsection.4.3.1}%
 \contentsline {section}{\numberline {4.4}Multicentral Implementation}{107}{section.4.4}%
-\contentsline {subsubsection}{Receiver Firmware Multicentral}{109}{subsubsection*.134}%
-\contentsline {subsubsection}{Transmitter Firmware Multicentral}{110}{subsubsection*.137}%
-\contentsline {subsubsection}{Command Sending Process}{111}{subsubsection*.139}%
+\contentsline {subsubsection}{Receiver Firmware Multicentral}{109}{subsubsection*.129}%
+\contentsline {subsubsection}{Transmitter Firmware Multicentral}{110}{subsubsection*.132}%
+\contentsline {subsubsection}{Command Sending Process}{111}{subsubsection*.134}%
 \contentsline {subsection}{\numberline {4.4.1}Direct Communication between Board and Windows PC}{113}{subsection.4.4.1}%
-\contentsline {subsubsection}{Offline Receiver Code}{114}{subsubsection*.151}%
-\contentsline {subsubsection}{Online Receiver Code}{117}{subsubsection*.157}%
-\contentsline {subsubsection}{Receiver Code with Shift}{117}{subsubsection*.158}%
-\contentsline {subsubsection}{Reverse Transmission}{118}{subsubsection*.161}%
-\contentsline {subsubsection}{Board Side}{119}{subsubsection*.163}%
-\contentsline {subsubsection}{PC Side}{120}{subsubsection*.165}%
-\contentsline {subsubsection}{Linux testing environment}{121}{subsubsection*.167}%
+\contentsline {subsubsection}{Offline Receiver Code}{114}{subsubsection*.146}%
+\contentsline {subsubsection}{Online Receiver Code}{117}{subsubsection*.152}%
+\contentsline {subsubsection}{Receiver Code with Shift}{117}{subsubsection*.153}%
+\contentsline {subsubsection}{Reverse Transmission}{118}{subsubsection*.156}%
+\contentsline {subsubsection}{Board Side}{119}{subsubsection*.158}%
+\contentsline {subsubsection}{PC Side}{120}{subsubsection*.160}%
+\contentsline {subsubsection}{Linux testing environment}{121}{subsubsection*.162}%
 \contentsline {section}{\numberline {4.5}Channel selection}{122}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Newcastle Dataset}{122}{subsection.4.5.1}%
-\contentsline {subsubsection}{Preprocessing}{123}{subsubsection*.168}%
+\contentsline {subsubsection}{Preprocessing}{123}{subsubsection*.163}%
 \contentsline {subsection}{\numberline {4.5.2}Channel selection algorithms}{124}{subsection.4.5.2}%
-\contentsline {subsubsection}{Test-case conditions}{124}{subsubsection*.171}%
-\contentsline {subsubsection}{Correlation based algorithms}{125}{subsubsection*.172}%
-\contentsline {subsubsection}{Cross-Correlation Based Discriminant Criterion (XCDC)}{125}{subsubsection*.173}%
-\contentsline {subsubsection}{Testing correlation algorithms results}{127}{subsubsection*.180}%
-\contentsline {subsubsection}{Channel Attention Layer}{127}{subsubsection*.181}%
-\contentsline {subsubsection}{Our approach}{129}{subsubsection*.185}%
+\contentsline {subsubsection}{Test-case conditions}{124}{subsubsection*.166}%
+\contentsline {subsubsection}{Correlation based algorithms}{125}{subsubsection*.167}%
+\contentsline {subsubsection}{Cross-Correlation Based Discriminant Criterion (XCDC)}{125}{subsubsection*.168}%
+\contentsline {subsubsection}{Testing correlation algorithms results}{127}{subsubsection*.175}%
+\contentsline {subsubsection}{Channel Attention Layer}{127}{subsubsection*.176}%
+\contentsline {subsubsection}{Our approach}{129}{subsubsection*.180}%
 \contentsline {section}{\numberline {4.6}Test Procedures}{130}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Results}{141}{chapter.5}%
-\contentsline {paragraph}{iOS}{163}{paragraph*.234}%
-\contentsline {paragraph}{Android}{164}{paragraph*.236}%
-\contentsline {paragraph}{Without Shift}{170}{paragraph*.244}%
-\contentsline {paragraph}{With Shift}{171}{paragraph*.246}%
-\contentsline {paragraph}{Without Shift}{172}{paragraph*.248}%
-\contentsline {paragraph}{With Shift}{174}{paragraph*.251}%
+\contentsline {paragraph}{iOS}{163}{paragraph*.229}%
+\contentsline {paragraph}{Android}{164}{paragraph*.231}%
+\contentsline {paragraph}{Without Shift}{170}{paragraph*.239}%
+\contentsline {paragraph}{With Shift}{171}{paragraph*.241}%
+\contentsline {paragraph}{Without Shift}{172}{paragraph*.243}%
+\contentsline {paragraph}{With Shift}{174}{paragraph*.246}%
 \contentsline {section}{\numberline {5.1}Channel selection results}{177}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Testing channels rankings}{180}{subsection.5.1.1}%
 \contentsline {chapter}{\numberline {6}Conclusion and future development}{189}{chapter.6}%
 \vspace {2em}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix A}{191}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix B}{193}{appendix.B}%
-\contentsline {chapter}{List of Figures}{195}{appendix*.281}%
-\contentsline {chapter}{List of Tables}{197}{appendix*.283}%
-\contentsline {chapter}{List of Symbols}{199}{appendix*.285}%
-\contentsline {chapter}{Acknowledgements}{201}{appendix*.288}%
+\contentsline {chapter}{\numberline {A}Appendix A}{193}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix B}{195}{appendix.B}%
+\contentsline {chapter}{List of Figures}{197}{appendix*.276}%
+\contentsline {chapter}{List of Tables}{199}{appendix*.278}%
+\contentsline {chapter}{List of Symbols}{201}{appendix*.280}%
+\contentsline {chapter}{Acknowledgements}{203}{appendix*.283}%
