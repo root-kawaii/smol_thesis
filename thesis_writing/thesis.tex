@@ -73,7 +73,7 @@
 % PACKAGES FOR REFERENCES & BIBLIOGRAPHY
 \usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
 \usepackage{cleveref}
-\usepackage[square, numbers]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+% \usepackage[square, numbers]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
 \bibliographystyle{abbrvnat} % You may use a different style adapted to your field
 
 % OTHER PACKAGES
@@ -81,6 +81,7 @@
 \usepackage{afterpage}
 \usepackage{lipsum} % DUMMY PACKAGE
 \usepackage{fancyhdr} % For the headers
+\usepackage[style=authoryear,backend=biber]{biblatex}
 \fancyhf{}
 
 % Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
@@ -106,9 +107,8 @@
 %----------------------------------------------------------------------------
 %	BEGIN OF YOUR DOCUMENT
 %----------------------------------------------------------------------------
-
+\addbibresource{thesis.bib} 
 \begin{document}
-
 \fancypagestyle{plain}{%
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
@@ -122,15 +122,15 @@
 \pagestyle{empty} % No page numbers
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
 
-% \puttitle{
-% 	title=Performance Optimization of Bluetooth Low Energy Data Transmission for Clinical Applications in Healthcare, % Title of the thesis
-% 	name=Matteo Regge and Manuel Stoppiello, % Author Name and Surname
-% 	% course=COMPUTER SCIENCE AND ENGINEERING - INGEGNERIA INFORMATICA % Study Programme (in Italian)
-% 	% ID  = 10619213,  % Student ID number (numero di matricola)
-% 	% advisor= Prof. Maurizio Magarini, % Supervisor name
-% 	% coadvisor=Antonio Coviello, % Co-Supervisor name, remove this line if there is none
-% 	% academicyear={2024-25},  % Academic Year
-% } % These info will be put into your Title page 
+\puttitle{
+	title=Performance Optimization of Bluetooth Low Energy Data Transmission for Clinical Applications in Healthcare, % Title of the thesis
+	name=Matteo Regge and Manuel Stoppiello, % Author Name and Surname
+	course=COMPUTER SCIENCE AND ENGINEERING - INGEGNERIA INFORMATICA, % Study Programme (in Italian)
+	ID  = 10619213,  % Student ID number (numero di matricola)
+	advisor= Prof. Maurizio Magarini, % Supervisor name
+	coadvisor=Antonio Coviello, % Co-Supervisor name, remove this line if there is none
+	academicyear={2024-25},  % Academic Year
+} % These info will be put into your Title page 
 
 %----------------------------------------------------------------------------
 %	PREAMBLE PAGES: ABSTRACT (inglese e italiano), EXECUTIVE SUMMARY
@@ -188,7 +188,7 @@ Inoltre, è stata esplorata la possibilità di una comunicazione inversa, in cui
 \chapter{Introduction}
 \section{PNRelay project}
 Peripheral nerves injuries (PNI) are a significant cause of morbidity and disability today,
-they affect almost 20 milions in the USA alone, and deeply damage both the physical and psychological well-being of those who suffer from these injuries. \cite{zhangResearchHotspotsTrends2022}
+they affect almost 20 milions in the USA alone, and deeply damage both the physical and psychological well-being of those who suffer from these injuries. \cite[][]{14:00-17:00ISO1099352009}
 The loss of functionality is caused by the damage of the nervous systems pathways that connect the brain to peripheral parts of the body.
 Moreover PNI's receive a poor prognosis since the regenerative capabilities of the nervous systems are limited and slow.
 
@@ -3774,8 +3774,8 @@ It could very well be the case that with more proper optimization on the compute
 %-------------------------------------------------------------------------
 %	7 BIBLIOGRAPHY
 %-------------------------------------------------------------------------
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-\bibliography{Thesis_bibliography} % The references information are stored in the file named "Thesis_bibliography.bib"
+% Add a gap in the Contents, for aesthetics
+\printbibliography % The references information are stored in the file named "Thesis_bibliography.bib"
 
 %-------------------------------------------------------------------------
 %	APPENDICES

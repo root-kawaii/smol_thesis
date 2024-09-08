@@ -1,265 +1,1825 @@
-\begin{thebibliography}{52}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem[Ani()]{AnimalWelfareEU}
-Animal welfare in the {{EU}}: Closing the gap between ambitious goals and practical implementation.
 
-\bibitem[CFR()]{CFRCodeFederal}
-{{CFR}} - {{Code}} of {{Federal Regulations Title}} 21.
-\newblock https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?fr=882.5870.
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{14:00-17:00ISO1099312018a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c548f9e000346aa6352139c9c49ea509}{%
+           family={{14:00-17:00}},
+           familyi={1\bibinitperiod}}}%
+      }
+      \strng{namehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{fullhash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{fullhashraw}{c548f9e000346aa6352139c9c49ea509}
+      \strng{bibnamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorbibnamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authornamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorfullhash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorfullhashraw}{c548f9e000346aa6352139c9c49ea509}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Biological evaluation of medical devices --- Part 1: Evaluation and testing within a risk management process}
+      \field{howpublished}{https://www.iso.org/standard/68936.html}
+      \field{journaltitle}{ISO}
+      \field{langid}{english}
+      \field{shorttitle}{{{ISO}} 10993-1}
+      \field{title}{{{ISO}} 10993-1:2018}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/NCRQW5CF/68936.html
+      \endverb
+    \endentry
+    \entry{14:00-17:00ISO1099352009}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c548f9e000346aa6352139c9c49ea509}{%
+           family={{14:00-17:00}},
+           familyi={1\bibinitperiod}}}%
+      }
+      \strng{namehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{fullhash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{fullhashraw}{c548f9e000346aa6352139c9c49ea509}
+      \strng{bibnamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorbibnamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authornamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorfullhash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorfullhashraw}{c548f9e000346aa6352139c9c49ea509}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Biological evaluation of medical devices --- Part 5: Tests for in vitro cytotoxicity}
+      \field{howpublished}{https://www.iso.org/standard/36406.html}
+      \field{journaltitle}{ISO}
+      \field{langid}{english}
+      \field{shorttitle}{{{ISO}} 10993-5}
+      \field{title}{{{ISO}} 10993-5:2009}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/LDCYNTWZ/36406.html
+      \endverb
+    \endentry
+    \entry{14:00-17:00ISO1099352009a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c548f9e000346aa6352139c9c49ea509}{%
+           family={{14:00-17:00}},
+           familyi={1\bibinitperiod}}}%
+      }
+      \strng{namehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{fullhash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{fullhashraw}{c548f9e000346aa6352139c9c49ea509}
+      \strng{bibnamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorbibnamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authornamehash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorfullhash}{c548f9e000346aa6352139c9c49ea509}
+      \strng{authorfullhashraw}{c548f9e000346aa6352139c9c49ea509}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Biological evaluation of medical devices --- Part 5: Tests for in vitro cytotoxicity}
+      \field{howpublished}{https://www.iso.org/standard/36406.html}
+      \field{journaltitle}{ISO}
+      \field{langid}{english}
+      \field{shorttitle}{{{ISO}} 10993-5}
+      \field{title}{{{ISO}} 10993-5:2009}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/NVTLA3QK/36406.html
+      \endverb
+    \endentry
+    \entry{abdullahEEGChannelSelection2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1cbc455c31531a6b16435a0ef32faaf4}{%
+           family={Abdullah},
+           familyi={A\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=0c25708c60a5345630acdaf20df3d90c}{%
+           family={Faye},
+           familyi={F\bibinitperiod},
+           given={Ibrahima},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4bfdb9872107eb1e5f742bc03f7a83d4}{%
+           family={Islam},
+           familyi={I\bibinitperiod},
+           given={Md\bibnamedelima Rafiqul},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{00240834b154fde887ac96e28f44b980}
+      \strng{fullhash}{00240834b154fde887ac96e28f44b980}
+      \strng{fullhashraw}{00240834b154fde887ac96e28f44b980}
+      \strng{bibnamehash}{00240834b154fde887ac96e28f44b980}
+      \strng{authorbibnamehash}{00240834b154fde887ac96e28f44b980}
+      \strng{authornamehash}{00240834b154fde887ac96e28f44b980}
+      \strng{authorfullhash}{00240834b154fde887ac96e28f44b980}
+      \strng{authorfullhashraw}{00240834b154fde887ac96e28f44b980}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Communication, neuro-prosthetics, and environmental control are just a few applications for disabled persons who use robots and manipulators that use brain-computer interface (BCI) systems. The brain's motor imagery (MI) signal is an essential input for a brain-related task in BCI applications. Due to their noninvasive, portability, and cost-effectiveness, electroencephalography (EEG) signals are the most widely used input in BCI systems. The EEG data are often collected from more than 100 different locations in the brain; channel selection techniques are critical for selecting the optimum channels for a given application. However, when analyzing EEG data, the principal purpose of channel selection is to reduce computational complexity, improve classification accuracy by avoiding overfitting, and reduce setup time. Several channel selection assessment algorithms, both with and without classification-based methods, extracted appropriate channel subsets using defined criteria. Therefore, based on the exhaustive analysis of the EEG channel selection, this manuscript analyses several existing studies to reduce the number of noisy channels and improve system performance. We review several existing works to find the most promising MI-based EEG channel selection algorithms and associated classification methodologies on various datasets. Moreover, we focus on channel selection methods that choose fewer channels with great precision. Finally, our main finding is that a smaller channel set, typically 10--30\% of total channels, provided excellent performance compared to other existing studies.}
+      \field{issn}{2306-5354}
+      \field{journaltitle}{Bioengineering}
+      \field{month}{11}
+      \field{number}{12}
+      \field{shorttitle}{{{EEG Channel Selection Techniques}} in {{Motor Imagery Applications}}}
+      \field{title}{{{EEG Channel Selection Techniques}} in {{Motor Imagery Applications}}: {{A Review}} and {{New Perspectives}}}
+      \field{urlday}{31}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{9}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{726}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/bioengineering9120726
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/M3VALRKF/Abdullah et al. - 2022 - EEG Channel Selection Techniques in Motor Imagery .pdf
+      \endverb
+    \endentry
+    \entry{alotaibyReviewChannelSelection2015}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=34c2e7aa72ef1b41d9bc596139c2c82b}{%
+           family={Alotaiby},
+           familyi={A\bibinitperiod},
+           given={Turky},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abbd314746382e31ec23ec205a12b614}{%
+           family={{El-Samie}},
+           familyi={E\bibinitperiod},
+           given={Fathi\bibnamedelimb E.\bibnamedelimi Abd},
+           giveni={F\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e49e576448d2ffa4e25ac6a175142eaa}{%
+           family={Alshebeili},
+           familyi={A\bibinitperiod},
+           given={Saleh\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ee63f9771009f6da8c28b59f3db6bcf}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Ishtiaq},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{139022a23a12e49d9acacd12e3a239c8}
+      \strng{fullhash}{73fb16e15ed05d59b7aa1d737bef966f}
+      \strng{fullhashraw}{73fb16e15ed05d59b7aa1d737bef966f}
+      \strng{bibnamehash}{139022a23a12e49d9acacd12e3a239c8}
+      \strng{authorbibnamehash}{139022a23a12e49d9acacd12e3a239c8}
+      \strng{authornamehash}{139022a23a12e49d9acacd12e3a239c8}
+      \strng{authorfullhash}{73fb16e15ed05d59b7aa1d737bef966f}
+      \strng{authorfullhashraw}{73fb16e15ed05d59b7aa1d737bef966f}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Digital processing of electroencephalography (EEG) signals has now been popularly used in a wide variety of applications such as seizure detection/prediction, motor imagery classification, mental task classification, emotion classification, sleep state classification, and drug effects diagnosis. With the large number of EEG channels acquired, it has become apparent that efficient channel selection algorithms are needed with varying importance from one application to another. The main purpose of the channel selection process is threefold: (i) to reduce the computational complexity of any processing task performed on EEG signals by selecting the relevant channels and hence extracting the features of major importance, (ii) to reduce the amount of overfitting that may arise due to the utilization of unnecessary channels, for the purpose of improving the performance, and (iii) to reduce the setup time in some applications. Signal processing tools such as time-domain analysis, power spectral estimation, and wavelet transform have been used for feature extraction and hence for channel selection in most of channel selection algorithms. In addition, different evaluation approaches such as filtering, wrapper, embedded, hybrid, and human-based techniques have been widely used for the evaluation of the selected subset of channels. In this paper, we survey the recent developments in the field of EEG channel selection methods along with their applications and classify these methods according to the evaluation approach.}
+      \field{issn}{1687-6180}
+      \field{journaltitle}{EURASIP Journal on Advances in Signal Processing}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{1}
+      \field{title}{A Review of Channel Selection Algorithms for {{EEG}} Signal Processing}
+      \field{urlday}{11}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{2015}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \field{pages}{66}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1186/s13634-015-0251-9
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/N5FR564I/Alotaiby et al. - 2015 - A review of channel selection algorithms for EEG s.pdf
+      \endverb
+      \keyw{Channel selection,EEG signals,Emotion classification,Mental task classification,Motor imagery classification,Seizure detection,Sleep state classification}
+    \endentry
+    \entry{AnimalWelfareEU}{article}{}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Animal Welfare in the {{EU}}: Closing the Gap between Ambitious Goals and Practical Implementation}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/QNVBNWRI/Animal welfare in the EU closing the gap between .pdf
+      \endverb
+    \endentry
+    \entry{BluetoothLowEnergy2016}{misc}{}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Before we begin Table of content Topics that will be covered include: Before we begin Basic theory Attribute tables in nRFConnect Bluetooth Low Energy application Description of the example Adding a characteristic Updating the characteristic and s...}
+      \field{howpublished}{https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{title}{Bluetooth Low Energy {{Characteristics}}, a Beginner's Tutorial - {{Bluetooth}} Low Energy - {{nRF5 SDK}} Guides - {{Nordic DevZone}}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/3MG783FH/ble-characteristics-a-beginners-tutorial.html
+      \endverb
+    \endentry
+    \entry{CFRCodeFederal}{misc}{}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?fr=882.5870}
+      \field{title}{{{CFR}} - {{Code}} of {{Federal Regulations Title}} 21}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/RK56F3HA/CFRSearch.html
+      \endverb
+    \endentry
+    \entry{Chapter}{misc}{}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://www.woah.org/fileadmin/Home/eng/Health\_standards/tahc/2016/en\_chapitre\_aw\_introduction.htm.}
+      \field{title}{Chapter 7.1.}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/2VUSKELN/en_chapitre_aw_introduction.htm..html
+      \endverb
+    \endentry
+    \entry{CodeVirginiaCode}{misc}{}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://law.lis.virginia.gov/vacode/title59.1/chapter53/}
+      \field{title}{Code of {{Virginia Code}} - {{Chapter}} 53. {{Consumer Data Protection Act}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/YSSEWWW3/chapter53.html
+      \endverb
+    \endentry
+    \entry{coellocoelloMOPSOProposalMultiple2002}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8a630fa09da0045ef68bec606ae00f86}{%
+           family={Coello\bibnamedelima Coello},
+           familyi={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={C.A.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bfcd441362fed20d2d20fbef58dd93f1}{%
+           family={Lechuga},
+           familyi={L\bibinitperiod},
+           given={M.S.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{fullhash}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{fullhashraw}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{bibnamehash}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{authorbibnamehash}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{authornamehash}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{authorfullhash}{7615079f3595fe1755d9908fc4b67ce5}
+      \strng{authorfullhashraw}{7615079f3595fe1755d9908fc4b67ce5}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This paper introduces a proposal to extend the heuristic called "particle swarm optimization" (PSO) to deal with multiobjective optimization problems. Our approach uses the concept of Pareto dominance to determine the flight direction of a particle and it maintains previously found nondominated vectors in a global repository that is later used by other particles to guide their own flight. The approach is validated using several standard test functions from the specialized literature. Our results indicate that our approach is highly competitive with current evolutionary multiobjective optimization techniques.}
+      \field{booktitle}{Proceedings of the 2002 {{Congress}} on {{Evolutionary Computation}}. {{CEC}}'02 ({{Cat}}. {{No}}.{{02TH8600}})}
+      \field{month}{5}
+      \field{shorttitle}{{{MOPSO}}}
+      \field{title}{{{MOPSO}}: A Proposal for Multiple Objective Particle Swarm Optimization}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{2}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{1051\bibrangedash 1056 vol.2}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/CEC.2002.1004388
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/AFPGPKTL/Coello Coello and Lechuga - 2002 - MOPSO a proposal for multiple objective particle .pdf
+      \endverb
+      \keyw{Acceleration,Birds,Ear,Evolutionary computation,Genetic algorithms,Multidimensional systems,Particle swarm optimization,Proposals,Sorting,Testing}
+    \endentry
+    \entry{ContentPremarketSubmissions}{article}{}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Content of {{Premarket Submissions}} for {{Management}} of {{Cybersecurity}} in {{Medical Devices}}}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/NCIRSUN8/Content of Premarket Submissions for Management of.pdf
+      \endverb
+    \endentry
+    \entry{DirectiveEU20222022}{misc}{}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{title}{Directive ({{EU}}) 2022/2555 of the {{European Parliament}} and of the {{Council}} of 14~{{December}} 2022 on Measures for a High Common Level of Cybersecurity across the {{Union}}, Amending {{Regulation}} ({{EU}}) {{No}}~910/2014 and {{Directive}} ({{EU}}) 2018/1972, and Repealing {{Directive}} ({{EU}}) 2016/1148 ({{NIS}}~2 {{Directive}}) ({{Text}} with {{EEA}} Relevance)}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{333}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/AD58HLX9/2022 - Directive (EU) 20222555 of the European Parliamen.pdf;/Users/root-kawaii/Zotero/storage/G5CSEQD8/HTML.html
+      \endverb
+    \endentry
+    \entry{Direttiva201063}{article}{}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{langid}{italian}
+      \field{title}{{Direttiva 2010/63/UE del Parlamento europeo e del Consiglio, del 22 settembre 2010, sulla protezione degli animali utilizzati a fini scientificiTesto rilevante ai fini del SEE}}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/MMP37SRM/Direttiva 201063UE del Parlamento europeo e del .pdf
+      \endverb
+    \endentry
+    \entry{gruberToxicNotToxic2023}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2418599805a9c838f66e20a7ee46c6bf}{%
+           family={Gruber},
+           familyi={G\bibinitperiod},
+           given={Sarah},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18b424aa83fb250ae13638aa1fe79421}{%
+           family={Nickel},
+           familyi={N\bibinitperiod},
+           given={Angela},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{33da528969205bf4856125feb6eae6a1}
+      \strng{fullhash}{33da528969205bf4856125feb6eae6a1}
+      \strng{fullhashraw}{33da528969205bf4856125feb6eae6a1}
+      \strng{bibnamehash}{33da528969205bf4856125feb6eae6a1}
+      \strng{authorbibnamehash}{33da528969205bf4856125feb6eae6a1}
+      \strng{authornamehash}{33da528969205bf4856125feb6eae6a1}
+      \strng{authorfullhash}{33da528969205bf4856125feb6eae6a1}
+      \strng{authorfullhashraw}{33da528969205bf4856125feb6eae6a1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{BACKGROUND: Medical device manufacturers are obliged to prove the biocompatibility of their products when they come into contact with the human body. The requirements for the biological evaluation of medical devices are specified by the international standard series ISO 10993. Part five of this series describes the performance of in vitro cytotoxicity tests. This test evaluates the effects of medical device use on cell health. The existence of the specific standard suggests that the tests will produce reliable and comparable results. However, the ISO 10993-5 offers wide latitude in the test specifications. In the past, we noticed inconsistencies of the results from different laboratories. OBJECTIVE: To determine if the specifications of the standard ISO 10993-5 are explicit to ensure the comparability of test results and, if not, identify potential influencing factors. METHODS: An interlaboratory comparison was conducted for the in vitro cytotoxicity test according to ISO 10993-5. Fifty-two international laboratories evaluated the cytotoxicity for two unknown samples. One was polyethylene (PE) tubing, which is expected to be non-cytotoxic and the other was polyvinyl chloride (PVC) tubing, for which a cytotoxic potential was presumed. All laboratories were asked to perform an elution test with predefined extraction specifications. The other test parameters were freely chosen by the laboratories according to the guidelines set by the standard. RESULTS: To our surprise only 58 percent of the participating laboratories identified the cytotoxic potential of both materials as expected. Particularly for PVC a considerable variation of the results between the laboratories was observed [mean\,=\,43\,{\textpm}\,30 (SD), min\,=\,0, max\,=\,100]. We showed that ten percent serum supplementation to the extraction medium, as well as longer incubation of the cells with the extract, greatly increased the test sensitivity for PVC. CONCLUSION: The results clearly show that the specifications set by the ISO 10993-5 are not explicit enough to obtain comparable results for an identical medical device. To set requirements that ensure reliable cytotoxicity assessments, further research will be necessary to identify the best test conditions for specific materials and/or devices and the standard needs to be revised accordingly.}
+      \field{issn}{2673-3129}
+      \field{journaltitle}{Frontiers in Medical Technology}
+      \field{langid}{english}
+      \field{shorttitle}{Toxic or Not Toxic?}
+      \field{title}{Toxic or Not Toxic? {{The}} Specifications of the Standard {{ISO}} 10993-5 Are Not Explicit Enough to Yield Comparable Results in the Cytotoxicity Assessment of an Identical Medical Device}
+      \field{volume}{5}
+      \field{year}{2023}
+      \field{pages}{1195529}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fmedt.2023.1195529
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/WNHKAUJC/Gruber and Nickel - 2023 - Toxic or not toxic The specifications of the stan.pdf
+      \endverb
+      \keyw{biocompatibility,in vitro cytotoxicity test,interlaboratory comparison,interlaboratory study,ISO 10993-5,medical devices,proficiency testing}
+    \endentry
+    \entry{healthClassifyYourMedical2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7eac1c3fc0789bca744389b0eea98497}{%
+           family={Health},
+           familyi={H\bibinitperiod},
+           given={Center\bibnamedelimb for\bibnamedelimb Devices\bibnamedelimb {and}\bibnamedelima Radiological},
+           giveni={C\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {FDA}%
+      }
+      \strng{namehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{bibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorbibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authornamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \field{extraname}{1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Medical devices are assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device. The three classes are: Class I (General Controls), Class II (General Controls and Special Controls), and Class III (General Controls and Prem}
+      \field{howpublished}{https://www.fda.gov/medical-devices/overview-device-regulation/classify-your-medical-device}
+      \field{journaltitle}{FDA}
+      \field{langid}{english}
+      \field{title}{Classify {{Your Medical Device}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{Mon, 08/14/2023 - 15:22}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/EDDGQY6A/classify-your-medical-device.html
+      \endverb
+    \endentry
+    \entry{healthCybersecurityMedicalDevices2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7eac1c3fc0789bca744389b0eea98497}{%
+           family={Health},
+           familyi={H\bibinitperiod},
+           given={Center\bibnamedelimb for\bibnamedelimb Devices\bibnamedelimb {and}\bibnamedelima Radiological},
+           giveni={C\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {FDA}%
+      }
+      \strng{namehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{bibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorbibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authornamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \field{extraname}{2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This document provides FDA's recommendations regarding premarket submissions of devices with cybersecurity risk.}
+      \field{howpublished}{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cybersecurity-medical-devices-quality-system-considerations-and-content-premarket-submissions}
+      \field{langid}{english}
+      \field{shorttitle}{Cybersecurity in {{Medical Devices}}}
+      \field{title}{Cybersecurity in {{Medical Devices}}: {{Quality System Considerations}} and {{Content}} of {{Premarket Submissions}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{Tue, 09/26/2023 - 10:16}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/YGIGXDJ2/cybersecurity-medical-devices-quality-system-considerations-and-content-premarket-submissions.html
+      \endverb
+    \endentry
+    \entry{healthDeviceClassificationPanels2023}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7eac1c3fc0789bca744389b0eea98497}{%
+           family={Health},
+           familyi={H\bibinitperiod},
+           given={Center\bibnamedelimb for\bibnamedelimb Devices\bibnamedelimb {and}\bibnamedelima Radiological},
+           giveni={C\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {FDA}%
+      }
+      \strng{namehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{bibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorbibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authornamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \field{extraname}{3}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Most medical devices can be classified by finding the matching description of the device in the specialty "panels" in Title 21 of the Code of Federal Regulations (CFR), Parts 862-892.}
+      \field{journaltitle}{FDA}
+      \field{langid}{english}
+      \field{title}{Device {{Classification Panels}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{Tue, 08/15/2023 - 08:23}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/B5TWQG4S/device-classification-panels.html
+      \endverb
+    \endentry
+    \entry{healthUseInternationalStandard2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7eac1c3fc0789bca744389b0eea98497}{%
+           family={Health},
+           familyi={H\bibinitperiod},
+           given={Center\bibnamedelimb for\bibnamedelimb Devices\bibnamedelimb {and}\bibnamedelima Radiological},
+           giveni={C\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {FDA}%
+      }
+      \strng{namehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{bibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorbibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authornamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \field{extraname}{4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This guidance provides clarification and updated information on the use of ISO 10993-1 to support PMAs, HDEs, IDE Applications, 510(k)s, and De Novo requests.}
+      \field{howpublished}{https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-international-standard-iso-10993-1-biological-evaluation-medical-devices-part-1-evaluation-and}
+      \field{langid}{english}
+      \field{shorttitle}{Use of {{International Standard ISO}} 10993-1, "{{Biological}} Evaluation of Medical Devices - {{Part}} 1}
+      \field{title}{Use of {{International Standard ISO}} 10993-1, "{{Biological}} Evaluation of Medical Devices - {{Part}} 1: {{Evaluation}} and Testing within a Risk Management Process"}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{Thu, 09/07/2023 - 09:04}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/L2W2E54C/use-international-standard-iso-10993-1-biological-evaluation-medical-devices-part-1-evaluation-.html
+      \endverb
+    \endentry
+    \entry{healthWirelessMedicalDevices2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7eac1c3fc0789bca744389b0eea98497}{%
+           family={Health},
+           familyi={H\bibinitperiod},
+           given={Center\bibnamedelimb for\bibnamedelimb Devices\bibnamedelimb {and}\bibnamedelima Radiological},
+           giveni={C\bibinitperiod\bibinitdelim f\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim a\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {FDA}%
+      }
+      \strng{namehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{fullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{bibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorbibnamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authornamehash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhash}{7eac1c3fc0789bca744389b0eea98497}
+      \strng{authorfullhashraw}{7eac1c3fc0789bca744389b0eea98497}
+      \field{extraname}{5}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Information on medical devices that incorporate radio frequency (RF) wireless technology.}
+      \field{howpublished}{https://www.fda.gov/medical-devices/digital-health-center-excellence/wireless-medical-devices}
+      \field{journaltitle}{FDA}
+      \field{langid}{english}
+      \field{title}{Wireless {{Medical Devices}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{Tue, 05/23/2023 - 11:52}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/2JD9FDBB/wireless-medical-devices.html
+      \endverb
+    \endentry
+    \entry{IEC60601122014}{misc}{}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://webstore.iec.ch/publication/2590}
+      \field{title}{{{IEC}} 60601-1-2:2014 {|} {{IEC Webstore}} {|} Electromagnetic Compatibility, {{EMC}}, Smart City}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/TXZF5S2X/2590.html
+      \endverb
+    \endentry
+    \entry{IEEEANSIC63}{misc}{}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://webstore.ansi.org/standards/ieee/ieeeansic63272017}
+      \field{title}{{{IEEE}}/{{ANSI C63}}.27-2017 - {{American National Standard}} for {{Evaluation}} of {{Wireless Coexistence}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/6RARP9HH/ieeeansic63272017.html
+      \endverb
+    \endentry
+    \entry{ISOInternationalOrganization}{misc}{}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We're ISO, the International Organization for Standardization. We develop and publish International Standards.}
+      \field{howpublished}{https://www.iso.org/home.html}
+      \field{journaltitle}{ISO}
+      \field{langid}{english}
+      \field{title}{{{ISO}} - {{International Organization}} for {{Standardization}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/RGIRQIDP/home.html
+      \endverb
+    \endentry
+    \entry{kennedyDiscreteBinaryVersion1997}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3c48c2b390e26f548e0165030fc81158}{%
+           family={Kennedy},
+           familyi={K\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0bb7e341b4e1bbc64267d5f44b1e3592}{%
+           family={Eberhart},
+           familyi={E\bibinitperiod},
+           given={R.C.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{95de6839b59fb44a246d171e500611a6}
+      \strng{fullhash}{95de6839b59fb44a246d171e500611a6}
+      \strng{fullhashraw}{95de6839b59fb44a246d171e500611a6}
+      \strng{bibnamehash}{95de6839b59fb44a246d171e500611a6}
+      \strng{authorbibnamehash}{95de6839b59fb44a246d171e500611a6}
+      \strng{authornamehash}{95de6839b59fb44a246d171e500611a6}
+      \strng{authorfullhash}{95de6839b59fb44a246d171e500611a6}
+      \strng{authorfullhashraw}{95de6839b59fb44a246d171e500611a6}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The particle swarm algorithm adjusts the trajectories of a population of "particles" through a problem space on the basis of information about each particle's previous best performance and the best previous performance of its neighbors. Previous versions of the particle swarm have operated in continuous space, where trajectories are defined as changes in position on some number of dimensions. The paper reports a reworking of the algorithm to operate on discrete binary variables. In the binary version, trajectories are changes in the probability that a coordinate will take on a zero or one value. Examples, applications, and issues are discussed.}
+      \field{booktitle}{Computational {{Cybernetics}} and {{Simulation}} 1997 {{IEEE International Conference}} on {{Systems}}, {{Man}}, and {{Cybernetics}}}
+      \field{issn}{1062-922X}
+      \field{month}{10}
+      \field{title}{A Discrete Binary Version of the Particle Swarm Algorithm}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{5}
+      \field{year}{1997}
+      \field{urldateera}{ce}
+      \field{pages}{4104\bibrangedash 4108 vol.5}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/ICSMC.1997.637339
+      \endverb
+      \keyw{Hypercubes,Particle swarm optimization,Random number generation,Robustness,Routing,Space technology,State-space methods,Statistics,Stochastic processes}
+    \endentry
+    \entry{kudoComparisonAlgorithmsThat2000}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6a53a5d22840fa63f6572409c5dfd015}{%
+           family={Kudo},
+           familyi={K\bibinitperiod},
+           given={Mineichi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef7fe74914b1256ba73c2bed14d86bba}{%
+           family={Sklansky},
+           familyi={S\bibinitperiod},
+           given={Jack},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{95cde8b3fdec88570a72e076db75e234}
+      \strng{fullhash}{95cde8b3fdec88570a72e076db75e234}
+      \strng{fullhashraw}{95cde8b3fdec88570a72e076db75e234}
+      \strng{bibnamehash}{95cde8b3fdec88570a72e076db75e234}
+      \strng{authorbibnamehash}{95cde8b3fdec88570a72e076db75e234}
+      \strng{authornamehash}{95cde8b3fdec88570a72e076db75e234}
+      \strng{authorfullhash}{95cde8b3fdec88570a72e076db75e234}
+      \strng{authorfullhashraw}{95cde8b3fdec88570a72e076db75e234}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A comparative study of algorithms for large-scale feature selection (where the number of features is over 50) is carried out. In the study, the goodness of a feature subset is measured by leave-one-out correct-classification rate of a nearest-neighbor (1-NN) classifier and many practical problems are used. A unified way is given to compare algorithms having dissimilar objectives. Based on the results of many experiments, we give guidelines for the use of feature selection algorithms. Especially, it is shown that sequential floating search methods are suitable for small- and medium-scale problems and genetic algorithms are suitable for large-scale problems.}
+      \field{issn}{0031-3203}
+      \field{journaltitle}{Pattern Recognition}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Comparison of Algorithms That Select Features for Pattern Classifiers}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{33}
+      \field{year}{2000}
+      \field{urldateera}{ce}
+      \field{pages}{25\bibrangedash 41}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/S0031-3203(99)00041-2
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/AUCP5IS4/S0031320399000412.html
+      \endverb
+      \keyw{-nearest-neighbor method,Feature selection,Genetic algorithms,Leave-one-out method,Monotonicity}
+    \endentry
+    \entry{L_2016119EN01000101Xml}{misc}{}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Usr\_lan: EN}
+      \field{howpublished}{https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX\%3A32016R0679}
+      \field{title}{L\_{{2016119EN}}.01000101.Xml}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/3RZ4ASXB/HTML.html
+      \endverb
+    \endentry
+    \entry{lawhernEEGNetCompactConvolutional2018}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=e62c2c12eee53d85026da1c85319d92e}{%
+           family={Lawhern},
+           familyi={L\bibinitperiod},
+           given={Vernon\bibnamedelima J.},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6f65dc5231217537ca22071429744688}{%
+           family={Solon},
+           familyi={S\bibinitperiod},
+           given={Amelia\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f8bc20b2dcd8ed7fcd50af3400485afb}{%
+           family={Waytowich},
+           familyi={W\bibinitperiod},
+           given={Nicholas\bibnamedelima R.},
+           giveni={N\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13d107c7f6b766e88aedda3e5d50c2f2}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Stephen\bibnamedelima M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2a053084e824ae2b25cc2e31f403003b}{%
+           family={Hung},
+           familyi={H\bibinitperiod},
+           given={Chou\bibnamedelima P.},
+           giveni={C\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=395a9b8504fbfecc2281938b2afb405d}{%
+           family={Lance},
+           familyi={L\bibinitperiod},
+           given={Brent\bibnamedelima J.},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1bb5eacbe5e270d7d92dbff7d24e12db}
+      \strng{fullhash}{3bbbe52ec638696b958e50fd9e2ccdf0}
+      \strng{fullhashraw}{3bbbe52ec638696b958e50fd9e2ccdf0}
+      \strng{bibnamehash}{1bb5eacbe5e270d7d92dbff7d24e12db}
+      \strng{authorbibnamehash}{1bb5eacbe5e270d7d92dbff7d24e12db}
+      \strng{authornamehash}{1bb5eacbe5e270d7d92dbff7d24e12db}
+      \strng{authorfullhash}{3bbbe52ec638696b958e50fd9e2ccdf0}
+      \strng{authorfullhashraw}{3bbbe52ec638696b958e50fd9e2ccdf0}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Brain computer interfaces (BCI) enable direct communication with a computer, using neural activity as the control signal. This neural signal is generally chosen from a variety of well-studied electroencephalogram (EEG) signals. For a given BCI paradigm, feature extractors and classifiers are tailored to the distinct characteristics of its expected EEG control signal, limiting its application to that specific signal. Convolutional Neural Networks (CNNs), which have been used in computer vision and speech recognition, have successfully been applied to EEG-based BCIs; however, they have mainly been applied to single BCI paradigms and thus it remains unclear how these architectures generalize to other paradigms. Here, we ask if we can design a single CNN architecture to accurately classify EEG signals from different BCI paradigms, while simultaneously being as compact as possible. In this work we introduce EEGNet, a compact convolutional network for EEG-based BCIs. We introduce the use of depthwise and separable convolutions to construct an EEG-specific model which encapsulates well-known EEG feature extraction concepts for BCI. We compare EEGNet to current state-of-the-art approaches across four BCI paradigms: P300 visual-evoked potentials, error-related negativity responses (ERN), movement-related cortical potentials (MRCP), and sensory motor rhythms (SMR). We show that EEGNet generalizes across paradigms better than the reference algorithms when only limited training data is available. We demonstrate three different approaches to visualize the contents of a trained EEGNet model to enable interpretation of the learned features. Our results suggest that EEGNet is robust enough to learn a wide variety of interpretable features over a range of BCI tasks, suggesting that the observed performances were not due to artifact or noise sources in the data.}
+      \field{eprintclass}{cs, q-bio, stat}
+      \field{eprinttype}{arxiv}
+      \field{issn}{1741-2560, 1741-2552}
+      \field{journaltitle}{Journal of Neural Engineering}
+      \field{month}{10}
+      \field{number}{5}
+      \field{shorttitle}{{{EEGNet}}}
+      \field{title}{{{EEGNet}}: {{A Compact Convolutional Network}} for {{EEG-based Brain-Computer Interfaces}}}
+      \field{urlday}{19}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{15}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{056013}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1741-2552/aace8c
+      \endverb
+      \verb{eprint}
+      \verb 1611.08024
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/I5W9AEJF/Lawhern et al. - 2018 - EEGNet A Compact Convolutional Network for EEG-ba.pdf;/Users/root-kawaii/Zotero/storage/L5INI677/1611.html
+      \endverb
+      \keyw{Computer Science - Machine Learning,Quantitative Biology - Neurons and Cognition,Statistics - Machine Learning}
+    \endentry
+    \entry{LessonSerialCommunication}{misc}{}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{nRF Connect SDK Fundamentals Lesson 5 -- Serial communication (UART) Overview Universal Asynchronous Receiver/Transmitter (UART) is a popular serial communication protocol. It is used to communicate with a variety of sensors, electronic components, and is also commonly used as the back-end for consoles through USB-to-UART convertors. In this lesson, we will learn how to use [{\dots}]}
+      \field{howpublished}{https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-4-serial-communication-uart/}
+      \field{journaltitle}{Nordic Developer Academy}
+      \field{langid}{american}
+      \field{title}{Lesson 5 - {{Serial}} Communication ({{UART}})}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/5S3VB59G/lesson-4-serial-communication-uart.html
+      \endverb
+    \endentry
+    \entry{massimopANNEXVIII2019}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=46b84f5dbf7fcd8a394da4c5efd765eb}{%
+           family={MassimoP},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{fullhash}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{fullhashraw}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{bibnamehash}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{authorbibnamehash}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{authornamehash}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{authorfullhash}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \strng{authorfullhashraw}{46b84f5dbf7fcd8a394da4c5efd765eb}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Classification rules CHAPTER I Definitions specific to classification rules 1. DURATION OF USE 1.1. `Transient' means normally intended for continuous use for less than 60 minutes. 1.2. `Short term' means normally intended for continuous use for between 60 minutes and 30 days. 1.3. `Long term' means normally intended for continuous use for more than 30 [{\dots}]}
+      \field{journaltitle}{Medical Device Regulation}
+      \field{langid}{british}
+      \field{month}{8}
+      \field{title}{{{ANNEX VIII}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/35XPCJCI/annex-viii.html
+      \endverb
+    \endentry
+    \entry{MedicalDevicesEuropean}{misc}{}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://www.ema.europa.eu/en/human-regulatory-overview/medical-devices}
+      \field{title}{Medical Devices {|} {{European Medicines Agency}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/LZC2I5W3/medical-devices.html
+      \endverb
+    \endentry
+    \entry{nagaokaDevelopmentRealisticHighresolution2004}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=57fc330358a6d5075b66be686bf69f71}{%
+           family={Nagaoka},
+           familyi={N\bibinitperiod},
+           given={Tomoaki},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fa038cc711122bae1e5a4165653ac713}{%
+           family={Watanabe},
+           familyi={W\bibinitperiod},
+           given={Soichi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cb9ddd886ffd6174bac71f15d5a201a8}{%
+           family={Sakurai},
+           familyi={S\bibinitperiod},
+           given={Kiyoko},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c033172c67c9df8a7c20873429f7c79}{%
+           family={Kunieda},
+           familyi={K\bibinitperiod},
+           given={Etsuo},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6ea92f65aac443777462e0cd6f5a397f}{%
+           family={Watanabe},
+           familyi={W\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=71fca724c1ad8c2105f719dfe2ce9db5}{%
+           family={Taki},
+           familyi={T\bibinitperiod},
+           given={Masao},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb03392071c819b6ff5d2bfac090aeda}{%
+           family={Yamanaka},
+           familyi={Y\bibinitperiod},
+           given={Yukio},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{57caf06a8d3412179538417efa2cbe34}
+      \strng{fullhash}{5ce290bbde73638a2d6ba1f5b4e7bc4d}
+      \strng{fullhashraw}{5ce290bbde73638a2d6ba1f5b4e7bc4d}
+      \strng{bibnamehash}{57caf06a8d3412179538417efa2cbe34}
+      \strng{authorbibnamehash}{57caf06a8d3412179538417efa2cbe34}
+      \strng{authornamehash}{57caf06a8d3412179538417efa2cbe34}
+      \strng{authorfullhash}{5ce290bbde73638a2d6ba1f5b4e7bc4d}
+      \strng{authorfullhashraw}{5ce290bbde73638a2d6ba1f5b4e7bc4d}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With advances in computer performance, the use of high-resolution voxel models of the entire human body has become more frequent in numerical dosimetries of electromagnetic waves. Using magnetic resonance imaging, we have developed realistic high-resolution whole-body voxel models for Japanese adult males and females of average height and weight. The developed models consist of cubic voxels of 2 mm on each side; the models are segmented into 51 anatomic regions. The adult female model is the first of its kind in the world and both are the first Asian voxel models (representing average Japanese) that enable numerical evaluation of electromagnetic dosimetry at high frequencies of up to 3 GHz. In this paper, we will also describe the basic SAR characteristics of the developed models for the VHF/UHF bands, calculated using the finite-difference time-domain method.}
+      \field{issn}{0031-9155}
+      \field{journaltitle}{Physics in Medicine and Biology}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Development of Realistic High-Resolution Whole-Body Voxel Models of {{Japanese}} Adult Males and Females of Average Height and Weight, and Application of Models to Radio-Frequency Electromagnetic-Field Dosimetry}
+      \field{volume}{49}
+      \field{year}{2004}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1088/0031-9155/49/1/001
+      \endverb
+      \keyw{Body Height,Body Weight,Computer Simulation,Electromagnetic Fields,Female,Humans,Japan,Male,Models Anatomic,Models Theoretical,Phantoms Imaging,Protein Structure Tertiary,Radiometry}
+    \endentry
+    \entry{NewRevisedResource}{misc}{}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The European Commission has updated its Q\&A resource on Regulation (EU) 2023/607 and legacy medical device manufacturers}
+      \field{howpublished}{https://www.emergobyul.com/news/new-revised-qa-resource-regulation-eu-2023607}
+      \field{journaltitle}{Emergo by UL}
+      \field{langid}{english}
+      \field{shorttitle}{New}
+      \field{title}{New: {{Revised Q}}\&{{A Resource}} on {{Regulation}} ({{EU}}) 2023/607}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/NQUDL583/new-revised-qa-resource-regulation-eu-2023607.html
+      \endverb
+    \endentry
+    \entry{NordicSemiconductorInfocentera}{misc}{}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v15.3.0\%2Flib\_nrf\_log.html}
+      \field{title}{Nordic {{Semiconductor Infocenter}}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/W6K52URA/index.html
+      \endverb
+    \endentry
+    \entry{NordicSemiconductorInfocenterb}{misc}{}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v13.0.0\%2Fgroup\_\_nrf\_\_pwr\_\_mgmt.html}
+      \field{title}{Nordic {{Semiconductor Infocenter}}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/EGDFFVPH/index.html
+      \endverb
+    \endentry
+    \entry{NordicSemiconductorInfocenterc}{misc}{}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fstruct\_nrf52\%2Fstruct\%2Fnrf52\_softdevices.html}
+      \field{title}{Nordic {{Semiconductor Infocenter}}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/CA7JCJ66/index.html
+      \endverb
+    \endentry
+    \entry{NordicSemiconductorInfocenterd}{misc}{}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v15.0.0\%2Fgroup\_\_nrf\_\_ble\_\_qwr.html}
+      \field{title}{Nordic {{Semiconductor Infocenter}}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/NWTJT69Z/index.html
+      \endverb
+    \endentry
+    \entry{NordicSemiconductorInfocenterf}{misc}{}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v15.0.0\%2Fgroup\_\_nrfx\_\_timer.html}
+      \field{title}{Nordic {{Semiconductor Infocenter}}}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/GYKGCW4Q/index.html
+      \endverb
+    \endentry
+    \entry{NRF52DKDevelopment}{misc}{}{}
+      \field{sortinit}{n}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The nRF52 DK is a Bluetooth LE and Bluetooth mesh development kit for the nRF52805, nRF52810 and nRF52832 SoCs.}
+      \field{howpublished}{https://www.nordicsemi.com/Products/Development-hardware/nRF52-DK}
+      \field{langid}{english}
+      \field{title}{{{nRF52 DK}} - {{Development}} Kit for {{Bluetooth Low Energy}} and {{Bluetooth}} Mesh}
+      \field{urlday}{17}
+      \field{urlmonth}{6}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/ERNRSWMK/nRF52-DK.html
+      \endverb
+    \endentry
+    \entry{okwuMetaheuristicOptimizationNatureInspired2020}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ac907d5d3b0593d553099fab281d4383}{%
+           family={Okwu},
+           familyi={O\bibinitperiod},
+           given={Modestus\bibnamedelima O.},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dab990cf063bad7f32d2ec1dacbf8c47}{%
+           family={Tartibu},
+           familyi={T\bibinitperiod},
+           given={Lagouge\bibnamedelima K.},
+           giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature}%
+      }
+      \strng{namehash}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{fullhash}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{fullhashraw}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{bibnamehash}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{authorbibnamehash}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{authornamehash}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{authorfullhash}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \strng{authorfullhashraw}{fda341e4c38d1e4ea093f2e7c616bac4}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This book exemplifies how algorithms are developed by mimicking nature. Classical techniques for solving day-to-day problems is time-consuming and cannot address complex problems. Metaheuristic algorithms are nature-inspired optimization techniques for solving real-life complex problems. This book emphasizes the social behaviour of insects, animals and other natural entities, in terms of converging power and benefits. Major nature-inspired algorithms discussed in this book include the bee colony algorithm, ant colony algorithm, grey wolf optimization algorithm, whale optimization algorithm, firefly algorithm, bat algorithm, ant lion optimization algorithm, grasshopper optimization algorithm, butterfly optimization algorithm and others. The algorithms have been arranged in chapters to help readers gain better insight into nature-inspired systems and swarm intelligence. All the MATLAB codes have been provided in the appendices of the book to enable readers practice how to solve examples included in all sections. This book is for experts in Engineering and Applied Sciences, Natural and Formal Sciences, Economics, Humanities and Social Sciences.}
+      \field{isbn}{978-3-030-61111-8}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{shorttitle}{Metaheuristic {{Optimization}}}
+      \field{title}{Metaheuristic {{Optimization}}: {{Nature-Inspired Algorithms Swarm}} and {{Computational Intelligence}}, {{Theory}} and {{Applications}}}
+      \field{year}{2020}
+      \keyw{Computers / Artificial Intelligence / General,Technology & Engineering / Engineering (General),Technology & Engineering / General}
+    \endentry
+    \entry{pudilFloatingSearchMethods1994}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1557b8ebf48bfea70ad3fbc4aaa402c6}{%
+           family={Pudil},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62a89d39163c7e5ce93bf45666a6dcc4}{%
+           family={Novovičová},
+           familyi={N\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8b1ad4bf7448b2d65fceb4ba23af46f2}{%
+           family={Kittler},
+           familyi={K\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{16906c2b306220222862fa4c137570b3}
+      \strng{fullhash}{16906c2b306220222862fa4c137570b3}
+      \strng{fullhashraw}{16906c2b306220222862fa4c137570b3}
+      \strng{bibnamehash}{16906c2b306220222862fa4c137570b3}
+      \strng{authorbibnamehash}{16906c2b306220222862fa4c137570b3}
+      \strng{authornamehash}{16906c2b306220222862fa4c137570b3}
+      \strng{authorfullhash}{16906c2b306220222862fa4c137570b3}
+      \strng{authorfullhashraw}{16906c2b306220222862fa4c137570b3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Sequential search methods characterized by a dynamically changing number of features included or eliminated at each step, henceforth ``floating'' methods, are presented. They are shown to give very good results and to be computationally more effective than the branch and bound method.}
+      \field{issn}{0167-8655}
+      \field{journaltitle}{Pattern Recognition Letters}
+      \field{month}{11}
+      \field{number}{11}
+      \field{title}{Floating Search Methods in Feature Selection}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{15}
+      \field{year}{1994}
+      \field{urldateera}{ce}
+      \field{pages}{1119\bibrangedash 1125}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/0167-8655(94)90127-9
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/3M3GJ433/0167865594901279.html
+      \endverb
+      \keyw{Feature ordering,Feature selection,Pattern recognition,Search methods}
+    \endentry
+    \entry{radmanGeneralizedSequentialForward2019}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=da702aff411bb8bac56b7af82c0afad1}{%
+           family={Radman},
+           familyi={R\bibinitperiod},
+           given={Moein},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b17f43269a757df47ed7d5e214cc0b67}{%
+           family={Chaibakhsh},
+           familyi={C\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=945137721cee4bf784a709570aea2682}{%
+           family={{Nariman-zadeh}},
+           familyi={N\bibinitperiod},
+           given={Nader},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0d3b151fb00d100beb0d9feadacdb9a6}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Huiguang},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5e18dd9757ba5e4b1d1620eaee76253b}
+      \strng{fullhash}{6a30ce3ab2d06d8eefb08dd68e6db8b2}
+      \strng{fullhashraw}{6a30ce3ab2d06d8eefb08dd68e6db8b2}
+      \strng{bibnamehash}{5e18dd9757ba5e4b1d1620eaee76253b}
+      \strng{authorbibnamehash}{5e18dd9757ba5e4b1d1620eaee76253b}
+      \strng{authornamehash}{5e18dd9757ba5e4b1d1620eaee76253b}
+      \strng{authorfullhash}{6a30ce3ab2d06d8eefb08dd68e6db8b2}
+      \strng{authorfullhashraw}{6a30ce3ab2d06d8eefb08dd68e6db8b2}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Most of the BCI systems need EEG data with several channels to reach good accuracy. However, exceedingly increasing the channel need will increase the amount of calculation, and in some cases, decrease the accuracy and will also make the implementation of a BCI system difficult. Therefore, identifying the most effective channels in BCI systems is crucial because it will decrease the complexity and increase system accuracy. The Generalized Sequential forward selection (GSFS) method is used in this paper to choose the channel in a motor imagery BCI system for classification of right and left hand. Firstly, data is filtered to be in the frequency range of 4-30 Hz because the results of previous research revealed that the highest effect of motor imagery is exerted inside this frequency range. The Common Spatial Pattern (CSP) features and frequency domain features are simultaneously used in order to improve the system performance. Moreover, a PCVM classifier is used to enhance the classification performance. Employing the GSFS method and also simultaneously extracting the CSP and frequency domain features have increased the system output accuracy. The computation cost of this method is low compared to that of the genetic algorithm method for channel selection. The classification precision in the method used in this research is higher with respect to that of the SVM-RFE method which shows the advantage of this method over other methods for channel selection in an MI-BCI system.}
+      \field{booktitle}{2019 9th {{International Conference}} on {{Computer}} and {{Knowledge Engineering}} ({{ICCKE}})}
+      \field{issn}{2643-279X}
+      \field{month}{10}
+      \field{title}{Generalized {{Sequential Forward Selection Method}} for {{Channel Selection}} in {{EEG Signals}} for {{Classification}} of {{Left}} or {{Right Hand Movement}} in {{BCI}}}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \field{pages}{137\bibrangedash 142}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICCKE48569.2019.8965159
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/HIWXFHUF/Radman et al. - 2019 - Generalized Sequential Forward Selection Method fo.pdf;/Users/root-kawaii/Zotero/storage/IXN75ELW/8965159.html
+      \endverb
+      \keyw{Brain-computer interface,Channel Selection,Common Spatial Pattern,Generalized Sequential forward selection}
+    \endentry
+    \entry{ramoserOptimalSpatialFiltering2000}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=7c30d656f6c8995135116dace82c8c1d}{%
+           family={Ramoser},
+           familyi={R\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=579e0a80fff63bb4df2e36e905b2a2f5}{%
+           family={{Müller-Gerking}},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4ff4e9f7c523136b32f14b61c329884}{%
+           family={Pfurtscheller},
+           familyi={P\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{fullhash}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{fullhashraw}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{bibnamehash}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{authorbibnamehash}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{authornamehash}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{authorfullhash}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \strng{authorfullhashraw}{a0b90d7eaa82f96e397beea4fcc111ed}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The development of an electroencephalograph (EEG)-based brain-computer interface (BCI) requires rapid and reliable discrimination of EEG patterns, e.g., associated with imaginary movement. One-sided hand movement imagination results in EEG changes located at contra- and ipsilateral central areas. We demonstrate that spatial filters for multichannel EEG effectively extract discriminatory information from two populations of single-trial EEG, recorded during left- and right-hand movement imagery. The best classification results for three subjects are 90.8\%, 92.7\%, and 99.7\%. The spatial filters are estimated from a set of data by the method of common spatial patterns and reflect the specific activation of cortical areas. The method performs a weighting of the electrodes according to their importance for the classification task. The high recognition rates and computational simplicity make it a promising method for an EEG-based brain-computer interface.}
+      \field{issn}{1063-6528}
+      \field{journaltitle}{IEEE transactions on rehabilitation engineering: a publication of the IEEE Engineering in Medicine and Biology Society}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{number}{4}
+      \field{title}{Optimal Spatial Filtering of Single Trial {{EEG}} during Imagined Hand Movement}
+      \field{volume}{8}
+      \field{year}{2000}
+      \field{pages}{441\bibrangedash 446}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/86.895946
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/5VAJJ7FH/Ramoser et al. - 2000 - Optimal spatial filtering of single trial EEG duri.pdf
+      \endverb
+      \keyw{Adult,Cerebral Cortex,Electroencephalography,Female,Hand,Humans,Image Processing Computer-Assisted,Imagination,Movement,Self-Help Devices,User-Computer Interface}
+    \endentry
+    \entry{RecognizedConsensusStandards}{misc}{}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{url}
+      \field{labeltitlesource}{shorttitle}
+      \field{howpublished}{https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard\_\_identification\_no=35548}
+      \field{shorttitle}{Recognized {{Consensus Standards}}}
+      \field{title}{Recognized {{Consensus Standards}}: {{Medical Devices}}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/DR4I32Z2/detail.html
+      \endverb
+    \endentry
+    \entry{RegolamentoUE20172017}{misc}{}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{langid}{italian}
+      \field{month}{4}
+      \field{title}{{Regolamento (UE) 2017/745 del Parlamento europeo e del Consiglio, del 5 aprile 2017, relativo ai dispositivi medici, che modifica la direttiva 2001/83/CE, il regolamento (CE) n. 178/2002 e il regolamento (CE) n. 1223/2009 e che abroga le direttive 90/385/CEE e 93/42/CEE del Consiglio (Testo rilevante ai fini del SEE. )}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/5WSW4UEJ/2017 - Regolamento (UE) 2017745 del Parlamento europeo e.pdf;/Users/root-kawaii/Zotero/storage/T2NGLRUT/HTML.html
+      \endverb
+    \endentry
+    \entry{RegolamentoUE20172017a}{misc}{}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{langid}{italian}
+      \field{month}{4}
+      \field{title}{{Regolamento (UE) 2017/745 del Parlamento europeo e del Consiglio, del 5 aprile 2017, relativo ai dispositivi medici, che modifica la direttiva 2001/83/CE, il regolamento (CE) n. 178/2002 e il regolamento (CE) n. 1223/2009 e che abroga le direttive 90/385/CEE e 93/42/CEE del Consiglio (Testo rilevante ai fini del SEE. )}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/4259U74B/2017 - Regolamento (UE) 2017745 del Parlamento europeo e.pdf;/Users/root-kawaii/Zotero/storage/PVDC7WH5/HTML.html
+      \endverb
+    \endentry
+    \entry{RegolamentoUE20232023}{misc}{}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{langid}{italian}
+      \field{month}{3}
+      \field{title}{{Regolamento (UE) 2023/607 del Parlamento europeo e del Consiglio del 15~marzo 2023 che modifica i regolamenti (UE)~2017/745 e (UE)~2017/746 per quanto riguarda le disposizioni transitorie per determinati dispositivi medici e dispositivi medico-diagnostici in vitro (Testo rilevante ai fini del SEE)}}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/H9D4E7JR/2023 - Regolamento (UE) 2023607 del Parlamento europeo e.pdf;/Users/root-kawaii/Zotero/storage/JYWA3DTH/HTML.html
+      \endverb
+    \endentry
+    \entry{reunanenOverfittingMakingComparisons}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d5b0e310f4b5dbeffc384983e263ad8b}{%
+           family={Reunanen},
+           familyi={R\bibinitperiod},
+           given={Juha},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{fullhash}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{fullhashraw}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{bibnamehash}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{authorbibnamehash}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{authornamehash}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{authorfullhash}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \strng{authorfullhashraw}{d5b0e310f4b5dbeffc384983e263ad8b}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper addresses a common methodological flaw in the comparison of variable selection methods. A practical approach to guide the search or the selection process is to compute cross-validation performance estimates of the different variable subsets. Used with computationally intensive search algorithms, these estimates may overfit and yield biased predictions. Therefore, they cannot be used reliably to compare two selection methods, as is shown by the empirical results of this paper. Instead, like in other instances of the model selection problem, independent test sets should be used for determining the final performance. The claims made in the literature about the superiority of more exhaustive search algorithms over simpler ones are also revisited, and some of them infirmed.}
+      \field{langid}{english}
+      \field{title}{Overfitting in {{Making Comparisons Between Variable Selection Methods}}}
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/4JMP97KY/Reunanen - Overﬁtting in Making Comparisons Between Variable .pdf
+      \endverb
+    \endentry
+    \entry{schalkBCI2000GeneralpurposeBraincomputer2004}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=cb6523a4f50069b93d6461e6b70f8786}{%
+           family={Schalk},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=722c90aff8c272b064e52dc6e26fda26}{%
+           family={McFarland},
+           familyi={M\bibinitperiod},
+           given={D.J.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=04b965677d78536c5071f499d3d1be36}{%
+           family={Hinterberger},
+           familyi={H\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f82c777dc1967e02899bf418299a18fd}{%
+           family={Birbaumer},
+           familyi={B\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4bdf1fa2991c5db9a2f3fc4596256680}{%
+           family={Wolpaw},
+           familyi={W\bibinitperiod},
+           given={J.R.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eca0bf2b6ef376f1cbba27badaaa99a3}
+      \strng{fullhash}{7989fb18f3fa0a1c70d466da9573594b}
+      \strng{fullhashraw}{7989fb18f3fa0a1c70d466da9573594b}
+      \strng{bibnamehash}{eca0bf2b6ef376f1cbba27badaaa99a3}
+      \strng{authorbibnamehash}{eca0bf2b6ef376f1cbba27badaaa99a3}
+      \strng{authornamehash}{eca0bf2b6ef376f1cbba27badaaa99a3}
+      \strng{authorfullhash}{7989fb18f3fa0a1c70d466da9573594b}
+      \strng{authorfullhashraw}{7989fb18f3fa0a1c70d466da9573594b}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Many laboratories have begun to develop brain-computer interface (BCI) systems that provide communication and control capabilities to people with severe motor disabilities. Further progress and realization of practical applications depends on systematic evaluations and comparisons of different brain signals, recording methods, processing algorithms, output formats, and operating protocols. However, the typical BCI system is designed specifically for one particular BCI method and is, therefore, not suited to the systematic studies that are essential for continued progress. In response to this problem, we have developed a documented general-purpose BCI research and development platform called BCI2000. BCI2000 can incorporate alone or in combination any brain signals, signal processing methods, output devices, and operating protocols. This report is intended to describe to investigators, biomedical engineers, and computer scientists the concepts that the BCI2000 system is based upon and gives examples of successful BCI implementations using this system. To date, we have used BCI2000 to create BCI systems for a variety of brain signals, processing methods, and applications. The data show that these systems function well in online operation and that BCI2000 satisfies the stringent real-time requirements of BCI systems. By substantially reducing labor and cost, BCI2000 facilitates the implementation of different BCI systems and other psychophysiological experiments. It is available with full documentation and free of charge for research or educational purposes and is currently being used in a variety of studies by many research groups.}
+      \field{issn}{1558-2531}
+      \field{journaltitle}{IEEE Transactions on Biomedical Engineering}
+      \field{month}{6}
+      \field{number}{6}
+      \field{shorttitle}{{{BCI2000}}}
+      \field{title}{{{BCI2000}}: A General-Purpose Brain-Computer Interface ({{BCI}}) System}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{51}
+      \field{year}{2004}
+      \field{urldateera}{ce}
+      \field{pages}{1034\bibrangedash 1043}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/TBME.2004.827072
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/XS7JIIUY/1300799.html
+      \endverb
+      \keyw{Biomedical engineering,Biomedical signal processing,Brain computer interfaces,Communication system control,Control systems,Laboratories,Protocols,Research and development,Signal processing,Signal processing algorithms}
+    \endentry
+    \entry{thibeaultUsingHybridNeuron2013}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=eb02cf586ae6816d612699b9b2428900}{%
+           family={Thibeault},
+           familyi={T\bibinitperiod},
+           given={Corey\bibnamedelima Michael},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a03a5af519294c1cf16fc92c0b476160}{%
+           family={Srinivasa},
+           familyi={S\bibinitperiod},
+           given={Narayan},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Frontiers}%
+      }
+      \strng{namehash}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{fullhash}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{fullhashraw}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{bibnamehash}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{authorbibnamehash}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{authornamehash}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{authorfullhash}{c63d598e3e5bb3919dff0f5d6533831f}
+      \strng{authorfullhashraw}{c63d598e3e5bb3919dff0f5d6533831f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Our current understanding of the basal ganglia has facilitated the creation of computational models that have contributed novel theories, explored new functional anatomy and demonstrated results complementing physiological experiments. However, the utility of these models extends beyond these applications. Particularly in neuromorphic engineering, where the basal ganglia\&\#39;s role in computation is important for applications such as power efficient autonomous agents and model-based control strategies. The neurons used in existing computational models of the basal ganglia however, are not amenable for many low-power hardware implementations. Motivated by a need for more hardware accessible networks, we replicate four published models of the basal ganglia, spanning single neuron and small networks, replacing the more computationally expensive neuron models with an Izhikevich hybrid neuron. This begins with a network modeling action-selection, where the basal activity levels and the ability to appropriately select the most salient input is reproduced. A Parkinson\&\#39;s disease model is then explored under normal conditions, Parkinsonian conditions and during subthalamic nucleus deep brain stimulation. The resulting network is capable of replicating the loss of thalamic relay capabilities in the Parkinsonian state and its return under deep brain stimulation. This is also demonstrated using a network capable of action-selection. Finally, a study of correlation transfer under different patterns of Parkinsonian activity is presented. These networks successfully captured the significant results of the originals studies. This not only creates a foundation for neuromorphic hardware implementations but may also support the development of large-scale biophysical models. The former potentially providing a way of improving the efficacy of deep brain stimulation and the latter allowing for the efficient simulation of larger more comprehensive networks.}
+      \field{issn}{1662-5188}
+      \field{journaltitle}{Frontiers in Computational Neuroscience}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{title}{Using a Hybrid Neuron in Physiologically Inspired Models of the Basal Ganglia}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{7}
+      \field{year}{2013}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.3389/fncom.2013.00088
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/FM959A59/Thibeault and Srinivasa - 2013 - Using a hybrid neuron in physiologically inspired .pdf
+      \endverb
+      \keyw{action-selection,Basal Ganglia Models,Correlation analysis,Deep Brain Stimulation,Izhikevich Neuron,Parkinson Disease}
+    \endentry
+    \entry{vanneschiParticleSwarmOptimization2023}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=aae1e50b31844d6e45e13f24df9f0e4e}{%
+           family={Vanneschi},
+           familyi={V\bibinitperiod},
+           given={Leonardo},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d6efcce3f87f7e062a76d229fb2a11e4}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=aae1e50b31844d6e45e13f24df9f0e4e}{%
+           family={Vanneschi},
+           familyi={V\bibinitperiod},
+           given={Leonardo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d6efcce3f87f7e062a76d229fb2a11e4}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{0a93ae378a668e7ec137760e89439341}
+      \strng{fullhash}{0a93ae378a668e7ec137760e89439341}
+      \strng{fullhashraw}{0a93ae378a668e7ec137760e89439341}
+      \strng{bibnamehash}{0a93ae378a668e7ec137760e89439341}
+      \strng{authorbibnamehash}{0a93ae378a668e7ec137760e89439341}
+      \strng{authornamehash}{0a93ae378a668e7ec137760e89439341}
+      \strng{authorfullhash}{0a93ae378a668e7ec137760e89439341}
+      \strng{authorfullhashraw}{0a93ae378a668e7ec137760e89439341}
+      \strng{editorbibnamehash}{0a93ae378a668e7ec137760e89439341}
+      \strng{editornamehash}{0a93ae378a668e7ec137760e89439341}
+      \strng{editorfullhash}{0a93ae378a668e7ec137760e89439341}
+      \strng{editorfullhashraw}{0a93ae378a668e7ec137760e89439341}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Particle Swarm Optimization (PSO) [Kennedy, 2010, Kennedy and Eberhart, 1995] is an optimization algorithm designed for continuous optimization. Like GAs, it is a population-based stochastic method, but unlike GAs it does not take its inspiration from the Theory of Evolution of Darwin, but from the social behavior of bird flocking or fish schooling [Reynolds, 1987]. For instance, one may imagine a flock of birds flying over an area, to find a point to land. In such a situation, defining where the whole swarm should land is a complex problem, since it depends on many pieces of information, such as, for instance, maximizing the availability of food or minimizing the risk of existence of predators.}
+      \field{booktitle}{Lectures on {{Intelligent Systems}}}
+      \field{isbn}{978-3-031-17922-8}
+      \field{langid}{english}
+      \field{title}{Particle {{Swarm Optimization}}}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{105\bibrangedash 111}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1007/978-3-031-17922-8_4
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/MZVBPJH6/Vanneschi and Silva - 2023 - Particle Swarm Optimization.pdf
+      \endverb
+    \endentry
+    \entry{yangEEGChannelSelection2018b}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=30dbf96c2effbc0427e80f15e466813e}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0266646fbf23960d4552e08bc7809fc6}{%
+           family={Ang},
+           familyi={A\bibinitperiod},
+           given={Kai\bibnamedelima Keng},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=285192d4595f97bc99e564442c37fc70}{%
+           family={Phua},
+           familyi={P\bibinitperiod},
+           given={Kok\bibnamedelima Soon},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=299e9ae5727e7cc336ac2d323d6f37b7}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Juanhong},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7d8e53e908984d7f90606829984a2cf0}{%
+           family={Toh},
+           familyi={T\bibinitperiod},
+           given={Valerie},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfeaafb2e8aeb3bd450d7cf783bd2caa}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Wai\bibnamedelima Hoe},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=712394ffc2d77db559c556251d8c0c7c}{%
+           family={So},
+           familyi={S\bibinitperiod},
+           given={Rosa\bibnamedelima Q.},
+           giveni={R\bibinitperiod\bibinitdelim Q\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8220b372773b47c555d46d9d26ff6fb5}
+      \strng{fullhash}{8c4c90ef51a7f72e5d6d230636a9529b}
+      \strng{fullhashraw}{8c4c90ef51a7f72e5d6d230636a9529b}
+      \strng{bibnamehash}{8220b372773b47c555d46d9d26ff6fb5}
+      \strng{authorbibnamehash}{8220b372773b47c555d46d9d26ff6fb5}
+      \strng{authornamehash}{8220b372773b47c555d46d9d26ff6fb5}
+      \strng{authorfullhash}{8c4c90ef51a7f72e5d6d230636a9529b}
+      \strng{authorfullhashraw}{8c4c90ef51a7f72e5d6d230636a9529b}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Brain-Computer Interface (BCI) provides an alternate channel of interaction for people with severe motor disabilities. The Common Spatial Pattern (CSP) algorithm is effective in extracting discriminative features from EEG data for motor imagery-based Brain-Computer Interface (BCI). CSP yields signal from various locations for better performance. In this study, we selected a subset of EEG channels using correlation coefficient of spectral entropy and compared the classification performance using the Filter Bank Common Spatial Pattern (FBCSP) algorithm. We conducted experiments on 4 healthy subjects and one Amyotrophic Lateral Sclerosis (ALS) patient. The results showed that the proposed channel selection method increased classification accuracy of all subjects from 1.25\% to 8.22\%. Optimal performance was obtained using between 13 to 24 channels, and channels located over the motor cortex zone possess higher probabilities of being selected. Comparing with the channels manually selected to over the motor cortex area, the correlation coefficient method is able to identify the optimal channel combination and improve the motor imagery decoding accuracy of Healthy and ALS subjects.}
+      \field{issn}{2694-0604}
+      \field{journaltitle}{Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual International Conference}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{shorttitle}{{{EEG Channel Selection Based}} on {{Correlation Coefficient}} for {{Motor Imagery Classification}}}
+      \field{title}{{{EEG Channel Selection Based}} on {{Correlation Coefficient}} for {{Motor Imagery Classification}}: {{A Study}} on {{Healthy Subjects}} and {{ALS Patient}}}
+      \field{volume}{2018}
+      \field{year}{2018}
+      \field{pages}{1996\bibrangedash 1999}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/EMBC.2018.8512701
+      \endverb
+      \keyw{Algorithms,Amyotrophic Lateral Sclerosis,Brain-Computer Interfaces,Electroencephalography,Healthy Volunteers,Humans,Imagination,Signal Processing Computer-Assisted}
+    \endentry
+    \entry{zongkerAlgorithmsFeatureSelection1996}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6d05ebb606431c7c06d71c1967ffc7ed}{%
+           family={Zongker},
+           familyi={Z\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b8a48184e3794e3037528773cc004bb8}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{fullhash}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{fullhashraw}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{bibnamehash}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{authorbibnamehash}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{authornamehash}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{authorfullhash}{eb010463a896d75280cd93d8409d4fcf}
+      \strng{authorfullhashraw}{eb010463a896d75280cd93d8409d4fcf}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{A large number of algorithms have been proposed for doing feature subset selection. The goal of this paper is to evaluate the quality of feature subsets generated by the various algorithms, and also compare their computational requirements. Our results show that the sequential forward floating selection (SFFS) algorithm, proposed by Pudil et al. (1994), dominates the other algorithms tested. This paper also illustrates the dangers of using feature selection in small sample size situations. It gives the results of applying feature selection to land use classification of SAR satellite images using four different texture models. Pooling features derived from different texture models, followed by a feature selection results in a substantial improvement in the classification accuracy. Application of feature selection to classification of handprinted characters illustrates the value of feature selection in reducing the number of features needed for classifier design.}
+      \field{booktitle}{Proceedings of 13th {{International Conference}} on {{Pattern Recognition}}}
+      \field{issn}{1051-4651}
+      \field{month}{8}
+      \field{shorttitle}{Algorithms for Feature Selection}
+      \field{title}{Algorithms for Feature Selection: {{An}} Evaluation}
+      \field{urlday}{18}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{2}
+      \field{year}{1996}
+      \field{urldateera}{ce}
+      \field{pages}{18\bibrangedash 22 vol.2}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/ICPR.1996.546716
+      \endverb
+      \verb{file}
+      \verb /Users/root-kawaii/Zotero/storage/EIV6CQUS/Zongker and Jain - 1996 - Algorithms for feature selection An evaluation.pdf;/Users/root-kawaii/Zotero/storage/96XS3X76/546716.html
+      \endverb
+      \keyw{Backpropagation algorithms,Computer science,Genetic algorithms,Nonhomogeneous media,Pattern recognition,Stochastic processes,Taxonomy,Testing}
+    \endentry
+  \enddatalist
+  \missing{caesar2022survey}
+  \missing{circuits2021}
+  \missing{nordic1}
+  \missing{nordic_academy}
+  \missing{nordic_semi}
+  \missing{patwary2020modeling}
+\endrefsection
+\endinput
 
-\bibitem[Cha()]{Chapter}
-Chapter 7.1.
-\newblock https://www.woah.org/fileadmin/Home/eng/Health\_standards/tahc/2016/en\_chapitre\_aw\_introduction.htm.
-
-\bibitem[Cod()]{CodeVirginiaCode}
-Code of {{Virginia Code}} - {{Chapter}} 53. {{Consumer Data Protection Act}}.
-\newblock https://law.lis.virginia.gov/vacode/title59.1/chapter53/.
-
-\bibitem[Con()]{ContentPremarketSubmissions}
-Content of {{Premarket Submissions}} for {{Management}} of {{Cybersecurity}} in {{Medical Devices}}.
-
-\bibitem[Dir()]{Direttiva201063}
-{Direttiva 2010/63/UE del Parlamento europeo e del Consiglio, del 22 settembre 2010, sulla protezione degli animali utilizzati a fini scientificiTesto rilevante ai fini del SEE}.
-
-\bibitem[IEC()]{IEC60601122014}
-{{IEC}} 60601-1-2:2014 {\textbar} {{IEC Webstore}} {\textbar} electromagnetic compatibility, {{EMC}}, smart city.
-\newblock https://webstore.iec.ch/publication/2590.
-
-\bibitem[IEE()]{IEEEANSIC63}
-{{IEEE}}/{{ANSI C63}}.27-2017 - {{American National Standard}} for {{Evaluation}} of {{Wireless Coexistence}}.
-\newblock https://webstore.ansi.org/standards/ieee/ieeeansic63272017.
-
-\bibitem[ISO()]{ISOInternationalOrganization}
-{{ISO}} - {{International Organization}} for {{Standardization}}.
-\newblock https://www.iso.org/home.html.
-
-\bibitem[L_2()]{L_2016119EN01000101Xml}
-L\_{{2016119EN}}.01000101.xml.
-\newblock https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX\%3A32016R0679.
-
-\bibitem[Les()]{LessonSerialCommunication}
-Lesson 5 - {{Serial}} communication ({{UART}}).
-\newblock https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-4-serial-communication-uart/.
-
-\bibitem[Med()]{MedicalDevicesEuropean}
-Medical devices {\textbar} {{European Medicines Agency}}.
-\newblock https://www.ema.europa.eu/en/human-regulatory-overview/medical-devices.
-
-\bibitem[NRF()]{NRF52DKDevelopment}
-{{nRF52 DK}} - {{Development}} kit for {{Bluetooth Low Energy}} and {{Bluetooth}} mesh.
-\newblock https://www.nordicsemi.com/Products/Development-hardware/nRF52-DK.
-
-\bibitem[New()]{NewRevisedResource}
-New: {{Revised Q}}\&{{A Resource}} on {{Regulation}} ({{EU}}) 2023/607.
-\newblock https://www.emergobyul.com/news/new-revised-qa-resource-regulation-eu-2023607.
-
-\bibitem[Nor({\natexlab{a}})]{NordicSemiconductorInfocentera}
-Nordic {{Semiconductor Infocenter}}.
-\newblock https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v15.3.0\%2Flib\_nrf\_log.html, {\natexlab{a}}.
-
-\bibitem[Nor({\natexlab{b}})]{NordicSemiconductorInfocenterb}
-Nordic {{Semiconductor Infocenter}}.
-\newblock https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v13.0.0\%2Fgroup\_\_nrf\_\_pwr\_\_mgmt.html, {\natexlab{b}}.
-
-\bibitem[Nor({\natexlab{c}})]{NordicSemiconductorInfocenterc}
-Nordic {{Semiconductor Infocenter}}.
-\newblock https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fstruct\_nrf52\%2Fstruct\%2Fnrf52\_softdevices.html, {\natexlab{c}}.
-
-\bibitem[Nor({\natexlab{d}})]{NordicSemiconductorInfocenterd}
-Nordic {{Semiconductor Infocenter}}.
-\newblock https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v15.0.0\%2Fgroup\_\_nrf\_\_ble\_\_qwr.html, {\natexlab{d}}.
-
-\bibitem[Nor({\natexlab{e}})]{NordicSemiconductorInfocenterf}
-Nordic {{Semiconductor Infocenter}}.
-\newblock https://infocenter.nordicsemi.com/index.jsp?topic=\%2Fcom.nordic.infocenter.sdk5.v15.0.0\%2Fgroup\_\_nrfx\_\_timer.html, {\natexlab{e}}.
-
-\bibitem[Rec()]{RecognizedConsensusStandards}
-Recognized {{Consensus Standards}}: {{Medical Devices}}.
-\newblock https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/detail.cfm?standard\_\_identification\_no=35548.
-
-\bibitem[Blu(2016)]{BluetoothLowEnergy2016}
-Bluetooth low energy {{Characteristics}}, a beginner's tutorial - {{Bluetooth}} low energy - {{nRF5 SDK}} guides - {{Nordic DevZone}}.
-\newblock https://devzone.nordicsemi.com/guides/short-range-guides/b/bluetooth-low-energy/posts/ble-characteristics-a-beginners-tutorial, Mar. 2016.
-
-\bibitem[Reg(2017{\natexlab{a}})]{RegolamentoUE20172017}
-{Regolamento (UE) 2017/745 del Parlamento europeo e del Consiglio, del 5 aprile 2017, relativo ai dispositivi medici, che modifica la direttiva 2001/83/CE, il regolamento (CE) n. 178/2002 e il regolamento (CE) n. 1223/2009 e che abroga le direttive 90/385/CEE e 93/42/CEE del Consiglio (Testo rilevante ai fini del SEE. )}, Apr. 2017{\natexlab{a}}.
-
-\bibitem[Reg(2017{\natexlab{b}})]{RegolamentoUE20172017a}
-{Regolamento (UE) 2017/745 del Parlamento europeo e del Consiglio, del 5 aprile 2017, relativo ai dispositivi medici, che modifica la direttiva 2001/83/CE, il regolamento (CE) n. 178/2002 e il regolamento (CE) n. 1223/2009 e che abroga le direttive 90/385/CEE e 93/42/CEE del Consiglio (Testo rilevante ai fini del SEE. )}, Apr. 2017{\natexlab{b}}.
-
-\bibitem[Dir(2022)]{DirectiveEU20222022}
-Directive ({{EU}}) 2022/2555 of the {{European Parliament}} and of the {{Council}} of 14~{{December}} 2022 on measures for a high common level of cybersecurity across the {{Union}}, amending {{Regulation}} ({{EU}}) {{No}}~910/2014 and {{Directive}} ({{EU}}) 2018/1972, and repealing {{Directive}} ({{EU}}) 2016/1148 ({{NIS}}~2 {{Directive}}) ({{Text}} with {{EEA}} relevance), Dec. 2022.
-
-\bibitem[Reg(2023)]{RegolamentoUE20232023}
-{Regolamento (UE) 2023/607 del Parlamento europeo e del Consiglio del 15~marzo 2023 che modifica i regolamenti (UE)~2017/745 e (UE)~2017/746 per quanto riguarda le disposizioni transitorie per determinati dispositivi medici e dispositivi medico-diagnostici in vitro (Testo rilevante ai fini del SEE)}, Mar. 2023.
-
-\bibitem[{14:00-17:00}({\natexlab{a}})]{14:00-17:00ISO1099312018a}
-{14:00-17:00}.
-\newblock {{ISO}} 10993-1:2018.
-\newblock https://www.iso.org/standard/68936.html, {\natexlab{a}}.
-
-\bibitem[{14:00-17:00}({\natexlab{b}})]{14:00-17:00ISO1099352009a}
-{14:00-17:00}.
-\newblock {{ISO}} 10993-5:2009.
-\newblock https://www.iso.org/standard/36406.html, {\natexlab{b}}.
-
-\bibitem[Abdullah et~al.(2022)Abdullah, Faye, and Islam]{abdullahEEGChannelSelection2022}
-Abdullah, I.~Faye, and M.~R. Islam.
-\newblock {{EEG Channel Selection Techniques}} in {{Motor Imagery Applications}}: {{A Review}} and {{New Perspectives}}.
-\newblock \emph{Bioengineering}, 9\penalty0 (12):\penalty0 726, Nov. 2022.
-\newblock ISSN 2306-5354.
-\newblock \doi{10.3390/bioengineering9120726}.
-
-\bibitem[Alotaiby et~al.(2015)Alotaiby, {El-Samie}, Alshebeili, and Ahmad]{alotaibyReviewChannelSelection2015}
-T.~Alotaiby, F.~E.~A. {El-Samie}, S.~A. Alshebeili, and I.~Ahmad.
-\newblock A review of channel selection algorithms for {{EEG}} signal processing.
-\newblock \emph{EURASIP Journal on Advances in Signal Processing}, 2015\penalty0 (1):\penalty0 66, Aug. 2015.
-\newblock ISSN 1687-6180.
-\newblock \doi{10.1186/s13634-015-0251-9}.
-
-\bibitem[Coello~Coello and Lechuga(2002)]{coellocoelloMOPSOProposalMultiple2002}
-C.~Coello~Coello and M.~Lechuga.
-\newblock {{MOPSO}}: A proposal for multiple objective particle swarm optimization.
-\newblock In \emph{Proceedings of the 2002 {{Congress}} on {{Evolutionary Computation}}. {{CEC}}'02 ({{Cat}}. {{No}}.{{02TH8600}})}, volume~2, pages 1051--1056 vol.2, May 2002.
-\newblock \doi{10.1109/CEC.2002.1004388}.
-
-\bibitem[Gruber and Nickel(2023)]{gruberToxicNotToxic2023}
-S.~Gruber and A.~Nickel.
-\newblock Toxic or not toxic? {{The}} specifications of the standard {{ISO}} 10993-5 are not explicit enough to yield comparable results in the cytotoxicity assessment of an identical medical device.
-\newblock \emph{Frontiers in Medical Technology}, 5:\penalty0 1195529, 2023.
-\newblock ISSN 2673-3129.
-\newblock \doi{10.3389/fmedt.2023.1195529}.
-
-\bibitem[Health(Mon, 08/14/2023 - 15:22)]{healthClassifyYourMedical2023}
-C.~f. D. a.~R. Health.
-\newblock Classify {{Your Medical Device}}.
-\newblock https://www.fda.gov/medical-devices/overview-device-regulation/classify-your-medical-device, Mon, 08/14/2023 - 15:22.
-
-\bibitem[Health(Thu, 09/07/2023 - 09:04)]{healthUseInternationalStandard2023}
-C.~f. D. a.~R. Health.
-\newblock Use of {{International Standard ISO}} 10993-1, "{{Biological}} evaluation of medical devices - {{Part}} 1: {{Evaluation}} and testing within a risk management process".
-\newblock https://www.fda.gov/regulatory-information/search-fda-guidance-documents/use-international-standard-iso-10993-1-biological-evaluation-medical-devices-part-1-evaluation-and, Thu, 09/07/2023 - 09:04.
-
-\bibitem[Health(Tue, 05/23/2023 - 11:52)]{healthWirelessMedicalDevices2023}
-C.~f. D. a.~R. Health.
-\newblock Wireless {{Medical Devices}}.
-\newblock https://www.fda.gov/medical-devices/digital-health-center-excellence/wireless-medical-devices, Tue, 05/23/2023 - 11:52.
-
-\bibitem[Health(Tue, 08/15/2023 - 08:23)]{healthDeviceClassificationPanels2023}
-C.~f. D. a.~R. Health.
-\newblock Device {{Classification Panels}}.
-\newblock \emph{FDA}, Tue, 08/15/2023 - 08:23.
-
-\bibitem[Health(Tue, 09/26/2023 - 10:16)]{healthCybersecurityMedicalDevices2023}
-C.~f. D. a.~R. Health.
-\newblock Cybersecurity in {{Medical Devices}}: {{Quality System Considerations}} and {{Content}} of {{Premarket Submissions}}.
-\newblock https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cybersecurity-medical-devices-quality-system-considerations-and-content-premarket-submissions, Tue, 09/26/2023 - 10:16.
-
-\bibitem[Kennedy and Eberhart(1997)]{kennedyDiscreteBinaryVersion1997}
-J.~Kennedy and R.~Eberhart.
-\newblock A discrete binary version of the particle swarm algorithm.
-\newblock In \emph{Computational {{Cybernetics}} and {{Simulation}} 1997 {{IEEE International Conference}} on {{Systems}}, {{Man}}, and {{Cybernetics}}}, volume~5, pages 4104--4108 vol.5, Oct. 1997.
-\newblock \doi{10.1109/ICSMC.1997.637339}.
-
-\bibitem[Kudo and Sklansky(2000)]{kudoComparisonAlgorithmsThat2000}
-M.~Kudo and J.~Sklansky.
-\newblock Comparison of algorithms that select features for pattern classifiers.
-\newblock \emph{Pattern Recognition}, 33\penalty0 (1):\penalty0 25--41, Jan. 2000.
-\newblock ISSN 0031-3203.
-\newblock \doi{10.1016/S0031-3203(99)00041-2}.
-
-\bibitem[Lawhern et~al.(2018)Lawhern, Solon, Waytowich, Gordon, Hung, and Lance]{lawhernEEGNetCompactConvolutional2018}
-V.~J. Lawhern, A.~J. Solon, N.~R. Waytowich, S.~M. Gordon, C.~P. Hung, and B.~J. Lance.
-\newblock {{EEGNet}}: {{A Compact Convolutional Network}} for {{EEG-based Brain-Computer Interfaces}}.
-\newblock \emph{Journal of Neural Engineering}, 15\penalty0 (5):\penalty0 056013, Oct. 2018.
-\newblock ISSN 1741-2560, 1741-2552.
-\newblock \doi{10.1088/1741-2552/aace8c}.
-
-\bibitem[MassimoP(2019)]{massimopANNEXVIII2019}
-MassimoP.
-\newblock {{ANNEX VIII}}, Aug. 2019.
-
-\bibitem[Nagaoka et~al.(2004)Nagaoka, Watanabe, Sakurai, Kunieda, Watanabe, Taki, and Yamanaka]{nagaokaDevelopmentRealisticHighresolution2004}
-T.~Nagaoka, S.~Watanabe, K.~Sakurai, E.~Kunieda, S.~Watanabe, M.~Taki, and Y.~Yamanaka.
-\newblock Development of realistic high-resolution whole-body voxel models of {{Japanese}} adult males and females of average height and weight, and application of models to radio-frequency electromagnetic-field dosimetry.
-\newblock \emph{Physics in Medicine and Biology}, 49\penalty0 (1):\penalty0 1--15, Jan. 2004.
-\newblock ISSN 0031-9155.
-\newblock \doi{10.1088/0031-9155/49/1/001}.
-
-\bibitem[Okwu and Tartibu(2020)]{okwuMetaheuristicOptimizationNatureInspired2020}
-M.~O. Okwu and L.~K. Tartibu.
-\newblock \emph{Metaheuristic {{Optimization}}: {{Nature-Inspired Algorithms Swarm}} and {{Computational Intelligence}}, {{Theory}} and {{Applications}}}.
-\newblock Springer Nature, Nov. 2020.
-\newblock ISBN 978-3-030-61111-8.
-
-\bibitem[Pudil et~al.(1994)Pudil, Novovi{\v c}ov{\'a}, and Kittler]{pudilFloatingSearchMethods1994}
-P.~Pudil, J.~Novovi{\v c}ov{\'a}, and J.~Kittler.
-\newblock Floating search methods in feature selection.
-\newblock \emph{Pattern Recognition Letters}, 15\penalty0 (11):\penalty0 1119--1125, Nov. 1994.
-\newblock ISSN 0167-8655.
-\newblock \doi{10.1016/0167-8655(94)90127-9}.
-
-\bibitem[Radman et~al.(2019)Radman, Chaibakhsh, {Nariman-zadeh}, and He]{radmanGeneralizedSequentialForward2019}
-M.~Radman, A.~Chaibakhsh, N.~{Nariman-zadeh}, and H.~He.
-\newblock Generalized {{Sequential Forward Selection Method}} for {{Channel Selection}} in {{EEG Signals}} for {{Classification}} of {{Left}} or {{Right Hand Movement}} in {{BCI}}.
-\newblock In \emph{2019 9th {{International Conference}} on {{Computer}} and {{Knowledge Engineering}} ({{ICCKE}})}, pages 137--142, Oct. 2019.
-\newblock \doi{10.1109/ICCKE48569.2019.8965159}.
-
-\bibitem[Ramoser et~al.(2000)Ramoser, {M{\"u}ller-Gerking}, and Pfurtscheller]{ramoserOptimalSpatialFiltering2000}
-H.~Ramoser, J.~{M{\"u}ller-Gerking}, and G.~Pfurtscheller.
-\newblock Optimal spatial filtering of single trial {{EEG}} during imagined hand movement.
-\newblock \emph{IEEE transactions on rehabilitation engineering: a publication of the IEEE Engineering in Medicine and Biology Society}, 8\penalty0 (4):\penalty0 441--446, Dec. 2000.
-\newblock ISSN 1063-6528.
-\newblock \doi{10.1109/86.895946}.
-
-\bibitem[Reunanen()]{reunanenOverfittingMakingComparisons}
-J.~Reunanen.
-\newblock Overfitting in {{Making Comparisons Between Variable Selection Methods}}.
-
-\bibitem[Schalk et~al.(2004)Schalk, McFarland, Hinterberger, Birbaumer, and Wolpaw]{schalkBCI2000GeneralpurposeBraincomputer2004}
-G.~Schalk, D.~McFarland, T.~Hinterberger, N.~Birbaumer, and J.~Wolpaw.
-\newblock {{BCI2000}}: A general-purpose brain-computer interface ({{BCI}}) system.
-\newblock \emph{IEEE Transactions on Biomedical Engineering}, 51\penalty0 (6):\penalty0 1034--1043, June 2004.
-\newblock ISSN 1558-2531.
-\newblock \doi{10.1109/TBME.2004.827072}.
-
-\bibitem[Thibeault and Srinivasa(2013)]{thibeaultUsingHybridNeuron2013}
-C.~M. Thibeault and N.~Srinivasa.
-\newblock Using a hybrid neuron in physiologically inspired models of the basal ganglia.
-\newblock \emph{Frontiers in Computational Neuroscience}, 7, July 2013.
-\newblock ISSN 1662-5188.
-\newblock \doi{10.3389/fncom.2013.00088}.
-
-\bibitem[Vanneschi and Silva(2023)]{vanneschiParticleSwarmOptimization2023}
-L.~Vanneschi and S.~Silva.
-\newblock Particle {{Swarm Optimization}}.
-\newblock In L.~Vanneschi and S.~Silva, editors, \emph{Lectures on {{Intelligent Systems}}}, pages 105--111. Springer International Publishing, Cham, 2023.
-\newblock ISBN 978-3-031-17922-8.
-\newblock \doi{10.1007/978-3-031-17922-8_4}.
-
-\bibitem[Yang et~al.(2018)Yang, Ang, Phua, Yu, Toh, Ng, and So]{yangEEGChannelSelection2018b}
-T.~Yang, K.~K. Ang, K.~S. Phua, J.~Yu, V.~Toh, W.~H. Ng, and R.~Q. So.
-\newblock {{EEG Channel Selection Based}} on {{Correlation Coefficient}} for {{Motor Imagery Classification}}: {{A Study}} on {{Healthy Subjects}} and {{ALS Patient}}.
-\newblock \emph{Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual International Conference}, 2018:\penalty0 1996--1999, July 2018.
-\newblock ISSN 2694-0604.
-\newblock \doi{10.1109/EMBC.2018.8512701}.
-
-\bibitem[Zhang et~al.(2022)Zhang, Huang, Zhi, Wu, Wang, and Pei]{zhangResearchHotspotsTrends2022}
-S.~Zhang, M.~Huang, J.~Zhi, S.~Wu, Y.~Wang, and F.~Pei.
-\newblock Research {{Hotspots}} and {{Trends}} of {{Peripheral Nerve Injuries Based}} on {{Web}} of {{Science From}} 2017 to 2021: {{A Bibliometric Analysis}}.
-\newblock \emph{Frontiers in Neurology}, 13, May 2022.
-\newblock ISSN 1664-2295.
-\newblock \doi{10.3389/fneur.2022.872261}.
-
-\bibitem[Zongker and Jain(1996)]{zongkerAlgorithmsFeatureSelection1996}
-D.~Zongker and A.~Jain.
-\newblock Algorithms for feature selection: {{An}} evaluation.
-\newblock In \emph{Proceedings of 13th {{International Conference}} on {{Pattern Recognition}}}, volume~2, pages 18--22 vol.2, Aug. 1996.
-\newblock \doi{10.1109/ICPR.1996.546716}.
-
-\end{thebibliography}

@@ -1,170 +1,170 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces FDA regulations}}{6}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces FDA regulations}}{7}{figure.caption.9}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces FDA regulations}}{7}{figure.caption.10}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces FDA table}}{8}{figure.caption.11}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces FDA table}}{8}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Ethical regulations}}{9}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Ethical regulations}}{10}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Ethical regulations}}{10}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Ethical regulations}}{11}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces BLE main characteristics.}}{23}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces BLE stack}}{24}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces GATT abstraction model}}{26}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Previous model implementation}}{28}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Previous implementation}}{28}{figure.caption.35}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Matlab scripts}}{30}{figure.caption.36}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Package structure}}{35}{figure.caption.37}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Previous implementations commands}}{39}{figure.caption.38}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Communication system}}{42}{figure.caption.39}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Additional functions}}{44}{figure.caption.40}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Bluetooth security table}}{45}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Bluetooth pairing table}}{46}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Bluetooth pairing table}}{48}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Bluetooth bonding table}}{49}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Bluetooth legacy table}}{50}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Bluetooth legacy table}}{51}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Bluetooth legacy table}}{52}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Bluetooth legacy table}}{53}{figure.caption.48}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Bluetooth legacy table}}{55}{figure.caption.49}%
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Bluetooth encryption table}}{56}{figure.caption.50}%
-\contentsline {figure}{\numberline {3.21}{\ignorespaces ENGNet parameters}}{59}{figure.caption.51}%
-\contentsline {figure}{\numberline {3.22}{\ignorespaces ENGNet architectures}}{60}{figure.caption.52}%
-\contentsline {figure}{\numberline {3.23}{\ignorespaces ENGNet layers}}{60}{figure.caption.53}%
-\contentsline {figure}{\numberline {3.24}{\ignorespaces ENGNet accuracy}}{64}{figure.caption.61}%
-\contentsline {figure}{\numberline {3.25}{\ignorespaces ENGNet accuracy boxplot}}{64}{figure.caption.62}%
-\contentsline {figure}{\numberline {3.26}{\ignorespaces ENGNet F1-score boxplot}}{65}{figure.caption.63}%
-\contentsline {figure}{\numberline {3.27}{\ignorespaces Hardware table}}{66}{figure.caption.64}%
-\contentsline {figure}{\numberline {3.28}{\ignorespaces NRF52DK board}}{66}{figure.caption.65}%
-\contentsline {figure}{\numberline {3.29}{\ignorespaces USB Dongle}}{67}{figure.caption.66}%
-\contentsline {figure}{\numberline {3.30}{\ignorespaces Power profiler kit}}{68}{figure.caption.67}%
-\contentsline {figure}{\numberline {3.31}{\ignorespaces Power Profiler Kit table}}{68}{figure.caption.68}%
-\contentsline {figure}{\numberline {3.32}{\ignorespaces Memory table for the board}}{76}{figure.caption.69}%
-\contentsline {figure}{\numberline {3.33}{\ignorespaces Memory table for the board}}{77}{figure.caption.70}%
-\contentsline {figure}{\numberline {3.34}{\ignorespaces Illustration of particles moving in a 3D space}}{84}{figure.caption.92}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces BLE main characteristics.}}{25}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces BLE stack}}{26}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces GATT abstraction model}}{28}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Previous model implementation}}{30}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Previous implementation}}{30}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Matlab scripts}}{32}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Package structure}}{37}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Previous implementations commands}}{41}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Communication system}}{44}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Additional functions}}{46}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Bluetooth security table}}{47}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Bluetooth pairing table}}{48}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Bluetooth pairing table}}{50}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Bluetooth bonding table}}{51}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Bluetooth legacy table}}{52}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Bluetooth legacy table}}{53}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Bluetooth legacy table}}{54}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Bluetooth legacy table}}{55}{figure.caption.48}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Bluetooth legacy table}}{57}{figure.caption.49}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Bluetooth encryption table}}{58}{figure.caption.50}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces ENGNet parameters}}{61}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces ENGNet architectures}}{62}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces ENGNet layers}}{62}{figure.caption.53}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces ENGNet accuracy}}{66}{figure.caption.61}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces ENGNet accuracy boxplot}}{66}{figure.caption.62}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces ENGNet F1-score boxplot}}{67}{figure.caption.63}%
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Hardware table}}{68}{figure.caption.64}%
+\contentsline {figure}{\numberline {3.28}{\ignorespaces NRF52DK board}}{68}{figure.caption.65}%
+\contentsline {figure}{\numberline {3.29}{\ignorespaces USB Dongle}}{69}{figure.caption.66}%
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Power profiler kit}}{70}{figure.caption.67}%
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Power Profiler Kit table}}{70}{figure.caption.68}%
+\contentsline {figure}{\numberline {3.32}{\ignorespaces Memory table for the board}}{78}{figure.caption.69}%
+\contentsline {figure}{\numberline {3.33}{\ignorespaces Memory table for the board}}{79}{figure.caption.70}%
+\contentsline {figure}{\numberline {3.34}{\ignorespaces Illustration of particles moving in a 3D space}}{86}{figure.caption.92}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Pairing procedure}}{88}{figure.caption.96}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Pairing procedure}}{89}{figure.caption.97}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Pairing procedure}}{89}{figure.caption.98}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Pairing procedure}}{90}{figure.caption.99}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Pairing procedure}}{93}{figure.caption.101}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Pairing procedure}}{93}{figure.caption.102}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Pairing procedure}}{94}{figure.caption.103}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Firmware security}}{99}{figure.caption.104}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Firmware security console messages}}{103}{figure.caption.105}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Firmware security console messages II}}{104}{figure.caption.106}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Firmware security console messages III}}{104}{figure.caption.107}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Firmware security console messages IV}}{105}{figure.caption.108}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Packet structure}}{105}{figure.caption.110}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces User command sending procedure in previous implementation}}{108}{figure.caption.122}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Multicentral implementation}}{109}{figure.caption.123}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Memory allocation error in Segger}}{110}{figure.caption.126}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Procedure to allocate memory in Segger}}{110}{figure.caption.125}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Faulty error state central board}}{112}{figure.caption.128}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces nRF Connect scanning for devices}}{113}{figure.caption.130}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces nRF Connect connected state}}{114}{figure.caption.131}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces nRF Connect advertisements menu}}{114}{figure.caption.132}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Multicentral implementation}}{115}{figure.caption.133}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Multicentral implementation}}{115}{figure.caption.134}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces nRF Connect commands menu}}{116}{figure.caption.135}%
-\contentsline {figure}{\numberline {4.25}{\ignorespaces nRF Connect commands menu}}{116}{figure.caption.136}%
-\contentsline {figure}{\numberline {4.26}{\ignorespaces nRF Connect send data}}{117}{figure.caption.137}%
-\contentsline {figure}{\numberline {4.27}{\ignorespaces nRF Connect commands menu}}{117}{figure.caption.138}%
-\contentsline {figure}{\numberline {4.28}{\ignorespaces nRF Connect log menu}}{118}{figure.caption.139}%
-\contentsline {figure}{\numberline {4.29}{\ignorespaces Direct communication schema}}{118}{figure.caption.140}%
-\contentsline {figure}{\numberline {4.30}{\ignorespaces Offline receiver table}}{119}{figure.caption.142}%
-\contentsline {figure}{\numberline {4.31}{\ignorespaces Offline receiver fields}}{120}{figure.caption.143}%
-\contentsline {figure}{\numberline {4.32}{\ignorespaces Offline receiver matlab table}}{120}{figure.caption.144}%
-\contentsline {figure}{\numberline {4.33}{\ignorespaces Offline receiver matlab table II}}{121}{figure.caption.145}%
-\contentsline {figure}{\numberline {4.34}{\ignorespaces Offline receiver matlab table III}}{122}{figure.caption.146}%
-\contentsline {figure}{\numberline {4.35}{\ignorespaces Offline receiver matlab table IV}}{123}{figure.caption.149}%
-\contentsline {figure}{\numberline {4.36}{\ignorespaces Offline receiver matlab table V}}{124}{figure.caption.150}%
-\contentsline {figure}{\numberline {4.37}{\ignorespaces Reverse transmission schema}}{124}{figure.caption.152}%
-\contentsline {figure}{\numberline {4.38}{\ignorespaces Board side states}}{125}{figure.caption.154}%
-\contentsline {figure}{\numberline {4.39}{\ignorespaces PC side states}}{127}{figure.caption.156}%
-\contentsline {figure}{\numberline {4.40}{\ignorespaces Acquired stimuli for the dataset}}{129}{figure.caption.158}%
-\contentsline {figure}{\numberline {4.41}{\ignorespaces Class balance}}{131}{figure.caption.160}%
-\contentsline {figure}{\numberline {4.42}{\ignorespaces Scoring same-class data}}{132}{figure.caption.164}%
-\contentsline {figure}{\numberline {4.43}{\ignorespaces Scoring different-class data}}{134}{figure.caption.172}%
-\contentsline {figure}{\numberline {4.44}{\ignorespaces Channel layers method }}{136}{figure.caption.174}%
-\contentsline {figure}{\numberline {4.45}{\ignorespaces Sniffed connection parameter update}}{138}{figure.caption.176}%
-\contentsline {figure}{\numberline {4.46}{\ignorespaces Packet content}}{139}{figure.caption.177}%
-\contentsline {figure}{\numberline {4.47}{\ignorespaces Boards connections}}{140}{figure.caption.178}%
-\contentsline {figure}{\numberline {4.48}{\ignorespaces Boards connections II}}{140}{figure.caption.179}%
-\contentsline {figure}{\numberline {4.49}{\ignorespaces Boards connections with phone}}{140}{figure.caption.180}%
-\contentsline {figure}{\numberline {4.50}{\ignorespaces Board connections with PC}}{141}{figure.caption.181}%
-\contentsline {figure}{\numberline {4.51}{\ignorespaces Boards connections with Power profiler}}{141}{figure.caption.182}%
-\contentsline {figure}{\numberline {4.52}{\ignorespaces PPK2 table}}{142}{figure.caption.183}%
-\contentsline {figure}{\numberline {4.53}{\ignorespaces PPK2 table II}}{142}{figure.caption.184}%
-\contentsline {figure}{\numberline {4.54}{\ignorespaces PPK2 table III}}{142}{figure.caption.185}%
-\contentsline {figure}{\numberline {4.55}{\ignorespaces Power profiler window}}{143}{figure.caption.186}%
-\contentsline {figure}{\numberline {4.56}{\ignorespaces Power profiler window II}}{143}{figure.caption.187}%
-\contentsline {figure}{\numberline {4.57}{\ignorespaces Power profiler window III}}{144}{figure.caption.188}%
-\contentsline {figure}{\numberline {4.58}{\ignorespaces Board cut}}{144}{figure.caption.190}%
-\contentsline {figure}{\numberline {4.59}{\ignorespaces Board cut II}}{145}{figure.caption.191}%
-\contentsline {figure}{\numberline {4.60}{\ignorespaces Power profiler results}}{145}{figure.caption.192}%
-\contentsline {figure}{\numberline {4.61}{\ignorespaces Power profiler results II}}{146}{figure.caption.193}%
-\contentsline {figure}{\numberline {4.62}{\ignorespaces Boards connections distances}}{146}{figure.caption.194}%
-\contentsline {figure}{\numberline {4.63}{\ignorespaces Boards connections distances II}}{147}{figure.caption.195}%
-\contentsline {figure}{\numberline {4.64}{\ignorespaces Boards connections distances with meat}}{147}{figure.caption.196}%
-\contentsline {figure}{\numberline {4.65}{\ignorespaces Boards connections distances with meat II}}{148}{figure.caption.197}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Pairing procedure}}{90}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Pairing procedure}}{91}{figure.caption.97}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Pairing procedure}}{91}{figure.caption.98}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Pairing procedure}}{92}{figure.caption.99}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Pairing procedure}}{95}{figure.caption.101}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Pairing procedure}}{95}{figure.caption.102}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Pairing procedure}}{96}{figure.caption.103}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Firmware security}}{101}{figure.caption.104}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Firmware security console messages}}{105}{figure.caption.105}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Firmware security console messages II}}{106}{figure.caption.106}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Firmware security console messages III}}{106}{figure.caption.107}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Firmware security console messages IV}}{107}{figure.caption.108}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Packet structure}}{107}{figure.caption.110}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces User command sending procedure in previous implementation}}{110}{figure.caption.122}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Multicentral implementation}}{111}{figure.caption.123}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Memory allocation error in Segger}}{112}{figure.caption.126}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Procedure to allocate memory in Segger}}{112}{figure.caption.125}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Faulty error state central board}}{114}{figure.caption.128}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces nRF Connect scanning for devices}}{115}{figure.caption.130}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces nRF Connect connected state}}{116}{figure.caption.131}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces nRF Connect advertisements menu}}{116}{figure.caption.132}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Multicentral implementation}}{117}{figure.caption.133}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Multicentral implementation}}{117}{figure.caption.134}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces nRF Connect commands menu}}{118}{figure.caption.135}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces nRF Connect commands menu}}{118}{figure.caption.136}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces nRF Connect send data}}{119}{figure.caption.137}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces nRF Connect commands menu}}{119}{figure.caption.138}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces nRF Connect log menu}}{120}{figure.caption.139}%
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Direct communication schema}}{120}{figure.caption.140}%
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Offline receiver table}}{121}{figure.caption.142}%
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Offline receiver fields}}{122}{figure.caption.143}%
+\contentsline {figure}{\numberline {4.32}{\ignorespaces Offline receiver matlab table}}{122}{figure.caption.144}%
+\contentsline {figure}{\numberline {4.33}{\ignorespaces Offline receiver matlab table II}}{123}{figure.caption.145}%
+\contentsline {figure}{\numberline {4.34}{\ignorespaces Offline receiver matlab table III}}{124}{figure.caption.146}%
+\contentsline {figure}{\numberline {4.35}{\ignorespaces Offline receiver matlab table IV}}{125}{figure.caption.149}%
+\contentsline {figure}{\numberline {4.36}{\ignorespaces Offline receiver matlab table V}}{126}{figure.caption.150}%
+\contentsline {figure}{\numberline {4.37}{\ignorespaces Reverse transmission schema}}{126}{figure.caption.152}%
+\contentsline {figure}{\numberline {4.38}{\ignorespaces Board side states}}{127}{figure.caption.154}%
+\contentsline {figure}{\numberline {4.39}{\ignorespaces PC side states}}{129}{figure.caption.156}%
+\contentsline {figure}{\numberline {4.40}{\ignorespaces Acquired stimuli for the dataset}}{131}{figure.caption.158}%
+\contentsline {figure}{\numberline {4.41}{\ignorespaces Class balance}}{133}{figure.caption.160}%
+\contentsline {figure}{\numberline {4.42}{\ignorespaces Scoring same-class data}}{134}{figure.caption.164}%
+\contentsline {figure}{\numberline {4.43}{\ignorespaces Scoring different-class data}}{136}{figure.caption.172}%
+\contentsline {figure}{\numberline {4.44}{\ignorespaces Channel layers method }}{138}{figure.caption.174}%
+\contentsline {figure}{\numberline {4.45}{\ignorespaces Sniffed connection parameter update}}{140}{figure.caption.176}%
+\contentsline {figure}{\numberline {4.46}{\ignorespaces Packet content}}{141}{figure.caption.177}%
+\contentsline {figure}{\numberline {4.47}{\ignorespaces Boards connections}}{142}{figure.caption.178}%
+\contentsline {figure}{\numberline {4.48}{\ignorespaces Boards connections II}}{142}{figure.caption.179}%
+\contentsline {figure}{\numberline {4.49}{\ignorespaces Boards connections with phone}}{142}{figure.caption.180}%
+\contentsline {figure}{\numberline {4.50}{\ignorespaces Board connections with PC}}{143}{figure.caption.181}%
+\contentsline {figure}{\numberline {4.51}{\ignorespaces Boards connections with Power profiler}}{143}{figure.caption.182}%
+\contentsline {figure}{\numberline {4.52}{\ignorespaces PPK2 table}}{144}{figure.caption.183}%
+\contentsline {figure}{\numberline {4.53}{\ignorespaces PPK2 table II}}{144}{figure.caption.184}%
+\contentsline {figure}{\numberline {4.54}{\ignorespaces PPK2 table III}}{144}{figure.caption.185}%
+\contentsline {figure}{\numberline {4.55}{\ignorespaces Power profiler window}}{145}{figure.caption.186}%
+\contentsline {figure}{\numberline {4.56}{\ignorespaces Power profiler window II}}{145}{figure.caption.187}%
+\contentsline {figure}{\numberline {4.57}{\ignorespaces Power profiler window III}}{146}{figure.caption.188}%
+\contentsline {figure}{\numberline {4.58}{\ignorespaces Board cut}}{146}{figure.caption.190}%
+\contentsline {figure}{\numberline {4.59}{\ignorespaces Board cut II}}{147}{figure.caption.191}%
+\contentsline {figure}{\numberline {4.60}{\ignorespaces Power profiler results}}{147}{figure.caption.192}%
+\contentsline {figure}{\numberline {4.61}{\ignorespaces Power profiler results II}}{148}{figure.caption.193}%
+\contentsline {figure}{\numberline {4.62}{\ignorespaces Boards connections distances}}{148}{figure.caption.194}%
+\contentsline {figure}{\numberline {4.63}{\ignorespaces Boards connections distances II}}{149}{figure.caption.195}%
+\contentsline {figure}{\numberline {4.64}{\ignorespaces Boards connections distances with meat}}{149}{figure.caption.196}%
+\contentsline {figure}{\numberline {4.65}{\ignorespaces Boards connections distances with meat II}}{150}{figure.caption.197}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Previous implementation - Offline tests}}{150}{figure.caption.199}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Previous implementation - Ideal online tests}}{151}{figure.caption.200}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Previous implementation - Ideal online tests}}{152}{figure.caption.201}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Previous implementation - Online tests with distance}}{152}{figure.caption.202}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Previous implementation - Online tests with distance}}{153}{figure.caption.203}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Previous implementation - Ideal online tests}}{154}{figure.caption.204}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Previous implementation - Online tests with different mediums}}{155}{figure.caption.205}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Previous implementation - Online tests with different mediums}}{156}{figure.caption.206}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Security - Offline tests}}{156}{figure.caption.207}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Security - Online tests}}{158}{figure.caption.210}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Security - Ideal online tests}}{159}{figure.caption.211}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Shift - Offline tests}}{159}{figure.caption.212}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Shift - Online tests}}{160}{figure.caption.213}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Shift - Ideal online tests}}{161}{figure.caption.214}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Shift - Online tests with distance}}{161}{figure.caption.215}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Shift - Online tests with distance}}{162}{figure.caption.216}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Shift - Ideal online tests}}{163}{figure.caption.217}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Shift - Online tests with different mediums}}{163}{figure.caption.218}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Security + Shift - Offline test}}{164}{figure.caption.219}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Security + Shift - Online test}}{164}{figure.caption.220}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Security + Shift - Ideal online test}}{165}{figure.caption.221}%
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Security + Shift - Ideal online test}}{166}{figure.caption.222}%
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Multicentral iOS - Offline test}}{166}{figure.caption.224}%
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Multicentral Android - Offline test}}{167}{figure.caption.226}%
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Multicentral - Online test}}{168}{figure.caption.227}%
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Multicentral - Ideal online test}}{168}{figure.caption.228}%
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Multicentral - Ideal online test}}{169}{figure.caption.229}%
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Multicentral Android + Security + Shift - Offline test}}{170}{figure.caption.230}%
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Multicentral + Security + Shift - Online test}}{170}{figure.caption.231}%
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Multicentral + Security + Shift - Online test}}{171}{figure.caption.232}%
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Bluetooth PC - Offline test}}{172}{figure.caption.234}%
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Bluetooth PC + Shift - Offline test}}{172}{figure.caption.236}%
-\contentsline {figure}{\numberline {5.33}{\ignorespaces PC - Online test}}{173}{figure.caption.238}%
-\contentsline {figure}{\numberline {5.34}{\ignorespaces Windows PC - Online test}}{174}{figure.caption.239}%
-\contentsline {figure}{\numberline {5.35}{\ignorespaces PC + Shift - Online test}}{174}{figure.caption.241}%
-\contentsline {figure}{\numberline {5.36}{\ignorespaces PC + Shift - Online test}}{175}{figure.caption.242}%
-\contentsline {figure}{\numberline {5.37}{\ignorespaces Reverse transmission}}{176}{figure.caption.243}%
-\contentsline {figure}{\numberline {5.38}{\ignorespaces Reverse transmission}}{177}{figure.caption.244}%
-\contentsline {figure}{\numberline {5.39}{\ignorespaces Lambda comparisons}}{178}{figure.caption.246}%
-\contentsline {figure}{\numberline {5.40}{\ignorespaces Animal 1 scores comparison}}{179}{figure.caption.247}%
-\contentsline {figure}{\numberline {5.41}{\ignorespaces Animal 2 scores comparison}}{179}{figure.caption.248}%
-\contentsline {figure}{\numberline {5.42}{\ignorespaces Animal 3 scores comparison}}{179}{figure.caption.249}%
-\contentsline {figure}{\numberline {5.43}{\ignorespaces Animal 1 metrics removing channels}}{180}{figure.caption.250}%
-\contentsline {figure}{\numberline {5.44}{\ignorespaces Animal 2 metrics removing channels}}{181}{figure.caption.251}%
-\contentsline {figure}{\numberline {5.45}{\ignorespaces Animal 3 metrics removing channels}}{181}{figure.caption.252}%
-\contentsline {figure}{\numberline {5.46}{\ignorespaces Animal 1 loss removing channels}}{182}{figure.caption.253}%
-\contentsline {figure}{\numberline {5.47}{\ignorespaces Animal 2 loss removing channels}}{183}{figure.caption.254}%
-\contentsline {figure}{\numberline {5.48}{\ignorespaces Animal 3 loss removing channels}}{183}{figure.caption.255}%
-\contentsline {figure}{\numberline {5.49}{\ignorespaces Removed channels location}}{184}{figure.caption.256}%
-\contentsline {figure}{\numberline {5.50}{\ignorespaces Noise comparison}}{185}{figure.caption.257}%
-\contentsline {figure}{\numberline {5.51}{\ignorespaces Channels substituted with noise}}{185}{figure.caption.258}%
-\contentsline {figure}{\numberline {5.52}{\ignorespaces Channels attention layer results}}{186}{figure.caption.259}%
-\contentsline {figure}{\numberline {5.53}{\ignorespaces Channels attention layer results: Animal 1}}{186}{figure.caption.260}%
-\contentsline {figure}{\numberline {5.54}{\ignorespaces Algorithms comparison Animal 1}}{187}{figure.caption.261}%
-\contentsline {figure}{\numberline {5.55}{\ignorespaces Channels attention layer results: Animal 2}}{187}{figure.caption.262}%
-\contentsline {figure}{\numberline {5.56}{\ignorespaces Algorithms comparison Animal 2}}{188}{figure.caption.263}%
-\contentsline {figure}{\numberline {5.57}{\ignorespaces Channels attention layer results: Animal 3}}{188}{figure.caption.264}%
-\contentsline {figure}{\numberline {5.58}{\ignorespaces Algorithms comparison Animal 3}}{189}{figure.caption.265}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Previous implementation - Offline tests}}{152}{figure.caption.199}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Previous implementation - Ideal online tests}}{153}{figure.caption.200}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Previous implementation - Ideal online tests}}{154}{figure.caption.201}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Previous implementation - Online tests with distance}}{154}{figure.caption.202}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Previous implementation - Online tests with distance}}{155}{figure.caption.203}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Previous implementation - Ideal online tests}}{156}{figure.caption.204}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Previous implementation - Online tests with different mediums}}{157}{figure.caption.205}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Previous implementation - Online tests with different mediums}}{158}{figure.caption.206}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Security - Offline tests}}{158}{figure.caption.207}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Security - Online tests}}{160}{figure.caption.210}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Security - Ideal online tests}}{161}{figure.caption.211}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Shift - Offline tests}}{161}{figure.caption.212}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Shift - Online tests}}{162}{figure.caption.213}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Shift - Ideal online tests}}{163}{figure.caption.214}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Shift - Online tests with distance}}{163}{figure.caption.215}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Shift - Online tests with distance}}{164}{figure.caption.216}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Shift - Ideal online tests}}{165}{figure.caption.217}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Shift - Online tests with different mediums}}{165}{figure.caption.218}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Security + Shift - Offline test}}{166}{figure.caption.219}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Security + Shift - Online test}}{166}{figure.caption.220}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Security + Shift - Ideal online test}}{167}{figure.caption.221}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Security + Shift - Ideal online test}}{168}{figure.caption.222}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Multicentral iOS - Offline test}}{168}{figure.caption.224}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Multicentral Android - Offline test}}{169}{figure.caption.226}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Multicentral - Online test}}{170}{figure.caption.227}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Multicentral - Ideal online test}}{170}{figure.caption.228}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Multicentral - Ideal online test}}{171}{figure.caption.229}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Multicentral Android + Security + Shift - Offline test}}{172}{figure.caption.230}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Multicentral + Security + Shift - Online test}}{172}{figure.caption.231}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Multicentral + Security + Shift - Online test}}{173}{figure.caption.232}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Bluetooth PC - Offline test}}{174}{figure.caption.234}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Bluetooth PC + Shift - Offline test}}{174}{figure.caption.236}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces PC - Online test}}{175}{figure.caption.238}%
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Windows PC - Online test}}{176}{figure.caption.239}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces PC + Shift - Online test}}{176}{figure.caption.241}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces PC + Shift - Online test}}{177}{figure.caption.242}%
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Reverse transmission}}{178}{figure.caption.243}%
+\contentsline {figure}{\numberline {5.38}{\ignorespaces Reverse transmission}}{179}{figure.caption.244}%
+\contentsline {figure}{\numberline {5.39}{\ignorespaces Lambda comparisons}}{180}{figure.caption.246}%
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Animal 1 scores comparison}}{181}{figure.caption.247}%
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Animal 2 scores comparison}}{181}{figure.caption.248}%
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Animal 3 scores comparison}}{181}{figure.caption.249}%
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Animal 1 metrics removing channels}}{182}{figure.caption.250}%
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Animal 2 metrics removing channels}}{183}{figure.caption.251}%
+\contentsline {figure}{\numberline {5.45}{\ignorespaces Animal 3 metrics removing channels}}{183}{figure.caption.252}%
+\contentsline {figure}{\numberline {5.46}{\ignorespaces Animal 1 loss removing channels}}{184}{figure.caption.253}%
+\contentsline {figure}{\numberline {5.47}{\ignorespaces Animal 2 loss removing channels}}{185}{figure.caption.254}%
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Animal 3 loss removing channels}}{185}{figure.caption.255}%
+\contentsline {figure}{\numberline {5.49}{\ignorespaces Removed channels location}}{186}{figure.caption.256}%
+\contentsline {figure}{\numberline {5.50}{\ignorespaces Noise comparison}}{187}{figure.caption.257}%
+\contentsline {figure}{\numberline {5.51}{\ignorespaces Channels substituted with noise}}{187}{figure.caption.258}%
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Channels attention layer results}}{188}{figure.caption.259}%
+\contentsline {figure}{\numberline {5.53}{\ignorespaces Channels attention layer results: Animal 1}}{188}{figure.caption.260}%
+\contentsline {figure}{\numberline {5.54}{\ignorespaces Algorithms comparison Animal 1}}{189}{figure.caption.261}%
+\contentsline {figure}{\numberline {5.55}{\ignorespaces Channels attention layer results: Animal 2}}{189}{figure.caption.262}%
+\contentsline {figure}{\numberline {5.56}{\ignorespaces Algorithms comparison Animal 2}}{190}{figure.caption.263}%
+\contentsline {figure}{\numberline {5.57}{\ignorespaces Channels attention layer results: Animal 3}}{190}{figure.caption.264}%
+\contentsline {figure}{\numberline {5.58}{\ignorespaces Algorithms comparison Animal 3}}{191}{figure.caption.265}%
 \addvspace {10\p@ }
