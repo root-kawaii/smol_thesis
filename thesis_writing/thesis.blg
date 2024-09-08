@@ -1,0 +1,113 @@
+This is BibTeX, Version 0.99d (TeX Live 2024/Homebrew)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: abbrvnat.bst
+Database file #1: Thesis_bibliography.bib
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "nordic1"
+Warning--I didn't find a database entry for "nordic_semi"
+Warning--I didn't find a database entry for "caesar2022survey"
+Warning--I didn't find a database entry for "circuits2021"
+Warning--I didn't find a database entry for "nordic_academy"
+Warning--I didn't find a database entry for "patwary2020modeling"
+Warning--to sort, need author or key in CFRCodeFederal
+Warning--to sort, need author or key in ISOInternationalOrganization
+Warning--to sort, need author or key in RegolamentoUE20172017
+Warning--to sort, need author or key in RegolamentoUE20172017a
+Warning--to sort, need author or key in MedicalDevicesEuropean
+Warning--to sort, need author or key in RegolamentoUE20232023
+Warning--to sort, need author or key in NewRevisedResource
+Warning--to sort, need author or key in RecognizedConsensusStandards
+Warning--to sort, need author or key in IEEEANSIC63
+Warning--to sort, need author or key in IEC60601122014
+Warning--to sort, need author or key in ContentPremarketSubmissions
+Warning--to sort, need author or key in DirectiveEU20222022
+Warning--to sort, need author or key in Chapter
+Warning--to sort, need author or key in AnimalWelfareEU
+Warning--to sort, need author or key in Direttiva201063
+Warning--to sort, need author or key in L_2016119EN01000101Xml
+Warning--to sort, need author or key in CodeVirginiaCode
+Warning--to sort, need author or key in NRF52DKDevelopment
+Warning--to sort, need author or key in LessonSerialCommunication
+Warning--to sort, need author or key in NordicSemiconductorInfocentera
+Warning--to sort, need author or key in NordicSemiconductorInfocenterb
+Warning--to sort, need author or key in NordicSemiconductorInfocenterc
+Warning--to sort, need author or key in BluetoothLowEnergy2016
+Warning--to sort, need author or key in NordicSemiconductorInfocenterd
+Warning--to sort, need author or key in NordicSemiconductorInfocenterf
+Warning--empty author in AnimalWelfareEU
+Warning--empty journal in AnimalWelfareEU
+Warning--empty year in AnimalWelfareEU
+Warning--empty year in AnimalWelfareEU
+Warning--empty year in CFRCodeFederal
+Warning--empty year in Chapter
+Warning--empty year in CodeVirginiaCode
+Warning--empty author in ContentPremarketSubmissions
+Warning--empty journal in ContentPremarketSubmissions
+Warning--empty year in ContentPremarketSubmissions
+Warning--empty year in ContentPremarketSubmissions
+Warning--empty author in Direttiva201063
+Warning--empty journal in Direttiva201063
+Warning--empty year in Direttiva201063
+Warning--empty year in Direttiva201063
+Warning--empty year in IEC60601122014
+Warning--empty year in IEEEANSIC63
+Warning--empty year in ISOInternationalOrganization
+Warning--empty year in L_2016119EN01000101Xml
+Warning--empty year in LessonSerialCommunication
+Warning--empty year in MedicalDevicesEuropean
+Warning--empty year in NRF52DKDevelopment
+Warning--empty year in NewRevisedResource
+Warning--empty year in NordicSemiconductorInfocentera
+Warning--empty year in NordicSemiconductorInfocenterb
+Warning--empty year in NordicSemiconductorInfocenterc
+Warning--empty year in NordicSemiconductorInfocenterd
+Warning--empty year in NordicSemiconductorInfocenterf
+Warning--empty year in RecognizedConsensusStandards
+Warning--empty year in 14:00-17:00ISO1099312018a
+Warning--empty year in 14:00-17:00ISO1099352009a
+Warning--empty journal in reunanenOverfittingMakingComparisons
+Warning--empty year in reunanenOverfittingMakingComparisons
+Warning--empty year in reunanenOverfittingMakingComparisons
+You've used 52 entries,
+            2773 wiz_defined-function locations,
+            902 strings with 17668 characters,
+and the built_in function-call counts, 19124 in all, are:
+= -- 1775
+> -- 728
+< -- 25
++ -- 279
+- -- 221
+* -- 1469
+:= -- 2486
+add.period$ -- 154
+call.type$ -- 52
+change.case$ -- 228
+chr.to.int$ -- 46
+cite$ -- 188
+duplicate$ -- 961
+empty$ -- 1932
+format.name$ -- 264
+if$ -- 4254
+int.to.chr$ -- 7
+int.to.str$ -- 1
+missing$ -- 24
+newline$ -- 265
+num.names$ -- 110
+pop$ -- 673
+preamble$ -- 1
+purify$ -- 177
+quote$ -- 0
+skip$ -- 750
+stack$ -- 0
+substring$ -- 546
+swap$ -- 133
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 567
+warning$ -- 59
+while$ -- 110
+width$ -- 0
+write$ -- 631
+(There were 66 warnings)
