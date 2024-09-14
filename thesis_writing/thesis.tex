@@ -81,7 +81,7 @@
 \usepackage{afterpage}
 \usepackage{lipsum} % DUMMY PACKAGE
 \usepackage{fancyhdr} % For the headers
-\usepackage[style=authoryear,backend=biber]{biblatex}
+\usepackage[backend=biber,style=numeric,autocite=plain,sorting=none]{biblatex}
 \fancyhf{}
 
 % Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
@@ -187,8 +187,9 @@ Inoltre, è stata esplorata la possibilità di una comunicazione inversa, in cui
 % --------------------------------------------------------------------------
 \chapter{Introduction}
 \section{PNRelay project}
+\nocite{*}
 Peripheral nerves injuries (PNI) are a significant cause of morbidity and disability today,
-they affect almost 20 milions in the USA alone, and deeply damage both the physical and psychological well-being of those who suffer from these injuries. \cite[][]{14:00-17:00ISO1099352009}
+they affect almost 20 milions in the USA alone, and deeply damage both the physical and psychological well-being of those who suffer from these injuries. \cite{zhangResearchHotspotsTrends2022}
 The loss of functionality is caused by the damage of the nervous systems pathways that connect the brain to peripheral parts of the body.
 Moreover PNI's receive a poor prognosis since the regenerative capabilities of the nervous systems are limited and slow.
 
@@ -202,10 +203,9 @@ Although muscle stimulation has not yet been incorporated, it remains a pivotal 
 The project is targeted for preclinical trials on rats and in particular, injuries to the sciatic nerve, but it nontheless has great potential for future clinical applications.
 The recorded signal thanks to the electrode is known as  Electroneurography (ENG) signal
 which has the potential to provide a valuable control signal for closed-loop neuroprostheses [5] (from davide)
-'''davide'''
-Other biological signals have been used with the aim of restoring PNI. Electromyography,
-(EMG) signals from muscle activity and Electroencephalogram (EEG) signals reflecting brain activity are used in restoring limb function. EMG signals decode control commands for powered upper-limb prostheses, facilitating dexterity and mobility, but the acquisition and use of such myosignals are cumbersome and complicated [12]–[14]. EEG signals can be used to decipher user intent, driving neuroprosthetic devices to restore lost limb functionality. In recent studies, these signals are used to examine the functions and movements behavior of humans [15], [16].
-'''davide'''
+% '''davide'''
+Various biological signals have been explored in efforts to restore peripheral nerve injuries (PNI). Among these, electromyography (EMG) and electroencephalogram (EEG) signals have shown potential in aiding limb function recovery. EMG signals, which capture muscle activity, are often utilized to decode control commands for powered prosthetic limbs, improving both dexterity and mobility. However, the process of acquiring and interpreting these myosignals is often complex and cumbersome. On the other hand, EEG signals, which reflect brain activity, can be harnessed to interpret user intent, enabling neuroprosthetic devices to restore lost motor functions in limbs. Recent studies have focused on using these brain signals to investigate human movement behavior and functional responses, highlighting their potential for advancing neuroprosthetic control. [12][14][15][16] from davide + [davide]
+% '''davide'''
 
 
 The device that has been engineered as part of the PNRelay is made of two main subparts:
@@ -214,7 +214,12 @@ one that is implanted and one that is external.
 The internal implant is composed of different parts: the cuff electrodes to acquire the signal, the Senseback ASIC chip, wrapped in a biocompatible capsuel, that is required for the processing of the singal and a transdermal port for the powering of the wireless device.
 
 % copied from davide
-Extra-neural cuff electrodes, positioned externally on the nerve’s surface, are chosen for their lower invasiveness in acquiring ENG data [20]. The data transmission module, which is responsible for data signal processing, is currently being developed for full-body integration. The external component hosts the classifier, which by performing an online operation, allows the different stimuli to be recognized. The signal is then sent to the stimulator, which proceeds to close the loop. The overall scheme for animal testing is shown in Figure 1.1. During initial experimental phases, the classifier may operate on a computer connected to the external circuit, with the ultimate objective being its integration into the implanted circuitry. Due to the typically substan- tial variations in neurological data among individuals, classification algorithms in this domain are often tailored to specific subjects [3]. This further compounds the challenge of gathering a sufficient amount of biological data on same subject. Challenges persist in decoding neural signal information due to limitations imposed by acquisition invasiveness. While extra-neural cuff electrodes represent a less invasive option for chronic implantation [21], the classification of sensory stimuli recorded through them remains complex due to a limited SNR. Various techniques have been explored to address this challenge [22]–[24], but the optimal classification approach remains an open area for further research and exploration.
+
+Non-invasive extra-neural cuff electrodes, which are placed on the surface of the nerve, have been selected for recording ENG signals due to their reduced invasiveness compared to other methods [20]. The data transmission module, which processes these signals, is being developed for full integration with the entire system. Currently, the external component of the setup contains the classifier, which operates in real-time to identify different stimuli. Once classification is complete, the corresponding signals are transmitted to a stimulator, closing the loop.
+
+In the early stages of testing, the classification algorithms may be run on a computer connected to the external system, but the long-term goal is to incorporate the classifier directly into the implanted hardware. Given the significant variability in neurological data between individuals, these classification algorithms are often highly personalized [3], making it difficult to collect enough biological data from a single subject. Furthermore, decoding neural signals remains a complex challenge, particularly due to the invasive nature of many data collection techniques.
+
+While extra-neural cuff electrodes offer a less invasive option for long-term implantation [21], accurately classifying sensory data obtained through these electrodes is complicated by a lower signal-to-noise ratio (SNR). Although several strategies have been explored to improve this process [22]–[24], determining the best method for classifying neural stimuli from such data remains a topic of ongoing research and investigation. [3][20][21][22][24] [davide]
 % copied from davide
 
 \subsection{Thesis outline}
@@ -1295,7 +1300,7 @@ This tool can both measure instantaneous current consumption and supply the devi
 
 \section{Memory management}
 
-The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. Below is a detailed explanation of each component:
+The memory architecture of the Nordic board is intricately designed to optimize performance and flexibility. The system comprises various memory regions and buses interconnected to facilitate efficient data transfer and processing. Below is a detailed explanation of each component that resulted from studying nordic documentation \cite{NordicSemiconductorInfocenter}:
 
 Central Processing Unit (CPU) ARM Cortex-M4: The CPU is based on the ARM Cortex-M4 architecture, which is a highly efficient processor designed for high-performance, low-power applications. It includes a rich set of features such as floating-point unit (FPU), digital signal processing (DSP) extensions, and low-latency interrupt handling.
 2. Memory Organization
@@ -1504,14 +1509,14 @@ Based on the detailed analysis of the Nordic board's memory architecture, severa
     \includegraphics[scale=0.3]{memNRF.png}
     \centering
     \label{mem_table_1}
-    \caption{Memory table for the board}
+    \caption{Memory table for the board \cite{NordicSemiconductorInfocenter}}
     \end{figure}
 
 \begin{figure}[H]
 \includegraphics[scale=0.4]{memory2.png}
 \centering
 \label{mem_table_2}
-\caption{Memory table for the board}
+\caption{Memory table for the board \cite{NordicSemiconductorInfocenter}}
 \end{figure}
 
 \section{Channel selection}
@@ -1545,9 +1550,9 @@ Due to classic CSP inadequacies, several researchers aim to integrate sparsing b
 
 \subsubsection{Regularized CSP}
 
-% Despite its well-established efficacy and widespread adoption, CSP is acknowledged for its susceptibility to noise and tendency for overfitting. To tackle this concern, researchers have proposed the regularization of CSP \cite{lotteRegularizingCommonSpatial2011}. A recommended strategy is the adoption of a regularized CSP (RCSP) approach, which focuses on regulating the covariance matrix estimate within CSP extraction. This involves employing regularization techniques derived from general learning principles \cite{friedmanRegularizedDiscriminantAnalysis1989,wangSolvingFaceRecognition2006}. The regularization of CSP can occur at two levels, the first being at the estimation of the covariance matrix. Since CSP relies on these estimates, which can be adversely affected by noise or limited training data, regularization can significantly improve performance. Alternatively, regularization can be implemented at the objective function level (Eq. 1), where spatial filters are subjected to prior constraints to enhance stability \cit{lotteRegularizingCommonSpatial2011}.
+Despite its well-established efficacy and widespread adoption, CSP is acknowledged for its susceptibility to noise and tendency for overfitting. To tackle this concern, researchers have proposed the regularization of CSP \cite{lotteRegularizingCommonSpatial2011}. A recommended strategy is the adoption of a regularized CSP (RCSP) approach, which focuses on regulating the covariance matrix estimate within CSP extraction. This involves employing regularization techniques derived from general learning principles \cite{friedmanRegularizedDiscriminantAnalysis1989,wangSolvingFaceRecognition2006}. The regularization of CSP can occur at two levels, the first being at the estimation of the covariance matrix. Since CSP relies on these estimates, which can be adversely affected by noise or limited training data, regularization can significantly improve performance. Alternatively, regularization can be implemented at the objective function level, where spatial filters are subjected to prior constraints to enhance stability \cite{lotteRegularizingCommonSpatial2011}.
 
-% The first, based on \cite{luRegularizedCommonSpatial2009} can be implemented in the following way:
+The first, based on \cite{luRegularizedCommonSpatial2009} can be implemented in the following way:
 
 \begin{align}
 	\tilde{C}_{C} = (1 - \gamma) \hat{C}_{C} + \gamma I
@@ -1560,7 +1565,7 @@ Due to classic CSP inadequacies, several researchers aim to integrate sparsing b
 \end{align}
 
 
-% where $C_{c}$ is the initial spatial covariance matrix for class $c$, $\tilde{C}_{c}$ is the regularized estimate, $I$ is the identity matrix, $S_{c}$ is a constant scaling parameter (a scalar), $\gamma$ and $\beta$ are the two user-defined regularization parameters ($\gamma$, $\beta \in [0,1]$), and $G_{c}$ is a “generic” covariance matrix. \cite{lotteRegularizingCommonSpatial2011}
+where $C_{c}$ is the initial spatial covariance matrix for class $c$, $\tilde{C}_{c}$ is the regularized estimate, $I$ is the identity matrix, $S_{c}$ is a constant scaling parameter (a scalar), $\gamma$ and $\beta$ are the two user-defined regularization parameters ($\gamma$, $\beta \in [0,1]$), and $G_{c}$ is a “generic” covariance matrix. \cite{lotteRegularizingCommonSpatial2011}
 
 Another approach to obtain RCSP algorithms consists in regularizing the CSP objective function itself (1). More precisely, such a method consists in adding a regularization term to the CSP objective function in order to penalize solutions (i.e., resulting spatial filters) that do not satisfy a given prior. Formally, the objective function becomes:
 
@@ -1569,8 +1574,7 @@ Another approach to obtain RCSP algorithms consists in regularizing the CSP obje
 	\label{eq:RCSP3}
 \end{align}
 
-% where P(w) is a penalty function, measuring how much the spatial filter w satisfies a given prior. The more w satisfies it, the lower P(w). Hence, to maximize JP1(w), we must minimize P(w), thus ensuring spatial filters satisfying the prior. $\alpha$ is a user-defined regularization parameter ( $\alpha$ $\geq$  0, the higher $\alpha$, the more satisfied the prior). With this regularization, we expect that enforcing specific solutions, due to priors, will guide the optimization process toward good spatial filters, especially with limited or noisy training data. \cite{lotteRegularizingCommonSpatial2011}
-
+where P(w) is a penalty function, measuring how much the spatial filter w satisfies a given prior. The more w satisfies it, the lower P(w). Hence, to maximize JP1(w), we must minimize P(w), thus ensuring spatial filters satisfying the prior. $\alpha$ is a user-defined regularization parameter ( $\alpha$ $\geq$  0, the higher $\alpha$, the more satisfied the prior). With this regularization, we expect that enforcing specific solutions, due to priors, will guide the optimization process toward good spatial filters, especially with limited or noisy training data. \cite{lotteRegularizingCommonSpatial2011}
 
 % ciao \ref*{cap}
 
@@ -2592,7 +2596,6 @@ Taking into consideration the ENG signals characteristics and the Newcastle dats
 \end{itemize}
 
 \textbf{Bandpass filter} \quad We configured a bandpass filter to cover frequencies from 800 Hz to 2450 Hz. This allows us to isolate the ENG components of the signals while excluding any unwanted frequencies that fall outside this range. The EMG's power spectrum is largely concentrated within a band up to 400 Hz, encompassing around 95 percent of its total power. Although some harmonics extend to 800 Hz, significant amplifier noise primarily affects higher frequencies. [davide][davide 5].
-[rewrite]
 
 \textbf{Voltage threshold} \quad In our dataset, ENG signals generally do not surpass the limit of 20 to 25 \(\mu \) V, therefore we set the voltage to 30 \(\mu \) V in order to avoid considering any datapoints with excessive noise, but still successfully consider all the remaining informative data.
 
@@ -2757,7 +2760,7 @@ So when in the Results chapter we mentioned a lower amount of iterations of this
 
 We wanted to investigate another approach and possibly use it to validate previous results based on correlation algorithms: a Channel Attention Layer (CAL) added to our ENGNet in order to once again rank the channel in order of relevance for the output of the classification.
 
-More in detail, as shown in the figure, taken from [] we add two layers:
+More in detail, as shown in the figure, taken from \cite{tongLearnableEEGChannel2023}\cite{zhangMotorImageryRecognition2021} we add two layers:
 
 \begin{itemize}
 	\item Global Average Pooling Layer (GAP)
@@ -2766,7 +2769,7 @@ More in detail, as shown in the figure, taken from [] we add two layers:
 
 \textbf{GAP} \quad The GAP Layer is used to aggregate the features
 
-\textbf{1D-Conv} \quad The 1D-Conv Layer which coincides with a Fully Connected Layer of the same length is used to ..., we also use Sigmoid for the activation function as shown in the original paper []
+\textbf{1D-Conv} \quad The 1D-Conv Layer which coincides with a Fully Connected Layer of the same length is used to ..., we also use Sigmoid for the activation function as shown in the original paper \cite{tongLearnableEEGChannel2023}
 
 These two layers are sequentially connected but are in parallel with a different structure that, instead, has no layers between the input and the output to the rest of the network.
 To combine the two we use an Element-wise product as implemented in the Tensorflow library.
@@ -3523,7 +3526,7 @@ To begin let us reconsider the formula for the channel scoring.
    \label{eq:XCDC6}
 \end{align}
 
-As previously said, the formula presented in the paper []
+As previously said, the formula presented in the paper \cite{yuCrossCorrelationBasedDiscriminant2021}
 didn't receive accurate validation for the hyperparameter lambda.
 Because of this we wanted to be sure that we were using the right values.
 From an intuition standpoint, we can notice that the higher the value of the lambda the more we are considering the same-class similarity to be important, while lower values of lamba imply the opposite.

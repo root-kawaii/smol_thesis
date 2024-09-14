@@ -71,7 +71,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeldateparts</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>0</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labeldatespec</bcf:key>
@@ -172,7 +172,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
-      <bcf:value>nyt</bcf:value>
+      <bcf:value>none</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortsets</bcf:key>
@@ -180,11 +180,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>true</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>full</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -314,7 +314,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeldateparts</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>0</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labeldatespec</bcf:key>
@@ -395,11 +395,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>true</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>full</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -642,8 +642,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">dashed</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -725,7 +724,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -814,7 +813,7 @@
     <bcf:option datatype="boolean" backendout="1">doi</bcf:option>
     <bcf:option datatype="boolean" backendout="1">eprint</bcf:option>
     <bcf:option datatype="boolean" backendout="1">related</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">mergedate</bcf:option>
+    <bcf:option datatype="boolean" backendout="1">subentry</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
@@ -2373,113 +2372,94 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">thesis.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">14:00-17:00ISO1099352009</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">healthClassifyYourMedical2023</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">healthDeviceClassificationPanels2023</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">CFRCodeFederal</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">14:00-17:00ISO1099312018a</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">healthUseInternationalStandard2023</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">ISOInternationalOrganization</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">healthUseInternationalStandard2023</bcf:citekey>
+    <bcf:citekey order="1" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">14:00-17:00ISO1099352009</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">healthClassifyYourMedical2023</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">healthDeviceClassificationPanels2023</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">CFRCodeFederal</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">14:00-17:00ISO1099312018a</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">healthUseInternationalStandard2023</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">ISOInternationalOrganization</bcf:citekey>
     <bcf:citekey order="9" intorder="1">healthUseInternationalStandard2023</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">14:00-17:00ISO1099352009a</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">gruberToxicNotToxic2023</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">RegolamentoUE20172017</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">RegolamentoUE20172017a</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">MedicalDevicesEuropean</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">RegolamentoUE20232023</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">NewRevisedResource</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">RegolamentoUE20172017</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">RegolamentoUE20172017a</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">massimopANNEXVIII2019</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">RegolamentoUE20172017</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">healthWirelessMedicalDevices2023</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">RecognizedConsensusStandards</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">IEEEANSIC63</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">IEC60601122014</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">healthCybersecurityMedicalDevices2023</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">ContentPremarketSubmissions</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">healthCybersecurityMedicalDevices2023</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">DirectiveEU20222022</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">ContentPremarketSubmissions</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">Chapter</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">AnimalWelfareEU</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">Direttiva201063</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">nagaokaDevelopmentRealisticHighresolution2004</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">L_2016119EN01000101Xml</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">CodeVirginiaCode</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">nordic1</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">NRF52DKDevelopment</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">LessonSerialCommunication</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">NordicSemiconductorInfocentera</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">NordicSemiconductorInfocenterb</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">NordicSemiconductorInfocenterc</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">BluetoothLowEnergy2016</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">NordicSemiconductorInfocenterd</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">NordicSemiconductorInfocenterf</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">nordic_semi</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">caesar2022survey</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">circuits2021</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">nordic_academy</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">lawhernEEGNetCompactConvolutional2018</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">alotaibyReviewChannelSelection2015</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">ramoserOptimalSpatialFiltering2000</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">healthUseInternationalStandard2023</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">14:00-17:00ISO1099352009a</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">gruberToxicNotToxic2023</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">RegolamentoUE20172017</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">RegolamentoUE20172017a</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">MedicalDevicesEuropean</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">RegolamentoUE20232023</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">NewRevisedResource</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">RegolamentoUE20172017</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">RegolamentoUE20172017a</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">massimopANNEXVIII2019</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">RegolamentoUE20172017</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">healthWirelessMedicalDevices2023</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">RecognizedConsensusStandards</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">IEEEANSIC63</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">IEC60601122014</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">healthCybersecurityMedicalDevices2023</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">ContentPremarketSubmissions</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">healthCybersecurityMedicalDevices2023</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">DirectiveEU20222022</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">ContentPremarketSubmissions</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">Chapter</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">AnimalWelfareEU</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">Direttiva201063</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">nagaokaDevelopmentRealisticHighresolution2004</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">L_2016119EN01000101Xml</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">CodeVirginiaCode</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">nordic1</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">NRF52DKDevelopment</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">LessonSerialCommunication</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">NordicSemiconductorInfocentera</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">NordicSemiconductorInfocenterb</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">NordicSemiconductorInfocenterc</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">BluetoothLowEnergy2016</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">NordicSemiconductorInfocenterd</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">NordicSemiconductorInfocenterf</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">nordic_semi</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">caesar2022survey</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">circuits2021</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">nordic_academy</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">lawhernEEGNetCompactConvolutional2018</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">alotaibyReviewChannelSelection2015</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">ramoserOptimalSpatialFiltering2000</bcf:citekey>
     <bcf:citekey order="53" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">yangEEGChannelSelection2018b</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">schalkBCI2000GeneralpurposeBraincomputer2004</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">thibeaultUsingHybridNeuron2013</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">reunanenOverfittingMakingComparisons</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">pudilFloatingSearchMethods1994</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">kudoComparisonAlgorithmsThat2000</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">reunanenOverfittingMakingComparisons</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">zongkerAlgorithmsFeatureSelection1996</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">kudoComparisonAlgorithmsThat2000</bcf:citekey>
-    <bcf:citekey order="63" intorder="1">reunanenOverfittingMakingComparisons</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">pudilFloatingSearchMethods1994</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">radmanGeneralizedSequentialForward2019</bcf:citekey>
-    <bcf:citekey order="66" intorder="1">okwuMetaheuristicOptimizationNatureInspired2020</bcf:citekey>
-    <bcf:citekey order="67" intorder="1">vanneschiParticleSwarmOptimization2023</bcf:citekey>
-    <bcf:citekey order="68" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">kennedyDiscreteBinaryVersion1997</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
-    <bcf:citekey order="71" intorder="1">coellocoelloMOPSOProposalMultiple2002</bcf:citekey>
-    <bcf:citekey order="72" intorder="1">patwary2020modeling</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">yangEEGChannelSelection2018b</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">schalkBCI2000GeneralpurposeBraincomputer2004</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">thibeaultUsingHybridNeuron2013</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">reunanenOverfittingMakingComparisons</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">pudilFloatingSearchMethods1994</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">kudoComparisonAlgorithmsThat2000</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">reunanenOverfittingMakingComparisons</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">zongkerAlgorithmsFeatureSelection1996</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">kudoComparisonAlgorithmsThat2000</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">reunanenOverfittingMakingComparisons</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">pudilFloatingSearchMethods1994</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">radmanGeneralizedSequentialForward2019</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">okwuMetaheuristicOptimizationNatureInspired2020</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">vanneschiParticleSwarmOptimization2023</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">kennedyDiscreteBinaryVersion1997</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">abdullahEEGChannelSelection2022</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">coellocoelloMOPSOProposalMultiple2002</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">patwary2020modeling</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="nyt">
+  <bcf:sortingtemplate name="none">
     <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1">volume</bcf:sortitem>
-      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    <bcf:sort order="2">
+      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="nyt/global//global/global/global"
+                name="none/global//global/global/global"
                 type="entry"
-                sortingtemplatename="nyt"
+                sortingtemplatename="none"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"
