@@ -134,11 +134,11 @@
 \puttitle{
 	title=Performance Optimization of Bluetooth Low Energy Data Transmission for Clinical Applications in Healthcare, % Title of the thesis
 	name=Matteo Regge and Manuel Stoppiello, % Author Name and Surname
-	course=COMPUTER SCIENCE AND ENGINEERING - INGEGNERIA INFORMATICA, % Study Programme (in Italian)
-	ID  = 10619213,  % Student ID number (numero di matricola)
+	course={COMPUTER SCIENCE AND ENGINEERING - INGEGNERIA INFORMATICA, AUTOMATION ENGINEERING - INGEGNERIA DELL'AUTOMAZIONE}, % Study Programme (in Italian)
+	ID  = 10619213-10667578,  % Student ID number (numero di matricola)
 	advisor= Prof. Maurizio Magarini, % Supervisor name
-	coadvisor=Antonio Coviello, % Co-Supervisor name, remove this line if there is none
-	academicyear={2024-25},  % Academic Year
+	coadvisor={ Ing. Antonio Coviello, Prof. Paolo Motto Ros}, % Co-Supervisor name, remove this line if there is none
+	academicyear={2023-24},  % Academic Year
 } % These info will be put into your Title page 
 
 %----------------------------------------------------------------------------
@@ -157,7 +157,7 @@ Throughout the project, various improvements to BLE communication were proposed.
 Furthermore, the possibility of reverse communication was explored, where the implanted device acts as a receiver. The tests involved Nordic Semiconductor microcontrollers and were conducted both offline, to identify the best BLE configuration parameters, and online, to assess performance in terms of retransmissions, power consumption, and speed. The results obtained, particularly for the channel selection algorithms, provide a solid foundation for future improvements in wireless communication in implantable biomedical devices.
 \\
 \\
-\textbf{Parole chiave:} Bluetooth; channel selection; communication optimization; implanted device.
+\textbf{Keywords:} Bluetooth; channel selection; communication optimization; implanted device.
 
 % ABSTRACT IN ITALIAN
 \chapter*{Abstract in lingua italiana}
@@ -206,7 +206,7 @@ they affect almost 20 milions in the USA alone, and deeply damage both the physi
 The loss of functionality is caused by the damage of the nervous systems pathways that connect the brain to peripheral parts of the body.
 Moreover PNI's receive a poor prognosis since the regenerative capabilities of the nervous systems are limited and slow.
 
-Recently, though there have been promising works of reserach in neuroscience that aim at improving the well-being of people that suffer from PNI by developing implanted devices that can connect to the Pheripheral Nervous System (PNS).
+Recently, though there have been promising works of reserach in neuroscience that aim at improving the well-being of people that suffer from PNI by developing implanted devices that can connect to the Peripheral Nervous System (PNS).
 In particular, bi-directional interfaces have the goal to restore the communication between the brain and the peripheral area whose sensorimotor feedback has been lost, effectively restoring the nervous pathways that have been damaged.
 This kind of interfaces can be realized with nerve electrodes that are installed chirurgically and can measure the voltage of a certain nerve and assess its signal or stimulate them directly.
 In this deeply interesting and thriving area of research it has emerged the PNRelay project 
@@ -257,7 +257,7 @@ In this section, we will present all the background information needed to contex
 
 \section{Implanted medical devices normative and regulation}
 
-In order to have a medical implanted device, such as the one taken into consideration in this thesis work, it should respect the premarket standards for the specific location where the device is intended to be approved, various organizations co-operate to guarantee the best standards. \cite{UWBioEUniversity2021} In particular, the responsible authorities are Food and Drugs Administration in the United State (USA) and European Commission (CE) in the European Union (EU). 
+In order to have a medical implanted device, such as the one taken into consideration in this thesis work, it should respect the premarket standards for the specific location where the device is intended to be approved, various organizations co-operate to guarantee the best standards. \cite{UWBioEUniversity2021} In particular, the responsible authorities are Food and Drugs Administration (FDA) in the United State (USA) and European Commission (CE) in the European Union (EU). 
 The normative given by these authorities are necessary to guarantee safeness of the patient and a lower grade of risk for the patient who will use the specific medical device, considering for each one the trade off between risks and benefits, together with the ensure of efficiency of medical devices.
 
 \subsection{FDA}
@@ -295,9 +295,6 @@ The flow charts reported in Figure 1 and in Figure 2 reports how to proceed for 
 \end{figure}
 
 
-
-
-
 As it is possible to see from these flowcharts, biocompatibility evaluation is not necessary only if the device taken into consideration has not any direct or indirect contact with the body, or if it has the same properties of a similar well known device present in the market.
 Moreover, devices are subdivided into three categories based on the nature of contact with the body: surface-contacting medical devices, which only have an external contact with the body such as the one in contact with the skin, externally communicating devices and implanted medical devices, which are again subdivided into their tissue of contact.
 
@@ -308,8 +305,6 @@ Moreover, devices are subdivided into three categories based on the nature of co
     \caption{Table A part 1 in FDA guidance \cite{healthUseInternationalStandard2023}, biocompatibility evaluation endpoints}
 \end{figure}
 
-Figure 3: Table A part 1 in FDA guidance \cite{healthUseInternationalStandard2023}, biocompatibility evaluation endpoints.
-
 \begin{figure}[H]
 
 	\includegraphics[scale=0.3]{tab2_fda.png}
@@ -318,9 +313,7 @@ Figure 3: Table A part 1 in FDA guidance \cite{healthUseInternationalStandard202
     \caption{Table A part 2 in FDA guidance \cite{healthUseInternationalStandard2023}, biocompatibility evaluation endpoints.}
 \end{figure}
 
-Figure 4: Table A part 2 in FDA guidance \cite{healthUseInternationalStandard2023}, biocompatibility evaluation endpoints.
-
-The table in Figure 3 and in Figure 4 shows, bases on the category of the product and the tissue and duration of contact, which could the possible biological effect that should be considered for the approval of the specific device.
+The table in Figure 2.3 and in Figure 2.4 shows, bases on the category of the product and the tissue and duration of contact, which could the possible biological effect that should be considered for the approval of the specific device.
 Senseback could fall into the external communicating device category, with a long-term contact and tissue surface of contact, with relative biological effects reported in the table.  
 FDA suggests that this table should not be threated as a checklist for testing. Instead, some specific medical devices the reported effects could not be enough and other endpoints should be considered.
 For what concern cytotoxicity, the related ISO standard is 10993-5:2009 \cite{14:00-17:00ISO1099352009a}, a recent study \cite{gruberToxicNotToxic2023} has been conducted in order to verify whether this standard is clear enough to guarantee that devices development which have followed this standard are cytotoxicity safe. The conclusions report that different that this standard should be revised, because cytotoxicity tests performed by different companies with same standard cannot guarantee reliable and comparable results. This standard was last reviewed and confirmed in 2022. Therefore, this version remains current. 
@@ -328,7 +321,7 @@ UE regulations
 In UE the normative that regulate the medical devices approval are the 2017/745/UE \cite{RegolamentoUE20172017} which is relative to medical devices and 2017/746/UE \cite{RegolamentoUE20172017a}, which is relative to in vitro diagnostic. The first one is applied since 26, May 2021, the second one since 26, May 2022 \cite{MedicalDevicesEuropean}. 
 In these regulations, as before, devices are divided into classes of risks from the lowest, which is Class I to Class II-a and Class II-b to Class III, which is the highest one. The device classification follows similar step as in FDA evaluation, in fact some parameters are evaluated such as duration of contact, invasiveness, specific medical purpose and anatomical location \cite{PublicHealthEuropean2024} mcdg , it is up to the manufacturer to correctly classify the device according to the appropriate class of risk.
 As reported in the regulations, all implanted medical devices and long-term surgically invasive devices are classified as class IIb \cite{PublicHealthEuropean2024} mcdg . However, since Senseback is an active device, which means that needs a source of energy which is different from the body itself, it could fall into class III, the highest one.
-With the new normative UE 2023/607 \cite{RegolamentoUE20232023} the deadline for the manufacturers to adequate to 2017/745/UE and 2017/746/UE has been postponed based on the class of risk of the devices as shown in Figure 5
+With the new normative UE 2023/607 \cite{RegolamentoUE20232023} the deadline for the manufacturers to adequate to 2017/745/UE and 2017/746/UE has been postponed based on the class of risk of the devices as shown in Figure 2.5
 
 \begin{figure}[H]
 	\includegraphics[scale=0.3]{Ethics/Screenshot 2024-08-15 at 10.54.56.png}
@@ -336,9 +329,6 @@ With the new normative UE 2023/607 \cite{RegolamentoUE20232023} the deadline for
     \label{ethics_1}
     \caption{new date of application of normative (EU) 2017/745 and (EU) 2017/746 according to (EU) 2023/607 \cite{NewRevisedResource}}
 \end{figure}
-
-
-Figure 5: new date of application of normative (EU) 2017/745 and (EU) 2017/746 according to (EU) 2023/607 \cite{NewRevisedResource}
 
 \subsection{Medical software regulation}
 
@@ -354,7 +344,7 @@ In order to understand whether or not the software could be considered as a MDWS
 \end{figure}
 
 
-First step is to verify that the software under analysis fall under the definition of software in the regulations, as reported in \cite{PublicHealthEuropean2024} untitled , which states that “software” is defined as a set of instructions that processes input data and creates output data. Second step is to determine whether or not the software influences or drives the hardware device, if it does it could be classified as an accessory for the hardware medical device and as a consequence, be considered as a MDSW. If not, next steps need to verify which is the function for which the software is intended to be used, including whether or not the software provides an effective benefit to the patient. If it does and the software falls under the definition of MDSW in \cite{PublicHealthEuropean2024} untitled, which states that a MDSW is a software that is intended to be used, alone or in combination, for a purpose as specified in the definition of a “medical device” in the medical devices regulation or in vitro diagnostic medical devices regulation, than the software should be treated as a medical device and it is covered by the new MDR regulations.
+First step is to verify that the software under analysis fall under the definition of software in the regulations, as reported in \cite{PublicHealthEuropean2024}, which states that “software” is defined as a set of instructions that processes input data and creates output data. Second step is to determine whether or not the software influences or drives the hardware device, if it does it could be classified as an accessory for the hardware medical device and as a consequence, be considered as a MDSW. If not, next steps need to verify which is the function for which the software is intended to be used, including whether or not the software provides an effective benefit to the patient. If it does and the software falls under the definition of MDSW in \cite{PublicHealthEuropean2024}, which states that a MDSW is a software that is intended to be used, alone or in combination, for a purpose as specified in the definition of a “medical device” in the medical devices regulation or in vitro diagnostic medical devices regulation, than the software should be treated as a medical device and it is covered by the new MDR regulations.
 To sum up, a software is classified as a medical device if it satisfies the following characteristics: it should be independent, so it should have its own medical purpose, it can influence or drive the hardware medical device and it may be intended to be used by medical professionals. Note that a software can be classified ad a MDSW no matter the location intended for it.
 
 The rules to classify a MDSW are reported in Annex VII \cite{massimopANNEXVIII2019}. As it is reported in chapter II, a software which is stand alone and has not influence on the hardware medical device should be classified separately. If it is not, however, it should be classified considering the most critical specified use. I the software and the hardware have two different classes of risks, as a consequence, they both fall into the highest class.
@@ -466,7 +456,7 @@ Even if scientific and biomedical research is essential for the development of o
 Ethical implications should then be considered, especially in some setups like the one considered in this Master Thesis, which purpose is to have in close future an effective usage in vivo.
 In all of the steps, from the premarket ones and relative experimentations to the post market ones and relative surveillance, ethic should be taken as a monitor, in order to guarantee that not only the device in use is safe and effective, but also the development of it has been made respecting environment, the work ethic of people involved in, and the eventual animals used for the experimentation phase. To do that, research should be the as transparent as possible, by clearly explaining the goals and the intended benefits of the project, the methods and design of the study and which could be the possible risks. 
 When available the results of the study should be published, possibly even the experimental ones. This would contribute to the check of the results by other researchers, promoting the re-doability and consenting a critical evaluation of the work. In case of possible criticisms or questions coming from the scientific community, these should be answered, and corrective actions should be taken when necessary. The practicality of sharing the information on the project is essential in an ethical and responsible research. 
-Some of the principal ethical topics that should be considered are treated in detail below.
+Some of the principal ethical topics that should be considered in the context of PNrelay project are treated in detail below.
 
 
 \subsection{Animal welfare }
@@ -499,7 +489,7 @@ The concept of “Need” for research refers to whether or not there is proper 
 In order to make sure that ethical implications have correctly been monitored in the intended experiment, it is suggested to submit it to a careful revision from an ethical committee or institutional ones. 
 To sum up, needs of the research means carefully wondering about the scientific and ethical value of the project, making sure that these justify animal involvement. These precautions make sure that research is conducted in a responsible way and it is in line with the highest ethical standards.
 
-\subsection{Safety of the patient}
+\subsection{Safeness of the patient}
 
 
 The concept of safety of the patient is fundamental for guaranteeing that the iteration between the device implanted in the animal’s body and the external device happens in a safe way and it does not involve any risks for the animal's health.
@@ -549,12 +539,12 @@ To sum up, the concepts of surveillance and privacy regard the responsible manag
 
 Bluetooth is one of the main widely used wireless systems of communication. It is especially used in devices, such as headphones, which can easily be recharged without complications. However, this is not the case for applications such as microcontrollers, where the recharging process is not so immediate and high-speed communication is unnecessary. 
 
-Because of this, since Bluetooth version 4.0, Bluetooth Low Energy (BLE) has been introduced \cite{nordic1}. Using Bluetooth Low Energy instead of Bluetooth means sacrificing some amount of communication speed to save power consumption. The data rate reduction is achieved through two modifications: firstly, the payload in each packet is reduced from 1021 bytes in standard Bluetooth to 255 bytes in BLE. Secondly, data is sent as infrequently as possible to minimize the connection time, which significantly impacts power consumption. The main characteristics of BLE are shown in Figure~\ref{ble_char}.
+Because of this Bluetooth version 4.0, Bluetooth Low Energy (BLE) has been introduced. Using Bluetooth Low Energy instead of Bluetooth means sacrificing some amount of communication speed to save power consumption. The data rate reduction is achieved through two modifications: firstly, the payload in each packet is reduced from 1021 bytes in standard Bluetooth to 255 bytes in BLE. Secondly, data is sent as infrequently as possible to minimize the connection time, which significantly impacts power consumption. The main characteristics of BLE are shown in Figure~\ref{ble_char}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{Bluetooth Low Energy/Screenshot 2024-08-15 at 23.25.43.png}
-    \caption{BLE main characteristics.}
+    \caption{BLE main characteristics. \cite{WhatBluetooth}}
     \label{ble_char}
 \end{figure}
 
@@ -590,13 +580,15 @@ The Logical Link Control and Adaptation Layer Protocol (L2CAP) multiplexes data 
 \subsubsection{Security Manager (SM)}
 The Security Manager (SM) is responsible for security-related functions such as encryption, pairing, and key exchange after a connection has been established.
 
-\subsection{ATT and GATT}
+\subsubsection{ATT and GATT}
+
+Once data transmission on physical level has been explained, let's focus on how they are managed at logical level through ATT and GATT protocols.
 The Attribute Protocol (ATT) defines the structure and exchange of BLE packets. It serves as an interface between peripheral and central devices, allowing them to share necessary characteristics. The Generic Attribute Profile (GATT) organizes this structure as shown in Figure~\ref{gatt_model}. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{Bluetooth Low Energy/Screenshot 2024-08-15 at 23.26.01.png}
-    \caption{GATT abstraction model}
+    \caption{GATT abstraction model \cite{ATTGATTData}}
     \label{gatt_model}
 \end{figure}
 
@@ -614,11 +606,50 @@ A profile consists of services, which are collections of characteristics. Charac
 The Generic Access Profile (GAP) defines the roles of each device and manages advertisement, security, and connection establishment. Roles depend on the specific application. For connection-oriented communication, the roles are central (scanning and initiating the connection) and peripheral (advertising and accepting the connection). For broadcast communication, the roles are broadcaster (sending advertising packets) and observer (listening to packets). Some devices may operate in multiple roles simultaneously, known as multi-role, for example, receiving data from a sensor while also sending data.
 
 
+\section{Security in Bluetooth Low Energy}
+
+Bluetooth Low Energy, as well as all wireless technologies, is potentially exposed to possible attacks, such as sniffing or jamming. When discussing wireless communications, a hacker does not necessarily need to manage the physical device to control it. These attacks could potentially damage the safety of data transfer or the privacy of the patient since the intended device has a medical purpose and the data transferred could be sensitive. Moreover, medical devices require a minimum level of security to obtain pre-market approval.
+
+The paper published in the Elsevier journal \cite{caesar2022survey} provides a brief explanation of the security features related to the specific intended Bluetooth Low Energy version. These can be summarized in the Table below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/1.png}
+    \caption{Bluetooth security table \cite{casarSurveyBluetoothLow2022}}
+    \label{bluetooth_sec_1}
+\end{figure}
+
+As seen in Table \ref{bluetooth_sec_1}, security in BLE is organized into modes and levels to distinguish between different security features. Developers can choose to implement a specific mode based on the purpose of the intended application and the features needed. In particular, mode 1 refers to the decision of device pairing, mode 2 is based on the verification of the authenticity of the data exchanged, and mode 3 is intended for broadcast applications which might need encryption or other features to protect data transfer.
+
+\subsection{Pairing}
+
+The pairing procedure involves the agreement of keys between the devices involved in the connection, to enable the encryption of exchanged data. This procedure is required for all security modes and levels, as shown in Table~\ref{bluetooth_sec_2}, except for Mode 1 Level 1 and Mode 3 Level 1, which provide no security features at all. The pairing procedure is shown in detail below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/2.png}
+    \caption{Bluetooth pairing table \cite{casarSurveyBluetoothLow2022}}
+    \label{bluetooth_sec_2}
+\end{figure}
+
+As shown in the figure, the pairing procedure consists of two different phases. The first phase is responsible for exchanging features related to security, such as the association modes, whether or not Man-In-The-Middle (MITM) protection is required, and the input/output capabilities of both devices to agree on the security level and mode to establish. Additionally, during this phase, the devices exchange possible bonding requests, which will be explained in detail later in this section. Once phase 1 is complete, phase 2 occurs, where the actual exchange of keys happens. These keys will be used to encrypt the connection in the future.
+
+Based on the information exchanged in phase 1, the mode of pairing is chosen. As shown in Figure 4.12, these modes could be different. Specifically, the lowest security value is provided by the “Just Works” method, where no authentication method is required. This can be used in applications where at least one of the devices has neither input nor output capabilities. When possible, this method should be avoided in favor of one that guarantees a higher level of security. When the “Just Works” method is chosen, the Temporary Key (TK) is set to 0, and the user is simply asked to accept the connection, as reported in \cite{nordic_academy}. When the Passkey method is selected, it indicates that all devices involved in the connection have at least one input/output capability, and the connection is authenticated. The specific authentication method varies based on the intended application. For example, if one device has only input capabilities and the other only output, the user may be required to enter the password displayed on the first device into the second device. Another example is when both devices have only input capabilities; in this case, the user may need to enter the same password on both devices. These methods of authentication are called “Passkey Entry” and require at least one of the devices to have keyboard capabilities. Another method is “Numeric Comparison,” which requires only output capabilities. Both devices display a password, and the user must confirm that these are equal on both devices. For both methods, the password is 6 digits long. The last method, “Out of Band,” requires another communication method like NFC to exchange the password, which is 128 digits long in this case. To summarize, Figure 3.13 shows a recap of the pairing authentication methods based on the input/output capabilities of the devices involved. The password exchanged in phase 1 is known as TK (Temporary Key).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{Bluetooth_Security/3.png}
+    \caption{Bluetooth pairing table \cite{PairingProcess}}
+    \label{bluetooth_sec_3}
+\end{figure}
+
+The actual authentication, however, is done at a lower level. As shown in Figure~\ref{pairing_procedure}, both devices generate a random value: \texttt{LP\_RAND\_R} for the peripheral and \texttt{LP\_RAND\_I} for the central device. These values, together with the information exchanged in phase 1 and the TK, generate the confirmation values \texttt{LP\_CONFIRM\_I} and \texttt{LP\_CONFIRM\_R}. Once the exchange of these two confirmation values is performed, their reliability is checked by exchanging the previously generated random values \texttt{LP\_RAND\_I} and \texttt{LP\_RAND\_R}. If the check is successful, the two random values, along with the TK, are used to generate the Short-Term Key (STK). The pairing procedure then ends, and the last computed value STK will be used in future procedures to encrypt the connection.
+
 \section{Communication system}
 
 \subsection{Previous code implementation}
 
-As show in the introduction, Senseback is an implanted device which communicates with an external unit through Bluetooth Low Energy. The starting point for the firmware code of this communication was previously developed [Chiara Master Thesis]. This master thesis purposes improvement and additional features on the previous code, which presents some limitations.
+As show in the introduction, Senseback is an implanted device which communicates with an external unit through Bluetooth Low Energy. The starting point for the firmware code of this communication was previously developed by Chiara Quartana during her Master Thesis for PNRelay. Our master thesis purposes improvement and additional features on the previous code, which presents some limitations.
 
 \begin{figure}[H]
 	\includegraphics[scale=0.3]{prev1.png}
@@ -661,7 +692,7 @@ The offline test script uses a callback function to handle data reception. It us
 	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 10.59.58.png}
 	\centering
     \label{prev_3}
-    \caption{Matlab scripts}
+    \caption{Offline transmitter code}
 \end{figure}
 
 
@@ -723,7 +754,7 @@ This function oversees the data transmission process and calculates the transmit
 
 If both conditions are satisfied, the length of the new packet to be sent, stored in the \texttt{length} variable, is updated to \texttt{txSize - txRdPtr}. This data of this length is then sent via the \texttt{ble\_nus\_data\_send} function and \texttt{err\_code} is updated accordingly. If \texttt{ble\_nus\_data\_send} completes successfully without errors, \texttt{txRdPtr} is incremented by the size of \texttt{length}, and the \texttt{data\_sent} variable, which tracks the total bytes sent to the central device, is also increased by \texttt{length}. 
 
-Next, the function checks if the transmission has reached the end by verifying if the last two bytes sent are both 255. Since 255 is the maximum value representable with 8 bits, this check ensures the last \texttt{uint16\_t} variable in the ring buffer \texttt{uartRx} (set to 65535 in \texttt{timer1\_handler} function) has been sent. If true, the total elapsed time is calculated by converting the timer ticks of \texttt{timer2} to milliseconds. The throughput is then calculated using the formula: throughput=number of bits senttotal time elapsed
+Next, the function checks if the transmission has reached the end by verifying if the last two bytes sent are both 255. Since 255 is the maximum value representable with 8 bits, this check ensures the last \texttt{uint16\_t} variable in the ring buffer \texttt{uartRx} (set to 65535 in \texttt{timer1\_handler} function) has been sent. If true, the total elapsed time is calculated by converting the timer ticks of \texttt{timer2} to milliseconds. The throughput is then calculated.
 \[
 \text{throughput} = \frac{\text{data\_sent} \times 8}{\text{total\_elapsed\_time}}
 \]
@@ -739,12 +770,12 @@ All relevant values, including the number of waits, are logged. If \texttt{ble\_
 	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.00.56.png}
 	\centering
     \label{prev_4}
-    \caption{Package structure}
+    \caption{Package structure \cite{afanehBluetoothSpeedHow2023}}
 \end{figure}
 
 Once this value is updated, the desired values for ATT MTU of the central and peripheral devices are logged to allow the user to check whether they are the same, ensuring that both devices agree on the maximum achievable value.
 
-\textbf{Services Init}: this function is used to initialize all the services which will be used in the application. For the intended purposes, the services that are initialized are two: Queued Write Module (qwr) and NUS module. The qwr module handles prepare write, execute write, and cancel write commands. It also manages memory requests related to these operations (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__nrf__ble__qwr.html}{link}). The NUS module is a custom Bluetooth Low Energy (BLE) service designed to emulate a UART (Universal Asynchronous Receiver/Transmitter) over BLE. This allows devices to communicate wirelessly in a manner similar to serial communication over a wired connection (\href{https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v15.0.0%2Fgroup__ble__nus__c.html}{link}).
+\textbf{Services Init}: this function is used to initialize all the services which will be used in the application. For the intended purposes, the services that are initialized are two: Queued Write Module (qwr) and NUS module. The qwr module handles prepare write, execute write, and cancel write commands. It also manages memory requests related to these operations. The NUS module is a custom Bluetooth Low Energy (BLE) service designed to emulate a UART (Universal Asynchronous Receiver/Transmitter) over BLE. This allows devices to communicate wirelessly in a manner similar to serial communication over a wired connection.
 
 \textbf{NUS Data Handler}: this function manages the start, stop, and reset occurrences of the BLE communication by checking the command received from the central device. The function starts with an \texttt{if} condition, which checks whether a command is received by the peripheral device via NUS. If this is the case, the value of the received string is saved into the variable \texttt{dongle\_command}. Then, the actual value of the string is checked. If the received string through \texttt{ble\_nus} is equal to START, this means that the user has sent the command to begin communication. Consequently, the boolean variable \texttt{transmission} is set to \texttt{true}, indicating that transmission should start, \texttt{timer1} is enabled, and \texttt{timer2} is reset. In this way, data generation starts, and it is ensured that the total time elapsed counter starts from 0. If instead, the command received is equal to RESET, then the \texttt{CNT} variable is set to 0, meaning that data generation is reset to the beginning. Finally, if the received command is equal to STOP, then \texttt{timer1} is disabled. By stopping the data generation, no more data will be available for transmission, and the whole process of data sending will stop.
 
@@ -795,7 +826,7 @@ Ultimately, the event handler function for advertising events is set, which will
 	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.01.10.png}
 	\centering
     \label{prev_5}
-    \caption{Previous implementations commands}
+    \caption{Offline Receiver Code}
 \end{figure}
 
 \subsection*{Offline Receiver Code}
@@ -862,10 +893,8 @@ After initializing BLE scanning, filters are configured and enabled. The scannin
 	\includegraphics[scale=0.3]{Previous Implementation/Screenshot 2024-08-15 at 11.01.21.png}
 	\centering
     \label{prev_6}
-    \caption{Communication system}
+    \caption{Online transmitter code}
 \end{figure}
-
-Figure 6: flow chart implant code online - previous implementation
 
 \subsection{Online transmitter code}
 
@@ -894,7 +923,7 @@ Two functions added to the online receiver code that are not in the offline vers
     \label{prev_7}
 \end{figure}
 
-\subsection*{Online Receiver Code}
+\subsection{Online Receiver Code}
 For the online receiver code, the flow chart mirrors Figure 5. However, some functions have minor differences to accommodate the online test's different behavior:
 \begin{itemize}
     \item \texttt{Uart event handle}: Similar to the offline receiver case, but the received UART command is stored and checked locally. If it matches \texttt{"STOP\textbackslash n"}
@@ -902,7 +931,7 @@ For the online receiver code, the flow chart mirrors Figure 5. However, some fun
     \item \texttt{Ble nus c evt handler}: Similar to the offline case, with an additional condition to check the end of transmission. Besides checking the last two values being 255, it verifies \texttt{end\_transmission} is true. This ensures the receiver recognizes the last two 255 values after the user enters the STOP command, concluding data reception.
 \end{itemize}
 
-\subsection*{Sniffer Code}
+\subsection{Sniffer Code}
 The sniffer provides real-time monitoring of transmission parameters such as PHY, ATT MTU, and protocol, and also tracks the number of retransmissions during tests. To utilize it:
 \begin{itemize}
     \item A software tool is needed, available for the nRF52840 dongle when in debug mode. Specifically, \texttt{sniffer\_nrf52840dongle\_nrf52840\_4.1.1.hex} is used.
@@ -910,45 +939,6 @@ The sniffer provides real-time monitoring of transmission parameters such as PHY
     \item Once the sniffer is connected to the PC in debug mode, the code can be executed, enabling it to function with Wireshark for analysis.
 \end{itemize}
 
-
-\section{Security in Bluetooth Low Energy}
-
-Bluetooth Low Energy, as well as all wireless technologies, is potentially exposed to possible attacks, such as sniffing or jamming. When discussing wireless communications, a hacker does not necessarily need to manage the physical device to control it. These attacks could potentially damage the safety of data transfer or the privacy of the patient since the intended device has a medical purpose and the data transferred could be sensitive. Moreover, medical devices require a minimum level of security to obtain pre-market approval, as explained in section \ref{legal-section}.
-
-The paper published in the Elsevier journal \cite{caesar2022survey} provides a brief explanation of the security features related to the specific intended Bluetooth Low Energy version. These can be summarized in Table \ref{table:ble-security}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/1.png}
-    \caption{Bluetooth security table}
-    \label{bluetooth_sec_1}
-\end{figure}
-
-As seen in Table \ref{table:ble-security}, security in BLE is organized into modes and levels to distinguish between different security features. Developers can choose to implement a specific mode based on the purpose of the intended application and the features needed. In particular, mode 1 refers to the decision of device pairing \cite{circuits2021}, mode 2 is based on the verification of the authenticity of the data exchanged, and mode 3 is intended for broadcast applications which might need encryption or other features to protect data transfer.
-
-\subsection{Pairing}
-
-The pairing procedure involves the agreement of keys between the devices involved in the connection, to enable the encryption of exchanged data. This procedure is required for all security modes and levels, as shown in Table~\ref{tab:security_modes}, except for Mode 1 Level 1 and Mode 3 Level 1, which provide no security features at all. The pairing procedure is shown in detail in Figure~\ref{pairing_procedure}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/2.png}
-    \caption{Bluetooth pairing table}
-    \label{bluetooth_sec_2}
-\end{figure}
-
-As shown in the figure, the pairing procedure consists of two different phases. The first phase is responsible for exchanging features related to security, such as the association modes, whether or not Man-In-The-Middle (MITM) protection is required, and the input/output capabilities of both devices to agree on the security level and mode to establish. Additionally, during this phase, the devices exchange possible bonding requests, which will be explained in detail later in this section. Once phase 1 is complete, phase 2 occurs, where the actual exchange of keys happens. These keys will be used to encrypt the connection in the future.
-
-Based on the information exchanged in phase 1, the mode of pairing is chosen. As shown in Figure~\ref{pairing_procedure}, these modes could be different. Specifically, the lowest security value is provided by the “Just Works” method, where no authentication method is required. This can be used in applications where at least one of the devices has neither input nor output capabilities. When possible, this method should be avoided in favor of one that guarantees a higher level of security. When the “Just Works” method is chosen, the Temporary Key (TK) is set to 0, and the user is simply asked to accept the connection, as reported in \cite{nordic_academy}. When the Passkey method is selected, it indicates that all devices involved in the connection have at least one input/output capability, and the connection is authenticated. The specific authentication method varies based on the intended application. For example, if one device has only input capabilities and the other only output, the user may be required to enter the password displayed on the first device into the second device. Another example is when both devices have only input capabilities; in this case, the user may need to enter the same password on both devices. These methods of authentication are called “Passkey Entry” and require at least one of the devices to have keyboard capabilities. Another method is “Numeric Comparison,” which requires only output capabilities. Both devices display a password, and the user must confirm that these are equal on both devices. For both methods, the password is 6 digits long. The last method, “Out of Band,” requires another communication method like NFC to exchange the password, which is 128 digits long in this case. To summarize, Figure~\ref{authentication_methods} shows a recap of the pairing authentication methods based on the input/output capabilities of the devices involved. The password exchanged in phase 1 is known as TK (Temporary Key).
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{Bluetooth_Security/3.png}
-    \caption{Bluetooth pairing table}
-    \label{bluetooth_sec_3}
-\end{figure}
-
-The actual authentication, however, is done at a lower level. As shown in Figure~\ref{pairing_procedure}, both devices generate a random value: \texttt{LP\_RAND\_R} for the peripheral and \texttt{LP\_RAND\_I} for the central device. These values, together with the information exchanged in phase 1 and the TK, generate the confirmation values \texttt{LP\_CONFIRM\_I} and \texttt{LP\_CONFIRM\_R}. Once the exchange of these two confirmation values is performed, their reliability is checked by exchanging the previously generated random values \texttt{LP\_RAND\_I} and \texttt{LP\_RAND\_R}. If the check is successful, the two random values, along with the TK, are used to generate the Short-Term Key (STK). The pairing procedure then ends, and the last computed value STK will be used in future procedures to encrypt the connection.
 
 \subsection{Bonding}
 
@@ -970,42 +960,42 @@ For these reasons, legacy pairing has become obsolete, and LE-SC should be prefe
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Bluetooth_Security/5.png}
-    \caption{Bluetooth legacy table}
+    \caption{Bluetooth LESC table \cite{PairingProcess}}
     \label{bluetooth_sec_5}
 \end{figure}
 
-Figure \ref{LE-SC_pairing} shows the pairing procedure for a Low Energy Secure Connection. As illustrated, the procedure consists of two distinct phases. The first phase is almost equivalent to Phase 1 in the legacy pairing process, with one notable difference: a flag is added to indicate whether the devices are capable of performing the LE-SC procedure, as indicated in the pairing response. 
+Figure 3.15 shows the pairing procedure for a Low Energy Secure Connection. As illustrated, the procedure consists of two distinct phases. The first phase is almost equivalent to Phase 1 in the legacy pairing process, with one notable difference: a flag is added to indicate whether the devices are capable of performing the LE-SC procedure, as indicated in the pairing response. 
 
 Phase 2 is divided into two stages. The first stage begins when both devices generate a random private key (Ska or Skb) and a public key (Pka and Pkb). The public keys are exchanged, and a common key (DHKEY) is computed from these values. The subsequent steps depend on the chosen association mode. Specifically, LE-SC supports three different association modes: Just Works, Numeric Comparison, Passkey Entry, and Out of Band.
 
-\textbf{Just Works} is the association mode that offers the lowest level of security, as no authentication is required, even though LE-SC makes this mode more secure. This mode does not protect against man-in-the-middle (MITM) attacks. Both Just Works and Numeric Comparison association modes are depicted in Figure \ref{JustWorks_NumericComparison}.
+\textbf{Just Works} is the association mode that offers the lowest level of security, as no authentication is required, even though LE-SC makes this mode more secure. This mode does not protect against man-in-the-middle (MITM) attacks. Both Just Works and Numeric Comparison association modes are depicted in Figure 3.16.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Bluetooth_Security/6.png}
-    \caption{Bluetooth legacy table}
+    \caption{Bluetooth legacy table \cite{casarSurveyBluetoothLow2022}}
     \label{bluetooth_sec_6}
 \end{figure}
 
 The procedures start when peripheral and central devices generate random numbers (Na and Nb). Once this step is complete, the central device generates a new value Cb, based on the previously generated values Pkax and Pkbx along with the new value Nb. This value Cb is then sent to the peripheral device. Both devices share their generated random values Na and Nb, allowing the peripheral device to verify the correctness of the received value Cb. If Cb is incorrect, the procedure is aborted, which can happen if values Pkax, Pkbx, or Nb change during the exchange, such as during a hacker attack. If the Just Works procedure is chosen, the association process ends at this stage. If Numeric Comparison is chosen, both devices display a random 6-digit number (Va and Vb), and the user must confirm that the numbers are identical. Numeric Comparison introduces additional protection against MITM attacks, ensuring that none of the random numbers have been altered.
 
-Another association mode supported by LE-SC is the Passkey Entry, detailed in Figure \ref{PasskeyEntry}.
+Another association mode supported by LE-SC is the Passkey Entry, detailed in Figure 3.17.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Bluetooth_Security/7.png}
-    \caption{Bluetooth legacy table}
+    \caption{Passkey entry \cite{casarSurveyBluetoothLow2022}}
     \label{bluetooth_sec_7}
 \end{figure}
 
 The Passkey Entry procedure requires that at least one of the devices has keyboard capabilities. Depending on whether one or both devices have input capabilities, the procedure may vary slightly. Specifically, the user may be asked to enter the same value on both devices, or a randomly generated value may be displayed on one device, which must then be entered into the other device. This process is repeated for each bit of the password. Each iteration generates a commitment value Cb, based on the ECDH values Pkax and Pkbx, along with the random values Na and Nb and the last bit of the password (ra and rb). To prevent MITM attacks, the central device shares its random value Na with the peripheral device to verify its commitment value Ca, and this step is repeated with roles reversed. If a mismatch occurs, the procedure is aborted. If no errors occur, LTK and MACkey are generated. A MITM attacker would need to alter each bit of the password for each iteration, which is mitigated by the high length of Na and Nb values. Following Bluetooth SIG requirements, each password is used only once, preventing reuse attacks. The values Pkax and Pkbx are included in the commitment value to prevent separate ECDH exchanges and password entries by a potential attacker.
 
-The final association mode supported by LE-SC is Out of Band (OOB), as shown in Figure \ref{OutOfBand}.
+The final association mode supported by LE-SC is Out of Band (OOB), as shown in Figure 3.18.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Bluetooth_Security/8.png}
-    \caption{Bluetooth legacy table}
+    \caption{Bluetooth legacy table \cite{casarSurveyBluetoothLow2022}}
     \label{bluetooth_sec_8}
 \end{figure}
 
@@ -1016,12 +1006,12 @@ When switching roles, if a mismatch occurs, the procedure is immediately aborted
 
 \subsection{Encryption}
 
-Once the pairing procedure concludes, the devices have generated the LTK or STK, depending on the procedure chosen and whether bonding is enabled. These keys are used to encrypt the connection. The encryption procedure is shown in Figure \ref{encryption_procedure}.
+Once the pairing procedure concludes, the devices have generated the LTK or STK, depending on the procedure chosen and whether bonding is enabled. These keys are used to encrypt the connection. The encryption procedure is shown in Figure \ref{bluetooth_sec_9}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Bluetooth_Security/9.png}
-    \caption{Bluetooth legacy table}
+    \caption{Encryption \cite{casarSurveyBluetoothLow2022}}
     \label{bluetooth_sec_9}
 \end{figure}
 
@@ -1033,11 +1023,11 @@ Both devices then generate and share two random numbers, each 128 bits long: \( 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{Bluetooth_Security/10.png}
-    \caption{Bluetooth encryption table}
+    \caption{BLE packet structure \cite{afanehBluetoothSpeedHow2023}}
     \label{bluetooth_sec_10}
 \end{figure}
 
-The encryption process begins by adding a message integrity check (MIC) field to the BLE packet, as shown in Figure \ref{MIC_field}. The MIC field is 4 bytes long. Encryption is applied to the PDU and the MIC field. As illustrated in Figure \ref{MIC_field}, not the entire BLE packet is encrypted; only the payload and MIC field are encrypted, as they may contain sensitive data. The remaining parts, including headers, remain unencrypted. The unencrypted portions of the BLE packet contain minimal, generally non-sensitive information.
+The encryption process begins by adding a message integrity check (MIC) field to the BLE packet, as shown in Figure 3.20. The MIC field is 4 bytes long. Encryption is applied to the PDU and the MIC field. As illustrated in Figure 3.20, not the entire BLE packet is encrypted; only the payload and MIC field are encrypted, as they may contain sensitive data. The remaining parts, including headers, remain unencrypted. The unencrypted portions of the BLE packet contain minimal, generally non-sensitive information.
 
 \subsection{Man-in-the-Middle Attack}
 
@@ -1045,7 +1035,7 @@ The implementation of security measures aims to protect against man-in-the-middl
 
 \subsection{Modes 2 and 3}
 
-Modes 2 and 3 offer different security features in Bluetooth Low Energy. Mode 2 is based on connection-based data signing, which ensures that data remains intact and reliable throughout the process. This is achieved by generating a unique identifier (starting from CSRK) for each sent packet. This procedure ensures that data has not been altered during transit and that the data is authenticated, meaning it originates from the expected device. As shown in Table \ref{tab:security_modes}, Mode 2 is divided into two levels:
+Modes 2 and 3 offer different security features in Bluetooth Low Energy. Mode 2 is based on connection-based data signing, which ensures that data remains intact and reliable throughout the process. This is achieved by generating a unique identifier (starting from CSRK) for each sent packet. This procedure ensures that data has not been altered during transit and that the data is authenticated, meaning it originates from the expected device. As shown in Table 3.11, Mode 2 is divided into two levels:
 
 \begin{itemize}
     \item \textbf{Level 1}: Provides no data authentication. Pairing is performed without the need for input/output capabilities, typically using the Just Works association mode, with no MITM protection.
@@ -1068,201 +1058,7 @@ Mode 3 is used in broadcast connections requiring encryption and is divided into
 \end{itemize}
 
 
-\section{ENGNet: advantages and shortcomings}
-
-Given the structure of the project there is the need of a fast, computationally efficient model that can boast good performance on classification of ENG signals.
-In particular we need this model to classify the electroneurography signal sent from the board to the computer in different classes that correspond to different movements.
-Because of this, as we said, there is a strong need for both speed of classification, since we don't want excessive delay between the firing of the neurons and the transmission to the area of stimulation, but we also need accuracy since a movement different from the one that has been transmitted by the firing of the neurons would compromise the result of the project as a whole.
-
-A first promising model called EEGNet was introduced by \cite{lawhernEEGNetCompactConvolutional2018} for the classification of EEG singals, it presents a tailored variant of CNNs aimed at Brain-Computer Interface (BCI) applications. Its primary advantage lies in its compact architecture, boasting fewer parameters compared to traditional CNNs. This efficiency renders EEGNet well-suited for the processing of EEG signals, facilitating improved performance in BCI tasks while simultaneously reducing computational complexity. \cite{tesiDavide}
-Starting from this model previous work by Davide Gottardello in the PRelay project developed a newer model in order to classify ENG Data called ENGNet.
-In this section we will describe this model and outline the most relevant features along with the advantages and shortcomings.
-As we will show in Chapter 4, ENGNet was the model we used to verify the performance of our channel selection algorithms and as such, understanding its functioning and performance was a key aspect of our work.
-In particular, at the beginning of our work of research, we spent some time setting up on our machines the same testing conditions such as the same dataset and code, this not only allowed us to gain familiarity with the architecture of the model and previous code but also gave us the possibility of verifying all previous results and benchmarks in order to acquire data to compare our own work to. 
-
-\subsection{ENGNet architecture}
-
-The principal parameter to modify in EEGNet architecture to create an ENGNet is the kernel length, which plays a crucial role in shaping the network’s feature extraction capabilities. \cite{tesiDavide}
-A kernel length of 100 samples, which translates to a sequence of 20 ms at a 5 kHz sampling rate, could be a compromise between kernel length and the ability to capture ENG signal characteristics effectively. Hence, kernel lengths of 10, 20, and 30 ms are investigated in this study which correspond to different values for the kernel length (denoted as kernLength) which means 50, 100 and 150 samples \cite{tesiDavide}.
-All the layers after the first one are therefore scaled to maintain the proportions proposed in the EEGNet model.
-
-
-The architecture consists of two convolutional steps: first, 2D convolutional filters are used to capture EEG signals across different band-pass frequencies, followed by depthwise convolutions that learn spatial filters for each temporal filter. Additionally, separable convolutions are employed to minimize the number of parameters while effectively combining the feature maps. In the classification block, softmax classification is applied directly to the extracted features, bypassing the need for a dense layer, which further reduces the model's parameter count. \cite{tesiDavide}
-
-
-\begin{figure}[H]
-	\includegraphics[scale=0.3]{engNet_params.png}
-	\centering
-    \label{engNet_params_1}
-    \caption{ENGNet parameters \cite{tesiDavide}}
-\end{figure}
-
-The number of parameters in a neural network is strictly related to the performance metrics of the network.
-Given too many parameters a model will inevitably overfit to the training test and will therefore poorly generalize on the validation and test portion of the data. Conversely, too few parameters will make the model unable to learn effectively the classification required for the task at hand.
-There is plenty of tools to overcome these kind of issues when training a model, given that is one of the most prominent issues when dealing with neural networks performances, such as tweaking the learning rate or adding dropouts layers in the architecture of the model in order to discard some of the parameters.
-Clearly, reducing the number of parameters, not only reduces the chances of overfitting but also decreases training and inference time.
-Let us now delve deeper into the actual architecture.
-The configuration for block 1 is as follows:
-\begin{itemize}
-\item Conv2D layer: Conv2D(, (1, kernLength), input shape=(Chans, Samples, 1))
-\item AveragePooling2D layer: AveragePooling2D((1, kernLength//10))
-\end{itemize}
-
-Here, F1 represents the number of 2D convolutional filters (F1 = 16), Chans is the number of channels in the EEG signals (Chans = 16), and Samples is the length of the ENG samples. The Conv2D layer uses the kernel length to create a 2D convolutional filter with height 1 and width equal to kernLength. The AveragePooling2D layer reduces the spatial dimensions of the feature maps by performing average pooling with a pool size of (1, kernLength//10). \cite{tesiDavide}
-
-For block 2, the configuration is as follows:
-\begin{itemize}
-\item SeparableConv2D layer: SeparableConv2D(F2, (1, kernLength//4))
-\item AveragePooling2D layer: AveragePooling2D((1, kernLength//25))
-\end{itemize}
-
-In block 2, the SeparableConv2D layer is used with a kernel size of (1, kernLength//4) and F2 = 32 to conduct depthwise separable convolution. This layer effectively reduces the number of parameters while preserving feature extraction capabilities.
-
-\begin{figure}[H]
-	\includegraphics[scale=0.4]{engNet_arch.png}
-	\centering
-    \label{engNet_params_2}
-    \caption{ENGNet architectures \cite{tesiDavide}}
-\end{figure}
-
-Presented here are the layers present in the ENGNet model to outline what each layer does, where where KL = Kernel length, C = number of channels, T = number of time points, F1 = number of temporal filters, D = depth multiplier (number of spatial filters), F2 = number of pointwise filters, and N = number of classes, respectively.
-
-
-\begin{figure}[H]
-	\includegraphics[scale=0.25]{engNet_layers.png}
-	\centering
-    \label{engNet_params_3}
-    \caption{ENGNet layers \cite{tesiDavide}}
-\end{figure}
-
-\subsection{Classification performance metrics}
-
-\textbf{Accuracy} \quad This measures the proportion of correctly classified examples in the dataset. It is calculated as:
-
-\begin{equation}
-\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} \quad (3.21)
-\end{equation}
-
-\textbf{F1-Score} \quad The F1 score is a widely used metric in machine learning and statistics for evaluating the performance of a classification model. It provides a single measure that balances both the precision and recall of the model, making it particularly useful when dealing with imbalanced datasets where one class may significantly outnumber the others.
-It combines precision and recall to offer a balanced evaluation of a model’s performance.
-The F1 score is the harmonic mean of precision and recall. Unlike the arithmetic mean, the harmonic mean tends to give more weight to lower values. As a result, the F1 score will only be high if both precision and recall are high, making it a balanced measure even in situations where the two metrics differ significantly.
-The use of F1-Score is relevant when:
-\begin{itemize}
-    \item Imbalanced Datasets: When dealing with datasets where one class is much more frequent than others, accuracy can be misleading because the model might simply predict the majority class all the time and still achieve high accuracy. The F1 score, by considering both precision and recall, provides a more informative metric that reflects how well the model is performing across all classes.
-    \item Trade-off Between Precision and Recall: In many applications, there's a need to balance precision and recall. For example, in medical diagnosis, you want to maximize recall to ensure all true cases are identified, but you also want to maintain high precision to avoid false positives. The F1 score helps in evaluating this trade-off.
-\end{itemize}
-While the negatives for its use are that:
-\begin{itemize}
-    \item No Consideration of True Negatives: The F1 score does not take true negatives into account, which can be a limitation in some contexts. For instance, in cases where the correct identification of negative cases is crucial, other metrics like the Matthews correlation coefficient (MCC) might be more appropriate.
-    \item Sensitivity to Class Distribution: The F1 score might not always give a full picture in cases where class distribution is extremely skewed, as it only focuses on the positive class.
-\end{itemize}
-F1-Score is computed as:
-
-\begin{equation}
-F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \quad (3.22)
-\end{equation}
-
-where:
-
-\begin{equation}
-\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
-\end{equation}
-
-Precision being a measure of how accurate the positive predictions made by a model are. In other words, it tells us the proportion of correctly predicted positive instances out of all instances that were predicted as positive.
-
-Precision focuses on the quality of the positive predictions made by the model, asking, "Of all the instances predicted as positive, how many are actually positive?"
-
-\begin{equation}
-\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
-\end{equation}
-
-Recall (also known as sensitivity or true positive rate) measuring the model's ability to correctly identify all actual positive instances. It indicates the proportion of actual positives that were correctly classified by the model.
-Recall focuses on the completeness of the model's positive predictions, asking, "Of all the actual positive instances, how many did the model correctly identify?"
-
-The two above metrics often have a trade-off relationship. For example, a model can achieve high recall by predicting more instances as positive, but this may reduce precision if many of these predictions are incorrect. Conversely, a model can achieve high precision by being very selective in its positive predictions, but this may reduce recall if it misses many actual positive instances.
-
-\textbf{Confusion Matrix} \quad A confusion matrix is a table used to evaluate the performance of a classification model, particularly in cases where there are two or more classes. It provides a detailed breakdown of the model’s predictions, comparing the actual (true) labels with the predicted labels. This matrix helps in understanding not only the accuracy of the model but also where it is making mistakes.
-
-
-
-\begin{table}[H]
-\centering
-\caption*{Table 3.1: Confusion Matrix for two classes (Positive and Negative). Predicted refers to the output label from the classifier, while the Actual label is the true label associated to the data.}
-\begin{tabular}{|c|c|c|}
-\hline
- & \textbf{Predicted Positive} & \textbf{Predicted Negative} \\
-\hline
-\textbf{Actual Positive} & TP & FN \\
-\hline
-\textbf{Actual Negative} & FP & TN \\
-\hline
-\end{tabular}
-\end{table}
-
-In a confusion matrix with multiple classes, precision, recall, and the F1-score can be computed for each individual class. Precision for a given class is determined by the ratio of true positives for that class to the total number of instances predicted as that class, including both true positives and false positives. In other words, it is calculated as the number of true positives divided by the sum of true positives and false positives for that specific class. \cite{tesiDavide}
-
-\begin{equation}
-	\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
-	\end{equation}
-	
-	\begin{equation}
-	\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
-	\end{equation}
-
-By calculating these metrics for each class, one gains insights into the model’s performance for individual categories, allowing a more nuanced evaluation of classification effectiveness.
-
-\subsection{ENGNet results}
-
-The results of the ENGNet model are very important for the scope of our work which is channel selection.
-If the model performs very well it helps our task as a loss in the predicted labels will result in worse performances, but such performances will still be sufficient for the task at hand.
-On the other hand, if the model behaves poorly, it means it has a smaller margin and that even a small in signal quality could make the difference between a pipeline that delivers a functional project and one that can't suffice the requirements.
-Luckily for us, the work that has been carried previously by the lab is excellent and allows us to proceed with our channel selection goals in a more aggressive way, wanting to reduce the signal carried by the communication system drastically.
-Below we will present briefly the results obtained by Davide Gottardello's thesis and comment on them.
-It is to be noted that we only show the results relevant for our work, which are the best results coming from Davide's work.
-In this graph we can see the results of a EEG- Net with Kernel 100 model with four classes on animal 1 with a 100 ms window.
-\begin{figure}[H]
-	\includegraphics[scale=0.5]{trainingAccuracyDavide.png}
-	\centering
-    \label{engNet_params_4}
-
-    \caption{ENGNet accuracy \cite{tesiDavide}}
-	\end{figure}
-
-
-In this graph we can see two main things:
-\begin{itemize}
-    \item The training and validation accuracy results are both very high, approaching 100 percent accuracy
-    \item The difference between the training accuracy and the validation accuracy is very low, the overfit is less than 1 percent.
-\end{itemize}
-
-The results confirm the quality of the model and the correctness of the choice for the parameters and hyperparameters.
-
-\begin{figure}[H]
-	\includegraphics[scale=0.5]{engNet_accuracy.png}
-	\centering
-    \label{engNet_params_5}
-    \caption{ENGNet accuracy boxplot \cite{tesiDavide}}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[scale=0.5]{engNet_f1score.png}
-		\centering
-        \label{engNet_params_6}
-        \caption{ENGNet F1-score boxplot \cite{tesiDavide}}
-		\end{figure}
-
-These graphs show the results for all three animals for different time windows.
-We need to consider the 100ms for the purposes of our project, and although the difference in performance is present, the 100ms window still performs fairly well.
-The same observations can be made for the F1-score which, although with lower scores, has the same results.
-It is to be noted is that the difference in results between training set, validation set and test set is very little in percentage.
-This is another positive result of the ENGNet that shows that the model is powerful and that it can well generalize to data it has never seen.
-
-
-Another thing we want to highlight, as explained by Davide in his conclusion, it is that the "analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet".
-Therefore, despite our effort to reduce the signal required to have good results, it is important to remember that more data almost always means better solutions, and in particular, data directly obtained from the subject matters a lot in obtaining quality results and good metrics.
-
-
-\section*{Hardware}
+\section{Hardware}
 
 For what regards the experimental setup, some specific components are chosen. Firstly, the two boards which communicate through Bluetooth Low Energy are two nrf52dk boards. These are equipped with a nRF52832 chip, which is part of the Nordic Semiconductor’s nRF52® Series of System-on-Chip (SoC) devices. This series is the one taken into consideration due to its versatility, giving the user the ability to choose which components are the best fit for the intended usage, its documentation, and its support features during the development phase of the project. The main features of this chip are reported in Table 1 below:
 
@@ -1273,7 +1069,7 @@ For what regards the experimental setup, some specific components are chosen. Fi
     \caption{Hardware table}
 \end{figure}
 
-The memory sizes are equivalent to the ones of the actual Senseback device, making the development of the firmware reliable. A picture of a nrf52dk board is shown in Figure 1.
+The memory sizes are equivalent to the ones of the actual Senseback device, making the development of the firmware reliable. A picture of a nrf52dk board is shown in the figure above.
 
 \begin{figure}[H]
     \centering
@@ -1547,6 +1343,7 @@ We will now present an overview of the most relevant methods for channel selecti
 
 \subsection{Common spatial patterns methods}
 
+Common Spatial Patterns (CSP) is a popular algorithm used in neuroscience, particularly in brain-computer interfaces (BCI), to enhance feature extraction from multichannel signals, such as EEG (electroencephalography) data. CSP is especially useful for distinguishing between two classes of motor imagery or other cognitive tasks by identifying spatial filters that maximize the variance for one class while minimizing it for the other.
 Common spatial patterns (CSP) method was firstly suggested for classification of multi-channel EEG during imagined hand movements by H. Ramoser \cite{ramoserOptimalSpatialFiltering2000}. The core concept involves employing a linear transformation to map multi-channel EEG data into a reduced-dimensional spatial realm using a projection matrix. Each row of this matrix represents channel weights. This process aims to optimize the variance of signal matrices for two classes. The CSP method relies on concurrently diagonalizing the covariance matrices of both classes. \cite{abdullahEEGChannelSelection2022}
 
 Let X $\epsilon$ $R^{M x N}$ denote a matrix of EEG, where the channel number is M and the samples are denoted by N. The classic CSP problem is stated as follows:
@@ -1704,6 +1501,7 @@ GSFS and the backward implementation GSBS, both have a complexity that depend of
 \subsection{Binary Particle Swarm Optimization Based methods}
 
 In 1995, the PSO algorithm was presented by Kennedy and Eberhart. \cite{okwuMetaheuristicOptimizationNatureInspired2020} \\
+Binary Particle Swarm Optimization (BPSO) is an adaptation of the traditional Particle Swarm Optimization (PSO) algorithm designed to work with discrete, binary search spaces. It is commonly used in feature selection and optimization problems where solutions are represented by binary variables (0 or 1).
 The idea behind it is inspired by the social behavior of birds flocking or fish schooling. \cite{vanneschiParticleSwarmOptimization2023}
 In standard PSO, particles move around in a continuous solution space, adjusting their positions and velocities based on their own best-known position and the global best-known position found by any particle in the swarm.
 \\
@@ -1840,7 +1638,7 @@ Even if in previous firmware implementation the data that were exchanged from on
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.12.png}
-    \caption{Pairing procedure}
+    \caption{Data packing in previous implementation}
     \label{pairing_procedure}
 \end{figure}
 
@@ -1860,7 +1658,7 @@ Where the first one represents the effective speed of the BLE communication, whi
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.21.png}
-    \caption{Pairing procedure}
+    \caption{Data packing in previous implementation}
     \label{pairing_procedure_2}
 \end{figure}
 
@@ -1869,7 +1667,7 @@ Bytes generation procedure done in previous implementation is schematized below,
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.29.png}
-    \caption{Pairing procedure}
+    \caption{Data packing in previous implementation}
     \label{pairing_procedure_3}
 \end{figure}
 
@@ -1879,7 +1677,7 @@ Each couple of bytes would then be packed into the original 16 bits variable in 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.36.png}
-    \caption{Pairing procedure}
+    \caption{Shift algorithm transmitter side}
     \label{pairing_procedure_4}
 \end{figure}
 
@@ -1912,7 +1710,7 @@ It should also be noted that, by making a comparison between previous implementa
 Another comparison can be made considering an offline test composed of 32400 bytes. In fact, in order to have a better understanding of what this decreasing of empty bits would implicates, it could be asked what is the number of samples that will be received by central device at the end of a test. By taking into account an offline test, the total number of BLE packets shared during the whole communication should firstly be computed by diving the size of the communication by the size of each packet, resulting in 133 packets exchanged, where the last one would not be full filled.
 
 \[
-\text{number of BLE packets} = \frac{\text{number of bytes received}}{\text{maximum BLE packet size}} \tag{Equation 1}
+\text{number of BLE packets} = \frac{\text{number of bytes received}}{\text{maximum BLE packet size}} 
 \]
 
 The size of last packet can be computed by subtracting to the 32400 bytes which form the whole offline test, the number of bytes received through all of the BLE packets except for the last one. Specifically, this would result in 192 bytes.
@@ -1928,7 +1726,7 @@ By summing the number of samples sent through the first 132 packets, and the num
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.45.png}
-    \caption{Pairing procedure}
+    \caption{Shift algorithm}
     \label{pairing_procedure_5}
 \end{figure}
 
@@ -1937,7 +1735,7 @@ By making a comparison between the final number of samples received in both case
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.31.56.png}
-    \caption{Pairing procedure}
+    \caption{Shift algorithm receiver side}
     \label{pairing_procedure_6}
 \end{figure}
 
@@ -1949,7 +1747,7 @@ An example of the whole procedures of compression and decompression is shown bel
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{Shift Algorithm/Screenshot 2024-07-22 at 22.32.05.png}
-    \caption{Pairing procedure}
+    \caption{Shift procedure example}
     \label{pairing_procedure_7}
 \end{figure}
 
@@ -2015,11 +1813,11 @@ The Peer Manager architecture is shown below:
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.12.png}
-    \caption{Firmware security}
+    \caption{Peer manager}
     \label{firm_sec_1}
 \end{figure}
 
-All the parts which compose the peer manager are shown in Figure~\ref{peer_manager_architecture}. Specifically, the first section regards the security manager and dispatcher. This is responsible for managing all the steps in the security process, based on the requirements of the involved applications. These steps include the creation of a secure connection by communicating with the SoftDevice, saving and deleting the proper keys, and performing the pairing procedure. The module is divided into two components: the Security Manager and the Security Dispatcher. The first one is responsible for storing security parameters, monitoring the current state, and managing the pairing process. The Security Dispatcher connects with the SoftDevice and the flash to perform the actual pairing procedure.
+All the parts which compose the peer manager are shown in Figure~\ref{firm_sec_1}. Specifically, the first section regards the security manager and dispatcher. This is responsible for managing all the steps in the security process, based on the requirements of the involved applications. These steps include the creation of a secure connection by communicating with the SoftDevice, saving and deleting the proper keys, and performing the pairing procedure. The module is divided into two components: the Security Manager and the Security Dispatcher. The first one is responsible for storing security parameters, monitoring the current state, and managing the pairing process. The Security Dispatcher connects with the SoftDevice and the flash to perform the actual pairing procedure.
 
 The second one is the ID manager. This module monitors connected peers and recognizes them using various types of IDs. It is also able to check whether different IDs are used for the same peer and whether a bonding procedure has been performed. When this is the case, it can also ask for the connection handle.
 
@@ -2077,32 +1875,32 @@ The following pictures illustrate the difference in terms of logs after the conn
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.24.png}
-    \caption{Firmware security console messages}
+    \caption{Peripheral firmware without security}
     \label{firm_sec_2}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.31.png}
-    \caption{Firmware security console messages II}
+    \caption{Peripheral firmware with security}
     \label{firm_sec_3}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.37.png}
-    \caption{Firmware security console messages III}
+    \caption{Central firmware without security}
     \label{firm_sec_4}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{Firmware_security/Screenshot 2024-07-22 at 22.33.43.png}
-    \caption{Firmware security console messages IV}
+    \caption{Central firmware with security}
     \label{firm_sec_5}
 \end{figure}
 
-
+\\
 \section{Theoretical throughput computation}
 
 Theoretical throughput computation provides an idea on which is the maximum speed than the BLE communication can reach, taking into account some factors, such as latency, which is not considered in the ideal PHY, whose values could be 1 Mbps or 2 Mbps. In order to make a correct calculation, different parameters should be considered basing on different condition in the experimental setups, such as whether or not encryption is enabled, or which is the chosen PHY. As a consequence, all the possible cases are considered for the different intended usages.
@@ -2213,7 +2011,7 @@ The number of packet changes accordingly:
 Finally, the theoretical throughput is equal to 663.68 Mbps.
 
 \section{Multicentral Implementation}
-As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure \ref{user_command_sending_procedure}.
+As explained in previous sections, the user can control the communication beginning and end through UART communication. Thanks to this, the user can send commands, which are first sent to central devices and then to the peripheral through Bluetooth. The whole process is shown in Figure 4.14.
 
 \begin{figure}[H]
     \centering
@@ -2222,7 +2020,7 @@ As explained in previous sections, the user can control the communication beginn
     \label{multicentral_1}
 \end{figure}
 
-In the current Senseback device, the wires used in the previous implementation to send commands are not present. This makes it impossible to control the communication as in the previous version of the firmware. To solve this problem, a new way to send commands to control the communication has been devised. The proposed idea is shown in Figure \ref{multicentral_implementation}.
+In the current Senseback device, the wires used in the previous implementation to send commands are not present. This makes it impossible to control the communication as in the previous version of the firmware. To solve this problem, a new way to send commands to control the communication has been devised. The proposed idea is shown in Figure 4.15.
 
 
 \begin{figure}[H]
@@ -2239,7 +2037,7 @@ The second central device chosen is a smartphone. This choice allows the user to
 Before explaining how the final communication works when the multicentral setup is completed, the following section will explain how this has been implemented in the firmware.
 
 \subsubsection{Receiver Firmware Multicentral}
-Specifically, in the receiver code of the firmware, only a few differences are present. The first one relates to the configuration file. In particular, the \texttt{NRF\_SDH\_BLE\_CENTRAL\_LINK\_COUNT} and \texttt{NRF\_SDH\_BLE\_TOTAL\_LINK\_COUNT} values have been changed from 1 to 2. These define the number of central devices present in the application and the total number of simultaneous connections, which are both two in this case. Due to these changes, more RAM memory needs to be allocated compared to the previous implementation. Segger provides an easy way to change the settings of the project the developer is working on. The procedure is shown in Figure \ref{memory_allocation_seggar}.
+Specifically, in the receiver code of the firmware, only a few differences are present. The first one relates to the configuration file. In particular, the \texttt{NRF\_SDH\_BLE\_CENTRAL\_LINK\_COUNT} and \texttt{NRF\_SDH\_BLE\_TOTAL\_LINK\_COUNT} values have been changed from 1 to 2. These define the number of central devices present in the application and the total number of simultaneous connections, which are both two in this case. Due to these changes, more RAM memory needs to be allocated compared to the previous implementation. Segger provides an easy way to change the settings of the project the developer is working on. The procedure is shown in Figure 4.16.
 
 \begin{figure}[H]
     \centering
@@ -2248,7 +2046,7 @@ Specifically, in the receiver code of the firmware, only a few differences are p
     \label{multicentral_3}
 \end{figure}
 
-Specifically, in the Section Placement Macros, it was required to change the RAM START and RAM SIZE values. The minimum values required are directly shown to the user when the application is debugged. An example of this is shown in Figure \ref{memory_allocation_error}.
+Specifically, in the Section Placement Macros, it was required to change the RAM START and RAM SIZE values. The minimum values required are directly shown to the user when the application is debugged. An example of this is shown in Figure 4.17.
 
 \begin{figure}H]
     \centering
@@ -2379,34 +2177,34 @@ The idea is to use the peripheral board as a transmitter and the PC as the centr
 
 \subsubsection{Offline Receiver Code}
 
-The code of the central device is written in Matlab language and is much easier compared to the one developed for the board-to-board approach. Firstly, Matlab provides a list of all the nearby Bluetooth devices through the function \texttt{blelist}. Once this function is triggered, the user would see something like Figure~\ref{blelist} in the command window.
+The code of the central device is written in Matlab language and is much easier compared to the one developed for the board-to-board approach. Firstly, Matlab provides a list of all the nearby Bluetooth devices through the function \texttt{blelist}. Once this function is triggered, the user would see something like Figure 4.30 in the command window.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Board Windows PC/2.png}
-    \caption{Offline receiver table}
+    \caption{Matlab blelist}
     \label{boardwindows_2}
 \end{figure}
 
-Specifically, through this function, Matlab would show the user the number of devices which are advertising through BLE, the name of each device when it is known, the address of each one, the power of advertising levels in dB, and the last field “Advertisement” which is a struct type. This last field contains some information about the advertising device, as shown in Figure~\ref{advertisement}.
+Specifically, through this function, Matlab would show the user the number of devices which are advertising through BLE, the name of each device when it is known, the address of each one, the power of advertising levels in dB, and the last field “Advertisement” which is a struct type. This last field contains some information about the advertising device, as shown in Figure 4.31.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Board Windows PC/3.png}
-    \caption{Offline receiver fields}
+    \caption{Advertising field in Matlab}
     \label{boardwindows_3}
 \end{figure}
 
-The following step of Matlab code involves the effective creation of the connection between the board and the PC, which is done through the function \texttt{ble}. Once the connection has been established, a new object would be created, which would contain the following fields (Figure~\ref{ble_object}):
+The following step of Matlab code involves the effective creation of the connection between the board and the PC, which is done through the function \texttt{ble}. Once the connection has been established, a new object would be created, which would contain the following fields (Figure~\ref{boardwindows_4}):
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Board Windows PC/4.png}
-    \caption{Offline receiver matlab table}
+    \caption{ble object in matlab}
     \label{boardwindows_4}
 \end{figure}
 
-In particular, it would contain the name of the device, the address, a Boolean variable indicating whether or not the device is connected to the PC, and the services and characteristics of the device. These last ones are particularly important, because the developer needs to subscribe to them in order to be able to receive and transmit data to the board; establishing a connection itself is not enough to do this. The characteristic field is shown below (Figure~\ref{characteristics}).
+In particular, it would contain the name of the device, the address, a Boolean variable indicating whether or not the device is connected to the PC, and the services and characteristics of the device. These last ones are particularly important, because the developer needs to subscribe to them in order to be able to receive and transmit data to the board; establishing a connection itself is not enough to do this. The characteristic field is shown below (Figure 4.33).
 
 \begin{figure}[H]
     \centering
@@ -2415,7 +2213,7 @@ In particular, it would contain the name of the device, the address, a Boolean v
     \label{boardwindows_5}
 \end{figure}
 
-In particular, the last two characteristics shown in Figure~\ref{characteristics} are the ones of interest. The first one is the characteristic which allows the developer to write data to the board, essential for sending commands, for example. The second one is the characteristic used to receive data from the board, essential for receiving BLE packets from the peripheral. To subscribe to a specific characteristic, the \texttt{subscribe} function has been used. Specifically, in this application, the subscription is required only for the last characteristic.
+In particular, the last two characteristics shown in Figure 4.33 are the ones of interest. The first one is the characteristic which allows the developer to write data to the board, essential for sending commands, for example. The second one is the characteristic used to receive data from the board, essential for receiving BLE packets from the peripheral. To subscribe to a specific characteristic, the \texttt{subscribe} function has been used. Specifically, in this application, the subscription is required only for the last characteristic.
 
 Once the device is connected and Matlab has subscribed to the characteristic, the global variables are defined. In Matlab language, global variables are treated differently compared to C language because they need to be defined each time a new function is entered.
 
@@ -2423,12 +2221,12 @@ Next, the user is required to insert the command. Since the analyzed code is the
 
 The last step in the main code is calling the function which will effectively receive the data. This is done using a callback, which in Matlab language is a function automatically executed in response to a specific event. In this specific application, the callback is triggered each time a new BLE packet is received from the peripheral device. This is particularly useful in the online code, as the function continuously works while the command window waits for the command STOP to be entered.
 
-The callback function is the only one present in the code and is dedicated to receiving data. Firstly, all global variables used in the main code are re-defined. Then, it is checked whether the function has been triggered for the first time. If this is the case, a timer dedicated to counting the elapsed time for the intended communication is triggered through the function \texttt{tic}, and the Boolean variable is set to false to avoid starting the timer again. Then, the first packet is read through the \texttt{read} function, used in the BLE context to read data from a characteristic. In the next step, the last two bytes of the received BLE packets are stored, and a counter of bytes is increased by the size of the received BLE packet. A matrix with 244 columns and as many rows as the number of BLE packets received is created. Each time a new packet is received, a new row is created. To do this in Matlab language, all BLE packet sizes should be the same length, otherwise, an error occurs. So, since the last packet does not have the same dimension as the previous ones, the last columns are filled with zeros until 244 values are reached. Looking at the vector when the whole online test is over, it would look like Figure~\ref{received_data}.
+The callback function is the only one present in the code and is dedicated to receiving data. Firstly, all global variables used in the main code are re-defined. Then, it is checked whether the function has been triggered for the first time. If this is the case, a timer dedicated to counting the elapsed time for the intended communication is triggered through the function \texttt{tic}, and the Boolean variable is set to false to avoid starting the timer again. Then, the first packet is read through the \texttt{read} function, used in the BLE context to read data from a characteristic. In the next step, the last two bytes of the received BLE packets are stored, and a counter of bytes is increased by the size of the received BLE packet. A matrix with 244 columns and as many rows as the number of BLE packets received is created. Each time a new packet is received, a new row is created. To do this in Matlab language, all BLE packet sizes should be the same length, otherwise, an error occurs. So, since the last packet does not have the same dimension as the previous ones, the last columns are filled with zeros until 244 values are reached. Looking at the vector when the whole online test is over, it would look like Figure 4.34.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Board Windows PC/6.png}
-    \caption{Offline receiver matlab table III}
+    \caption{Received data from board in Matlab}
     \label{Boardwindows_6}
 \end{figure}
 
@@ -2442,21 +2240,21 @@ The online receiver code is exactly the same as the offline case. The only diffe
 
 \subsubsection{Receiver Code with Shift}
 
-The process of receiving data with and without shift is equivalent; the only difference lies in how data are treated after they have all been received. When the shift has not been involved, data are already readable once they are received by the central device. In the case where the peripheral has shifted data, they need to be decompressed to be readable. Figure~\ref{shifted_bytes} shows how data once shifted looks before being decompressed. Compared to Figure~\ref{characteristics}, they are significantly different.
+The process of receiving data with and without shift is equivalent; the only difference lies in how data are treated after they have all been received. When the shift has not been involved, data are already readable once they are received by the central device. In the case where the peripheral has shifted data, they need to be decompressed to be readable.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Board Windows PC/7.png}
-    \caption{Offline receiver matlab table IV}
+    \caption{Shifted bytes received from bluetooth PC}
     \label{boardwindows_7}
 \end{figure}
 
-The data shifting process is performed in the exact same way as explained for the receiver code of the shift algorithm; the only difference concerns the coding language. In Matlab, the bit-shifting operations can be performed through the functions \texttt{bitor} and \texttt{bitshift}, which respectively perform a bitwise operation and shift the bits. Once data are decompressed, they are saved into a one-dimensional vector. The picture below shows how the vector looks (Figure~\ref{shifted_data}).
+The data shifting process is performed in the exact same way as explained for the receiver code of the shift algorithm; the only difference concerns the coding language. In Matlab, the bit-shifting operations can be performed through the functions \texttt{bitor} and \texttt{bitshift}, which respectively perform a bitwise operation and shift the bits. Once data are decompressed, they are saved into a one-dimensional vector. The picture below shows how the vector looks (Figure 4.36).
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{Board Windows PC/8.png}
-    \caption{Offline receiver matlab table V}
+    \caption{Shifted data received by PC}
     \label{boardwindows_8}
 \end{figure}
 
@@ -2481,7 +2279,7 @@ The whole process, as it happened in the previous offline test implementation, s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{Board Windows PC/Screenshot 2024-09-15 at 18.19.45.png}
+    \includegraphics[scale=0.4]{Board Windows PC/Screenshot 2024-09-15 at 18.19.45.png}
     \caption{Board side states}
     \label{boardwindows_10}
 \end{figure}
@@ -2506,7 +2304,7 @@ The whole data receiving process is equivalent to the case of the offline test w
 
 Firstly, once data coming from the board have been generated and shifted, the generation process occurs to generate the data that need to be sent from the PC. This process is done as in the \texttt{timer1\_handler} function. Specifically, data generation is performed step-by-step, where each byte is equal to the previous one plus one. The maximum threshold imposed for data generation is 253, in order to have data that are at most 8 bits in size. Once 244 bytes have been generated, or the 32400 bytes threshold has been reached, a new BLE packet is sent to the board through the Matlab BLE function \texttt{write}, in write without response mode. Once the first data is sent, a timer starts counting to compute the elapsed time in the data sending process. Once all data have been sent, it is checked whether or not the command STOP has been entered by the user. If the answer is positive, then the program unsubscribes from the characteristic and deletes the callback function. If the answer is negative, all variable values are reset, and the callback function is called to start the whole process from the beginning.
 
-The whole process can be summarized by the state machine below (Figure~\ref{state_machine}). Specifically, in a communication, the steps performed by the PC are the following:
+The whole process can be summarized by the state machine below (Figure~\ref{fboardwindows_11}). Specifically, in a communication, the steps performed by the PC are the following:
 
 \begin{enumerate}
     \item The device is waiting to receive the first byte.
@@ -2759,8 +2557,6 @@ As mentioned previously, since the number of correlation to be performed in our 
 So when in the Results chapter we mentioned a lower amount of iterations of this algorithm for the computation of the average results, the specific of this algorithm are to remembered and explain the difference in those numbers.
 
 
-
-
 \subsection{Testing correlation algorithms results}
 
 \subsubsection{Channel Attention Layer}
@@ -2973,7 +2769,7 @@ Occasionally, in those cases in which the board should be supplied by an externa
     \centering
     \includegraphics[scale=0.6]{Test_Procedure/16.png}
     \label{direct_communication_board_PC_16}
-    \caption{Board cut}
+    \caption{SB12 bridge}
 \end{figure}
 
 Once current measurements have been performed, to restore the previous functions of the board SB9 should be solder or jumper on P22 should be put. Then, SB12 should be Cut or desolder SB12 to reconnect the protection diode.
@@ -3037,11 +2833,209 @@ Ultimately, also the effect of different mediums has been evaluated. Specificall
     \caption{Boards connections distances with meat II}
 \end{figure}
 
+
+\section{ENGNet: advantages and shortcomings}
+
+Given the structure of the project there is the need of a fast, computationally efficient model that can boast good performance on classification of ENG signals.
+In particular we need this model to classify the electroneurography signal sent from the board to the computer in different classes that correspond to different movements.
+Because of this, as we said, there is a strong need for both speed of classification, since we don't want excessive delay between the firing of the neurons and the transmission to the area of stimulation, but we also need accuracy since a movement different from the one that has been transmitted by the firing of the neurons would compromise the result of the project as a whole.
+
+A first promising model called EEGNet was introduced by \cite{lawhernEEGNetCompactConvolutional2018} for the classification of EEG singals, it presents a tailored variant of CNNs aimed at Brain-Computer Interface (BCI) applications. Its primary advantage lies in its compact architecture, boasting fewer parameters compared to traditional CNNs. This efficiency renders EEGNet well-suited for the processing of EEG signals, facilitating improved performance in BCI tasks while simultaneously reducing computational complexity. \cite{tesiDavide}
+Starting from this model previous work by Davide Gottardello in the PRelay project developed a newer model in order to classify ENG Data called ENGNet.
+In this section we will describe this model and outline the most relevant features along with the advantages and shortcomings.
+As we will show in Chapter 4, ENGNet was the model we used to verify the performance of our channel selection algorithms and as such, understanding its functioning and performance was a key aspect of our work.
+In particular, at the beginning of our work of research, we spent some time setting up on our machines the same testing conditions such as the same dataset and code, this not only allowed us to gain familiarity with the architecture of the model and previous code but also gave us the possibility of verifying all previous results and benchmarks in order to acquire data to compare our own work to. 
+
+\subsection{ENGNet architecture}
+
+The principal parameter to modify in EEGNet architecture to create an ENGNet is the kernel length, which plays a crucial role in shaping the network’s feature extraction capabilities. \cite{tesiDavide}
+A kernel length of 100 samples, which translates to a sequence of 20 ms at a 5 kHz sampling rate, could be a compromise between kernel length and the ability to capture ENG signal characteristics effectively. Hence, kernel lengths of 10, 20, and 30 ms are investigated in this study which correspond to different values for the kernel length (denoted as kernLength) which means 50, 100 and 150 samples \cite{tesiDavide}.
+All the layers after the first one are therefore scaled to maintain the proportions proposed in the EEGNet model.
+
+
+The architecture consists of two convolutional steps: first, 2D convolutional filters are used to capture EEG signals across different band-pass frequencies, followed by depthwise convolutions that learn spatial filters for each temporal filter. Additionally, separable convolutions are employed to minimize the number of parameters while effectively combining the feature maps. In the classification block, softmax classification is applied directly to the extracted features, bypassing the need for a dense layer, which further reduces the model's parameter count. \cite{tesiDavide}
+
+
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{engNet_params.png}
+	\centering
+    \label{engNet_params_1}
+    \caption{ENGNet parameters \cite{tesiDavide}}
+\end{figure}
+
+The number of parameters in a neural network is strictly related to the performance metrics of the network.
+Given too many parameters a model will inevitably overfit to the training test and will therefore poorly generalize on the validation and test portion of the data. Conversely, too few parameters will make the model unable to learn effectively the classification required for the task at hand.
+There is plenty of tools to overcome these kind of issues when training a model, given that is one of the most prominent issues when dealing with neural networks performances, such as tweaking the learning rate or adding dropouts layers in the architecture of the model in order to discard some of the parameters.
+Clearly, reducing the number of parameters, not only reduces the chances of overfitting but also decreases training and inference time.
+Let us now delve deeper into the actual architecture.
+The configuration for block 1 is as follows:
+\begin{itemize}
+\item Conv2D layer: Conv2D(, (1, kernLength), input shape=(Chans, Samples, 1))
+\item AveragePooling2D layer: AveragePooling2D((1, kernLength//10))
+\end{itemize}
+
+Here, F1 represents the number of 2D convolutional filters (F1 = 16), Chans is the number of channels in the EEG signals (Chans = 16), and Samples is the length of the ENG samples. The Conv2D layer uses the kernel length to create a 2D convolutional filter with height 1 and width equal to kernLength. The AveragePooling2D layer reduces the spatial dimensions of the feature maps by performing average pooling with a pool size of (1, kernLength//10). \cite{tesiDavide}
+
+For block 2, the configuration is as follows:
+\begin{itemize}
+\item SeparableConv2D layer: SeparableConv2D(F2, (1, kernLength//4))
+\item AveragePooling2D layer: AveragePooling2D((1, kernLength//25))
+\end{itemize}
+
+In block 2, the SeparableConv2D layer is used with a kernel size of (1, kernLength//4) and F2 = 32 to conduct depthwise separable convolution. This layer effectively reduces the number of parameters while preserving feature extraction capabilities.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.4]{engNet_arch.png}
+	\centering
+    \label{engNet_params_2}
+    \caption{ENGNet architectures \cite{tesiDavide}}
+\end{figure}
+
+Presented here are the layers present in the ENGNet model to outline what each layer does, where where KL = Kernel length, C = number of channels, T = number of time points, F1 = number of temporal filters, D = depth multiplier (number of spatial filters), F2 = number of pointwise filters, and N = number of classes, respectively.
+
+
+\begin{figure}[H]
+	\includegraphics[scale=0.25]{engNet_layers.png}
+	\centering
+    \label{engNet_params_3}
+    \caption{ENGNet layers \cite{tesiDavide}}
+\end{figure}
+
+\subsection{Classification performance metrics}
+
+\textbf{Accuracy} \quad This measures the proportion of correctly classified examples in the dataset. It is calculated as:
+
+\begin{equation}
+\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} \quad (3.21)
+\end{equation}
+
+\textbf{F1-Score} \quad The F1 score is a widely used metric in machine learning and statistics for evaluating the performance of a classification model. It provides a single measure that balances both the precision and recall of the model, making it particularly useful when dealing with imbalanced datasets where one class may significantly outnumber the others.
+It combines precision and recall to offer a balanced evaluation of a model’s performance.
+The F1 score is the harmonic mean of precision and recall. Unlike the arithmetic mean, the harmonic mean tends to give more weight to lower values. As a result, the F1 score will only be high if both precision and recall are high, making it a balanced measure even in situations where the two metrics differ significantly.
+The use of F1-Score is relevant when:
+\begin{itemize}
+    \item Imbalanced Datasets: When dealing with datasets where one class is much more frequent than others, accuracy can be misleading because the model might simply predict the majority class all the time and still achieve high accuracy. The F1 score, by considering both precision and recall, provides a more informative metric that reflects how well the model is performing across all classes.
+    \item Trade-off Between Precision and Recall: In many applications, there's a need to balance precision and recall. For example, in medical diagnosis, you want to maximize recall to ensure all true cases are identified, but you also want to maintain high precision to avoid false positives. The F1 score helps in evaluating this trade-off.
+\end{itemize}
+While the negatives for its use are that:
+\begin{itemize}
+    \item No Consideration of True Negatives: The F1 score does not take true negatives into account, which can be a limitation in some contexts. For instance, in cases where the correct identification of negative cases is crucial, other metrics like the Matthews correlation coefficient (MCC) might be more appropriate.
+    \item Sensitivity to Class Distribution: The F1 score might not always give a full picture in cases where class distribution is extremely skewed, as it only focuses on the positive class.
+\end{itemize}
+F1-Score is computed as:
+
+\begin{equation}
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} \quad (3.22)
+\end{equation}
+
+where:
+
+\begin{equation}
+\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
+\end{equation}
+
+Precision being a measure of how accurate the positive predictions made by a model are. In other words, it tells us the proportion of correctly predicted positive instances out of all instances that were predicted as positive.
+
+Precision focuses on the quality of the positive predictions made by the model, asking, "Of all the instances predicted as positive, how many are actually positive?"
+
+\begin{equation}
+\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
+\end{equation}
+
+Recall (also known as sensitivity or true positive rate) measuring the model's ability to correctly identify all actual positive instances. It indicates the proportion of actual positives that were correctly classified by the model.
+Recall focuses on the completeness of the model's positive predictions, asking, "Of all the actual positive instances, how many did the model correctly identify?"
+
+The two above metrics often have a trade-off relationship. For example, a model can achieve high recall by predicting more instances as positive, but this may reduce precision if many of these predictions are incorrect. Conversely, a model can achieve high precision by being very selective in its positive predictions, but this may reduce recall if it misses many actual positive instances.
+
+\textbf{Confusion Matrix} \quad A confusion matrix is a table used to evaluate the performance of a classification model, particularly in cases where there are two or more classes. It provides a detailed breakdown of the model’s predictions, comparing the actual (true) labels with the predicted labels. This matrix helps in understanding not only the accuracy of the model but also where it is making mistakes.
+
+
+
+\begin{table}[H]
+\centering
+\caption*{Table 3.1: Confusion Matrix for two classes (Positive and Negative). Predicted refers to the output label from the classifier, while the Actual label is the true label associated to the data.}
+\begin{tabular}{|c|c|c|}
+\hline
+ & \textbf{Predicted Positive} & \textbf{Predicted Negative} \\
+\hline
+\textbf{Actual Positive} & TP & FN \\
+\hline
+\textbf{Actual Negative} & FP & TN \\
+\hline
+\end{tabular}
+\end{table}
+
+In a confusion matrix with multiple classes, precision, recall, and the F1-score can be computed for each individual class. Precision for a given class is determined by the ratio of true positives for that class to the total number of instances predicted as that class, including both true positives and false positives. In other words, it is calculated as the number of true positives divided by the sum of true positives and false positives for that specific class. \cite{tesiDavide}
+
+\begin{equation}
+	\text{Precision (PPV)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}} \quad (3.23)
+	\end{equation}
+	
+	\begin{equation}
+	\text{Recall (TPR)} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}} \quad (3.24)
+	\end{equation}
+
+By calculating these metrics for each class, one gains insights into the model’s performance for individual categories, allowing a more nuanced evaluation of classification effectiveness.
+
+\subsection{ENGNet results}
+
+The results of the ENGNet model are very important for the scope of our work which is channel selection.
+If the model performs very well it helps our task as a loss in the predicted labels will result in worse performances, but such performances will still be sufficient for the task at hand.
+On the other hand, if the model behaves poorly, it means it has a smaller margin and that even a small in signal quality could make the difference between a pipeline that delivers a functional project and one that can't suffice the requirements.
+Luckily for us, the work that has been carried previously by the lab is excellent and allows us to proceed with our channel selection goals in a more aggressive way, wanting to reduce the signal carried by the communication system drastically.
+Below we will present briefly the results obtained by Davide Gottardello's thesis and comment on them.
+It is to be noted that we only show the results relevant for our work, which are the best results coming from Davide's work.
+In this graph we can see the results of a EEG- Net with Kernel 100 model with four classes on animal 1 with a 100 ms window.
+\begin{figure}[H]
+	\includegraphics[scale=0.5]{trainingAccuracyDavide.png}
+	\centering
+    \label{engNet_params_4}
+
+    \caption{ENGNet accuracy \cite{tesiDavide}}
+	\end{figure}
+
+
+In this graph we can see two main things:
+\begin{itemize}
+    \item The training and validation accuracy results are both very high, approaching 100 percent accuracy
+    \item The difference between the training accuracy and the validation accuracy is very low, the overfit is less than 1 percent.
+\end{itemize}
+
+The results confirm the quality of the model and the correctness of the choice for the parameters and hyperparameters.
+
+\begin{figure}[H]
+	\includegraphics[scale=0.5]{engNet_accuracy.png}
+	\centering
+    \label{engNet_params_5}
+    \caption{ENGNet accuracy boxplot \cite{tesiDavide}}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.5]{engNet_f1score.png}
+		\centering
+        \label{engNet_params_6}
+        \caption{ENGNet F1-score boxplot \cite{tesiDavide}}
+		\end{figure}
+
+These graphs show the results for all three animals for different time windows.
+We need to consider the 100ms for the purposes of our project, and although the difference in performance is present, the 100ms window still performs fairly well.
+The same observations can be made for the F1-score which, although with lower scores, has the same results.
+It is to be noted is that the difference in results between training set, validation set and test set is very little in percentage.
+This is another positive result of the ENGNet that shows that the model is powerful and that it can well generalize to data it has never seen.
+
+
+Another thing we want to highlight, as explained by Davide in his conclusion, it is that the "analysis of weights in the first convolutional layer indicate the network’s capability to recognize and accentuate characteristic ENG signal frequencies, and these are relevant to improves classification performance. However, the network’s ability to identify these frequencies depends on the quality of the signal used during training. The dependence of the power spectrum analysis on the data suggests the importance of carrying out specific training per subject, given that even within data taken from the same animal there is a variation in the frequencies emphasized by ENGNet".
+Therefore, despite our effort to reduce the signal required to have good results, it is important to remember that more data almost always means better solutions, and in particular, data directly obtained from the subject matters a lot in obtaining quality results and good metrics.
+
+
 \chapter{Results}
 
 In this chapter we will be illustrating the results we obtained from the Materials and Methods chapter.
 
-\section{Previous Implementation}
+\section{Firmware}
+
+
+\subsubsection{Previous Implementation}
 
 This section explains the results obtained with the previous version of the code as a point of reference. Different cases have been studied for this purpose, such as offline tests, online tests, current consumption, and distance dependency. For all the different conditions, the number of retransmissions has also been measured.
 
@@ -3155,7 +3149,7 @@ The plot below shows how PER is affected by different mediums. Comparing the dif
     \label{manuel_results_8}
 \end{figure}
 
-\subsubsection*{Security}
+\subsection*{Security}
 
 As explained for the theoretical throughput computation, the implementation of security should not impact the throughput of the communication. This is because the only header added to each packet is the MIC, responsible for encryption, and it is only 4 bytes, which would not significantly affect the communication speed. However, to verify the expected results, both offline and online tests have been performed, including current consumption measurements.
 
@@ -3523,6 +3517,27 @@ For neurostimulation needs, the transmission of BLE packets is sporadic, meaning
 
 The average current measured during the reverse transmission process accounts for both the phase in which the board is sending data to the PC and the phase in which the PC is sending data to the board. The second phase, where the PC transmits data to the board, significantly reduces the overall averagecurrent. This is because the current consumed by the board during the receiving phase is comparable to the current drawn when the board is idle.
 
+
+\section{Memory results}
+
+
+The plots reported below illustrate the amount of memory needed for each implementation. Respectively, first one represents the amount of Flash memory occupied, while second one is referred to RAM. The results are shown in Kilobytes. As said, Senseback device has the same amount of memory of the Nordic boards nrf52dk, which presents 512kB for Flash memory and 64kB for RAM. The results show that previous implementation and the one with shift algorithm are the one with the highest RAM consumption, but with the lower Flash memory occupied. In the context of the project, the ideal situation would be to have more Flash memory occupied to free some RAM, which is limited and is necessary to perform most of the operations. Instead, all of the implementations with security are the one with the most flash memory occupied. This is due to the additional libraries needed to perform security processes such as the ones related to Peer Manager, BLE LE-SC and encryption. However, the amount of RAM free through this could possibly be used to perform those operations, such as unpacking for shift algorithm, that could not be possible in previous implementation due to the limited capacity of the RAM. Lastly, multicentral feature also impact the occupied RAM, in fact, it was not possible to implement both multicentral, security and shift algorithm features together and make them work without a decreasing in the size of the ring-buffer, whose decreasing in the size negatively affects the speed. In fact, since the buffer requires less time to be full-sized, there is more latency which is needed to avoid overwriting. This behaviour should be improved in future develoopments.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Screenshot 2024-09-18 at 14.34.42.png}
+    \caption{Flash memory consumption}
+    \label{flashmem}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Screenshot 2024-09-18 at 14.34.49.png}
+    \caption{RAM Consumption}
+    \label{rammem}
+\end{figure}
+
+
 \section{Channel selection results}
 
 To begin let us reconsider the formula for the channel scoring.
@@ -3758,12 +3773,12 @@ This Master Thesis presents a range of features that can serve as a foundation f
 
 By analyzing each implementation individually, several suggestions for future improvements emerge. Firstly, the security feature appears to have no impact on speed for connection intervals of at least 50 ms. However, it is essential to understand why speed is significantly influenced by the connection supervision timeout. In real-world scenarios, where distance and tissue act as mediums, this parameter might need to be increased. Additionally, while security is implemented, no MITM protection is ensured. Implementing protection against such attacks should be considered, subject to the constraints of the Senseback platform, as MITM attacks are common in biomedical applications.
 
-Regarding the shift algorithm, speed is notably affected by the algorithm, even though the goal of optimizing data transmission is achieved. To potentially increase the algorithm's speed, several approaches could be explored. First, different BLE packet sizes should be evaluated to identify the optimal size, preferably multiples of 5. Additionally, performing operations on multiple samples simultaneously could reduce the total number of operations, thereby increasing speed. Further, alternative functions, particularly those in the CMSIS DSP software library, which is optimized for ARM processors, could be investigated.
+Regarding the shift algorithm, speed is notably af  fected by the algorithm, even though the goal of optimizing data transmission is achieved. To potentially increase the algorithm's speed, several approaches could be explored. First, different BLE packet sizes should be evaluated to identify the optimal size, preferably multiples of 5. Additionally, performing operations on multiple samples simultaneously could reduce the total number of operations, thereby increasing speed. Further, alternative functions, particularly those in the CMSIS DSP software library, which is optimized for ARM processors, could be investigated.
 
 Multicentral applications significantly impact communication speed. If this feature is essential for the intended project, particularly in scenarios where user-controlled communication is required, it is worth exploring whether the device can be disconnected and reconnected to send commands and the impact of this on overall speed. Moreover, the security of the second connection, especially for Android devices, has not been addressed and requires further exploration. If this feature is not critical, it may be avoided due to its substantial impact on speed, leaving limited room for optimization. The only potential improvement could involve optimizing RAM memory, possibly affecting communication throughput.
 
 Lastly, direct communication between the board and PC was tested in both Windows and Linux environments, yielding results inferior to the board-to-board approach. Given that Nordic and Matlab provide limited support for direct board-to-PC communication, which is uncommon in BLE connections, a future development could involve communication between a transmitting board and a receiving dongle. This method would ensure the Nordic-required board-to-board approach without needing any wires, except for power. The dongle would then transmit the received data to the external unit via USB.
-The suggestions above pertain to using Bluetooth Low Energy for communication. However, many contemporary biomedical applications consider using Ultra-Wideband (UWB) antennas due to their lower losses, smaller size, and more affordable costs. An example is discussed in \cite{patwary2020modeling}, where an antenna's performance was studied in the context of neural signal recording. UWB technology offers significantly higher data transmission speeds than BLE, reaching up to 1 Gbps.
+The suggestions above pertain to using Bluetooth Low Energy for communication. However, many contemporary biomedical applications consider using Ultra-Wideband (UWB) antennas due to their lower losses, smaller size, and more affordable costs. An example is discussed in \cite{maneOverviewUltraWideBand2023}, where an antenna's performance was studied in the context of neural signal recording. UWB technology offers significantly higher data transmission speeds than BLE, reaching up to 1 Gbps, this can be considered a long-term goal for the purposes of PNrelay project.
 
 In conclusion, this Master Thesis examines various additional features to the previous version of the firmware, highlighting their impact on throughput, power consumption, and memory usage. The proposed optimizations offer valuable insights for future improvements, particularly concerning speed, RAM usage, and security, which require further investigation. Moreover, exploring alternative technologies like Ultra-Wideband (UWB) could lead to significant performance gains, especially in biomedical applications demanding higher data transmission speeds. This work serves as a crucial starting point for future developments in wireless communication systems for biomedical devices.
 
@@ -3790,7 +3805,11 @@ It could very well be the case that with more proper optimization on the compute
 
 \cleardoublepage
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\appendix
+\chapter{Appendix}
 
+Here is the link to the appendix: \\
+  \url{https://polimi365-my.sharepoint.com/:f:/g/personal/10530738_polimi_itEj3ACOV2IQFBg} \\ \url{7Bjtk0KMC8BDO2CrLMPsbgwUyUUS5nCng?e=k2hMJt}
 
 % LIST OF FIGURES
 \listoffigures

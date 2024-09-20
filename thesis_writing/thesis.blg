@@ -1,25 +1,25 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'thesis.blg'
-[45] biber:340> INFO - === Sun Sep 15, 2024, 23:59:21
-[55] Biber.pm:420> INFO - Reading 'thesis.bcf'
-[119] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[128] Biber.pm:4463> INFO - Processing section 0
-[135] Biber.pm:4654> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[148] bibtex.pm:1713> INFO - LaTeX decoding ...
-[281] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
-[697] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[697] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[697] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[697] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[745] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[785] bbl.pm:779> INFO - Output to thesis.bbl
-[785] Biber.pm:131> WARN - legacy year field 'Mon, 08/14/2023 - 15:22' in entry 'healthClassifyYourMedical2023' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Tue, 09/26/2023 - 10:16' in entry 'healthCybersecurityMedicalDevices2023' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Tue, 05/23/2023 - 11:52' in entry 'healthWirelessMedicalDevices2023a' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Tue, 05/23/2023 - 11:52' in entry 'healthWirelessMedicalDevices2023' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Thu, 09/07/2023 - 09:04' in entry 'healthUseInternationalStandard2023' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Tue, 08/15/2023 - 08:23' in entry 'healthDeviceClassificationPanels2023' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Mon, 08/14/2023 - 15:22' in entry 'healthClassifyYourMedical2023a' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Tue, 09/26/2023 - 10:16' in entry 'healthCybersecurityMedicalDevices2023a' is not an integer - this will probably not sort properly.
-[785] Biber.pm:131> WARN - legacy year field 'Thu, 09/07/2023 - 09:04' in entry 'healthUseInternationalStandard2023a' is not an integer - this will probably not sort properly.
-[785] Biber.pm:133> INFO - WARNINGS: 9
+[40] biber:340> INFO - === Wed Sep 18, 2024, 23:00:02
+[50] Biber.pm:420> INFO - Reading 'thesis.bcf'
+[115] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[124] Biber.pm:4463> INFO - Processing section 0
+[132] Biber.pm:4654> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[144] bibtex.pm:1713> INFO - LaTeX decoding ...
+[272] bibtex.pm:1519> INFO - Found BibTeX data source 'thesis.bib'
+[670] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[670] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[670] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[670] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[716] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[754] bbl.pm:779> INFO - Output to thesis.bbl
+[755] Biber.pm:131> WARN - legacy year field 'Mon, 08/14/2023 - 15:22' in entry 'healthClassifyYourMedical2023' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Tue, 09/26/2023 - 10:16' in entry 'healthCybersecurityMedicalDevices2023a' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Tue, 08/15/2023 - 08:23' in entry 'healthDeviceClassificationPanels2023' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Tue, 05/23/2023 - 11:52' in entry 'healthWirelessMedicalDevices2023a' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Tue, 05/23/2023 - 11:52' in entry 'healthWirelessMedicalDevices2023' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Mon, 08/14/2023 - 15:22' in entry 'healthClassifyYourMedical2023a' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Thu, 09/07/2023 - 09:04' in entry 'healthUseInternationalStandard2023a' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Tue, 09/26/2023 - 10:16' in entry 'healthCybersecurityMedicalDevices2023' is not an integer - this will probably not sort properly.
+[755] Biber.pm:131> WARN - legacy year field 'Thu, 09/07/2023 - 09:04' in entry 'healthUseInternationalStandard2023' is not an integer - this will probably not sort properly.
+[755] Biber.pm:133> INFO - WARNINGS: 9
